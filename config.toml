@@ -1,0 +1,56 @@
+## Basic Configuration
+baseURL = "https://doingstuff.dev"
+languageCode = "en-us"
+title = "Doing Stuff"
+
+theme = "hyde-hyde"
+
+## Hugo Built-in Features
+googleAnalytics = "UA-66010416-1"
+# enableRobotsTXT = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+## Site Settings
+[params]
+    author = "Morgan Creekmore"
+    description = ""
+    #authorimage = "/img/author.jpg"
+    dateformat = "Jan 2, 2006"
+    themeColor = "theme-base-darkblue"
+    highlightjs = true
+    #highlightjslanguages = ["go", "armasm"]
+    highlightjsstyle = "github"
+    UtterancesRepo = "gamingrobot/doingstuff.dev" # https://utteranc.es/
+    UtterancesIssueTerm = "pathname" # pathname, url, title, og:title
+    UtterancesTheme = "github-light" # github-light or github-dark
+
+    relatedPosts = false
+    postNavigation = true
+
+## Social Accounts
+[params.social]
+    github = "gamingrobot"
+    linkedin = "morgancreekmore"
+    twitter = "gamingrobot"
+    stackoverflow = "1161491"
+    keybase = "gamingrobot"
+    email = "morgan@creekmore.email"
+
+## Main Menu
+[[menu.main]]
+    name = "Posts"
+    weight = 100
+    identifier = "posts"
+    url = "/posts/"
+[[menu.main]]
+    name = "Search"
+    identifier = "search"
+    weight = 200
+    url = "/search/"
+[[menu.main]]
+    name = "About"
+    identifier = "about"
+    weight = 400
+    url = "https://morgancreekmore.me/"
