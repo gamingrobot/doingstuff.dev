@@ -1,0 +1,13 @@
+{
+	"version": 3,
+	"file": "custom.css",
+	"sourceRoot": "C:/Projects/github/gamingrobot/doingstuff",
+	"sources": [
+		"stdin"
+	],
+	"sourcesContent": [
+		".copyright {\r\n    margin-top: 1rem;\r\n} \r\n\r\n.search-form input {\r\n    -webkit-transition: all 0.30s ease-in-out;\r\n    -moz-transition: all 0.30s ease-in-out;\r\n    -ms-transition: all 0.30s ease-in-out;\r\n    -o-transition: all 0.30s ease-in-out;\r\n    transition: all 0.30s ease-in-out;\r\n    outline: none;\r\n    padding: 3px 0px 3px 3px;\r\n    margin: 5px 1px 3px 0px;\r\n    border: 2px solid rgb(151, 151, 151);\r\n    font-weight: 300;\r\n    height: auto;\r\n    width:      100%;\r\n    font-size: 25px;\r\n    line-height: 30px;\r\n    border-radius: 2px;\r\n}\r\n\r\n.search-form input:focus {\r\n    box-shadow: 0 0 5px rgba(81, 203, 238, 1);\r\n    padding: 3px 0px 3px 3px;\r\n    margin: 5px 1px 3px 0px;\r\n    border: 2px solid rgba(81, 203, 238, 1);\r\n}"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,UAAU,AAAC,CACP,UAAU,CAAE,IAAI,CACnB,AAED,AAAA,YAAY,CAAC,KAAK,AAAC,CACf,kBAAkB,CAAE,qBAAqB,CACzC,eAAe,CAAE,qBAAqB,CACtC,cAAc,CAAE,qBAAqB,CACrC,aAAa,CAAE,qBAAqB,CACpC,UAAU,CAAE,qBAAqB,CACjC,OAAO,CAAE,IAAI,CACb,OAAO,CAAE,eAAe,CACxB,MAAM,CAAE,eAAe,CACvB,MAAM,CAAE,GAAG,CAAC,KAAK,CAAC,OAAkB,CACpC,WAAW,CAAE,GAAG,CAChB,MAAM,CAAE,IAAI,CACZ,KAAK,CAAO,IAAI,CAChB,SAAS,CAAE,IAAI,CACf,WAAW,CAAE,IAAI,CACjB,aAAa,CAAE,GAAG,CACrB,AAED,AAAA,YAAY,CAAC,KAAK,AAAA,MAAM,AAAC,CACrB,UAAU,CAAE,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC,OAAqB,CACzC,OAAO,CAAE,eAAe,CACxB,MAAM,CAAE,eAAe,CACvB,MAAM,CAAE,GAAG,CAAC,KAAK,CAAC,OAAqB,CAC1C"
+}

@@ -1,2 +1,5 @@
-# doingstuff.dev
+# Blog
 https://doingstuff.dev
+
+# About
+https://morgancreekmore.me
