@@ -1,5 +1,5 @@
 # Blog
-https://www.doingstuff.dev
+https://doingstuff.dev
 
 # About
-https://www.morgancreekmore.me
+https://morgancreekmore.me
