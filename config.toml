@@ -15,7 +15,7 @@ googleAnalytics = "UA-66010416-3"
 ## Site Settings
 [params]
     author = "Morgan Creekmore"
-    description = ""
+    description = "A blog about doing random stuff"
     #authorimage = "/img/author.jpg"
     dateformat = "Jan 2, 2006"
     themeColor = "theme-base-darkblue"
@@ -32,9 +32,9 @@ googleAnalytics = "UA-66010416-3"
 ## Social Accounts
 [params.social]
     github = "gamingrobot"
-    linkedin = "morgancreekmore"
+    #linkedin = "morgancreekmore"
     twitter = "gamingrobot"
-    stackoverflow = "1161491"
+    #stackoverflow = "1161491"
     keybase = "gamingrobot"
     email = "morgan@creekmore.email"
 
@@ -50,7 +50,7 @@ googleAnalytics = "UA-66010416-3"
     weight = 200
     url = "/search/"
 [[menu.main]]
-    name = "About"
+    name = "About Me"
     identifier = "about"
     weight = 400
     url = "https://morgancreekmore.me/"
