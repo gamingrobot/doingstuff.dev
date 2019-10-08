@@ -6,7 +6,7 @@ title = "Doing Stuff"
 theme = "hyde-hyde"
 
 ## Hugo Built-in Features
-googleAnalytics = "UA-66010416-1"
+googleAnalytics = "UA-66010416-3"
 # enableRobotsTXT = true
 
 [outputs]
