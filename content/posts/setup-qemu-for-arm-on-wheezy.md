@@ -5,6 +5,7 @@ highlightjslanguages: ["armasm"]
 ---
 
 This is a quick little blog post for how to install QEMU for ARM on Debian 7.0 (Wheezy).
+
 <!--more-->
 
 ---

@@ -5,6 +5,7 @@ highlightjslanguages: ["go"]
 ---
 
 This blog post will show how to deal with floating-point error in JavaScript by encoding all uint64's, and int64's as strings in JSON Marshaling.
+
 <!--more-->
 
 JavaScript has 53-bits of integer precision, this is a problem when trying to represent a 64-bit number. Ways of solving this in JavaScript is to use [bigint](https://v8project.blogspot.com/2018/05/bigint.html) or [math.js](http://mathjs.org/), but when parsing JSON we can't use this.
