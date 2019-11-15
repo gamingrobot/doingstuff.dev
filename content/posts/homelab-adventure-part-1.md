@@ -52,11 +52,11 @@ At the time of writing here is my current inventory of servers. It will most lik
 
 ## The Plan
 
-These are the tools/software I decided on to solve each of the above goals.
+These are the tools/software I decided on to satisfy each of the above goals.
 
 ### Hosting Applications Easily
 
-* [Docker](https://www.docker.com/) for hosting most applications, and allows me to move services around easily.
+* [Docker](https://www.docker.com/) for hosting most applications and allows me to move services around easily.
 
 * [Portainer](https://www.portainer.io/) for managing the docker containers on specific servers.
 
@@ -66,7 +66,7 @@ These are the tools/software I decided on to solve each of the above goals.
 
 ### Minimizing Ongoing Maintenance
 
-* [Automatic security updates](https://help.ubuntu.com/community/AutomaticSecurityUpdates) on Ubuntu.
+* [Automatic security updates](https://help.ubuntu.com/community/AutomaticSecurityUpdates) will reduce some of the maintenance involved in updating.
 * [Watchtower](https://github.com/containrrr/watchtower) will keep selected containers up to date.
 
 ### Automatic Backups
