@@ -6,7 +6,7 @@
     <description>Recent content on Doing Stuff</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 May 2019 20:39:15 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 09 Nov 2019 12:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://doingstuff.dev/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Homelab Adventure - Part 1: The Adventure Begins</title>
       <link>https://doingstuff.dev/posts/homelab-adventure-part-1/</link>
-      <pubDate>Thu, 02 May 2019 20:39:15 -0500</pubDate>
+      <pubDate>Sat, 09 Nov 2019 12:00:00 -0500</pubDate>
       
       <guid>https://doingstuff.dev/posts/homelab-adventure-part-1/</guid>
       <description>&lt;p&gt;Welcome to my journey in building my own homelab. This will hopefully be an ongoing series of blog posts of my adventures in building my own personal infrastructure.&lt;/p&gt;</description>
