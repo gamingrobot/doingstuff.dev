@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ctf on Doing Stuff</title>
+    <link>https://doingstuff.dev/tags/ctf/</link>
+    <description>Recent content in ctf on Doing Stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 26 Jul 2019 12:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://doingstuff.dev/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>peaCTF 2019 Writeups</title>
+      <link>https://doingstuff.dev/posts/ctf-peactf-2019/</link>
+      <pubDate>Fri, 26 Jul 2019 12:00:00 -0500</pubDate>
+      
+      <guid>https://doingstuff.dev/posts/ctf-peactf-2019/</guid>
+      <description>&lt;p&gt;Writeups for &lt;a href=&#34;https://peactf.com/&#34;&gt;peaCTF&lt;/a&gt; 2019&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>InnoCTF 2019 Writeups</title>
+      <link>https://doingstuff.dev/posts/ctf-innoctf-2019/</link>
+      <pubDate>Fri, 19 Jul 2019 12:00:00 -0500</pubDate>
+      
+      <guid>https://doingstuff.dev/posts/ctf-innoctf-2019/</guid>
+      <description>&lt;p&gt;Writeups for &lt;a href=&#34;http://innoctf.com/&#34;&gt;InnoCTF&lt;/a&gt; 2019&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

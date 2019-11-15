@@ -6,9 +6,28 @@
     <description>Recent content in Tags on Doing Stuff</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Sat, 09 Nov 2019 12:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://doingstuff.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>homelab</title>
+      <link>https://doingstuff.dev/tags/homelab/</link>
+      <pubDate>Sat, 09 Nov 2019 12:00:00 -0500</pubDate>
+      
+      <guid>https://doingstuff.dev/tags/homelab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ctf</title>
+      <link>https://doingstuff.dev/tags/ctf/</link>
+      <pubDate>Fri, 26 Jul 2019 12:00:00 -0500</pubDate>
+      
+      <guid>https://doingstuff.dev/tags/ctf/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

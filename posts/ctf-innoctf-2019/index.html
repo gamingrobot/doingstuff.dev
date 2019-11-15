@@ -17,19 +17,19 @@
     
     
 
-<title>Floating Point Hell • Doing Stuff</title>
+<title>InnoCTF 2019 Writeups • Doing Stuff</title>
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Floating Point Hell"/>
-<meta name="twitter:description" content="This blog post will show how to deal with floating-point error in JavaScript by encoding all uint64&rsquo;s, and int64&rsquo;s as strings in JSON Marshaling."/>
+<meta name="twitter:title" content="InnoCTF 2019 Writeups"/>
+<meta name="twitter:description" content="Writeups for InnoCTF 2019"/>
 
-<meta property="og:title" content="Floating Point Hell" />
-<meta property="og:description" content="This blog post will show how to deal with floating-point error in JavaScript by encoding all uint64&rsquo;s, and int64&rsquo;s as strings in JSON Marshaling." />
+<meta property="og:title" content="InnoCTF 2019 Writeups" />
+<meta property="og:description" content="Writeups for InnoCTF 2019" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://doingstuff.dev/posts/floating-point-hell/" />
-<meta property="article:published_time" content="2014-03-16T13:33:19-05:00" />
-<meta property="article:modified_time" content="2014-03-16T13:33:19-05:00" />
+<meta property="og:url" content="https://doingstuff.dev/posts/ctf-innoctf-2019/" />
+<meta property="article:published_time" content="2019-07-19T12:00:00-05:00" />
+<meta property="article:modified_time" content="2019-07-19T12:00:00-05:00" />
 
 
     
@@ -158,16 +158,26 @@
     
 <article>
   <header>
-    <h1>Floating Point Hell</h1>
+    <h1>InnoCTF 2019 Writeups</h1>
     
     
 <div class="post__meta">
     
     
-      <i class="fas fa-calendar-alt"></i> Mar 16, 2014
+      <i class="fas fa-calendar-alt"></i> Jul 19, 2019
     
     
     
+    
+    
+      
+      
+          <br/>
+           <i class="fas fa-tags"></i>
+          
+          <a class="badge badge-tag" href="/tags/ctf">ctf</a>
+          
+      
     
     
     <br/>
@@ -179,120 +189,106 @@
   
   
   <div class="post">
-    <p>This blog post will show how to deal with floating-point error in JavaScript by encoding all uint64&rsquo;s, and int64&rsquo;s as strings in JSON Marshaling.</p>
+    <p>Writeups for <a href="http://innoctf.com/">InnoCTF</a> 2019</p>
 
-<p>JavaScript has 53-bits of integer precision, this is a problem when trying to represent a 64-bit number. Ways of solving this in JavaScript is to use <a href="https://v8project.blogspot.com/2018/05/bigint.html">bigint</a> or <a href="http://mathjs.org/">math.js</a>, but when parsing JSON we can&rsquo;t use this.</p>
+<h2 id="bg-s">BG&rsquo;s</h2>
 
-<hr />
+<p>Can you check if this site is hiding something?</p>
 
-<h2 id="when-it-goes-wrong">When it goes wrong</h2>
+<h3 id="solution">Solution</h3>
 
-<p>This is an example of how it can go wrong. Go encodes the JSON correctly, but when parsed by JavaScript the number does not match.</p>
+<p><code>style.css</code> had a background property that lead to an image that contained the flag.</p>
 
-<h3 id="go">Go</h3>
+<p><code>InnoCTF{HVQMGcp00mN0MnmqwRNBExEBPFTMgnPQ}</code></p>
 
-<p>Base data structure</p>
+<h2 id="rf">RF</h2>
 
-<pre><code class="language-go">type LargeId uint64
+<p>I was walking on rails when suddenly i found this on wooden fence: I3_nase7ncamсo_r1сCt<em>t4T07</em>}Fnhs{1</p>
 
-type Data struct {
-    Id      LargeId
-    BigNum int64
-}
+<h3 id="solution-1">Solution</h3>
+
+<p>I looked at various ciphers and stumbled across the <a href="https://en.wikipedia.org/wiki/Rail_fence_cipher">Rail Fence cipher</a>. Then increasing the number of rails until it formed a flag.</p>
+
+<pre><code class="language-plaintext">I.............3............._.....
+.n...........a.s...........e.7....
+..n.........c...a.........m...с...
+...o......._.....r.......1.....с..
+....C.....t......._.....t.......4.
+.....T...0.........7..._.........}
+......F.n...........h.s...........
+.......{.............1............
 </code></pre>
 
-<p>Encode and Decode data</p>
+<p><code>InnoCTF{n0t_ca3sar_7h1s_t1me_7сс4}</code></p>
 
-<pre><code class="language-go">data := Data{Id: 12345678901234567892, BigNum: 12000000000002539}
-output, _ := json.Marshal(data)
-fmt.Println(&quot;Data -&gt; Json&quot;, string(output))
-input := string(output)
-output2 := Data{}
-json.Unmarshal([]byte(input), &amp;output2)
-fmt.Printf(&quot;Json -&gt; Data %+v\n&quot;, output2)
+<h2 id="robots">Robots</h2>
 
-//Output
-Data -&gt; Json {&quot;Id&quot;:12345678901234567892,&quot;BigNum&quot;:12000000000002539}
-Json -&gt; Data {Id:12345678901234567892 BigNum:12000000000002539}
+<p>I need your clothes your boots and your motorcycle</p>
+
+<h3 id="solution-2">Solution</h3>
+
+<p><code>robots.txt</code> was in the root of the web server with the contents of:</p>
+
+<pre><code class="language-plaintext">Disallow: /*/super-secret-admin-panel
 </code></pre>
 
-<p>As you can see Go has no problem encoding and decoding the large integers. But let&rsquo;s see what happens when JavaScript tries to decode the same integers.</p>
+<p>The super-secret-admin-panel then required sql injection of <code>' or 1=1 --</code>.</p>
 
-<h3 id="javascript">JavaScript</h3>
+<h2 id="call-me">Call Me</h2>
 
-<pre><code class="language-javascript">var data = '{&quot;Id&quot;:12345678901234567892,&quot;BigNum&quot;:12000000000002539}'
-console.log(JSON.parse(data))
+<h3 id="solution-3">Solution</h3>
 
-//Output
-Object {Id: 12345678901234567000, BigNum: 12000000000002540}
-</code></pre>
+<p>Using <a href="https://ghidra-sre.org/">Ghidra</a> I replaced the existing printf function in main to point to <code>void flag()</code> address instead.</p>
 
-<p>JavaScript ended up decoding the number, but its wrong. But if we check for equivalence in JavaScript it returns true.</p>
+<ul>
+<li>Import the file as Raw Binary (this is because Ghidra messes up the ELF header if imported as a ELF binary)</li>
+<li>Find the memory address of the flag function</li>
+</ul>
 
-<pre><code class="language-javascript">&gt; 12000000000002539 === 12000000000002540
-true
-</code></pre>
+<p><img src="https://f001.backblazeb2.com/file/grbt-blog/images/posts/ctf-innoctf-2019/call_me_flag.png" alt="call_me_flag" /></p>
 
-<hr />
+<ul>
+<li>Find the main function</li>
+</ul>
 
-<h2 id="how-to-fix-it">How to fix it</h2>
+<p><img src="https://f001.backblazeb2.com/file/grbt-blog/images/posts/ctf-innoctf-2019/call_me_printf.png" alt="call_me_printf" /></p>
 
-<p>The easiest way to fix this is to encode the int64 to a string, that way when parsed in JavaScript the number is represented correctly.</p>
+<ul>
+<li>Right click on the printf function and select patch instruction</li>
+<li>Change the call address to be the address of the flag function</li>
+</ul>
 
-<p>Below I have added <code>json:&quot;,string&quot;</code> tag to the end of every int64, this tells the <code>encoding/json</code> package to encode that field as a string instead of an integer.</p>
+<p><img src="https://f001.backblazeb2.com/file/grbt-blog/images/posts/ctf-innoctf-2019/call_me_flag_patch.png" alt="call_me_flag_patch" /></p>
 
-<h3 id="go-1">Go</h3>
+<ul>
+<li>Export Program from Ghidra</li>
+<li>Run the executable</li>
+</ul>
 
-<p>Base data structure with tags</p>
+<p><code>InnoCTF{How_d1d_y0u_f1nd_m3_7f1bc88}</code></p>
 
-<pre><code class="language-go">type LargeId uint64
+<h2 id="quick-peek">Quick Peek</h2>
 
-type Data struct {
-    Id      LargeId `json:&quot;,string&quot;`
-    BigNum int64  `json:&quot;,string&quot;`
-}
-</code></pre>
+<h3 id="solution-4">Solution</h3>
 
-<p>Encode and Decode data</p>
+<p>I discovered that this was a .NET executable, so I used <a href="https://github.com/0xd4d/dnSpy">dnSpy</a> to run the executable with debugging.</p>
 
-<pre><code class="language-go">data := Data{Id: 12345678901234567892, BigNum: 12000000000002539}
-output, _ := json.Marshal(data)
-fmt.Println(&quot;Data -&gt; Json&quot;, string(output))
-input := string(output)
-output2 := Data{}
-json.Unmarshal([]byte(input), &amp;output2)
-fmt.Printf(&quot;Json -&gt; Data %+v\n&quot;, output2)
+<p><img src="https://f001.backblazeb2.com/file/grbt-blog/images/posts/ctf-innoctf-2019/quick_peek.png" alt="quick_peek" /></p>
 
-//Output
-Data -&gt; Json {&quot;Id&quot;:&quot;12345678901234567892&quot;,&quot;BigNum&quot;:&quot;12000000000002539&quot;}
-Json -&gt; Data {Id:12345678901234567892 BigNum:12000000000002539}
-</code></pre>
-
-<p>With the tag we can encode and decode the JSON and keep the int64 type in Go.</p>
-
-<h3 id="javascript-1">JavaScript</h3>
-
-<pre><code class="language-javascript">var data = '{&quot;Id&quot;:&quot;12345678901234567892&quot;,&quot;BigNum&quot;:&quot;12000000000002539&quot;}'
-console.log(JSON.parse(data))
-
-//Output
-Object {Id: &quot;12345678901234567892&quot;, BigNum: &quot;12000000000002539&quot;}
-</code></pre>
-
-<p>Now the number is represented correctly in JavaScript. This is useful if you are using the number as an identifier, but makes it difficult to do arithmetic operations on the number.</p>
+<p><code>InnoCTF{1337_SPAgh377i_CoD3}</code></p>
   </div>
   
 
 <div class="navigation navigation-single">
     
-    <a href="/posts/setup-qemu-for-arm-on-wheezy/" class="navigation-prev">
+    <a href="/posts/floating-point-hell/" class="navigation-prev">
       <i aria-hidden="true" class="fa fa-chevron-left"></i>
-      <span class="navigation-tittle">Setup QEMU for ARM on Wheezy</span>
+      <span class="navigation-tittle">Floating Point Hell</span>
     </a>
     
     
-    <a href="/posts/ctf-innoctf-2019/" class="navigation-next">
-      <span class="navigation-tittle">InnoCTF 2019 Writeups</span>
+    <a href="/posts/ctf-peactf-2019/" class="navigation-next">
+      <span class="navigation-tittle">peaCTF 2019 Writeups</span>
       <i aria-hidden="true" class="fa fa-chevron-right"></i>
     </a>
     
@@ -347,14 +343,8 @@ if (!doNotTrack) {
     
         <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
         
-            
-                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/languages/go.min.js"></script>
-            
-        
     
     <script type="text/javascript">
-        
-        hljs.configure({languages: ["go"]});
         
         hljs.initHighlightingOnLoad();
     </script>

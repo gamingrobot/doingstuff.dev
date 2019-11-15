@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>homelab on Doing Stuff</title>
+    <link>https://doingstuff.dev/tags/homelab/</link>
+    <description>Recent content in homelab on Doing Stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Nov 2019 12:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://doingstuff.dev/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Homelab Adventure - Part 1: The Adventure Begins</title>
+      <link>https://doingstuff.dev/posts/homelab-adventure-part-1/</link>
+      <pubDate>Sat, 09 Nov 2019 12:00:00 -0500</pubDate>
+      
+      <guid>https://doingstuff.dev/posts/homelab-adventure-part-1/</guid>
+      <description>&lt;p&gt;Welcome to my journey in building my own homelab. This will hopefully be an ongoing series of blog posts of my adventures in building my own personal infrastructure.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

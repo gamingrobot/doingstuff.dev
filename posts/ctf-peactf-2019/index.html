@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+    
+
+
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="public" />
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.57.2" />
+
+    
+    
+    
+
+<title>peaCTF 2019 Writeups • Doing Stuff</title>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="peaCTF 2019 Writeups"/>
+<meta name="twitter:description" content="Writeups for peaCTF 2019"/>
+
+<meta property="og:title" content="peaCTF 2019 Writeups" />
+<meta property="og:description" content="Writeups for peaCTF 2019" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doingstuff.dev/posts/ctf-peactf-2019/" />
+<meta property="article:published_time" content="2019-07-26T12:00:00-05:00" />
+<meta property="article:modified_time" content="2019-07-26T12:00:00-05:00" />
+
+
+    
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/github.min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/hyde-hyde.bf20eff18e817db799080a4f50cea3826495980e4264d73de7bc36b2cf3cac68.css" integrity="sha256-vyDv8Y6BfbeZCApPUM6jgmSVmA5CZNc957w2ss88rGg=">
+
+
+<link rel="stylesheet" href="/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    <meta name="theme-color" content="#062F4F"/>
+
+
+<link rel="stylesheet" href="/scss/custom.441695583e37bba53437dd01afc92f1bda2e42aed3bbeb2ab2abb9c98c56d737.css" integrity="sha256-RBaVWD43u6U0N90Br8kvG9ouQq7Tu&#43;sqsqu5yYxW1zc=">
+<!-- Font-Awesome -->	
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+</head>
+
+
+    <body class="theme-base-darkblue ">
+    
+<div class="sidebar">
+  <div class="container ">
+    <div class="sidebar-about">
+      <span class="site__title">
+        <a href="https://doingstuff.dev">Doing Stuff</a>
+      </span>
+      
+      
+      <p class="site__description">
+         A blog about doing random stuff 
+      </p>
+    </div>
+    <div class="collapsible-menu">
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle">Doing Stuff</label>
+      <div class="menu-content">
+        <div>
+	<ul class="sidebar-nav">
+		 
+		 
+			 
+				<li>
+					<a href="/posts/">
+						<span>Posts</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/search/">
+						<span>Search</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="https://morgancreekmore.me/">
+						<span>About Me</span>
+					</a>
+				</li>
+			 
+		
+	</ul>
+</div>
+
+        <section class="social">
+	
+	<a href="https://twitter.com/gamingrobot" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	<a href="https://github.com/gamingrobot" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<a href="https://keybase.io/gamingrobot" rel="me"><i class="fab fa-keybase fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	<a href="mailto:morgan@creekmore.email" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+        <div class="content container">
+            
+    
+<article>
+  <header>
+    <h1>peaCTF 2019 Writeups</h1>
+    
+    
+<div class="post__meta">
+    
+    
+      <i class="fas fa-calendar-alt"></i> Jul 26, 2019
+    
+    
+    
+    
+    
+      
+      
+          <br/>
+           <i class="fas fa-tags"></i>
+          
+          <a class="badge badge-tag" href="/tags/ctf">ctf</a>
+          
+      
+    
+    
+    <br/>
+    <i class="fas fa-clock"></i> 6 min read
+</div>
+
+
+  </header>
+  
+  
+  <div class="post">
+    <p>Writeups for <a href="https://peactf.com/">peaCTF</a> 2019</p>
+
+<h2 id="rsa">RSA</h2>
+
+<p>Can you help Bob retrieve the two messages for a flag?</p>
+
+<h3 id="solution">Solution</h3>
+
+<p>The challenge included two files:</p>
+
+<p><code>auth_channel.txt</code></p>
+
+<pre><code class="language-plaintext">Authenticated (unhashed) channel:
+n = 59883006898206291499785811163190956754007806709157091648869
+e = 65537
+c = 23731413167627600089782741107678182917228038671345300608183
+</code></pre>
+
+<p><code>enc_channel.txt</code></p>
+
+<pre><code class="language-plaintext">Encrypted channel:
+n = 165481207658568424313022356820498512502867488746572300093793
+e = 65537
+c = 150635433712900935381157860417761227624682377134647578768653
+</code></pre>
+
+<p>I had never done a RSA crypto CTF challenge before, so I read this great blog post <a href="https://bitsdeep.com/posts/attacking-rsa-for-fun-and-ctf-points-part-1/">Attacking RSA for fun and CTF points</a>.</p>
+
+<h4 id="enc-channel-txt">enc_channel.txt</h4>
+
+<p>The <code>n</code> value in the <code>enc_channel.txt</code> file had <a href="http://factordb.com/index.php?query=165481207658568424313022356820498512502867488746572300093793">known factors</a></p>
+
+<p>So we now have <code>p</code>, <code>q</code>, and <code>e</code>, I came across a <a href="https://crypto.stackexchange.com/questions/19444/rsa-given-q-p-and-e/19530">Crypto StackExchange question</a> about decrypting <code>c</code> given <code>p</code>, <code>q</code>, <code>e</code>.</p>
+
+<p>I attempted to use the python script in the answer but had difficulty getting it to work with our inputs. Eventually I converted the script to C# using the <a href="https://www.nuget.org/packages/BouncyCastle/">BouncyCastle</a> NuGet package for the <code>BigInteger</code> and <code>modInverse</code> function. The following script was written in <a href="https://www.linqpad.net/">LINQPad</a> for the nice dump functions.</p>
+
+<pre><code class="language-csharp">var p = new BigInteger(&quot;404796306518120759733507156677&quot;);
+var q = new BigInteger(&quot;408801179738927870766525808109&quot;);
+var e = new BigInteger(&quot;65537&quot;);
+var c = new BigInteger(&quot;150635433712900935381157860417761227624682377134647578768653&quot;);
+
+var n = p.Multiply(q);
+
+var one = new BigInteger(&quot;1&quot;);
+var phi = (p.Subtract(one).Multiply(q.Subtract(one)));
+
+var d = e.ModInverse(phi);
+d.Dump(&quot;d&quot;);
+
+var result = c.ModPow(d, n);
+result.Dump(&quot;Decoded&quot;);
+result.ToString(16).Dump(&quot;hex&quot;);
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code class="language-plaintext">d: 125212438875455843161244268921851095575914294443076546907249
+Decoded: 8904929771347223901285886734450
+hex: 7065614354467b663463743072
+</code></pre>
+
+<p>Converting the hex to ascii we get: <code>peaCTF{f4ct0r</code></p>
+
+<h4 id="auth-channel-txt">auth_channel.txt</h4>
+
+<p>The <code>n</code> value in the <code>auth_channel.txt</code> file had <a href="http://factordb.com/index.php?query=59883006898206291499785811163190956754007806709157091648869">known factors</a></p>
+
+<p>I attempted to use the same script with the data from the <code>auth_channel.txt</code> file but ended up getting garbage hex out. After looking at a <a href="https://medium.com/@jmecom/bsidessf-2018-ctf-553ac34bd49f">BSidesSF 2018 CTF writeup</a> I came across this section:</p>
+
+<blockquote>
+<p>RSA can be used for encryption and decryption:</p>
+
+<ul>
+<li>Encrypt a plaintext message <em>m</em> into ciphertext <em>c</em>: <em>c = m^e</em> mod <em>n</em></li>
+<li>Decrypt a ciphertext <em>c</em>: <em>m = c^d</em> mod <em>n</em></li>
+</ul>
+
+<p>It can also be used to produce and verify digital signatures:</p>
+
+<ul>
+<li>Produce a signature for a message <em>m</em>: <em>s = m^d</em> mod <em>n</em></li>
+<li>Verify a signature <em>s,</em> for <em>m</em>: <em>m == s^e</em> mod <em>n</em></li>
+</ul>
+</blockquote>
+
+<p>That gave me the idea to try verifying the signature instead of trying to decrypt the ciphertext. This script is very similar to the first one the only changes are the input and <code>var result = c.ModPow(e, n);</code> instead of <code>var result = c.ModPow(d, n);</code></p>
+
+<pre><code class="language-csharp">var p = new BigInteger(&quot;192355607880290234740980693973&quot;);
+var q = new BigInteger(&quot;311314068553039667905603427153&quot;);
+var e = new BigInteger(&quot;65537&quot;);
+var c = new BigInteger(&quot;23731413167627600089782741107678182917228038671345300608183&quot;);
+
+var n = p.Multiply(q);
+
+var one = new BigInteger(&quot;1&quot;);
+var phi = (p.Subtract(one).Multiply(q.Subtract(one)));
+
+var d = e.ModInverse(phi);
+d.Dump(&quot;d&quot;);
+
+var result = c.ModPow(e, n);
+result.Dump(&quot;Decoded&quot;);
+result.ToString(16).Dump(&quot;hex&quot;);
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code class="language-plaintext">d: 42870301015457570297495318493842594795392515721010421474689
+Decoded: 911845841250251271805
+hex: 316e67317366756e7d
+</code></pre>
+
+<p>Converting the hex to ascii we get: <code>1ng1sfun}</code></p>
+
+<p>The final flag is <code>peaCTF{f4ct0r1ng1sfun}</code></p>
+
+<h2 id="song-of-my-people">Song of My People</h2>
+
+<p>A specific soundcloud rapper needs help getting into his password protected zipped file directory. The initial password is in the title. You just have to know your memes, and pick the right instrument! We were on the fence on giving you an image to go along with this puzzle, but the loincloth was too scandalous. Alternatively, you could bruteforce.</p>
+
+<h3 id="solution-1">Solution</h3>
+
+<p>The start of the challenge is a password protected zip file.</p>
+
+<p>The challenge description lead me to <a href="https://knowyourmeme.com/memes/the-song-of-my-people">The Song of My People! meme</a>, which originates from an image of a Native American playing the violin. In the challenge description, it says &ldquo;pick the right instrument&rdquo;, so the password ended up being <code>violin</code>.</p>
+
+<p>The contents of the zip file were:</p>
+
+<ul>
+<li><p><code>a lengthy issue.png</code></p>
+
+<ul>
+<li>This is a broken PNG image</li>
+</ul></li>
+
+<li><p><code>Ice Cube - Check Yo Self Remix (Clean).mp3</code></p>
+
+<ul>
+<li>You better check yo self before you wreck yo self</li>
+</ul></li>
+
+<li><p><code>README.txt</code></p>
+
+<pre><code class="language-plaintext">one of the three files is a red herring, but a helpful one at that.
+does any of this ADD up? This is a LONG problem.
+</code></pre></li>
+</ul>
+
+<h4 id="a-lengthy-issue-png">a lengthy issue.png</h4>
+
+<p>Running <code>pngcheck</code> on the broken png file:</p>
+
+<pre><code class="language-plaintext">File: a lengthy issue.png (44525 bytes)
+  chunk IHDR at offset 0x0000c, length 13
+    1280 x 720 image, 8-bit palette, interlaced
+  chunk sRGB at offset 0x00025, length 1
+    rendering intent = perceptual
+  chunk gAMA at offset 0x00032, length 4: 0.45455
+  chunk PLTE at offset 0x00042, length 1212501072:  invalid number of entries (4.04167+08)
+</code></pre>
+
+<p>Opening <code>a lengthy issue.png</code> in HxD and finding the <code>PLTE</code> chunk:</p>
+
+<p><img src="https://f001.backblazeb2.com/file/grbt-blog/images/posts/ctf-peactf-2019/song_issue_hxd.png" alt="issue hxd" /></p>
+
+<p>Looking at the <a href="http://www.libpng.org/pub/png/spec/1.2/PNG-Structure.html#Chunk-layout">libpng spec</a> and a <a href="https://github.com/ctfs/write-ups-2015/tree/master/plaidctf-2015/forensics/png-uncorrupt">similar writeup</a>. I figured out that the <code>HELP</code> text before the <code>PLTE</code> was the 4-byte length for the <code>PLTE</code> chunk.</p>
+
+<p>Using the HxD data inspector I edited these 4 bytes to be the value of 453 in big-endian. The value for the PLTE header was the number of bytes between the end of PLTE and the beginning of the CRC for PLTE. The length also must be divisible by 3 for the PLTE chunk.</p>
+
+<p><img src="https://f001.backblazeb2.com/file/grbt-blog/images/posts/ctf-peactf-2019/song_issue_hxd_fixed.png" alt="issue hxd fixed" /></p>
+
+<p>The fixed image:</p>
+
+<p><img src="https://f001.backblazeb2.com/file/grbt-blog/images/posts/ctf-peactf-2019/song_issue.png" alt="issue" /></p>
+
+<h4 id="image-hex">Image hex</h4>
+
+<p>The hex in the image:</p>
+
+<pre><code class="language-plaintext">54 68 65 20 4c 69 62 72 61 72 79 20 6f 66 20 42 61 62 65 6c 3a 0a 28 77 69 74 68 20 6e
+65 77 20 61 64 64 69 74 69 6f 6e 20 6f 66 20 61 6c 6c 20 74 68 65 20 70 6f 73 73 69 62 6c
+65 20 64 69 73 73 20 74 72 61 63 6b 73 20 74 6f 20 65 76 65 72 20 62 65 20 6d 61 64 65
+20 61 6e 64 20 65 76 65 72 20 63 6f 75 6c 64 20 62 65 20 6d 61 64 65 29
+</code></pre>
+
+<p>Decoding this to ascii results in:</p>
+
+<blockquote>
+<p>The Library of Babel: (with new addition of all the possible diss tracks to ever be made and ever could be made)</p>
+</blockquote>
+
+<h3 id="soundcloud">Soundcloud</h3>
+
+<p><a href="https://soundcloud.com/lil-redacted/live-concert-audio">Link to soundcloud</a></p>
+
+<p>Soundcloud description:</p>
+
+<blockquote>
+<p>this concert is part of a larger tour that is archived completely in some kind of hexagonal library. The archive is named between &ldquo;maybe&rdquo; and a &ldquo;repeat&rdquo;. Should be on the 371st page.</p>
+
+<p>I would give you an mp3 of this audio, but I don&rsquo;t know how to navigate those sketchy websites.</p>
+</blockquote>
+
+<p>The soundcloud &ldquo;song&rdquo; sounded like Morse code, after downloading the mp3 I discovered a <a href="https://morsecode.scphillips.com/labs/audio-decoder-adaptive/">Morse code audio decoder</a>.</p>
+
+<p>The decoded text:</p>
+
+<blockquote>
+<p>SUP YALL ITS YA BOI LIL ICE CUBE MELTING OUT HERE IN THE HAWAII HEAT FOR ALL OF YOU. YOU GUESSED IT THIS IS LIVE AUDIO FROM MY WORLD TOUR. I REPEAT LIL ICE CUBES WORLD TOUR MAYBE A LIBRARY WILL HELP</p>
+</blockquote>
+
+<h4 id="library-of-babel">Library of Babel</h4>
+
+<p>With the hint of <a href="https://libraryofbabel.info">Library of Babel</a> I tried inputting the hex from the image as the <code>Hex Name</code> but that ended up being a dead end. I tried using the search for <code>lil ice cubes world tour</code>:</p>
+
+<pre><code class="language-plaintext">exact match:
+Title: weif.rfgkd,zvjxxd Page: 371
+Location: 2nhptm68h2sputfsdlbmi75s6qcfgu...-w2-s4-v08
+</code></pre>
+
+<p>Nice! The page number matches the soundcloud description.</p>
+
+<p>I downloaded the <a href="https://libraryofbabel.info/bookmark.cgi?weif.rfgkd,zvjxxd371:1">book</a> and counted the number of spaces in the book (48558), and tried the flag <code>{48_thousand_spaces_371}</code> but it was incorrect. The image said thousand_spaces or seats, so I searched how many times the word <code>seat</code> appears in book (3).</p>
+
+<p>The final flag was <code>{3_thousand_spaces_371}</code></p>
+  </div>
+  
+
+<div class="navigation navigation-single">
+    
+    <a href="/posts/ctf-innoctf-2019/" class="navigation-prev">
+      <i aria-hidden="true" class="fa fa-chevron-left"></i>
+      <span class="navigation-tittle">InnoCTF 2019 Writeups</span>
+    </a>
+    
+    
+    <a href="/posts/homelab-adventure-part-1/" class="navigation-next">
+      <span class="navigation-tittle">Homelab Adventure - Part 1: The Adventure Begins</span>
+      <i aria-hidden="true" class="fa fa-chevron-right"></i>
+    </a>
+    
+</div>
+
+
+  
+
+  
+    
+        <script src="https://utteranc.es/client.js"
+        repo="gamingrobot/doingstuff.dev"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+    
+
+
+</article>
+
+
+            <div class="copyright">
+    &copy; 2019 Morgan Creekmore -
+    <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>
+    <br/>Built with
+    <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+    
+</div>
+        </div>
+        
+    
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-66010416-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+    
+    
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+        
+    
+    <script type="text/javascript">
+        
+        hljs.initHighlightingOnLoad();
+    </script>
+    
+
+
+
+
+    
+
+
+
+    </body>
+</html>
