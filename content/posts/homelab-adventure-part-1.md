@@ -1,7 +1,6 @@
 ---
 title: "Homelab Adventure - Part 1: The Adventure Begins"
 date: 2019-05-02T20:39:15-05:00
-draft: true
 ---
 
 Welcome to my journey in building my own homelab. This will hopefully be an ongoing series of blog posts of my adventures in building my own personal infrastructure.
@@ -16,9 +15,9 @@ The primary idea behind a homelab is a place to learn about infrastructure, serv
 
 > Homelab \[hom-læb\](n): a laboratory of (usually slightly outdated) awesome in the domicile
 
-Now by this definition a homelab should reside in a home. In my case part of my homelab will exist outside of my home, due to space and noise constraints (servers can be quite loud). So my homelab is somewhere between a homelab and a "cloudlab".
+Now by this definition a homelab should reside in a home. In my case part of my homelab will exist outside of my home, due to space and noise constraints. So my homelab is somewhere between a homelab and a "cloudlab".
 
-The [/r/homelab wiki](https://www.reddit.com/r/homelab/wiki/introduction) has a more information on homelabs and how to get started.
+The [/r/homelab wiki](https://www.reddit.com/r/homelab/wiki/introduction) has a more information on how to get started with a homelab.
 
 ## Inventory
 
@@ -38,15 +37,15 @@ At the time of writing here is my current inventory of servers. It will most lik
     * RAM: 32GB
     * Disk: 2x 1TB HDD
   * Dedicated Server 2
-    * CPU: Intel® Xeon E5 1410 v2
+    * CPU: Intel Xeon E5 1410 v2
     * RAM: 64GB
     * Disk: 3x 6TB HDD
 
 ## Goals
 
 * Ability to host applications easily, there is [a lot of good self hosted software](https://github.com/awesome-selfhosted/awesome-selfhosted) out there.
-* Keep ongoing maintenance to a minimum. *More time for video games*
-* Automatic encrypted backups. *Because RAID is not a backup*
+* Keep ongoing maintenance to a minimum.
+* Automatic encrypted backups, *because RAID is not a backup*
 * Ability to easily add and remove servers.
 * An internal network between servers, some of my servers exist outside of my home network.
 * Alerting and Monitoring, so I know when servers go down, failing drives, backups didn't run, etc.
