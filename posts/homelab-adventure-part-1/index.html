@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+    
+
+
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="public" />
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.57.2" />
+
+    
+    
+    
+
+<title>Homelab Adventure - Part 1: The Adventure Begins • Doing Stuff</title>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Homelab Adventure - Part 1: The Adventure Begins"/>
+<meta name="twitter:description" content="Welcome to my journey in building my own homelab. This will hopefully be an ongoing series of blog posts of my adventures in building my own personal infrastructure."/>
+
+<meta property="og:title" content="Homelab Adventure - Part 1: The Adventure Begins" />
+<meta property="og:description" content="Welcome to my journey in building my own homelab. This will hopefully be an ongoing series of blog posts of my adventures in building my own personal infrastructure." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doingstuff.dev/posts/homelab-adventure-part-1/" />
+<meta property="article:published_time" content="2019-05-02T20:39:15-05:00" />
+<meta property="article:modified_time" content="2019-05-02T20:39:15-05:00" />
+
+
+    
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/hyde-hyde.bf20eff18e817db799080a4f50cea3826495980e4264d73de7bc36b2cf3cac68.css" integrity="sha256-vyDv8Y6BfbeZCApPUM6jgmSVmA5CZNc957w2ss88rGg=">
+
+
+<link rel="stylesheet" href="/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    <meta name="theme-color" content="#062F4F"/>
+
+
+<link rel="stylesheet" href="/scss/custom.441695583e37bba53437dd01afc92f1bda2e42aed3bbeb2ab2abb9c98c56d737.css" integrity="sha256-RBaVWD43u6U0N90Br8kvG9ouQq7Tu&#43;sqsqu5yYxW1zc=">
+<!-- Font-Awesome -->	
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+</head>
+
+
+    <body class="theme-base-darkblue ">
+    
+<div class="sidebar">
+  <div class="container ">
+    <div class="sidebar-about">
+      <span class="site__title">
+        <a href="https://doingstuff.dev">Doing Stuff</a>
+      </span>
+      
+      
+      <p class="site__description">
+         A blog about doing random stuff 
+      </p>
+    </div>
+    <div class="collapsible-menu">
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle">Doing Stuff</label>
+      <div class="menu-content">
+        <div>
+	<ul class="sidebar-nav">
+		 
+		 
+			 
+				<li>
+					<a href="/posts/">
+						<span>Posts</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/search/">
+						<span>Search</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="https://morgancreekmore.me/">
+						<span>About Me</span>
+					</a>
+				</li>
+			 
+		
+	</ul>
+</div>
+
+        <section class="social">
+	
+	<a href="https://twitter.com/gamingrobot" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	<a href="https://github.com/gamingrobot" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<a href="https://keybase.io/gamingrobot" rel="me"><i class="fab fa-keybase fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	<a href="mailto:morgan@creekmore.email" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+        <div class="content container">
+            
+    
+<article>
+  <header>
+    <h1>Homelab Adventure - Part 1: The Adventure Begins</h1>
+    
+    
+<div class="post__meta">
+    
+    
+      <i class="fas fa-calendar-alt"></i> May 2, 2019
+    
+    
+    
+    
+    
+    <br/>
+    <i class="fas fa-clock"></i> 3 min read
+</div>
+
+
+  </header>
+  
+  
+  <div class="post">
+    <p>Welcome to my journey in building my own homelab. This will hopefully be an ongoing series of blog posts of my adventures in building my own personal infrastructure.</p>
+
+<h2 id="what-is-a-homelab">What is a Homelab</h2>
+
+<p>The primary idea behind a homelab is a place to learn about infrastructure, servers and development.</p>
+
+<p>/r/homelab defines a homelab as:</p>
+
+<blockquote>
+<p>Homelab [hom-læb](n): a laboratory of (usually slightly outdated) awesome in the domicile</p>
+</blockquote>
+
+<p>Now by this definition a homelab should reside in a home. In my case part of my homelab will exist outside of my home, due to space and noise constraints. So my homelab is somewhere between a homelab and a &ldquo;cloudlab&rdquo;.</p>
+
+<p>The <a href="https://www.reddit.com/r/homelab/wiki/introduction">/r/homelab wiki</a> has a more information on how to get started with a homelab.</p>
+
+<h2 id="inventory">Inventory</h2>
+
+<p>At the time of writing here is my current inventory of servers. It will most likely grow and evolve as time goes on.</p>
+
+<ul>
+<li>1 VPS
+
+<ul>
+<li>CPU: 2 Cores</li>
+<li>RAM: 2GB</li>
+<li>Disk: 40GB SSD</li>
+</ul></li>
+<li>1 NAS
+
+<ul>
+<li>CPU: Intel i5-6600K</li>
+<li>RAM: 8GB</li>
+<li>Disk: 2x 250GB SSD, 4x 3TB WD Red</li>
+</ul></li>
+<li>2 Dedicated Servers
+
+<ul>
+<li>Dedicated Server 1</li>
+<li>CPU: 2x Intel Xeon L5420</li>
+<li>RAM: 32GB</li>
+<li>Disk: 2x 1TB HDD</li>
+<li>Dedicated Server 2</li>
+<li>CPU: Intel Xeon E5 1410 v2</li>
+<li>RAM: 64GB</li>
+<li>Disk: 3x 6TB HDD</li>
+</ul></li>
+</ul>
+
+<h2 id="goals">Goals</h2>
+
+<ul>
+<li>Ability to host applications easily, there is <a href="https://github.com/awesome-selfhosted/awesome-selfhosted">a lot of good self hosted software</a> out there.</li>
+<li>Keep ongoing maintenance to a minimum.</li>
+<li>Automatic encrypted backups, <em>because RAID is not a backup</em></li>
+<li>Ability to easily add and remove servers.</li>
+<li>An internal network between servers, some of my servers exist outside of my home network.</li>
+<li>Alerting and Monitoring, so I know when servers go down, failing drives, backups didn&rsquo;t run, etc.</li>
+</ul>
+
+<h2 id="the-plan">The Plan</h2>
+
+<p>These are the tools/software I decided on to satisfy each of the above goals.</p>
+
+<h3 id="hosting-applications-easily">Hosting Applications Easily</h3>
+
+<ul>
+<li><p><a href="https://www.docker.com/">Docker</a> for hosting most applications and allows me to move services around easily.</p></li>
+
+<li><p><a href="https://www.portainer.io/">Portainer</a> for managing the docker containers on specific servers.</p></li>
+
+<li><p><a href="https://github.com/saltstack/salt">Salt</a> for everything else that doesn&rsquo;t fit into a container.</p></li>
+
+<li><p><a href="https://traefik.io/">Traefik</a> provides routing and certificates for services.</p></li>
+</ul>
+
+<h3 id="minimizing-ongoing-maintenance">Minimizing Ongoing Maintenance</h3>
+
+<ul>
+<li><a href="https://help.ubuntu.com/community/AutomaticSecurityUpdates">Automatic security updates</a> will reduce some of the maintenance involved in updating.</li>
+<li><a href="https://github.com/containrrr/watchtower">Watchtower</a> will keep selected containers up to date.</li>
+</ul>
+
+<h3 id="automatic-backups">Automatic Backups</h3>
+
+<ul>
+<li><a href="https://restic.net/">restic</a> for backups, including deduplication and encryption.</li>
+<li><a href="https://aws.amazon.com/s3/">Amazon S3</a>/<a href="https://www.backblaze.com/b2/cloud-storage.html">Backblaze B2</a> for offsite storage of backups.</li>
+</ul>
+
+<h3 id="adding-and-removing-servers">Adding and Removing Servers</h3>
+
+<ul>
+<li><a href="https://github.com/saltstack/salt">Salt</a> allows me to have a declarative configuration for servers.</li>
+<li>DNS for servers and services to facilitate container movement. This will be configured automatically or through <a href="https://github.com/StackExchange/dnscontrol">dnscontrol</a>.</li>
+</ul>
+
+<h3 id="internal-network">Internal Network</h3>
+
+<ul>
+<li><a href="https://www.zerotier.com/">Zerotier</a> is for my internal network. It&rsquo;s not a fully decentralized like <a href="https://www.tinc-vpn.org/">tinc</a> but has some trade offs that make it easier to use, you can read more about it <a href="http://adamierymenko.com/decentralization.html">here</a></li>
+</ul>
+
+<h3 id="alerting-and-monitoring">Alerting and Monitoring</h3>
+
+<ul>
+<li><a href="https://icinga.com/docs/icinga2/latest/">Icinga2</a> will be used for alerting.</li>
+<li><a href="https://www.influxdata.com/time-series-platform/influxdb/">InfluxDB</a> is a time series database used for storage of metrics.</li>
+<li><a href="https://grafana.com/">Grafana</a> is used for making graphs and dashboards from the data stored in influxdb.</li>
+</ul>
+  </div>
+  
+
+<div class="navigation navigation-single">
+    
+    <a href="/posts/floating-point-hell/" class="navigation-prev">
+      <i aria-hidden="true" class="fa fa-chevron-left"></i>
+      <span class="navigation-tittle">Floating Point Hell</span>
+    </a>
+    
+    
+</div>
+
+
+  
+
+  
+    
+        <script src="https://utteranc.es/client.js"
+        repo="gamingrobot/doingstuff.dev"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+    
+
+
+</article>
+
+
+            <div class="copyright">
+    &copy; 2019 Morgan Creekmore -
+    <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>
+    <br/>Built with
+    <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+    
+</div>
+        </div>
+        
+    
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-66010416-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+    
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+        
+    
+    <script type="text/javascript">
+        
+        hljs.initHighlightingOnLoad();
+    </script>
+    
+
+
+
+
+    
+
+
+
+    </body>
+</html>

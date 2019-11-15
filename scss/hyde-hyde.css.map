@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "hyde-hyde.css",
-	"sourceRoot": "C:/Projects/github/gamingrobot/doingstuff",
+	"sourceRoot": "C:/Projects/github/gamingrobot/doingstuff.dev",
 	"sources": [
 		"themes/hyde-hyde/assets/scss/hyde-hyde.scss",
 		"assets/scss/hyde-hyde/_variables.scss",
