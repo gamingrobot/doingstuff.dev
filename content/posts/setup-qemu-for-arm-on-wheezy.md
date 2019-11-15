@@ -14,7 +14,7 @@ This is a quick little blog post for how to install QEMU for ARM on Debian 7.0 (
 
 Edit `/etc/apt/sources.list` and add
 
-```
+```plaintext
 deb http://emdebian.org/debian/ stable main
 deb http://ftp.us.debian.org/debian/ squeeze main
 ```
