@@ -8,6 +8,9 @@ Welcome to my journey in building my own homelab. This will hopefully be an ongo
 
 <!--more-->
 
+Part 1: The Adventure Begins (You are here!)  
+[Part 2: Lets Get Salty](/posts/homelab-adventure-part-2/)
+
 ## What is a Homelab
 
 The primary idea behind a homelab is a place to learn about infrastructure, servers and development.
@@ -78,6 +81,7 @@ These are the tools/software I decided on to satisfy each of the above goals.
 ### Adding and Removing Servers
 
 * [Salt](https://github.com/saltstack/salt) allows me to have a declarative configuration for servers.
+* [netboot.xyz](https://netboot.xyz/) simplifies installs with pxe booting.
 * DNS for servers and services to facilitate container movement. This will be configured automatically or through [dnscontrol](https://github.com/StackExchange/dnscontrol).
 
 ### Internal Network
@@ -89,3 +93,10 @@ These are the tools/software I decided on to satisfy each of the above goals.
 * [Icinga2](https://icinga.com/docs/icinga2/latest/) will be used for alerting.
 * [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) is a time series database used for storage of metrics.
 * [Grafana](https://grafana.com/) is used for making graphs and dashboards from the data stored in influxdb.
+
+## Here we go!
+
+I hope you will join me in this adventure into homelabbing. In the next post in the series we will cover configuration management.
+
+Part 1: The Adventure Begins (You are here!)  
+[Part 2: Lets Get Salty](/posts/homelab-adventure-part-2/)
