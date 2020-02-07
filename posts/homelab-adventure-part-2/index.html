@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+    
+
+
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="public" />
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.57.2" />
+
+    
+    
+    
+
+<title>Homelab Adventure - Part 2: Lets Get Salty • Doing Stuff</title>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Homelab Adventure - Part 2: Lets Get Salty"/>
+<meta name="twitter:description" content="Welcome to my journey in building my own homelab. This is part of a multi-part series, in the last part I gave an overview of the homelab plan. This one will cover how I handle configuration management."/>
+
+<meta property="og:title" content="Homelab Adventure - Part 2: Lets Get Salty" />
+<meta property="og:description" content="Welcome to my journey in building my own homelab. This is part of a multi-part series, in the last part I gave an overview of the homelab plan. This one will cover how I handle configuration management." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://doingstuff.dev/posts/homelab-adventure-part-2/" />
+<meta property="article:published_time" content="2020-01-31T12:00:00-05:00" />
+<meta property="article:modified_time" content="2020-01-31T12:00:00-05:00" />
+
+
+    
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/github.min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/hyde-hyde.bf20eff18e817db799080a4f50cea3826495980e4264d73de7bc36b2cf3cac68.css" integrity="sha256-vyDv8Y6BfbeZCApPUM6jgmSVmA5CZNc957w2ss88rGg=">
+
+
+<link rel="stylesheet" href="/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    <meta name="theme-color" content="#062F4F"/>
+
+
+<link rel="stylesheet" href="/scss/custom.441695583e37bba53437dd01afc92f1bda2e42aed3bbeb2ab2abb9c98c56d737.css" integrity="sha256-RBaVWD43u6U0N90Br8kvG9ouQq7Tu&#43;sqsqu5yYxW1zc=">
+<!-- Font-Awesome -->	
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+</head>
+
+
+    <body class="theme-base-darkblue ">
+    
+<div class="sidebar">
+  <div class="container ">
+    <div class="sidebar-about">
+      <span class="site__title">
+        <a href="https://doingstuff.dev">Doing Stuff</a>
+      </span>
+      
+      
+      <p class="site__description">
+         A blog about doing random stuff 
+      </p>
+    </div>
+    <div class="collapsible-menu">
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle">Doing Stuff</label>
+      <div class="menu-content">
+        <div>
+	<ul class="sidebar-nav">
+		 
+		 
+			 
+				<li>
+					<a href="/posts/">
+						<span>Posts</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/search/">
+						<span>Search</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="https://morgancreekmore.me/">
+						<span>About Me</span>
+					</a>
+				</li>
+			 
+		
+	</ul>
+</div>
+
+        <section class="social">
+	
+	<a href="https://twitter.com/gamingrobot" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	<a href="https://github.com/gamingrobot" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<a href="https://keybase.io/gamingrobot" rel="me"><i class="fab fa-keybase fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	<a href="mailto:morgan@creekmore.email" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+        <div class="content container">
+            
+    
+<article>
+  <header>
+    <h1>Homelab Adventure - Part 2: Lets Get Salty</h1>
+    
+    
+<div class="post__meta">
+    
+    
+      <i class="fas fa-calendar-alt"></i> Jan 31, 2020
+    
+    
+    
+    
+    
+      
+      
+          <br/>
+           <i class="fas fa-tags"></i>
+          
+          <a class="badge badge-tag" href="/tags/homelab">homelab</a>
+          
+      
+    
+    
+    <br/>
+    <i class="fas fa-clock"></i> 4 min read
+</div>
+
+
+  </header>
+  
+  
+  <div class="post">
+    <p>Welcome to my journey in building my own homelab. This is part of a multi-part series, in the last part I gave an overview of the homelab plan. This one will cover how I handle configuration management.</p>
+
+<p><strong><a href="/posts/homelab-adventure-part-1/">Part 1: The Adventure Begins</a></strong><br />
+<strong>Part 2: Lets Get Salty (You are here!)</strong></p>
+
+<h2 id="what-is-salt">What is Salt</h2>
+
+<blockquote>
+<p><a href="https://github.com/saltstack/salt">Salt</a> is a configuration management and orchestration tool.</p>
+</blockquote>
+
+<p>What this means is it allows me to declare a &ldquo;state&rdquo; that the infrastructure should be in. It also allows me to run commands/modules across the infrastructure. Some alternatives to Salt are <a href="https://www.ansible.com/">Ansible</a>, <a href="https://www.chef.io/configuration-management/">Chef</a>, <a href="https://puppet.com/">Puppet</a>.</p>
+
+<h2 id="how-i-am-using-salt">How I am using Salt</h2>
+
+<p>Salt is the base of my infrastructure, once a server is installed Salt then provisions the rest it.</p>
+
+<p>The idea is anything not in docker is configured by Salt. That way when a server needs to be reinstalled or added, I know configuration isn&rsquo;t missing due to manual changes.</p>
+
+<h3 id="folder-structure">Folder Structure</h3>
+
+<p>This is a view of my Salt configuration git repo, some files/directories are missing from this view for the sake of readability. I think it is useful to see an example of how other people have laid out their Salt configuration when setting up your own.</p>
+
+<pre><code class="language-plaintext">salt
+├── _modules
+│   └── zerotier.py
+├── _states
+│   └── zerotier.py
+├── app
+│   ├── at
+│   ├── btrfs
+│   ├── docker
+│   ├── fail2ban
+│   ├── ntp
+│   ├── nullmailer
+│   ├── powerpanel
+│   ├── restic
+│   ├── smart
+│   └── zerotier
+├── config
+│   ├── apt
+│   ├── salt-minion
+│   ├── ssh
+│   ├── timezone
+│   └── users
+├── container
+│   ├── portainer
+│   ├── portainer-agent
+│   ├── salt-master
+│   ├── traefik
+│   └── watchtower
+├── trait
+│   ├── backup.sls
+│   ├── battery-backup.sls
+│   ├── btrfs.sls
+│   ├── docker-extra.sls
+│   ├── docker-master.sls
+│   ├── docker-proxy.sls
+│   ├── docker.sls
+│   ├── internal-network.sls
+│   ├── mailer.sls
+│   └── salt-master.sls
+├── default-packages.sls
+└── top.sls
+pillar
+├── app
+│   ├── docker
+│   ├── restic
+│   ├── nullmailer.sls
+│   ├── portainer.sls
+│   ├── traefik.sls
+│   └── zerotier.sls
+├── config
+│   ├── network.sls
+│   └── users.sls
+├── default-schedule.sls
+└── top.sls
+</code></pre>
+
+<h4 id="salt">Salt</h4>
+
+<h5 id="module-states">_module/_states</h5>
+
+<p>These are custom modules and states that are synced to minions. I will cover the custom zerotier module/state in another blog post.</p>
+
+<h5 id="app">App</h5>
+
+<p>These are states that require the installation of a package. The configuration of the application also lives here.</p>
+
+<h5 id="config">Config</h5>
+
+<p>These are states that are pure configuration and nothing new is installed.</p>
+
+<h5 id="container">Container</h5>
+
+<p>These are docker containers that are either going to be on every server (watchtower) or are required to bootstrap other containers (portainer).</p>
+
+<h5 id="trait">Trait</h5>
+
+<p>Salt has multiple ways for targeting states to a machine in the <code>top.sls</code> file. The <code>top.sls</code> file is what Salt looks at when you run highstate for what states should be applied to a minion.</p>
+
+<p>The Salt community has this idea of using grains to apply roles to a server called <a href="http://www.saltstat.es/posts/role-infrastructure.html">Role-based infrastructure</a>. This works if the server has a specific role like <code>database</code> or <code>webserver</code>.</p>
+
+<p>Traits are a similar idea but are more targeted at what you need on the server and are more fine-grained than <code>database</code> or <code>webserver</code>.</p>
+
+<p>This setup allows me to have a very small initial highstate and then apply traits as I need them for specific servers.</p>
+
+<h5 id="default-packages-sls">default-packages.sls</h5>
+
+<p>This is a list of helpful packages that are installed by default on all minions.</p>
+
+<pre><code class="language-yaml">install-default-packages:
+  pkg.installed:
+    - pkgs:
+      - rsync
+      - curl
+      - vim
+      - htop
+      - iotop
+      - git
+      - ncdu
+      - openssh-client
+      - ncurses-term # for putty profiles
+      - traceroute
+      - jq
+      - virt-what # for salt virtual grains
+      - net-tools # ifconfig/route
+</code></pre>
+
+<h5 id="top-sls">top.sls</h5>
+
+<p>This is the file looked at when highstate is run. As you can see I have a very simple base that gets installed by default and then everything else is defined by traits.</p>
+
+<pre><code class="language-yaml">base:
+  '*':
+    - default-packages
+    - config.users
+    - config.timezone
+    - config.salt-minion
+    - config.ssh
+    - config.apt
+    - app.at
+    - app.ntp
+    - app.fail2ban
+
+{% set traits = salt['grains.get']('traits', []) %}
+{% for trait in traits %}
+  'traits:{{ trait }}':
+    - match: grain
+    - trait.{{ trait }}
+{% endfor %}
+</code></pre>
+
+<h4 id="pillar">Pillar</h4>
+
+<p>This is where the any machine specific configuration and sensitive data lives.</p>
+
+<p>I store both my Salt states and pillar data in the same git repository so I can easily test and update configurations. Any secrets in the pillars are PGP encrypted using Salt&rsquo;s <a href="https://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.gpg.html">gpg renderer</a>. Salt supports <a href="https://docs.saltstack.com/en/master/ref/pillar/all/index.html">many pillar sources</a> and they can even be used in combination.</p>
+
+<h5 id="top-sls-1">top.sls</h5>
+
+<p>This is the pillar top file which defines what minions have access to specific pillar data.</p>
+
+<pre><code class="language-yaml">base:
+  '*':
+    - default-schedule
+    - config.users
+    - config.network
+
+  'traits:internal-network':
+    - match: grain
+    - app.zerotier
+
+  'traits:mailer':
+    - match: grain
+    - app.nullmailer
+
+  'traits:backup':
+    - match: grain
+    - app.restic.base
+    - app.restic.{{ grains.id }}
+
+  'traits:docker-proxy':
+    - match: grain
+    - app.traefik
+
+  'traits:docker-extra':
+    - match: grain
+    - app.portainer
+
+  'traits:docker-master':
+    - match: grain
+    - app.portainer
+</code></pre>
+
+<h2 id="maximum-saltiness">Maximum Saltiness</h2>
+
+<p>I hope this gave you a good view of how I use Salt to configure my servers. In the next part we will cover how to have an internal network over the internet.</p>
+
+<p><strong><a href="/posts/homelab-adventure-part-1/">Part 1: The Adventure Begins</a></strong><br />
+<strong>Part 2: Lets Get Salty (You are here!)</strong></p>
+  </div>
+  
+
+<div class="navigation navigation-single">
+    
+    <a href="/posts/homelab-adventure-part-1/" class="navigation-prev">
+      <i aria-hidden="true" class="fa fa-chevron-left"></i>
+      <span class="navigation-tittle">Homelab Adventure - Part 1: The Adventure Begins</span>
+    </a>
+    
+    
+</div>
+
+
+  
+
+  
+    
+        <script src="https://utteranc.es/client.js"
+        repo="gamingrobot/doingstuff.dev"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+    
+
+
+</article>
+
+
+            <div class="copyright">
+    &copy; 2020 Morgan Creekmore -
+    <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>
+    <br/>Built with
+    <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+    
+</div>
+        </div>
+        
+    
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-66010416-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+    
+    
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+        
+    
+    <script type="text/javascript">
+        
+        hljs.initHighlightingOnLoad();
+    </script>
+    
+
+
+
+
+    
+
+
+
+    </body>
+</html>
