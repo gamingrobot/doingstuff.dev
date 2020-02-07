@@ -8,8 +8,8 @@ Welcome to my journey in building my own homelab. This will hopefully be an ongo
 
 <!--more-->
 
-Part 1: The Adventure Begins (You are here!)  
-[Part 2: Lets Get Salty](/posts/homelab-adventure-part-2/)
+**Part 1: The Adventure Begins (You are here!)**  
+**[Part 2: Lets Get Salty](/posts/homelab-adventure-part-2/)**
 
 ## What is a Homelab
 
@@ -98,5 +98,5 @@ These are the tools/software I decided on to satisfy each of the above goals.
 
 I hope you will join me in this adventure into homelabbing. In the next post in the series we will cover configuration management.
 
-Part 1: The Adventure Begins (You are here!)  
-[Part 2: Lets Get Salty](/posts/homelab-adventure-part-2/)
+**Part 1: The Adventure Begins (You are here!)**  
+**[Part 2: Lets Get Salty](/posts/homelab-adventure-part-2/)**

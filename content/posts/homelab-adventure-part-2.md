@@ -2,15 +2,14 @@
 title: "Homelab Adventure - Part 2: Lets Get Salty"
 date: "2020-01-31T12:00:00-05:00"
 tags: ["homelab"]
-draft: true
 ---
 
 Welcome to my journey in building my own homelab. This is part of a multi-part series, in the last part I gave an overview of the homelab plan. This one will cover how I handle configuration management.
 
 <!--more-->
 
-[Part 1: The Adventure Begins](/posts/homelab-adventure-part-1/)  
-Part 2: Lets Get Salty (You are here!)
+**[Part 1: The Adventure Begins](/posts/homelab-adventure-part-1/)**  
+**Part 2: Lets Get Salty (You are here!)**
 
 ## What is Salt
 
@@ -208,5 +207,5 @@ base:
 
 I hope this gave you a good view of how I use Salt to configure my servers. In the next part we will cover how to have an internal network over the internet.
 
-[Part 1: The Adventure Begins](/posts/homelab-adventure-part-1/)  
-Part 2: Lets Get Salty (You are here!)
+**[Part 1: The Adventure Begins](/posts/homelab-adventure-part-1/)**  
+**Part 2: Lets Get Salty (You are here!)**
