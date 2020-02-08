@@ -1,6 +1,6 @@
 ---
 title: "Homelab Adventure - Part 2: Lets Get Salty"
-date: "2020-01-31T12:00:00-05:00"
+date: "2020-02-06T12:00:00-05:00"
 tags: ["homelab"]
 ---
 
@@ -202,6 +202,10 @@ base:
     - match: grain
     - app.portainer
 ```
+
+{{< note >}}
+Grains are controlled by the minion, so a server can access pillar data for other traits due to matching on grains.
+{{< /note >}}
 
 ## Maximum Saltiness
 
