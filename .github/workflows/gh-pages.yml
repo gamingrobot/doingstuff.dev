@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 # https://github.com/actions/checkout/issues/81
-      - name: Checkout
+      - name: Checkout Submodules
         shell: bash
         run: |
           git config --global url."https://github.com/".insteadOf "git@github.com:"
