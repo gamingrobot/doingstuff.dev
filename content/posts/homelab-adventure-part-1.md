@@ -81,7 +81,7 @@ These are the tools/software I decided on to satisfy each of the above goals.
 ### Adding and Removing Servers
 
 * [Salt](https://github.com/saltstack/salt) allows me to have a declarative configuration for servers.
-* [netboot.xyz](https://netboot.xyz/) simplifies installs with pxe booting.
+* [netboot.xyz](https://netboot.xyz/) simplifies installs with PXE booting.
 * DNS for servers and services to facilitate container movement. This will be configured automatically or through [dnscontrol](https://github.com/StackExchange/dnscontrol).
 
 ### Internal Network
