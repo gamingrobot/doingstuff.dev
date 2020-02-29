@@ -8,9 +8,9 @@ My college professor posted this image with the question
 
 > What is the output when enter is pressed?
 
-<!--more-->
-
 ![problem](https://f001.backblazeb2.com/file/grbt-blog/images/posts/c64-puzzle/problem.jpg)
+
+<!--more-->
 
 I watch a lot of [The 8-Bit Guy](https://www.youtube.com/channel/UC8uT9cgJorJPWu7ITLGo9Ww), and I recognized this as a [Commodore 64](https://en.wikipedia.org/wiki/Commodore_64) and decided to dive deeper into what happens when `SYS 49152` is run.
 
