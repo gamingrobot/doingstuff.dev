@@ -26,7 +26,7 @@ The first thing I tried was inputting the program into a [Commodore 64 Emulator]
 
 ```basic
 10 X=49152
-15 PRINT x
+15 PRINT X
 20 Y=11
 30 FOR M=0 TO Y
 40 PRINT PEEK(X+M);
