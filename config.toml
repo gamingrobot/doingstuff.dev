@@ -50,6 +50,11 @@ googleAnalytics = "UA-66010416-3"
     weight = 200
     url = "/search/"
 [[menu.main]]
+    name = "RSS"
+    identifier = "rss"
+    weight = 300
+    url = "/posts/index.xml"
+[[menu.main]]
     name = "About Me"
     identifier = "about"
     weight = 400
