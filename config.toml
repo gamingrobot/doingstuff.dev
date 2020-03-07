@@ -15,7 +15,7 @@ googleAnalytics = "UA-66010416-3"
 ## Site Settings
 [params]
     author = "Morgan Creekmore"
-    description = "A blog about doing random stuff"
+    description = "A blog about stuff"
     #authorimage = "/img/author.jpg"
     dateformat = "Jan 2, 2006"
     themeColor = "theme-base-darkblue"
