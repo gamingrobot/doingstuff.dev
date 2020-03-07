@@ -22,7 +22,7 @@ I watch a lot of [The 8-Bit Guy](https://www.youtube.com/channel/UC8uT9cgJorJPWu
 
 ## The Main Program
 
-The first thing I tried was inputting the program into a [Commodore 64 Emulator](http://vice-emu.sourceforge.net/).
+We can start by loading the program into a [Commodore 64 Emulator](http://vice-emu.sourceforge.net/).
 
 ```basic
 10 X=49152
@@ -36,11 +36,11 @@ The first thing I tried was inputting the program into a [Commodore 64 Emulator]
 
 ![vice-screen-20200229000050](https://f001.backblazeb2.com/file/grbt-blog/images/posts/c64-puzzle/vice-screen-20200229000050.png)
 
-My output doesn't match the output from the original picture. After looking at the C64 wiki, I found out that the `49152` address is the location of the [MONITOR$C000](https://www.c64-wiki.com/wiki/MONITOR$C000,_MONITOR$8000_(Commodore)). So the BASIC program is printing the bytes of the machine code program located in MONITOR$C000.
+The output doesn't match the output from the original picture. According to the [C64 wiki](https://www.c64-wiki.com/), the `49152` address is the location of the [MONITOR$C000](https://www.c64-wiki.com/wiki/MONITOR$C000,_MONITOR$8000_(Commodore)). So the BASIC program is printing the bytes of the machine code program located in MONITOR$C000.
 
 ## Matching the Contents
 
-This was my crude attempt to match the contents of the `49152-49164` memory block.
+We can attempt to match the contents of the `49152-49164` memory block by manually poking bytes into memory.
 
 ```basic
 10 POKE 49152,169
