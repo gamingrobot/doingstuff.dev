@@ -86,13 +86,12 @@ These are the tools/software I decided on to satisfy each of the above goals.
 
 ### Internal Network
 
-* [Zerotier](https://www.zerotier.com/) is for my internal network. It's not a fully decentralized like [tinc](https://www.tinc-vpn.org/) but has some trade offs that make it easier to use, you can read more about it [here](http://adamierymenko.com/decentralization.html)
+* [Zerotier](https://www.zerotier.com/) is for my internal network. It's not a fully decentralized like [tinc](https://www.tinc-vpn.org/) but has some trade offs that make it easier to use, you can read more about it [here](http://adamierymenko.com/decentralization.html).
 
 ### Alerting and Monitoring
 
-* [Icinga2](https://icinga.com/docs/icinga2/latest/) will be used for alerting.
-* [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) is a time series database used for storage of metrics.
-* [Grafana](https://grafana.com/) is used for making graphs and dashboards from the data stored in influxdb.
+* [netdata](https://github.com/netdata/netdata) will be used for metrics and basic alerting.
+* [alerta](https://alerta.io/) will be used for custom alerting.
 
 ## Here we go!
 
