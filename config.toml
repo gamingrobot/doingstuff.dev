@@ -3,10 +3,10 @@ baseURL = "https://doingstuff.dev"
 languageCode = "en-us"
 title = "Doing Stuff"
 
-theme = "hyde-hyde"
+theme = "hyde-hyde-hyde"
 
 ## Hugo Built-in Features
-googleAnalytics = "UA-66010416-3"
+googleAnalytics = ""
 # enableRobotsTXT = true
 
 [outputs]
@@ -22,21 +22,9 @@ googleAnalytics = "UA-66010416-3"
     highlightjs = true
     #highlightjslanguages = ["go", "armasm"]
     highlightjsstyle = "github"
-    UtterancesRepo = "gamingrobot/doingstuff.dev" # https://utteranc.es/
-    UtterancesIssueTerm = "pathname" # pathname, url, title, og:title
-    UtterancesTheme = "github-light" # github-light or github-dark
 
     relatedPosts = false
     postNavigation = true
-
-## Social Accounts
-[params.social]
-    github = "gamingrobot"
-    #linkedin = "morgancreekmore"
-    twitter = "gamingrobot"
-    #stackoverflow = "1161491"
-    keybase = "gamingrobot"
-    email = "morgan@creekmore.email"
 
 ## Main Menu
 [[menu.main]]
