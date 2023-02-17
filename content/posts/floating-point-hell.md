@@ -1,7 +1,7 @@
 ---
 title: "Floating Point Hell"
 date: "2014-03-16T13:33:19-05:00"
-highlightjslanguages: ["go"]
+highlightjs_languages: ["go"]
 include_toc: false
 ---
 

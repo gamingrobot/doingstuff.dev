@@ -1,7 +1,7 @@
 ---
 title: "Commodore 64 Puzzle"
 date: "2020-02-27T12:00:00-05:00"
-highlightjslanguages: ["basic"]
+highlightjs_languages: ["basic"]
 include_toc: false
 ---
 

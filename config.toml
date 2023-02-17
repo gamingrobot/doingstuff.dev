@@ -24,9 +24,15 @@ googleAnalytics = ""
     #authorimage = "/img/author.jpg"
     dateformat = "Jan 2, 2006"
     themeColor = "theme-base-darkblue"
+
+    # https://mermaid.js.org/
+    # mermaid = true
+    mermaid_theme = "default"
+    mermaid_align = "center"
+
     highlightjs = true
-    #highlightjslanguages = ["go", "armasm"]
-    highlightjsstyle = "github"
+    #highlightjs_languages = ["go", "armasm"]
+    highlightjs_style = "github"
 
     relatedPosts = false
     postNavigation = true
