@@ -26,7 +26,7 @@ googleAnalytics = ""
     themeColor = "theme-base-darkblue"
 
     # https://www.goatcounter.com/
-    goatcounter = "grbt"
+    goatcounter = "grbt-doingstuff"
 
     # https://mermaid.js.org/
     # mermaid = true # enabled per page to reduce loading
