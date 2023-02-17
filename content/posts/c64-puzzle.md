@@ -2,7 +2,6 @@
 title: "Commodore 64 Puzzle"
 date: "2020-02-27T12:00:00-05:00"
 highlightjs_languages: ["basic"]
-include_toc: false
 ---
 
 My college professor posted this image with the question
