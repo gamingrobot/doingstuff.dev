@@ -96,7 +96,7 @@ $site__title-font-size: 2.5rem;
 $copyright-font-size: $font-scale-dot7;
 
 // content
-$content-max-width: 42rem; // @ ~90 CPL
+$content-max-width: 52rem; // @ ~122 CPL
 //$content-max-width: 38rem; // @ ~70 CPL
 $content-margin-left: $sidebar-width + 2rem;
 $content-margin-right: 2rem;
@@ -104,11 +104,3 @@ $content-margin-right: 2rem;
 // navigation
 $navigation-color: #0044cc;
 
-// portfolio
-$project__title-font-size: $h2-font-size;
-$project__subtitle-font-size-big: $h3-font-size;
-$project__subtitle-font-size-small: $h4-font-size;
-$project__subtitle-font-style: italic;
-$project__subtitle-color: #778492;
-$ribbon-color: #276582;
-$ribbon-background-color: #479fc8;

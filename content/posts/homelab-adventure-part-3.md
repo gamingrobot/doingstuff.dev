@@ -3,6 +3,7 @@ title: "Homelab Adventure - Part 1: The Adventure Begins"
 date: 2019-05-02T20:39:15-05:00
 
 draft: true
+include_toc: false
 ---
 
 Welcome to my journey in building my own homelab.

@@ -9,6 +9,11 @@ theme = "hyde-hyde-hyde"
 googleAnalytics = ""
 # enableRobotsTXT = true
 
+[markup]
+  [markup.highlight]
+    noClasses = false
+    style = ""
+
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
@@ -25,6 +30,8 @@ googleAnalytics = ""
 
     relatedPosts = false
     postNavigation = true
+
+    toc = "tocbot"
 
 ## Main Menu
 [[menu.main]]

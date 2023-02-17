@@ -2,6 +2,7 @@
 title: "Sending Reaper MIDI to Unreal Engine"
 date: "2022-04-11T12:00:00-05:00"
 tags: ["music", "reaper", "unreal"]
+include_toc: false
 ---
 
 Setting up Reaper to send MIDI to Unreal Engine
@@ -16,9 +17,9 @@ Setting up Reaper to send MIDI to Unreal Engine
 ![loopMIDI](/img/reaper-midi-unreal-engine/loopmidi.png)
 
 * Enable new MIDI output in Reaper via Options -> Preferences -> Audio -> MIDI Devices  
-{{< note >}}
+{{< info >}}
 Only enable the MIDI Output
-{{< /note >}}
+{{< /info >}}
 ![midi-output](/img/reaper-midi-unreal-engine/midi-output.png)
 
 * Setup MIDI output routing per track
