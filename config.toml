@@ -25,8 +25,11 @@ googleAnalytics = ""
     dateformat = "Jan 2, 2006"
     themeColor = "theme-base-darkblue"
 
+    # https://www.goatcounter.com/
+    goatcounter = "grbt"
+
     # https://mermaid.js.org/
-    # mermaid = true
+    # mermaid = true # enabled per page to reduce loading
     mermaid_theme = "default"
     mermaid_align = "center"
 
