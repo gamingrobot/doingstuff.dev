@@ -11,8 +11,14 @@ googleAnalytics = ""
 
 [markup]
   [markup.highlight]
-    noClasses = false
-    style = ""
+    codeFences = true
+    guessSyntax = false
+    lineNos = false
+    noClasses = true
+    noHl = true
+    style = 'friendly'
+    tabWidth = 4
+
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -32,10 +38,6 @@ googleAnalytics = ""
     # mermaid = true # enabled per page to reduce loading
     mermaid_theme = "default"
     mermaid_align = "center"
-
-    highlightjs = true
-    #highlightjs_languages = ["go", "armasm"]
-    highlightjs_style = "github"
 
     relatedPosts = false
     postNavigation = true

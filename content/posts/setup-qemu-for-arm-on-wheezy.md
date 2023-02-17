@@ -1,7 +1,6 @@
 ---
 title: "Setup QEMU for ARM on Wheezy"
 date: "2014-01-01T13:33:39-05:00"
-highlightjs_languages: ["armasm"]
 include_toc: false
 ---
 
