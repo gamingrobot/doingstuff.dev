@@ -62,16 +62,16 @@ Using [Ghidra](https://ghidra-sre.org/) I replaced the existing printf function 
 * Import the file as Raw Binary (this is because Ghidra messes up the ELF header if imported as a ELF binary)
 * Find the memory address of the flag function
 
-![call_me_flag](/img/ctf-innoctf-2019/call_me_flag.png)
+{{< fig src="/img/ctf-innoctf-2019/call_me_flag.png" >}}
 
 * Find the main function
 
-![call_me_printf](/img/ctf-innoctf-2019/call_me_printf.png)
+{{< fig src="/img/ctf-innoctf-2019/call_me_printf.png" >}}
 
 * Right click on the printf function and select patch instruction
 * Change the call address to be the address of the flag function
 
-![call_me_flag_patch](/img/ctf-innoctf-2019/call_me_flag_patch.png)
+{{< fig src="/img/ctf-innoctf-2019/call_me_flag_patch.png" >}}
 
 * Export Program from Ghidra
 * Run the executable
@@ -84,6 +84,6 @@ Using [Ghidra](https://ghidra-sre.org/) I replaced the existing printf function 
 
 I discovered that this was a .NET executable, so I used [dnSpy](https://github.com/0xd4d/dnSpy) to run the executable with debugging.
 
-![quick_peek](/img/ctf-innoctf-2019/quick_peek.png)
+{{< fig src="/img/ctf-innoctf-2019/quick_peek.png" >}}
 
 `InnoCTF{1337_SPAgh377i_CoD3}`

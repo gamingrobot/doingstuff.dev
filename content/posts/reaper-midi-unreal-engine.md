@@ -14,20 +14,18 @@ Setting up Reaper to send MIDI to Unreal Engine
 * Install [loopMIDI](https://www.tobias-erichsen.de/software/loopmidi.html) (This allows us to create a loopback MIDI device)
 
 * Add a new MIDI device in loopMIDI called `unreal_port`
-![loopMIDI](/img/reaper-midi-unreal-engine/loopmidi.png)
+{{< fig src="/img/reaper-midi-unreal-engine/loopmidi.png" >}}
 
 * Enable new MIDI output in Reaper via Options -> Preferences -> Audio -> MIDI Devices  
 {{< info >}}
 Only enable the MIDI Output
 {{< /info >}}
-![midi-output](/img/reaper-midi-unreal-engine/midi-output.png)
+{{< fig src="/img/reaper-midi-unreal-engine/midi-output.png" >}}
 
-* Setup MIDI output routing per track
-  * Either via the Routing Matrix (View -> Routing Matrix)
-![route-matrix](/img/reaper-midi-unreal-engine/reaper-routematrix.png)
+* Setup MIDI output routing per track via:
+{{< fig src="/img/reaper-midi-unreal-engine/reaper-routematrix.png" caption="Routing Matrix (View -> Routing Matrix)">}}
 **OR**
-  * Track routing settings (IO button on track)
-![route-track](/img/reaper-midi-unreal-engine/reaper-routetrack.png)
+{{< fig src="/img/reaper-midi-unreal-engine/reaper-routetrack.png" caption="Track routing settings (IO button on track)">}}
 
 Set each track to a separate MIDI channel, so each track number maps to its corresponding channel number.
 
@@ -36,14 +34,14 @@ Set each track to a separate MIDI channel, so each track number maps to its corr
 Heavily based on [this forum thread](https://forums.unrealengine.com/t/setting-up-a-blueprint-midi-manager-with-4-14-version-of-midi-device-support-plugin/91606)
 
 * Enable MIDI Device Support Plugin
-![midi-plugin](/img/reaper-midi-unreal-engine/midi-plugin.png)
+{{< fig src="/img/reaper-midi-unreal-engine/midi-plugin.png" >}}
 
 * Import [Midi Blueprints](https://dev.epicgames.com/community/snippets/JKp/unreal-engine-midi-input)
 
 * Create Blueprint Interface with `OnNoteAction` and `OffNoteAction` functions called `MidiListener`
 
 * Set Game Instance Class via Edit -> Project Settings -> Maps & Modes -> Game Instance -> Game Instance Class
-![game-instance](/img/reaper-midi-unreal-engine/game-instance.png)
+{{< fig src="/img/reaper-midi-unreal-engine/game-instance.png" >}}
 
 * Set `MidiDeviceId` in `MidiManager` to map to the output of `unreal_port` (You can find this out from the debug logs in the console)
 

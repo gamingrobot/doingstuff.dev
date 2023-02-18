@@ -164,17 +164,17 @@ File: a lengthy issue.png (44525 bytes)
 
 Opening `a lengthy issue.png` in HxD and finding the `PLTE` chunk:
 
-![issue hxd](/img/ctf-peactf-2019/song_issue_hxd.png)
+{{< fig src="/img/ctf-peactf-2019/song_issue_hxd.png" >}}
 
 Looking at the [libpng spec](http://www.libpng.org/pub/png/spec/1.2/PNG-Structure.html#Chunk-layout) and a [similar writeup](https://github.com/ctfs/write-ups-2015/tree/master/plaidctf-2015/forensics/png-uncorrupt). I figured out that the `HELP` text before the `PLTE` was the 4-byte length for the `PLTE` chunk.
 
 Using the HxD data inspector I edited these 4 bytes to be the value of 453 in big-endian. The value for the PLTE header was the number of bytes between the end of PLTE and the beginning of the CRC for PLTE. The length also must be divisible by 3 for the PLTE chunk.
 
-![issue hxd fixed](/img/ctf-peactf-2019/song_issue_hxd_fixed.png)
+{{< fig src="/img/ctf-peactf-2019/song_issue_hxd_fixed.png" >}}
 
 The fixed image:
 
-![issue](/img/ctf-peactf-2019/song_issue.png)
+{{< fig src="/img/ctf-peactf-2019/song_issue.png" >}}
 
 #### Image hex
 
