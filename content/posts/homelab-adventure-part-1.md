@@ -76,7 +76,7 @@ These are the tools/software I decided on to satisfy each of the above goals.
 ### Automatic Backups
 
 * [restic](https://restic.net/) for backups, including deduplication and encryption.
-* [Amazon S3](https://aws.amazon.com/s3/)/[Backblaze B2](https://www.backblaze.com/b2/cloud-storage.html) for offsite storage of backups.
+* [Backblaze B2](https://www.backblaze.com/b2/cloud-storage.html) for offsite storage of backups.
 
 ### Adding and Removing Servers
 
@@ -91,7 +91,7 @@ These are the tools/software I decided on to satisfy each of the above goals.
 ### Alerting and Monitoring
 
 * [netdata](https://github.com/netdata/netdata) will be used for metrics and basic alerting.
-* [alerta](https://alerta.io/) will be used for custom alerting.
+* [uptime-kuma](https://github.com/louislam/uptime-kuma) will be used for custom monitoring/alerting.
 
 ## Here we go!
 
