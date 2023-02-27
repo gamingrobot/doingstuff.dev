@@ -30,6 +30,7 @@ googleAnalytics = ""
     #authorimage = "/img/author.jpg"
     dateformat = "Jan 2, 2006"
     themeColor = "theme-base-darkblue"
+    error404image = "img/lost.gif"
 
     # https://www.goatcounter.com/
     goatcounter = "grbt-doingstuff"
