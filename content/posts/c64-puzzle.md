@@ -78,15 +78,15 @@ Converting the bytes into hex:
 
 Using the [Opcode lookup table](https://www.c64-wiki.com/wiki/Opcode) we can decode the bytes:
 
-* A9: [LDA #nn](https://www.c64-wiki.com/wiki/LDA) (**L**oa**D** **A**ccumulator)
-* 53(83 dec): Value loaded into the [accumulator](https://www.c64-wiki.com/wiki/Accumulator)
-* 8D: [STA nnnn](https://www.c64-wiki.com/wiki/STA) (**ST**ore **A**ccumulator)
-* 05F4(1524 dec): Address to store the value from the accumulator
-* A9: [LDA #nn](https://www.c64-wiki.com/wiki/LDA)
-* 02(2 dec):  Value loaded into the accumulator
-* 8D: [STA nnnn](https://www.c64-wiki.com/wiki/STA)
-* D9F4(55796 dec): Address to store the value from the accumulator
-* 60: [RTS](https://www.c64-wiki.com/wiki/RTS) (**R**e**T**urn from **S**ubroutine)
+- A9: [LDA #nn](https://www.c64-wiki.com/wiki/LDA) (**L**oa**D*- **A**ccumulator)
+- 53(83 dec): Value loaded into the [accumulator](https://www.c64-wiki.com/wiki/Accumulator)
+- 8D: [STA nnnn](https://www.c64-wiki.com/wiki/STA) (**ST**ore **A**ccumulator)
+- 05F4(1524 dec): Address to store the value from the accumulator
+- A9: [LDA #nn](https://www.c64-wiki.com/wiki/LDA)
+- 02(2 dec):  Value loaded into the accumulator
+- 8D: [STA nnnn](https://www.c64-wiki.com/wiki/STA)
+- D9F4(55796 dec): Address to store the value from the accumulator
+- 60: [RTS](https://www.c64-wiki.com/wiki/RTS) (**R**e**T**urn from **S**ubroutine)
 
 
 Here is the full assembly code:

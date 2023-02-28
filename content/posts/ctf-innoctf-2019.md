@@ -59,22 +59,22 @@ The super-secret-admin-panel then required sql injection of `' or 1=1 -- `.
 
 Using [Ghidra](https://ghidra-sre.org/) I replaced the existing printf function in main to point to `void flag()` address instead.
 
-* Import the file as Raw Binary (this is because Ghidra messes up the ELF header if imported as a ELF binary)
-* Find the memory address of the flag function
+- Import the file as Raw Binary (this is because Ghidra messes up the ELF header if imported as a ELF binary)
+- Find the memory address of the flag function
 
 {{< fig src="/img/ctf-innoctf-2019/call_me_flag.png" >}}
 
-* Find the main function
+- Find the main function
 
 {{< fig src="/img/ctf-innoctf-2019/call_me_printf.png" >}}
 
-* Right click on the printf function and select patch instruction
-* Change the call address to be the address of the flag function
+- Right click on the printf function and select patch instruction
+- Change the call address to be the address of the flag function
 
 {{< fig src="/img/ctf-innoctf-2019/call_me_flag_patch.png" >}}
 
-* Export Program from Ghidra
-* Run the executable
+- Export Program from Ghidra
+- Run the executable
 
 `InnoCTF{How_d1d_y0u_f1nd_m3_7f1bc88}`
 

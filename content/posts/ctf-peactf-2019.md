@@ -134,15 +134,12 @@ The challenge description lead me to [The Song of My People! meme](https://knowy
 
 The contents of the zip file were:
 
-* `a lengthy issue.png`
-  
-  * This is a broken PNG image
+- `a lengthy issue.png`
+  - This is a broken PNG image
+- `Ice Cube - Check Yo Self Remix (Clean).mp3`
+  - You better check yo self before you wreck yo self
 
-* `Ice Cube - Check Yo Self Remix (Clean).mp3`
-  
-  * You better check yo self before you wreck yo self
-
-* `README.txt`
+- `README.txt`
 ```plaintext
 one of the three files is a red herring, but a helpful one at that.
 does any of this ADD up? This is a LONG problem.

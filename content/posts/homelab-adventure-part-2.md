@@ -8,24 +8,24 @@ Welcome to my journey in building my own homelab. This is part of a multi-part s
 
 <!--more-->
 
-**[Part 1: The Adventure Begins](/posts/homelab-adventure-part-1/)**  
+[**Part 1: The Adventure Begins**](/posts/homelab-adventure-part-1/)  
 **Part 2: Lets Get Salty (You are here!)**
 
 ## What is Salt
 
 > [Salt](https://github.com/saltstack/salt) is a configuration management and orchestration tool.
 
-What this means is it allows me to declare a "state" that the infrastructure should be in. It also allows me to run commands/modules across the infrastructure. Some alternatives to Salt are [Ansible](https://www.ansible.com/), [Chef](https://www.chef.io/configuration-management/), [Puppet](https://puppet.com/). 
+What this means is it allows me to declare a "state" that the infrastructure should be in. It also allows me to run commands/modules across the infrastructure. Some alternatives to Salt are [Ansible](https://www.ansible.com/), [Chef](https://www.chef.io/configuration-management/), [Puppet](https://puppet.com/).
 
 ## How I am using Salt
 
-Salt is the base of my infrastructure, once a server is installed Salt then provisions the rest it. 
+Salt is the base of my infrastructure, once a server is installed Salt then provisions the rest it.
 
 The idea is anything not in docker is configured by Salt. That way when a server needs to be reinstalled or added, I know configuration isn't missing due to manual changes.
 
 ### Folder Structure
 
-This is a view of my Salt configuration git repo, some files/directories are missing from this view for the sake of readability. I think it is useful to see an example of how other people have laid out their Salt configuration when setting up your own. 
+This is a view of my Salt configuration git repo, some files/directories are missing from this view for the sake of readability. It is useful to see an example of how other people have laid out their Salt configuration when setting up your own.
 
 ```plaintext
 salt
@@ -104,9 +104,9 @@ These are docker containers that are either going to be on every server (watchto
 
 ##### Trait
 
-Salt has multiple ways for targeting states to a machine in the `top.sls` file. The `top.sls` file is what Salt looks at when you run highstate for what states should be applied to a minion. 
+Salt has many ways for targeting states to a machine in the `top.sls` file. The `top.sls` file is what Salt looks at when you run highstate for what states should be applied to a minion.
 
-The Salt community has this idea of using grains to apply roles to a server called [Role-based infrastructure](http://www.saltstat.es/posts/role-infrastructure.html). This works if the server has a specific role like `database` or `webserver`. 
+The Salt community has this idea of using grains to apply roles to a server called [Role-based infrastructure](http://www.saltstat.es/posts/role-infrastructure.html). This works if the server has a specific role like `database` or `webserver`.
 
 Traits are a similar idea but are more targeted at what you need on the server and are more fine-grained than `database` or `webserver`.
 
@@ -164,7 +164,7 @@ base:
 
 This is where the any machine specific configuration and sensitive data lives.
 
-I store both my Salt states and pillar data in the same git repository so I can easily test and update configurations. Any secrets in the pillars are PGP encrypted using Salt's [gpg renderer](https://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.gpg.html). Salt supports [many pillar sources](https://docs.saltstack.com/en/master/ref/pillar/all/index.html) and they can even be used in combination.
+I store both my Salt states and pillar data in the same git repository so I can test and update configurations. Any secrets in the pillars are PGP encrypted using Salt's [gpg renderer](https://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.gpg.html). Salt supports [many pillar sources](https://docs.saltstack.com/en/master/ref/pillar/all/index.html) and they can even be used in combination.
 
 ##### top.sls
 
@@ -211,5 +211,5 @@ Grains are controlled by the minion, so a server can access pillar data for othe
 
 I hope this gave you a good view of how I use Salt to configure my servers. In the next part we will cover how to have an internal network over the internet.
 
-**[Part 1: The Adventure Begins](/posts/homelab-adventure-part-1/)**  
+[**Part 1: The Adventure Begins**](/posts/homelab-adventure-part-1/)  
 **Part 2: Lets Get Salty (You are here!)**
