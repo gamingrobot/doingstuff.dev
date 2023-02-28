@@ -6,8 +6,8 @@ title = "Doing Stuff"
 theme = "hyde-hyde-hyde"
 
 ## Hugo Built-in Features
-googleAnalytics = ""
-# enableRobotsTXT = true
+# googleAnalytics = ""
+enableRobotsTXT = true
 
 [markup]
   [markup.highlight]
