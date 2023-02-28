@@ -78,7 +78,7 @@ Converting the bytes into hex:
 
 Using the [Opcode lookup table](https://www.c64-wiki.com/wiki/Opcode) we can decode the bytes:
 
-- A9: [LDA #nn](https://www.c64-wiki.com/wiki/LDA) (**L**oa**D*- **A**ccumulator)
+- A9: [LDA #nn](https://www.c64-wiki.com/wiki/LDA) (**L**oa**D** **A**ccumulator)
 - 53(83 dec): Value loaded into the [accumulator](https://www.c64-wiki.com/wiki/Accumulator)
 - 8D: [STA nnnn](https://www.c64-wiki.com/wiki/STA) (**ST**ore **A**ccumulator)
 - 05F4(1524 dec): Address to store the value from the accumulator
