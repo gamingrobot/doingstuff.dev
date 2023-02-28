@@ -23,6 +23,9 @@ enableRobotsTXT = true
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
+[taxonomies]
+  tag = 'tags'
+
 ## Site Settings
 [params]
     author = "Morgan Creekmore"
