@@ -1,7 +1,9 @@
 ---
-title: "InnoCTF 2019 Writeups"
-date: "2019-07-19T12:00:00-05:00"
-tags: ["ctf"]
+title: InnoCTF 2019 Writeups
+date: 2019-07-19T12:00:00-05:00
+tags:
+  - ctf
+slug: ctf-innoctf-2019
 ---
 
 Writeups for [InnoCTF](http://innoctf.com/) 2019

@@ -1,6 +1,7 @@
 ---
-title: "Floating Point Hell"
-date: "2014-03-16T13:33:19-05:00"
+title: Floating Point Hell
+date: 2014-03-16T13:33:19-05:00
+slug: floating-point-hell
 ---
 
 This blog post will show how to deal with floating-point error in JavaScript by encoding all uint64's, and int64's as strings in JSON Marshaling.

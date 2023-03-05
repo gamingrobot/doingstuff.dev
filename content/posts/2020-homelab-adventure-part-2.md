@@ -1,7 +1,9 @@
 ---
 title: "Homelab Adventure - Part 2: Lets Get Salty"
-date: "2020-02-06T12:00:00-05:00"
-tags: ["homelab"]
+date: 2020-02-06T12:00:00-05:00
+tags:
+  - homelab
+slug: homelab-adventure-part-2
 ---
 
 Welcome to my journey in building my own homelab. This is part of a multi-part series, in the last part I gave an overview of the homelab plan. This one will cover how I handle configuration management.

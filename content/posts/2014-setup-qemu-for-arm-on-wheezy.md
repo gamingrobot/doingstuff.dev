@@ -1,7 +1,8 @@
 ---
-title: "Setup QEMU for ARM on Wheezy"
-date: "2014-01-01T13:33:39-05:00"
+title: Setup QEMU for ARM on Wheezy
+date: 2014-01-01T13:33:39-05:00
 include_toc: false
+slug: setup-qemu-for-arm-on-wheezy
 ---
 
 This is a quick little blog post for how to install QEMU for ARM on Debian 7.0 (Wheezy).

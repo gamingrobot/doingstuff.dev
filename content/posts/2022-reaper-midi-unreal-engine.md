@@ -1,8 +1,12 @@
 ---
-title: "Sending MIDI from Reaper to Unreal Engine"
-date: "2022-04-11T12:00:00-05:00"
-tags: ["music", "reaper", "unreal"]
+title: Sending MIDI from Reaper to Unreal Engine
+date: 2022-04-11T12:00:00-05:00
+tags:
+  - music
+  - reaper
+  - unreal
 include_toc: false
+slug: reaper-midi-unreal-engine
 ---
 
 Setting up Reaper to send MIDI to Unreal Engine

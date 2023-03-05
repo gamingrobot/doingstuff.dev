@@ -1,7 +1,9 @@
 ---
 title: "Homelab Adventure - Part 1: The Adventure Begins"
-date: "2019-11-09T12:00:00-05:00"
-tags: ["homelab"]
+date: 2019-11-09T12:00:00-05:00
+tags:
+  - homelab
+slug: homelab-adventure-part-1
 ---
 
 Welcome to my journey in building my own homelab. This will be an ongoing series of blog posts of my adventures in building my own personal infrastructure.

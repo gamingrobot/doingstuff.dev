@@ -1,7 +1,9 @@
 ---
-title: "peaCTF 2019 Writeups"
-date: "2019-07-26T12:00:00-05:00"
-tags: ["ctf"]
+title: peaCTF 2019 Writeups
+date: 2019-07-26T12:00:00-05:00
+tags:
+  - ctf
+slug: ctf-peactf-2019
 ---
 
 Writeups for [peaCTF](https://peactf.com/) 2019

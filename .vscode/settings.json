@@ -1,0 +1,8 @@
+{
+    "[markdown]": {
+    },
+    "frontMatter.framework.startCommand": "./hugo.exe server --minify",
+    "frontMatter.preview.host": "http://localhost:1313/posts/",
+    "frontMatter.content.fmHighlight": true,
+    "frontMatter.content.autoUpdateDate": false
+}
