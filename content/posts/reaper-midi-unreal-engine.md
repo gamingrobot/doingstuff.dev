@@ -1,5 +1,5 @@
 ---
-title: "Sending Reaper MIDI to Unreal Engine"
+title: "Sending MIDI from Reaper to Unreal Engine"
 date: "2022-04-11T12:00:00-05:00"
 tags: ["music", "reaper", "unreal"]
 include_toc: false
