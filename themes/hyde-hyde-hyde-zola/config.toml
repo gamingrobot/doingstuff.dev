@@ -12,6 +12,9 @@ taxonomies = [
     {name = "tags", rss = false},
 ]
 
+[search]
+index_format = "elasticlunr_json"
+
 [markdown]
 highlight_code = true
 highlight_theme = "inspired-github"
