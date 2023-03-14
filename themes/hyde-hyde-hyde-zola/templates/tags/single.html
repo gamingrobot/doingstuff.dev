@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block title %}
+    {{ term.name }} - {{ config.title }}
+{% endblock title %}
+
 {% block content %}
 <div>
     <h1 class=section__title>Tag: {{ term.name }}</h1>
