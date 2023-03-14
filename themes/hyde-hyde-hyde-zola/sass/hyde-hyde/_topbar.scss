@@ -1,0 +1,16 @@
+.topbar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 3rem;
+  background-color: $sidebar-color;
+  text-align: center;
+}
+
+.topbar__title {
+  font-size: $topbar__title-font-size;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  color: $gray-1;
+}

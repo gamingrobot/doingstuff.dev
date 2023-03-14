@@ -1,0 +1,15 @@
+name = "hyde-hyde-hyde-zola"
+description = " Another iteration on the hyde theme"
+license = "MIT"
+homepage = "https://github.com/gamingrobot/doingstuff.dev"
+min_version = "0.4.0"
+demo = ""
+
+[extra]
+
+[author]
+name = "Morgan Creekmore"
+homepage = "https://morgancreekmore.me"
+
+[original]
+repo = "https://github.com/gamingrobot/hyde-hyde-hyde"

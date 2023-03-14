@@ -1,0 +1,46 @@
+$toc-background-color: #f3f3f3;
+$toc-font-size: .9rem;
+
+.toc-wrapper {
+  font-size: $toc-font-size;
+  padding: 0.5em 0.5em 0.5em 0em;
+  margin-top: 1rem;
+  background: $toc-background-color;
+  border-radius: 6px;
+  label {
+    display: block;
+    cursor: pointer;
+    padding-left: 1em;
+  }
+}
+#TableOfContents {
+  overflow: hidden;
+  margin-top: 0;
+  max-height: 100%;
+  margin-left: 1rem;
+  > ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    > li ul {
+      list-style-type: none;
+      padding-left: 1em;
+    }
+  }
+}
+
+input#tocToggle {
+  display: none;
+  + label {
+    font-weight: bold;
+  }
+  &:checked {
+    ~ #TableOfContents {
+      max-height: 0;
+    }
+    ~ .toc {
+      max-height: 0;
+      padding-top: 0;
+    }
+  }
+}

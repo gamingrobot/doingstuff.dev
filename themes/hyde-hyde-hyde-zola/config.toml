@@ -1,10 +1,8 @@
-base_url = "https://doingstuff.dev"
+base_url = "https://example.com"
 
-theme = "hyde-hyde-hyde-zola"
-
-title = "Doing Stuff"
-description = "A blog about stuff"
-author = "Morgan Creekmore"
+title = "A Blog"
+description = "A blog"
+author = "John Doe"
 
 compile_sass = true
 build_search_index = true
@@ -23,11 +21,11 @@ menu = [
     {url = "/posts", name = "Posts"},
     {url = "/pages/search", name = "Search"},
     {url = "/atom.xml", name = "Feed"},
-    {url = "https://morgancreekmore.me", name = "About Me"},
+    {url = "/pages/about", name = "About"},
 ]
 
 # https://www.goatcounter.com/
-goatcounter = "grbt-doingstuff"
+# goatcounter = "goatcounter-code-here"
 
 # https://mermaid.js.org/
 mermaid_theme = "default"

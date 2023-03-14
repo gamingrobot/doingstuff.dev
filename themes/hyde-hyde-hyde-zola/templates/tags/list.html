@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1 class=section__title>Tags</h1>
+    <ul class=posts>
+        {% for term in terms %}
+        <li>
+            <span class=list__title--small>
+                <a href={{ term.permalink }} />{{ term.name }} </a>
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

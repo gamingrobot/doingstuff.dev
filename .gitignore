@@ -1,4 +1,2 @@
-/resources
 /public
-hugo.exe
-.hugo_build.lock
+zola.exe
