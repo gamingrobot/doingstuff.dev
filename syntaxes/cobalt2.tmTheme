@@ -158,7 +158,9 @@
         <key>fontStyle</key>
         <string></string>
         <key>foreground</key>
-        <string>#CCCCCC</string>
+        <string>#e1efff</string>
+        <!-- <key>foreground</key>
+        <string>#CCCCCC</string> -->
         <!-- <key>background</key>
         <string>#0d3a58</string> -->
       </dict>
