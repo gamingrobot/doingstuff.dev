@@ -1,4 +1,6 @@
 {
-    "[markdown]": {
+    "files.associations": {
+        "*.html": "jinja-html",
+        "*.md": "jinja-md",
     },
 }
