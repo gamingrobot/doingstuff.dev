@@ -3,4 +3,8 @@
         "*.html": "jinja-html",
         "*.md": "jinja-md",
     },
+    "ltex.enabled": [
+        "jinja-md",
+        "markdown",
+    ],
 }
