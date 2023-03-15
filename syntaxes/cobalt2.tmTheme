@@ -54,7 +54,9 @@
         <key>fontStyle</key>
         <string></string>
         <key>foreground</key>
-        <string>#E1EFFF</string>
+        <string>#f9f9f9</string>
+        <!-- <key>foreground</key>
+        <string>#E1EFFF</string> -->
       </dict>
     </dict>
     <dict>
@@ -158,7 +160,7 @@
         <key>fontStyle</key>
         <string></string>
         <key>foreground</key>
-        <string>#e1efff</string>
+        <string>#f9f9f9</string>
         <!-- <key>foreground</key>
         <string>#CCCCCC</string> -->
         <!-- <key>background</key>
