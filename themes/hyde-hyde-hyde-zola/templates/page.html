@@ -39,8 +39,8 @@
     {% if not page.extra.hide_toc %}
     <div class=toc-wrapper>
         <input type=checkbox id=tocToggle checked>
-        <label for=tocToggle>› Table of Contents</label>
-        <div id=TableOfContents>
+        <label class=toc-label for=tocToggle>› Table of Contents</label>
+        <div class=toc>
             <ul>
                 {% for h1 in page.toc %}
                 <li><a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>

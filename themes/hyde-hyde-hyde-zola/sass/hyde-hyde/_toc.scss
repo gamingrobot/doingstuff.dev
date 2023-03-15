@@ -7,13 +7,15 @@ $toc-font-size: .9rem;
   margin-top: 1rem;
   background: $toc-background-color;
   border-radius: 6px;
-  label {
+  .toc-label {
     display: block;
     cursor: pointer;
     padding-left: 1em;
+    font-weight: bold;
   }
 }
-#TableOfContents {
+
+.toc {
   overflow: hidden;
   margin-top: 0;
   max-height: 100%;
@@ -31,16 +33,9 @@ $toc-font-size: .9rem;
 
 input#tocToggle {
   display: none;
-  + label {
-    font-weight: bold;
-  }
   &:checked {
-    ~ #TableOfContents {
-      max-height: 0;
-    }
     ~ .toc {
       max-height: 0;
-      padding-top: 0;
     }
   }
 }
