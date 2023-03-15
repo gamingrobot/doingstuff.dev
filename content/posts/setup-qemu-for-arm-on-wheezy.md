@@ -94,7 +94,7 @@ qemu-system-arm -M connex -pflash flash.bin -nographic -serial /dev/null
 
 There should now be a `(qemu)` prompt, type `info registers` and should see something like this
 
-```asm
+```
 R00=00000005 R01=00000004 R02=00000009 R03=00000000
 R04=00000000 R05=00000000 R06=00000000 R07=00000000
 R08=00000000 R09=00000000 R10=00000000 R11=00000000

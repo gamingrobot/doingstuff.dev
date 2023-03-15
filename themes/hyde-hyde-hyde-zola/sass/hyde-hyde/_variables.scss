@@ -49,7 +49,9 @@ $code-font-size: .9rem;
 $code-fence-font-size: .8rem;
 //$code-color: #bf616a;
 $code-background-color: #f3f3f3;
-$code-line-height: 1.4;
+//$code-fence-background-color: #f3f3f3;
+$code-fence-background-color: #0d3a58;
+$code-line-height: 1.667em;
 
 // links
 $link-color: $blue;
@@ -89,7 +91,7 @@ $h5-font-size:1rem;
 
 
 // sidebar
-$sidebar-color: #062F4F;
+$sidebar-color: #0d3a58;
 $sidebar-width: 18rem;
 //$sidebar-width: 16rem;
 $site__title-font-size: 2.5rem;

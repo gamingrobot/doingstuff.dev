@@ -1,16 +1,22 @@
+// ```
+// something
+// ```
 pre {
 	tab-size: 2;
 	font-family: $code-font-family;
 	white-space: pre;
-	background-color: $code-background-color !important; //override theme bg
+	background-color: $code-fence-background-color !important; //override theme bg 
 	border-radius: 6px;
 	padding: 1em;
 	overflow-x: auto;
 	code {
 		display:inline-block;
+		font-family: $code-font-family;
 		font-size: $code-fence-font-size;
-		line-height: 1.667em;
+		line-height: $code-line-height;
 		padding: 0;
+		border-radius: 0;
+		background-color: transparent;
 	}
 }
 
@@ -20,6 +26,7 @@ a {
 	}
 }
 
+// `something`
 code {
 	font-family: $code-font-family;
 	font-size: $code-font-size;

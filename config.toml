@@ -19,7 +19,8 @@ index_format = "elasticlunr_json"
 
 [markdown]
 highlight_code = true
-highlight_theme = "inspired-github"
+extra_syntaxes_and_themes = ["syntaxes"]
+highlight_theme = "cobalt2"
 
 [extra]
 menu = [
