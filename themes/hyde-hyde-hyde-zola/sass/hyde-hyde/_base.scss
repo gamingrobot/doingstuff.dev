@@ -96,6 +96,10 @@ blockquote {
 %notebox {
 	padding: 0.5rem 0.5rem 0.5rem 1rem;
 	@extend %quotebox;
+	p {
+		margin: 0;
+		display: inline;	
+	}
 }
 
 %noteicon {

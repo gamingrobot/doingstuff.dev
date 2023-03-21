@@ -2,6 +2,8 @@
 title = "Setup QEMU for ARM on Wheezy"
 date = 2014-01-01
 slug = "setup-qemu-for-arm-on-wheezy"
+[taxonomies]
+tags = ["Linux"]
 [extra]
 hide_toc = true
 +++
