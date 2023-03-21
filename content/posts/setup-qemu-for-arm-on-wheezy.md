@@ -25,15 +25,15 @@ The squeeze repo is for the package `libgmp3c2` that is unavailable on wheezy.
 
 Install the `emdebian` public key
 
-```bash
-apt-get install emdebian-archive-keyring
-apt-get update
+```shell
+$ apt-get install emdebian-archive-keyring
+$ apt-get update
 ```
 
 Install ARM toolchains
 
-```bash
-apt-get install linux-libc-dev-armel-cross libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi gcc-4.4-arm-linux-gnueabi g++-4.4-arm-linux-gnueabi
+```shell
+$ apt-get install linux-libc-dev-armel-cross libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi gcc-4.4-arm-linux-gnueabi g++-4.4-arm-linux-gnueabi
 ```
 
 ---
@@ -42,14 +42,14 @@ apt-get install linux-libc-dev-armel-cross libc6-armel-cross libc6-dev-armel-cro
 
 Install QEMU
 
-```bash
-apt-get install qemu qemu-user-static
+```shell
+$ apt-get install qemu qemu-user-static
 ```
 
 Optional: Install QEMU GUI
 
-```bash
-apt-get install aqemu
+```shell
+$ apt-get install aqemu
 ```
 
 ---
@@ -73,23 +73,23 @@ stop:   b stop               @ Infinite loop to stop execution
 
 Assemble, Link, Build
 
-```bash
-arm-linux-gnueabi-as -o helloarm.o helloarm.s
-arm-linux-gnueabi-ld -o helloarm.elf helloarm.o
-arm-linux-gnueabi-objcopy -O binary helloarm.elf helloarm.bin
+```shell
+$ arm-linux-gnueabi-as -o helloarm.o helloarm.s
+$ arm-linux-gnueabi-ld -o helloarm.elf helloarm.o
+$ arm-linux-gnueabi-objcopy -O binary helloarm.elf helloarm.bin
 ```
 
 Setup `flash.bin`
 
-```bash
-dd if=/dev/zero of=flash.bin bs=4096 count=4096
-dd if=helloarm.bin of=flash.bin bs=4096 conv=notrunc
+```shell
+$ dd if=/dev/zero of=flash.bin bs=4096 count=4096
+$ dd if=helloarm.bin of=flash.bin bs=4096 conv=notrunc
 ```
 
 Launch QEMU
 
-```bash
-qemu-system-arm -M connex -pflash flash.bin -nographic -serial /dev/null
+```shell
+$ qemu-system-arm -M connex -pflash flash.bin -nographic -serial /dev/null
 ```
 
 There should now be a `(qemu)` prompt, type `info registers` and should see something like this
