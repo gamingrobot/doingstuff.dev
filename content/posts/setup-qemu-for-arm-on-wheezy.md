@@ -26,14 +26,14 @@ The squeeze repo is for the package `libgmp3c2` that is unavailable on wheezy.
 Install the `emdebian` public key
 
 ```console
-$ apt-get install emdebian-archive-keyring
-$ apt-get update
+# apt-get install emdebian-archive-keyring
+# apt-get update
 ```
 
 Install ARM toolchains
 
 ```console
-$ apt-get install linux-libc-dev-armel-cross libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi gcc-4.4-arm-linux-gnueabi g++-4.4-arm-linux-gnueabi
+# apt-get install linux-libc-dev-armel-cross libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi gcc-4.4-arm-linux-gnueabi g++-4.4-arm-linux-gnueabi
 ```
 
 ---
@@ -43,13 +43,13 @@ $ apt-get install linux-libc-dev-armel-cross libc6-armel-cross libc6-dev-armel-c
 Install QEMU
 
 ```console
-$ apt-get install qemu qemu-user-static
+# apt-get install qemu qemu-user-static
 ```
 
 Optional: Install QEMU GUI
 
 ```console
-$ apt-get install aqemu
+# apt-get install aqemu
 ```
 
 ---
