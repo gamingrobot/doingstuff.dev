@@ -25,14 +25,14 @@ The squeeze repo is for the package `libgmp3c2` that is unavailable on wheezy.
 
 Install the `emdebian` public key
 
-```shell
+```console
 $ apt-get install emdebian-archive-keyring
 $ apt-get update
 ```
 
 Install ARM toolchains
 
-```shell
+```console
 $ apt-get install linux-libc-dev-armel-cross libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi gcc-4.4-arm-linux-gnueabi g++-4.4-arm-linux-gnueabi
 ```
 
@@ -42,13 +42,13 @@ $ apt-get install linux-libc-dev-armel-cross libc6-armel-cross libc6-dev-armel-c
 
 Install QEMU
 
-```shell
+```console
 $ apt-get install qemu qemu-user-static
 ```
 
 Optional: Install QEMU GUI
 
-```shell
+```console
 $ apt-get install aqemu
 ```
 
@@ -73,7 +73,7 @@ stop:   b stop               @ Infinite loop to stop execution
 
 Assemble, Link, Build
 
-```shell
+```console
 $ arm-linux-gnueabi-as -o helloarm.o helloarm.s
 $ arm-linux-gnueabi-ld -o helloarm.elf helloarm.o
 $ arm-linux-gnueabi-objcopy -O binary helloarm.elf helloarm.bin
@@ -81,14 +81,14 @@ $ arm-linux-gnueabi-objcopy -O binary helloarm.elf helloarm.bin
 
 Setup `flash.bin`
 
-```shell
+```console
 $ dd if=/dev/zero of=flash.bin bs=4096 count=4096
 $ dd if=helloarm.bin of=flash.bin bs=4096 conv=notrunc
 ```
 
 Launch QEMU
 
-```shell
+```console
 $ qemu-system-arm -M connex -pflash flash.bin -nographic -serial /dev/null
 ```
 

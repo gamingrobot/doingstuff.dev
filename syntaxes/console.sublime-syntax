@@ -1,8 +1,8 @@
 %YAML 1.2
 ---
 file_extensions:
-  - shell
-scope: source.shell
+  - console
+scope: source.console
 
 contexts:
   main:
