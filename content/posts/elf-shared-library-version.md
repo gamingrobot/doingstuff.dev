@@ -88,3 +88,7 @@ Displaying notes found in: .note.foo.version
 ```
 
 The downside is the output is in hex when using `readelf`, unlike the human readable format of SCCS above. But this method is faster since it's only reading the ELF headers rather than the whole binary.
+
+## Can these be used for executables?
+
+Yup, if you need to provide a version without executing. But the more intuitive solution is to have a `--version` argument.
