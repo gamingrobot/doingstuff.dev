@@ -16,7 +16,7 @@ This will cover embedding a product/release version in libraries distributed out
 
 ## What about ABI version?
 
-ABI versioning can be separate from your product/release version. If you haven't changed the ABI interface, you can keep the same ABI version while updating the product/release version on new builds. There are some great [resources](https://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html), [policy](https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html#abi.changes_allowed), and [tools](https://www.gnu.org/software/libtool/manual/libtool.html#Versioning) for how to handle ABI versioning.
+ABI version can be separate from your product/release version. If you haven't changed the ABI interface, you can keep the same ABI version while updating the product/release version on new builds. There are some great [resources](https://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html), [policy](https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html#abi.changes_allowed), and [tools](https://www.gnu.org/software/libtool/manual/libtool.html#Versioning) for how to handle ABI versioning.
 
 {% info() %}
 Symbol versioning is another way to handle ABI changes without changing the ABI version, this blog post is [all about symbol versioning](https://maskray.me/blog/2020-11-26-all-about-symbol-versioning). 
@@ -43,7 +43,7 @@ $ strings libfoo.so | grep "@(#)"
 @(#)Version 1.2.3
 ```
 
-This is human readable but slow since it has to look at all the strings in the binary. If you want to get the version programmatically, we have one more method.
+This is human readable but slow since it has to look at all the strings in the binary. If you want to get the version programmatically, we have another method.
 
 ### ELF Note Header
 
