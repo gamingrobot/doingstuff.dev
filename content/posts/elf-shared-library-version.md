@@ -19,7 +19,7 @@ This will cover embedding a product/release version in libraries distributed out
 ABI version can be separate from your product/release version. If you haven't changed the ABI interface, you can keep the same ABI version while updating the product/release version on new builds. There are some great [resources](https://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html), [policy](https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html#abi.changes_allowed), and [tools](https://www.gnu.org/software/libtool/manual/libtool.html#Versioning) for how to handle ABI versioning.
 
 {% info() %}
-Symbol versioning is another way to handle ABI changes without changing the ABI version, this blog post is [all about symbol versioning](https://maskray.me/blog/2020-11-26-all-about-symbol-versioning). 
+Symbol versioning is another way to handle ABI changes without changing the ABI version, [this blog post is all about symbol versioning](https://maskray.me/blog/2020-11-26-all-about-symbol-versioning). 
 {% end %}
 
 ## Ways of embedding version information
