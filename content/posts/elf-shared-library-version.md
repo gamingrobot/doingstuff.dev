@@ -24,7 +24,7 @@ Symbol versioning is another way to handle ABI changes without changing the ABI 
 
 ## Ways of embedding version information
 
-Okay, so you want to embed a product/release version in your ELF shared libraries. How should you do it?
+Okay, so you want to embed a version in your ELF shared libraries. How should you do it?
 
 ### SCCS String
 
