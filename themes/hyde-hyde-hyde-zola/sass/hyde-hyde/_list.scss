@@ -9,7 +9,7 @@
 }
 
 .post-list__item {
-	margin-bottom: 3em;
+	margin-bottom: 2em;
 }
 
 .item__title--big {
@@ -29,3 +29,10 @@
 	margin-bottom: .2rem;
 	margin-top: .2rem;
 }
+
+.item__summary {
+	p {
+		margin-bottom: 0;
+	}
+}
+

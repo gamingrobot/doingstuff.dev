@@ -5,8 +5,9 @@
     {% for page in paginator.pages %}
     <div class=post-list__item><span class=item__title--big><a href="{{ page.permalink | safe }}" />{{ page.title }}</a></span>
         <span class=item__date>{{ page.date | date(format="%b %d, %Y") }}</span>
-        <span>
-            <p>{{ page.summary | safe}}</p>
+        <span class="item__summary">
+            {{ page.summary | safe}}
+            <a href="{{ page.permalink | safe }}" />Read more...</a>
         </span>
     </div>
     {% endfor %}
