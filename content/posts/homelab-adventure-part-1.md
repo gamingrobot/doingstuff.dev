@@ -35,17 +35,17 @@ At the time of writing here is my current inventory of servers. It will most lik
   - Disk: 40GB SSD
 - 1 NAS
   - CPU: Intel i5-6600K
-  - RAM: 8GB
-  - Disk: 2x 250GB SSD, 4x 3TB WD Red
+  - RAM: 32GB
+  - Disk: 2x 250GB SSD, 4x 12TB HDD
 - 2 Dedicated Servers
   - Dedicated Server 1
-    - CPU: 2x Intel Xeon L5420
+    - CPU: Intel
     - RAM: 32GB
     - Disk: 2x 1TB HDD
   - Dedicated Server 2
-    - CPU: Intel Xeon E5 1410 v2
-    - RAM: 64GB
-    - Disk: 3x 6TB HDD
+    - CPU: Intel
+    - RAM: 32GB
+    - Disk: 2x 3TB HDD
 
 ## Goals
 
