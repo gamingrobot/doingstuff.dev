@@ -16,7 +16,7 @@ Welcome to my journey in building my homelab. This is part of a multipart series
 
 ## Why?
 
-It is helpful to have an internal and external network for your homelab. This allows hosting of internal services without exposing them to the internet.
+It's helpful to have an internal and external network for your homelab. This allows hosting of internal services without exposing them to the internet.
 
 Since my homelab lives in multiple datacenters (and at home), it's less convenient to use a site-to-site VPN. So a peer-to-peer VPN between all my servers is ideal. This also makes it easy for me to add non-servers to the network like my phone or desktop to access those internal services.
 
@@ -42,7 +42,7 @@ These are some other options for peer-to-peer VPNs:
 
 ## ZeroTier and Salt
 
-I have written a [salt formula](https://github.com/gamingrobot/salt-formula-zerotier) for managing ZeroTier with salt. It allows interacting with the local agent and with the network controller's API.
+I have written a [salt formula](https://github.com/gamingrobot/salt-formula-zerotier) for managing ZeroTier with salt. It allows interacting with the local agent and the network controller's API.
 
 [**Part 1: The Adventure Begins**](/posts/homelab-adventure-part-1/)  
 [**Part 2: Configuration Management**](/posts/homelab-adventure-part-2/)  
