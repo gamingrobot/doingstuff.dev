@@ -10,8 +10,8 @@ Welcome to my journey in building my homelab. This is part of a multipart series
 
 <!-- more -->
 
-[**Part 1: The Adventure Begins**](/posts/homelab-adventure-part-1/)  
-[**Part 2: Configuration Management**](/posts/homelab-adventure-part-2/)  
+[**Part 1: The Adventure Begins**](@/posts/homelab-adventure-part-1.md)  
+[**Part 2: Configuration Management**](@/posts/homelab-adventure-part-2.md)  
 **Part 3: Internal Network (You are here!)**
 
 ## Why?
@@ -44,6 +44,6 @@ These are some other options for peer-to-peer VPNs:
 
 I have written a [salt formula](https://github.com/gamingrobot/salt-formula-zerotier) for managing ZeroTier with salt. It allows interacting with the local agent and the network controller's API.
 
-[**Part 1: The Adventure Begins**](/posts/homelab-adventure-part-1/)  
-[**Part 2: Configuration Management**](/posts/homelab-adventure-part-2/)  
+[**Part 1: The Adventure Begins**](@/posts/homelab-adventure-part-1.md)  
+[**Part 2: Configuration Management**](@/posts/homelab-adventure-part-2.md)  
 **Part 3: Internal Network (You are here!)**

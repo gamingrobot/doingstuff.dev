@@ -11,8 +11,8 @@ Welcome to my journey in building my homelab. This will be an ongoing series of 
 <!-- more -->
 
 **Part 1: The Adventure Begins (You are here!)**  
-[**Part 2: Configuration Management**](/posts/homelab-adventure-part-2/)  
-[**Part 3: Internal Network**](/posts/homelab-adventure-part-3/)  
+[**Part 2: Configuration Management**](@/posts/homelab-adventure-part-2.md)  
+[**Part 3: Internal Network**](@/posts/homelab-adventure-part-3.md)  
 
 ## What is a Homelab
 
@@ -98,5 +98,5 @@ These are the tools/software I decided on to meet each of the above goals.
 I hope you will join me in this adventure into homelabbing. In the next post in the series we will cover configuration management.
 
 **Part 1: The Adventure Begins (You are here!)**  
-[**Part 2: Configuration Management**](/posts/homelab-adventure-part-2/)  
-[**Part 3: Internal Network**](/posts/homelab-adventure-part-3/)  
+[**Part 2: Configuration Management**](@/posts/homelab-adventure-part-2.md)  
+[**Part 3: Internal Network**](@/posts/homelab-adventure-part-3.md)  

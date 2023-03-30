@@ -10,9 +10,9 @@ Welcome to my journey in building my homelab. This is part of a multipart series
 
 <!-- more -->
 
-[**Part 1: The Adventure Begins**](/posts/homelab-adventure-part-1/)  
+[**Part 1: The Adventure Begins**](@/posts/homelab-adventure-part-1.md)  
 **Part 2: Configuration Management (You are here!)**  
-[**Part 3: Internal Network**](/posts/homelab-adventure-part-3/)  
+[**Part 3: Internal Network**](@/posts/homelab-adventure-part-3.md)  
 
 ## What is Salt
 
@@ -214,6 +214,6 @@ Grains are controlled by the minion, so a server can access pillar data for othe
 
 I hope this gave you a good view of how I use Salt to configure my servers. In the next part we will cover how to have an internal network over the internet.
 
-[**Part 1: The Adventure Begins**](/posts/homelab-adventure-part-1/)  
+[**Part 1: The Adventure Begins**](@/posts/homelab-adventure-part-1.md)  
 **Part 2: Configuration Management (You are here!)**  
-[**Part 3: Internal Network**](/posts/homelab-adventure-part-3/)  
+[**Part 3: Internal Network**](@/posts/homelab-adventure-part-3.md)  
