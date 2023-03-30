@@ -22,11 +22,7 @@ Since my homelab lives in multiple datacenters (and at home), it's less convenie
 
 ## What is ZeroTier
 
-> It’s a distributed network hypervisor built atop a cryptographically
-> secure global peer-to-peer network. It provides advanced network
-> virtualization and management capabilities on par with an enterprise SDN
-> switch, but across both local and wide area networks and connecting
-> almost any kind of app or device.
+> It’s a distributed network hypervisor built atop a cryptographically secure global peer-to-peer network. It provides advanced network virtualization and management capabilities on par with an enterprise SDN switch, but across both local and wide area networks and connecting almost any kind of app or device.
 
 This means ZeroTier is "mostly" a peer-to-peer VPN, what I mean by "mostly" is that it still uses a "centralized" network controller (you can host your own if you want). The bulk of the traffic is peer-to-peer, and the network controller is only for the initial routing. [This has some trade-offs with something that is entirely peer-to-peer](http://adamierymenko.com/decentralization.html).
 
