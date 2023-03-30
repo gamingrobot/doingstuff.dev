@@ -1,17 +1,18 @@
 +++
-title = "Homelab Adventure - Part 2: Lets Get Salty"
+title = "Homelab Adventure - Part 2: Configuration Management"
 date = 2020-02-06
 slug = "homelab-adventure-part-2"
 [taxonomies]
-tags = ["HomeLab"]
+tags = ["Homelab"]
 +++
 
-Welcome to my journey in building my own homelab. This is part of a multi-part series, in the last part I gave an overview of the homelab plan. This one will cover how I handle configuration management.
+Welcome to my journey in building my homelab. This is part of a multipart series, in the last part I gave an overview of the homelab plan. This one will cover how I handle configuration management.
 
 <!-- more -->
 
 [**Part 1: The Adventure Begins**](/posts/homelab-adventure-part-1/)  
-**Part 2: Lets Get Salty (You are here!)**
+**Part 2: Configuration Management (You are here!)**  
+[**Part 3: Internal Network**](/posts/homelab-adventure-part-3/)  
 
 ## What is Salt
 
@@ -214,4 +215,5 @@ Grains are controlled by the minion, so a server can access pillar data for othe
 I hope this gave you a good view of how I use Salt to configure my servers. In the next part we will cover how to have an internal network over the internet.
 
 [**Part 1: The Adventure Begins**](/posts/homelab-adventure-part-1/)  
-**Part 2: Lets Get Salty (You are here!)**
+**Part 2: Configuration Management (You are here!)**  
+[**Part 3: Internal Network**](/posts/homelab-adventure-part-3/)  

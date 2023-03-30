@@ -3,15 +3,16 @@ title = "Homelab Adventure - Part 1: The Adventure Begins"
 date = 2019-11-09
 slug = "homelab-adventure-part-1"
 [taxonomies]
-tags = ["HomeLab"]
+tags = ["Homelab"]
 +++
 
-Welcome to my journey in building my own homelab. This will be an ongoing series of blog posts of my adventures in building my own personal infrastructure.
+Welcome to my journey in building my homelab. This will be an ongoing series of blog posts of my adventures in building my personal infrastructure.
 
 <!-- more -->
 
 **Part 1: The Adventure Begins (You are here!)**  
-[**Part 2: Lets Get Salty**](/posts/homelab-adventure-part-2/)
+[**Part 2: Configuration Management**](/posts/homelab-adventure-part-2/)  
+[**Part 3: Internal Network**](/posts/homelab-adventure-part-3/)  
 
 ## What is a Homelab
 
@@ -62,13 +63,10 @@ These are the tools/software I decided on to meet each of the above goals.
 
 ### Hosting Applications
 
-[Docker](https://www.docker.com/) for hosting most applications and allows me to move services around.
-
-[Portainer](https://www.portainer.io/) for managing the docker containers on specific servers.
-
-[Salt](https://github.com/saltstack/salt) for everything else that doesn't fit into a container.
-
-[Traefik](https://traefik.io/) provides routing and certificates for services.
+- [Docker](https://www.docker.com/) for hosting most applications and allows me to move services around.
+- [Portainer](https://www.portainer.io/) for managing the docker containers on specific servers.
+- [Salt](https://github.com/saltstack/salt) for everything else that doesn't fit into a container.
+- [Traefik](https://traefik.io/) provides routing and certificates for services.
 
 ### Minimizing Ongoing Maintenance
 
@@ -100,4 +98,5 @@ These are the tools/software I decided on to meet each of the above goals.
 I hope you will join me in this adventure into homelabbing. In the next post in the series we will cover configuration management.
 
 **Part 1: The Adventure Begins (You are here!)**  
-[**Part 2: Lets Get Salty**](/posts/homelab-adventure-part-2/)
+[**Part 2: Configuration Management**](/posts/homelab-adventure-part-2/)  
+[**Part 3: Internal Network**](/posts/homelab-adventure-part-3/)  
