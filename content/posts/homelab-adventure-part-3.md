@@ -38,7 +38,9 @@ These are some other options for peer-to-peer VPNs:
 
 ## ZeroTier and Salt
 
-I have written a [salt formula](https://github.com/gamingrobot/salt-formula-zerotier) for managing ZeroTier with salt. It allows interacting with the local agent and the network controller's API.
+I have written a salt formula for managing ZeroTier with salt. It allows interacting with the local agent and the network controller's API.
+
+[https://github.com/gamingrobot/salt-formula-zerotier](https://github.com/gamingrobot/salt-formula-zerotier)
 
 [**Part 1: The Adventure Begins**](@/posts/homelab-adventure-part-1.md)  
 [**Part 2: Configuration Management**](@/posts/homelab-adventure-part-2.md)  
