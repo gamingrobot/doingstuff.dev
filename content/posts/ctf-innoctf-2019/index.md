@@ -22,7 +22,7 @@ Can you check if this site is hiding something?
 
 ## RF
 
-I was walking on rails when suddenly i found this on wooden fence: I3_nase7ncamсo_r1сCt_t4T07_}Fnhs{1
+I was walking on rails when suddenly i found this on wooden fence: I3_nase7ncamco_r1cCt_t4T07_}Fnhs{1
 
 ### Solution
 
@@ -31,8 +31,8 @@ I looked at various ciphers and stumbled across the [Rail Fence cipher](https://
 ```
 I.............3............._.....
 .n...........a.s...........e.7....
-..n.........c...a.........m...с...
-...o......._.....r.......1.....с..
+..n.........c...a.........m...c...
+...o......._.....r.......1.....c..
 ....C.....t......._.....t.......4.
 .....T...0.........7..._.........}
 ......F.n...........h.s...........
@@ -64,16 +64,16 @@ Using [Ghidra](https://ghidra-sre.org/) I replaced the existing printf function 
 - Import the file as Raw Binary (this is because Ghidra messes up the ELF header if imported as a ELF binary)
 - Find the memory address of the flag function
 
-{{ fig(src="call_me_flag.png") }}
+{{ fig(src="call_me_flag.png", alt="Ghidra output of the flag function") }}
 
 - Find the main function
 
-{{ fig(src="call_me_printf.png") }}
+{{ fig(src="call_me_printf.png", alt="Ghidra output of the main function with a call to printf") }}
 
 - Right click on the printf function and select patch instruction
 - Change the call address to be the address of the flag function
 
-{{ fig(src="call_me_flag_patch.png") }}
+{{ fig(src="call_me_flag_patch.png", alt="Ghidra output of the printf call patched to the flag function") }}
 
 - Export Program from Ghidra
 - Run the executable
@@ -86,6 +86,6 @@ Using [Ghidra](https://ghidra-sre.org/) I replaced the existing printf function 
 
 I discovered that this was a .NET executable, so I used [dnSpy](https://github.com/0xd4d/dnSpy) to run the executable with debugging.
 
-{{ fig(src="quick_peek.png") }}
+{{ fig(src="quick_peek.png", alt="dnSpy at a breakpoint in the flag function with the locals window showing the flag") }}
 
 `InnoCTF{1337_SPAgh377i_CoD3}`
