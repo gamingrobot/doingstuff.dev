@@ -12,8 +12,6 @@ This is a quick little blog post for how to install QEMU for ARM on Debian 7.0 (
 
 <!-- more -->
 
----
-
 ## Installing Toolchains
 
 Edit `/etc/apt/sources.list` and add
@@ -38,9 +36,7 @@ Install ARM toolchains
 # apt-get install linux-libc-dev-armel-cross libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi gcc-4.4-arm-linux-gnueabi g++-4.4-arm-linux-gnueabi
 ```
 
----
-
-### Installing QEMU
+## Installing QEMU
 
 Install QEMU
 
@@ -54,9 +50,7 @@ Optional: Install QEMU GUI
 # apt-get install aqemu
 ```
 
----
-
-### Hello ARM
+## Hello ARM
 
 Time to test everything is working.
 
