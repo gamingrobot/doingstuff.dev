@@ -7,7 +7,7 @@
         <span class=item__date>{{ page.date | date(format="%b %d, %Y") }}</span>
         <span class="item__summary">
             {{ page.summary | safe}}
-            <a href="{{ page.permalink | safe }}" />Read more...</a>
+            {# <a href="{{ page.permalink | safe }}" />Read more...</a> #}
         </span>
     </div>
     {% endfor %}
