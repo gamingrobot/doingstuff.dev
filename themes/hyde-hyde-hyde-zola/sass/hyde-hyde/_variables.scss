@@ -15,7 +15,7 @@ $orange: #d28445;
 $yellow: #f4bf75;
 $green: #90a959;
 $cyan: #75b5aa;
-$blue: #268bd2;
+$blue: #167bc2;
 $brown: #8f5536;
 
 $root-font-family: "Source Sans Pro","Arial",sans-serif;
@@ -105,5 +105,5 @@ $content-margin-left: $sidebar-width + 2rem;
 $content-margin-right: 2rem;
 
 // navigation
-$navigation-color: #167bc2;
+$navigation-color: $blue;
 
