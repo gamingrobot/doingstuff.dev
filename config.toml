@@ -25,8 +25,8 @@ highlight_theme = "cobalt2"
 [extra]
 menu = [
     {url = "/pages/search", name = "Search"},
-    {url = "/atom.xml", name = "Feed"},
-    {url = "https://morgancreekmore.me", name = "About"},
+    {url = "/atom.xml", name = "RSS"},
+    {url = "/pages/about", name = "About"},
 ]
 
 # https://www.goatcounter.com/

@@ -1,0 +1,40 @@
+.about
+{
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.avatar {
+    width: 20rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%; 
+    max-width: 60%;
+    box-sizing: border-box;
+    display: block;
+    margin: auto;
+}
+
+.icons {
+    margin-top: 2rem;
+    display: flex;
+    height: 3rem;
+}
+
+.icons a {
+    text-decoration: none;
+}
+
+.icon {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    color: $link-color;
+    fill: $link-color;
+}
+
+.icon:hover {
+    color: $link-hover-color;
+    fill: $link-hover-color;
+}
