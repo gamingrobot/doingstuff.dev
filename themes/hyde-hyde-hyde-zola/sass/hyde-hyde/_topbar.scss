@@ -3,14 +3,44 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 3rem;
-  background-color: $sidebar-color;
+  padding-top: $topbar-top-offset;
+  height: $topbar-height;
+  background-color: $topbar-color;
   text-align: center;
+  a {
+    color: $gray-1;
+    border: none;
+    &:hover {
+      color: $link-color;
+    }
+    &:focus {
+      color: $link-color;
+    }
+
+  }
 }
 
-.topbar__title {
-  font-size: $topbar__title-font-size;
-  margin-top: 0.6rem;
-  margin-bottom: 0.6rem;
-  color: $gray-1;
+.topbar-text {
+  display: flex;
+  margin: auto;
 }
+
+.topbar-title {
+  padding-left: 1rem;
+  display: flex;
+  align-items: stretch;
+  font-size: $topbar-title-font-size;
+}
+
+.topbar-menu {
+  padding-right: 1rem;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  font-size: 23px;
+}
+
+
+
+

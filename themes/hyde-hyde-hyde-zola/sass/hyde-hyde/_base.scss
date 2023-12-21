@@ -176,14 +176,6 @@ a {
 	color: $link-color;
 	text-decoration: none;
 	word-wrap: break-word;
-	&.sidebar-nav-item {
-		&:hover {
-			@include link-no-decoration();
-		}
-		&:focus {
-			@include link-no-decoration();
-		}
-	}
 	&:focus {
 		@include link-hover();
 		&.tag {
@@ -208,5 +200,5 @@ a {
 
 .content {
 	padding-bottom: 2rem;
-	padding-top: 2rem;
+	padding-top: $topbar-height;
 }

@@ -6,85 +6,15 @@
   body {
     font-size: $small-device-font-size;
   }
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: -$sidebar-width;
-    height: 100%;
-    overflow-y: auto;
-    width: $sidebar-width;
-    z-index: 95;
-    padding: 3rem 1rem;
-    li {
-      padding: .3rem 0;
-    }
-  }
   .hidden-tablet {
     display: none;
   }
-  .sidebar-menu {
-    padding: 0px 0px;
+  .topbar-title {
+    flex: 1 1 auto;
   }
-  .sidebar-menu ul {
-    list-style-type: none;
-    padding: 0;
+  .topbar-text {
+    max-width: 100%;
   }
-  .sidebar-menu li {
-    display: block;
-  }
-  .sidebar-menu a {
-    text-decoration: none;
-    cursor: pointer; }
-
-  //For hiding/showing the sidebar
-  .sidebar-label {
-    display: block;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3rem;
-    height: 3rem;
-    padding: 0.7rem; //0.1 rem more than topbar margins
-    overflow: hidden;
-    font-weight: bold;
-    //outline: dashed 1px black;
-  }
-
-  .sidebar-label svg {
-    display: block;
-    margin: auto;
-    height: 1.5rem;
-    width: 1.5rem;
-  }
-
-  #sidebarBurger {
-    z-index: 90;
-    color: #fff;
-  }
-
-  #sidebarClose {
-    z-index: 99;
-    color: #fff;
-  }
-
-  input#sidebarToggle:checked ~ .sidebar {
-    transform: translateX($sidebar-width);
-    -webkit-transform: translateX($sidebar-width);
-    transition: transform .4s ease;
-  }
-
-  input#sidebarToggle ~ .sidebar {
-    transform: translateX(0);
-    -webkit-transform: translateX(0);
-    transition: transform .4s ease;
-  }
-
-  .topbar {
-    z-index: 50;
-    display: block;
-  }
-
 }
 
 // tablet/medium device ~768px+
@@ -94,23 +24,11 @@
   body {
     font-size: $large-device-font-size;
   }
-  .sidebar {
-    position: absolute;
-    text-align: left;
-    top: 0;
-    width: $sidebar-width;
-    margin-left: -$sidebar-width;
-    display: block;
-    border-radius: 0 0 20px 20px;
+  .topbar-title {
+    flex: 1 1 60%;
   }
-  .sidebar-sticky {
-    left: 1rem;
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-  }
-  .content {
-    padding-left: $content-margin-left;
+  .topbar-text {
+    max-width: $content-max-width;
   }
   .col-sm-8 {
     width: 66.66666667%;
@@ -133,23 +51,4 @@
       }
     }
   }
-  input#sidebarToggle,
-  .sidebar-label {
-    display: none;
-  }
-  .topbar {
-    display: none;
-  }
-}
-
-// Large devices (laptops/desktops, 992px and up)
-// ~ 62rem/16px ~ 58.3529rem/17px ~ 55.1111rem/18px
-@media (min-width: 992px) {
-//styles
-}
-
-// Large device ~1024px
-// 1024px ~  64rem/16px ~ 60.2353rem/17px 56.8889rem/18px
-@media (min-width: 1024px) {
-  // styles
 }

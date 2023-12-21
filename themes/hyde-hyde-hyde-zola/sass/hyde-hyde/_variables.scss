@@ -89,12 +89,13 @@ $h4-font-size:1.3rem;
 $h5-font-size:1rem;
 
 
-// sidebar
-$sidebar-color: #0d3a58;
-$sidebar-width: 18rem;
-//$sidebar-width: 16rem;
-$site__title-font-size: 2.5rem;
-$topbar__title-font-size: 1.5rem;
+// topbar
+$topbar-color: #0d3a58;
+$topbar-title-font-size: 1.8rem;
+$topbar-height: 4rem;
+$topbar-top-offset: 1rem;
+
+//copyright
 $copyright-font-size: $font-scale-dot7;
 
 // content
@@ -102,8 +103,6 @@ $content-max-width: 42rem;
 //$content-max-width: 42rem; 
 //$content-max-width: 52rem; 
 //$content-max-width: 38rem; 
-$content-margin-left: 2rem;
-$content-margin-right: 2rem;
 
 // navigation
 $navigation-color: $blue;

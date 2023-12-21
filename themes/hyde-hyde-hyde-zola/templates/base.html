@@ -44,24 +44,15 @@
     <body>
         <div class=container>
             <div class=topbar>
-                <div class=topbar__title>{{ config.title }}</div>
-            </div>
-            <div class=sidebar-wrapper>
-                <input type=checkbox id=sidebarToggle style=display:none>
-                <label id=sidebarBurger class=sidebar-label for=sidebarToggle>{{ macros::svg_menu() }}</label>
-                <div class=sidebar>
-                    <label id=sidebarClose class=sidebar-label for=sidebarToggle>{{ macros::svg_x() }}</label>
-                    <div class=sidebar-about><span class=site__title><a href="{{ config.base_url }}">{{ config.title }}</a></span>
-                        <p class=site__description>{{ config.description }}</p>
+                <div class=topbar-text>
+                    <div class=topbar-title>
+                        <a href="/"><span>{{ config.title }}</span></a>
                     </div>
-                    <div class=sidebar-menu>
-                        <div>
-                            <ul class=sidebar-nav>
-                            {% for item in config.extra.menu %}
-                                <li><a href="{{ item.url }}" /><span>{{ item.name }}</span></a></li>
-                            {% endfor %}
-                            </ul>
-                        </div>
+                    <div class=topbar-menu>
+                        {% for item in config.extra.menu %}
+                        <a href="{{ item.url }}"><span>{{ item.name }}</span></a>
+                        {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </div>
