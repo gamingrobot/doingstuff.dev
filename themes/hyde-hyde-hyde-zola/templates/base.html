@@ -42,15 +42,15 @@
         {% endblock extra_head %}
     </head>
     <body>
-        <div class=topbar>
-            <div class=topbar__title>{{ config.title }}</div>
-        </div>
-        <div class=sidebar-wrapper>
-            <input type=checkbox id=sidebarToggle style=display:none>
-            <label id=sidebarBurger class=sidebar-label for=sidebarToggle>{{ macros::svg_menu() }}</label>
-            <div class=sidebar>
-                <label id=sidebarClose class=sidebar-label for=sidebarToggle>{{ macros::svg_x() }}</label>
-                <div class=container>
+        <div class=container>
+            <div class=topbar>
+                <div class=topbar__title>{{ config.title }}</div>
+            </div>
+            <div class=sidebar-wrapper>
+                <input type=checkbox id=sidebarToggle style=display:none>
+                <label id=sidebarBurger class=sidebar-label for=sidebarToggle>{{ macros::svg_menu() }}</label>
+                <div class=sidebar>
+                    <label id=sidebarClose class=sidebar-label for=sidebarToggle>{{ macros::svg_x() }}</label>
                     <div class=sidebar-about><span class=site__title><a href="{{ config.base_url }}">{{ config.title }}</a></span>
                         <p class=site__description>{{ config.description }}</p>
                     </div>
@@ -65,13 +65,13 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="content container">
-            {% block content %}
-            {% endblock content %}
-            {% block copyright %}
-            <div class=copyright>&copy; {{ now() | date(format="%Y") }} Morgan Creekmore - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
-            {% endblock copyright %}
+            <div class=content>
+                {% block content %}
+                {% endblock content %}
+                {% block copyright %}
+                <div class=copyright>&copy; {{ now() | date(format="%Y") }} Morgan Creekmore - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                {% endblock copyright %}
+            </div>
         </div>
         {% block js_body %}
         {% endblock js_body %}

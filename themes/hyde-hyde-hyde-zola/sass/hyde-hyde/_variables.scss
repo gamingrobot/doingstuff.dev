@@ -98,10 +98,11 @@ $topbar__title-font-size: 1.5rem;
 $copyright-font-size: $font-scale-dot7;
 
 // content
-$content-max-width: 42rem; // @ ~100 CPL
-//$content-max-width: 52rem; // @ ~122 CPL
-//$content-max-width: 38rem; // @ ~70 CPL
-$content-margin-left: $sidebar-width + 2rem;
+$content-max-width: 42rem; 
+//$content-max-width: 42rem; 
+//$content-max-width: 52rem; 
+//$content-max-width: 38rem; 
+$content-margin-left: 2rem;
 $content-margin-right: 2rem;
 
 // navigation

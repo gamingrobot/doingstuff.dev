@@ -92,16 +92,16 @@
 @media (min-width: 768px) {
   html,
   body {
-    font-size: $small-device-font-size;
+    font-size: $large-device-font-size;
   }
   .sidebar {
-    bottom: 0;
-    left: 0;
-    position: fixed;
+    position: absolute;
     text-align: left;
     top: 0;
     width: $sidebar-width;
+    margin-left: -$sidebar-width;
     display: block;
+    border-radius: 0 0 20px 20px;
   }
   .sidebar-sticky {
     left: 1rem;
@@ -111,9 +111,16 @@
   }
   .content {
     padding-left: $content-margin-left;
-    max-width: $content-max-width + $content-margin-left;
   }
   .col-sm-8 {
+    width: 66.66666667%;
+  }
+  .col-md-4 {
+    float: left;
+    width: 33.33333333%;
+  }
+  .col-md-8 {
+    float: left;
     width: 66.66666667%;
   }
   .navigation {
@@ -126,33 +133,19 @@
       }
     }
   }
-
   input#sidebarToggle,
   .sidebar-label {
     display: none;
   }
-
   .topbar {
     display: none;
   }
-
 }
 
 // Large devices (laptops/desktops, 992px and up)
 // ~ 62rem/16px ~ 58.3529rem/17px ~ 55.1111rem/18px
 @media (min-width: 992px) {
-  html,
-  body {
-    font-size: $large-device-font-size;
-  }
-  .col-md-4 {
-    float: left;
-    width: 33.33333333%;
-  }
-  .col-md-8 {
-    float: left;
-    width: 66.66666667%;
-  }
+//styles
 }
 
 // Large device ~1024px
