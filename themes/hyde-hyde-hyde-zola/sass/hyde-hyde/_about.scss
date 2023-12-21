@@ -1,7 +1,11 @@
-.about
-{
+.about {
     margin-top: 3rem;
     text-align: center;
+    font-weight: 600;
+}
+
+.about h1 {
+    font-weight: 600;
 }
 
 .avatar {
@@ -38,3 +42,5 @@
     color: $link-hover-color;
     fill: $link-hover-color;
 }
+
+  

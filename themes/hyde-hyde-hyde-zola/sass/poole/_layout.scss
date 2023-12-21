@@ -4,8 +4,8 @@
 
 .container {
   max-width: $content-max-width;
-  padding-left:  1.5rem;
-  padding-right: 1.5rem;
+  padding-left:  $content-padding;
+  padding-right: $content-padding;
   margin-left:  auto;
   margin-right: auto;
 }
