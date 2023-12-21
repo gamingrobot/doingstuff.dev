@@ -3,8 +3,8 @@
   left: 0;
   top: 0;
   width: 100%;
-  padding-top: $topbar-top-offset;
-  height: $topbar-height;
+  padding-top: $topbar-offset;
+  padding-bottom: $topbar-offset;
   background-color: $topbar-color;
   text-align: center;
   a {
@@ -38,7 +38,7 @@
   display: flex;
   align-items: stretch;
   justify-content: space-around;
-  font-size: 23px;
+  font-size: $topbar-links-font-size;
 }
 
 
