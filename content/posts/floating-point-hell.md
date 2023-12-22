@@ -1,5 +1,6 @@
 +++
 title = "Floating Point Hell"
+description = "Did you know JavaScript uses floats for all numbers?"
 date = 2014-03-16
 slug = "floating-point-hell"
 [extra]

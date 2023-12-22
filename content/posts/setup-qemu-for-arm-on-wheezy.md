@@ -1,5 +1,6 @@
 +++
-title = "Setup QEMU for ARM on Wheezy"
+title = "Setup QEMU for ARM on Debian Wheezy"
+description = "How-to setup QEMU for ARM on Debian Wheezy"
 date = 2014-01-01
 slug = "setup-qemu-for-arm-on-wheezy"
 [taxonomies]

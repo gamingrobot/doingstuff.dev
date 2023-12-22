@@ -1,5 +1,6 @@
 +++
 title = "Sending MIDI from Reaper to Unreal Engine"
+description = "How-to setup MIDI routing from Reaper to Unreal Engine"
 date = 2022-04-11
 slug = "reaper-midi-unreal-engine"
 [taxonomies]

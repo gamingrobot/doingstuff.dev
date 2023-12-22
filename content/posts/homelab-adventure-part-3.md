@@ -1,5 +1,6 @@
 +++
 title = "Homelab Adventure - Part 3: Internal Network"
+description = "Homelab internal networking with ZeroTier"
 date = 2023-03-29
 slug = "homelab-adventure-part-3"
 [taxonomies]

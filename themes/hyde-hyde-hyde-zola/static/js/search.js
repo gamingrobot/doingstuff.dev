@@ -122,9 +122,10 @@ function makeTeaser(body, terms) {
 }
 
 function formatSearchResultItem(item) {
-  return '<div class="search-results__item">'
-  + `<a href="${item.ref}"><span class="title">${item.doc.title}</span></a>`
-  + '</div>';
+  console.log(item);
+  return '<span class=list__title--small>'
+  + `<a href=${item.ref} />${item.doc.title} </a>`
+  + '</span>';
 }
 
 function initSearch() {

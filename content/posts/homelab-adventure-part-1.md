@@ -1,5 +1,6 @@
 +++
 title = "Homelab Adventure - Part 1: The Adventure Begins"
+description = "Homelab overview"
 date = 2019-11-09
 slug = "homelab-adventure-part-1"
 [taxonomies]

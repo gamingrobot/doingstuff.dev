@@ -1,5 +1,6 @@
 +++
 title = "Homelab Adventure - Part 2: Configuration Management"
+description = "Homelab configuration management with Salt"
 date = 2020-02-06
 slug = "homelab-adventure-part-2"
 [taxonomies]

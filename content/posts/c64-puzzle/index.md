@@ -1,5 +1,6 @@
 +++
 title = "Commodore 64 Puzzle"
+description = "A fun Commodore 64 Puzzle"
 date = 2020-02-27
 slug = "c64-puzzle"
 +++

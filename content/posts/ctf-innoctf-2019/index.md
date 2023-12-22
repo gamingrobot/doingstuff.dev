@@ -1,5 +1,6 @@
 +++
 title = "InnoCTF 2019 Writeups"
+description = "Writeups for InnoCTF 2019"
 date = 2019-07-19
 slug = "ctf-innoctf-2019"
 [taxonomies]
