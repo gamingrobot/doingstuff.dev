@@ -122,9 +122,9 @@ function makeTeaser(body, terms) {
 }
 
 function formatSearchResultItem(item) {
-  console.log(item);
   return '<span class=list__title--small>'
   + `<a href=${item.ref} />${item.doc.title} </a>`
+  // + `<time class="pull-right hidden-tablet">${item.doc.date}</time>` // add when zola search index includes date
   + '</span>';
 }
 

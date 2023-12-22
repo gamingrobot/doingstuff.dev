@@ -11,7 +11,17 @@
     </header>
     <div class="search-form">
         <input id="search" tabindex="0">
-        <ul class="search-results__items"></ul>
+        <ul class="search-results__items">
+        {% set section = get_section(path="posts/_index.md") %}
+        {% for page in section.pages %}
+            <li>
+                <span class=list__title--small>
+                    <a href={{ page.permalink }} />{{ page.title }} </a>
+                    <time class="pull-right hidden-tablet">{{ page.date | date(format="%b %e, %Y") }}</time>
+                </span>
+            </li>
+        {% endfor %}
+        </ul>
     </div>
 </article>
 {% endblock content %}
