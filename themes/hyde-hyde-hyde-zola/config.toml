@@ -22,7 +22,6 @@ highlight_theme = "inspired-github"
 [extra]
 menu = [
     {url = "/posts", name = "Posts"},
-    {url = "/pages/search", name = "Search"},
     {url = "/atom.xml", name = "Feed"},
     {url = "/pages/about", name = "About"},
 ]
