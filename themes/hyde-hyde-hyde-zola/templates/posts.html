@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    {{ page.title }} - {{ config.title }}
+    {{ section.title }} - {{ config.title }}
 {% endblock title %}
 
 {% block metadata %}
@@ -9,21 +9,18 @@
     <meta content="{{ config.title }}" property="og:site_name"/>
     <meta content="{{ current_url | safe }}" property="og:url"/>
     <meta content="{{ current_url | safe }}" property="twitter:url"/>
-    {% if page.title %}
-        <meta content="{{ page.title }}" property="og:title"/>
-        <meta content="{{ page.title }}" property="twitter:title"/>
+    {% if section.title %}
+        <meta content="{{ section.title }}" property="og:title"/>
+        <meta content="{{ section.title }}" property="twitter:title"/>
     {% endif %}
 {% endblock metadata %}
 
 {% block content %}
-<article>
-    <header>
-      <h1>{{ page.title }}</h1>
-    </header>
+<div>
+    <h1 class=section__title>{{ section.title }}</h1>
     <div class="search-form">
-        <input id="search" tabindex="0">
+        <input id="search" tabindex="0" placeholder="Search">
         <ul class="search-results__items">
-        {% set section = get_section(path="posts/_index.md") %}
         {% for page in section.pages %}
             <li>
                 <span class=list__title--small>
@@ -34,7 +31,7 @@
         {% endfor %}
         </ul>
     </div>
-</article>
+</div>
 {% endblock content %}
 
 {% block js_body %}

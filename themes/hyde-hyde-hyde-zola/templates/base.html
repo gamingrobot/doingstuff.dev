@@ -60,7 +60,7 @@
                 {% block content %}
                 {% endblock content %}
                 {% block copyright %}
-                {% if not page.extra.hide_copyright %}
+                {% if not page.extra.hide_copyright and not section.extra.hide_copyright %}
                 <div class=copyright>&copy; {{ now() | date(format="%Y") }} Morgan Creekmore - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
                 {% endif %}
                 {% endblock copyright %}
