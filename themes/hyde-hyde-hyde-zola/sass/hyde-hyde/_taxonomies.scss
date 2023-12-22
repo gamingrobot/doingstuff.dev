@@ -1,11 +1,9 @@
 .badge-tag,
 a.badge-tag {
   color: #fff !important;
-  background-color: #007cc0;
+  background-color: $link-color;
   &:hover, &:focus {
-    color: #007cc0 !important;
-    background: transparent;
-    background-color: transparent;
+    background-color: $link-hover-color;
     text-decoration: none;
     border-bottom: none;
   }

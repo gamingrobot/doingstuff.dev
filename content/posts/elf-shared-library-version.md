@@ -8,7 +8,7 @@ tags = ["Linux"]
 
 *How to embed version information into an ELF shared library?*
 
-That is the question I ended up answering for myself, and here are the methods I discovered for embedding version information.
+Here are the methods I discovered for embedding version information.
 
 <!-- more -->
 
