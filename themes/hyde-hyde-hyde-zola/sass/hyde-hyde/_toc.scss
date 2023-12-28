@@ -1,11 +1,8 @@
-$toc-background-color: #f3f3f3;
-$toc-font-size: .9rem;
-
 .toc-wrapper {
   font-size: $toc-font-size;
   padding: 0.5em 0.5em 0.5em 0em;
   margin-top: 1rem;
-  background: $toc-background-color;
+  background-color: $toc-background-color;
   border-radius: 6px;
   .toc-label {
     display: block;
@@ -29,6 +26,10 @@ $toc-font-size: .9rem;
       padding-left: 1em;
     }
   }
+}
+
+.toc a {
+  color: $toc-link-color
 }
 
 input#tocToggle {
