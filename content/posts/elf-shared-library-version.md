@@ -15,7 +15,7 @@ Here are the methods I discovered for embedding version information.
 
 This will cover embedding a product/release version in libraries distributed outside a package. Packages have their own version that can be referenced, so we don't need to embed a version.
 
-## What about ABI version?
+## What about the ABI version?
 
 ABI version can be separate from your product/release version. If you haven't changed the ABI interface, you can keep the same ABI version while updating the product/release version on new builds. There are some great [resources](https://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html), [policy](https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html#abi.changes_allowed), and [tools](https://www.gnu.org/software/libtool/manual/libtool.html#Versioning) for how to handle ABI versioning.
 
@@ -44,7 +44,7 @@ $ strings libfoo.so | grep "@(#)"
 @(#)Version 1.2.3
 ```
 
-This is human readable but slow since it has to look at all the strings in the binary. If you want to get the version programmatically, we have another method.
+This is human-readable but slow since it has to look at all the strings in the binary. If you want to get the version programmatically, we have another method.
 
 ### ELF Note Header
 
@@ -88,7 +88,7 @@ Displaying notes found in: .note.foo.version
   (NONE)               0x00000006       NT_VERSION (version)       description data: 31 2e 32 2e 33 00
 ```
 
-The downside is the output is in hex when using `readelf`, unlike the human readable format of SCCS above. But this method is faster since it's only reading the ELF headers rather than the whole binary.
+The downside is the output is in hex when using `readelf`, unlike the human-readable format of SCCS above. But this method is faster since it's only reading the ELF headers rather than the whole binary.
 
 ## Can executables use these methods?
 
