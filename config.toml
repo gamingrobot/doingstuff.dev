@@ -15,6 +15,7 @@ taxonomies = [
 ]
 
 [search]
+# include_date = true
 index_format = "elasticlunr_json"
 
 [markdown]
@@ -28,6 +29,8 @@ menu = [
     {url = "/atom.xml", name = "RSS"},
     {url = "/pages/about", name = "About"},
 ]
+
+author_url = "https://infosec.exchange/@gamingrobot"
 
 # https://www.goatcounter.com/
 goatcounter = "grbt-doingstuff"

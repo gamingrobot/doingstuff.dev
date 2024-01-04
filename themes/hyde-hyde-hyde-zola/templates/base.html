@@ -61,7 +61,7 @@
                 {% endblock content %}
                 {% block copyright %}
                 {% if not page.extra.hide_copyright and not section.extra.hide_copyright %}
-                <div class=copyright>&copy; {{ now() | date(format="%Y") }} <a href="https://morgancreekmore.me">Morgan Creekmore</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                <div class=copyright>&copy; {{ now() | date(format="%Y") }} <a href="{{ config.extra.author_url }}" rel="noopener me">{{ config.author }}</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
                 {% endif %}
                 {% endblock copyright %}
             </div>

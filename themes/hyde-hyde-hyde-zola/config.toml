@@ -26,6 +26,8 @@ menu = [
     {url = "/pages/about", name = "About"},
 ]
 
+author_url = "https://example.com"
+
 # https://www.goatcounter.com/
 # goatcounter = "goatcounter-code-here"
 
