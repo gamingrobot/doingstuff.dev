@@ -15,7 +15,7 @@ taxonomies = [
 ]
 
 [search]
-# include_date = true
+include_date = true
 index_format = "elasticlunr_json"
 
 [markdown]
