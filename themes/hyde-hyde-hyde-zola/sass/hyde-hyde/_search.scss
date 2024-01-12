@@ -11,7 +11,7 @@
     outline: none;
     padding: 3px 0px 3px 3px;
     margin: 5px 1px 3px 0px;
-    border: 2px solid rgb(151, 151, 151);
+    border: 2px solid #979797;
     font-weight: 300;
     height: auto;
     width:      100%;
@@ -21,8 +21,8 @@
 }
 
 .search-form input:focus {
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    box-shadow: 0 0 5px #51cbee;
     padding: 3px 0px 3px 3px;
     margin: 5px 1px 3px 0px;
-    border: 2px solid rgba(81, 203, 238, 1);
+    border: 2px solid #51cbee;
 }

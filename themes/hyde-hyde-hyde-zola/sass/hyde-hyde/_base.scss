@@ -109,8 +109,8 @@ blockquote {
 }
 
 .tip {
-	color: rgba(46, 46, 46, 0.77);
-	background-color: rgba(123, 247, 144, 0.2);
+	color: #2e2e2ec4;
+	background-color: #7bf79033;
 	border-left-color: #03b303;
 	@extend %notebox;
 }
@@ -121,7 +121,7 @@ blockquote {
 }
 
 .info {
-	color: rgba(46, 46, 46, 0.77);
+	color: #2e2e2ec4;
 	background-color: #e1f5fe;
 	border-left-color: #0070cb;
 	@extend %notebox;
@@ -133,8 +133,8 @@ blockquote {
 }
 
 .warning {
-	color: rgba(46, 46, 46, 0.77);
-	background-color: rgb(255, 243, 205);
+	color: #2e2e2ec4;
+	background-color: #fff3cd;
 	border-left-color: #ef9c03;
 	@extend %notebox;
 }
@@ -145,8 +145,8 @@ blockquote {
 }
 
 .danger {
-	color: rgba(46, 46, 46, 0.77);
-	background-color: rgba(248, 215, 218, 0.56);
+	color: #2e2e2ec4;
+	background-color: #f8d7da8f;
 	border-left-color: #df3c30;
 	@extend %notebox;
 }

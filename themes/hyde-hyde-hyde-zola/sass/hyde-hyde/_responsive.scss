@@ -117,11 +117,11 @@
 
   /* Modified CSS */
   body {
-    color: rgb(200, 195, 188);
-    background-color: rgb(24, 26, 27);
+    color: #c8c3bc;
+    background-color: #181a1b;
   }
   a {
-    color: rgb(73, 168, 234);
+    color: #49a8ea;
     text-decoration-color: initial;
   }
   a:hover,
@@ -132,36 +132,36 @@
     color: inherit;
   }
   table {
-    border-color: rgb(55, 60, 62);
+    border-color: #373c3e;
   }
   td,
   th {
-    border-color: rgb(55, 60, 62);
+    border-color: #373c3e;
   }
   tbody tr:nth-child(2n+1) td,
   tbody tr:nth-child(2n+1) th {
-    background-color: rgb(27, 30, 31);
+    background-color: #1b1e1f;
   }
   .page-title,
   .post-title,
   .post-title a {
-    color: rgb(202, 197, 190);
+    color: #cac5be;
   }
   .post-date {
-    color: rgb(168, 161, 149);
+    color: #a8a195;
   }
   .related {
-    border-top-color: rgb(53, 57, 59);
-    border-bottom-color: rgb(53, 57, 59);
+    border-top-color: #35393b;
+    border-bottom-color: #35393b;
   }
   .related-posts {
     list-style-image: initial;
   }
   .related-posts li small {
-    color: rgb(168, 160, 149);
+    color: #a8a095;
   }
   .related-posts li a:hover {
-    color: rgb(73, 168, 234);
+    color: #49a8ea;
     text-decoration-color: initial;
   }
   .related-posts li a:hover small {
@@ -173,72 +173,72 @@
   .tip,
   blockquote {
     border-left-color: initial;
-    border-right-color: rgba(140, 130, 115, 0);
-    color: rgb(157, 149, 136);
+    border-right-color: #8c827300;
+    color: #9d9588;
   }
   blockquote {
-    border-left-color: rgb(55, 60, 62);
+    border-left-color: #373c3e;
   }
   .tip {
-    color: rgba(203, 198, 192, 0.77);
-    background-color: rgba(8, 127, 53, 0.2);
-    border-left-color: rgb(3, 197, 3);
+    color: #cbc6c0c4;
+    background-color: #087f3533;
+    border-left-color: #03c503;
   }
   .tip-icon {
-    color: rgb(80, 252, 80);
+    color: #50fc50;
   }
   .info {
-    color: rgba(203, 198, 192, 0.77);
-    background-color: rgb(2, 47, 67);
-    border-left-color: rgb(0, 107, 194);
+    color: #cbc6c0c4;
+    background-color: #022f43;
+    border-left-color: #006bc2;
   }
   .info-icon {
     color: rgb(82, 181, 255);
   }
   .warning {
-    color: rgba(203, 198, 192, 0.77);
-    background-color: rgb(61, 46, 0);
-    border-left-color: rgb(180, 118, 2);
+    color: #cbc6c0c4;
+    background-color: #3d2e00;
+    border-left-color: #b47602;
   }
   .warning-icon {
-    color: rgb(252, 177, 37);
+    color: #fcb125;
   }
   .danger {
-    color: rgba(203, 198, 192, 0.77);
-    background-color: rgba(67, 12, 17, 0.56);
-    border-left-color: rgb(150, 32, 23);
+    color: #cbc6c0c4;
+    background-color: #430c118f;
+    border-left-color: #962017;
   }
   .danger-icon {
-    color: rgb(226, 77, 66);
+    color: #e24d42;
   }
   kbd {
-    border-color: rgb(62, 68, 70);
-    background-color: rgb(31, 33, 35);
-    color: rgb(201, 196, 189);
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px,
-    rgb(24, 26, 27) 0px 0px 0px 2px inset;
-    text-shadow: rgb(24, 26, 27) 0px 1px 0px;
+    border-color: #3e4446;
+    background-color: #1f2123;
+    color: #c9c4bd;
+    box-shadow: #00000033 0px 0px 0px,
+    #181a1b 0px 0px 0px 2px inset;
+    text-shadow: #181a1b 0px 1px 0px;
   }
   a {
-    color: rgb(73, 168, 234);
+    color: #49a8ea;
     text-decoration-color: initial;
   }
   a:focus {
-    color: rgb(200, 195, 188);
-    border-bottom-color: rgb(62, 68, 70);
+    color: #c8c3bc;
+    border-bottom-color: #3e4446;
     text-decoration-color: initial;
     background-image: initial;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: #00000000;
   }
   a:focus.tag {
     text-decoration-color: initial;
   }
   a:hover {
-    color: rgb(200, 195, 188);
-    border-bottom-color: rgb(62, 68, 70);
+    color: #c8c3bc;
+    border-bottom-color: #3e4446;
     text-decoration-color: initial;
     background-image: initial;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: #00000000;
   }
   a:hover.tag {
     text-decoration-color: initial;
@@ -257,109 +257,109 @@
     border-color: initial;
   }
   .topbar a:hover {
-    color: rgb(73, 168, 234);
+    color: #49a8ea;
   }
   .topbar a:focus {
-    color: rgb(73, 168, 234);
+    color: #49a8ea;
   }
   .icons a {
     text-decoration-color: initial;
     border-color: initial;
   }
   .icon {
-    color: rgb(73, 168, 234);
-    fill: rgb(73, 168, 234);
+    color: #49a8ea;
+    fill: #49a8ea;
   }
   .icon:hover {
-    color: rgb(200, 195, 188);
-    fill: rgb(200, 195, 188);
+    color: #c8c3bc;
+    fill: #c8c3bc;
   }
   .item__date {
-    color: rgb(157, 149, 136);
+    color: #9d9588;
   }
   .post__meta {
-    color: rgb(157, 149, 136);
+    color: #9d9588;
   }
   .post__tag {
     background-image: initial;
-    background-color: rgb(34, 36, 38);
-    color: rgb(166, 159, 147);
+    background-color: #222426;
+    color: #a69f93;
   }
   .post__title {
     background-image: linear-gradient(to right,
-    rgb(3, 0, 178),
-    rgb(75, 101, 116));
-    color: rgba(232, 230, 227, 0);
+    #0300b2,
+    #4b6574);
+    color: #e8e6e300;
   }
   // pre {
   //   background-color: rgb(10, 46, 70) !important;
   // }
   pre code {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: #00000000;
   }
   a code {
-    color: rgb(73, 168, 234);
+    color: #49a8ea;
   }
   code {
-    background-color: rgb(31, 33, 35);
+    background-color: #1f2123;
   }
   .navigation a {
-    color: rgb(73, 168, 234);
-    border-color: rgb(19, 108, 171);
+    color: #49a8ea;
+    border-color: #136cab;
   }
   .badge-tag,
   a.badge-tag {
-    background-color: rgb(18, 98, 155);
-    color: rgb(232, 230, 227) !important;
+    background-color: #12629b;
+    color: #e8e6e3 !important;
   }
   .badge-tag:hover,
   .badge-tag:focus,
   a.badge-tag:hover,
   a.badge-tag:focus {
-    background-color: rgb(10, 46, 70);
+    background-color: #0a2e46;
     text-decoration-color: initial;
     border-bottom-color: initial;
   }
   .menu {
-    background-color: rgb(31, 33, 35);
-    color: rgb(200, 195, 188);
+    background-color: #1f2123;
+    color: #c8c3bc;
   }
   .draft {
-    color: rgb(168, 160, 149) !important;
+    color: #a8a095 !important;
   }
   .search-form input {
     outline-color: initial;
-    border-color: rgb(77, 84, 87);
+    border-color: #4d5457;
   }
   .search-form input:focus {
-    box-shadow: rgb(15, 121, 151) 0px 0px 5px;
-    border-color: rgb(14, 116, 145);
+    box-shadow: #0f7997 0px 0px 5px;
+    border-color: #0e7491;
   }
   // .toc-wrapper {
-  //   background-color: rgb(31, 33, 35);
+  //   background-color: #1f2123;
   // }
   // .toc a {
-  //   color: rgb(77, 174, 242);
+  //   color: #4daef2;
   // }
 
   /* Removed Override Style */
 
   /* Manually added */
   .toc-wrapper {
-    background-color: rgb(31, 33, 35) !important;
+    background-color: #1f2123 !important;
   }
   .toc a {
-    color: rgb(77, 174, 242) !important;
+    color: #4daef2 !important;
   }
 
   .toc a:focus {
-    color: rgb(200, 195, 188) !important;
-    border-bottom-color: rgb(62, 68, 70);
+    color: #c8c3bc !important;
+    border-bottom-color: #3e4446;
     text-decoration-color: initial;
   }
   .toc a:hover {
-    color: rgb(200, 195, 188) !important;
-    border-bottom-color: rgb(62, 68, 70);
+    color: #c8c3bc !important;
+    border-bottom-color: #3e4446;
     text-decoration-color: initial;
   }
 
