@@ -33,5 +33,6 @@ author_url = "https://example.com"
 
 # https://mermaid.js.org/
 mermaid_theme = "default"
+mermaid_theme_dark = "dark"
 mermaid_align = "center"
 

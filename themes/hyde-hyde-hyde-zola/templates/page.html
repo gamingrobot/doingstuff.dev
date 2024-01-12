@@ -76,10 +76,14 @@
     {% if page.extra.mermaid %}
         <script type="module">
             import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+            var theme = '{{ config.extra.mermaid_theme }}'
+            if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme = '{{ config.extra.mermaid_theme_dark }}'
+            }
             var config = {
                 startOnLoad:true,
-                theme:'{{ config.extra.mermaid_theme or "default" }}',
-                align:'{{ config.extra.mermaid_align or "center" }}'
+                theme: theme,
+                align:'{{ config.extra.mermaid_align }}'
             };
             mermaid.initialize(config);
         </script>

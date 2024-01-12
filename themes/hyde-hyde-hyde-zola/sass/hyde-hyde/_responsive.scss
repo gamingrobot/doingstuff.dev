@@ -117,7 +117,7 @@
 
   /* Modified CSS */
   body {
-    color: #c8c3bc;
+    color: #eaeaea;
     background-color: #181a1b;
   }
   a {
@@ -174,13 +174,13 @@
   blockquote {
     border-left-color: initial;
     border-right-color: #8c827300;
-    color: #9d9588;
+    color: #c8c3bc;
   }
   blockquote {
     border-left-color: #373c3e;
   }
   .tip {
-    color: #cbc6c0c4;
+    color: #eaeaea;
     background-color: #087f3533;
     border-left-color: #03c503;
   }
@@ -188,15 +188,15 @@
     color: #50fc50;
   }
   .info {
-    color: #cbc6c0c4;
+    color: #eaeaea;
     background-color: #022f43;
     border-left-color: #006bc2;
   }
   .info-icon {
-    color: rgb(82, 181, 255);
+    color: #52b5ff;
   }
   .warning {
-    color: #cbc6c0c4;
+    color: #eaeaea;
     background-color: #3d2e00;
     border-left-color: #b47602;
   }
@@ -204,7 +204,7 @@
     color: #fcb125;
   }
   .danger {
-    color: #cbc6c0c4;
+    color: #eaeaea;
     background-color: #430c118f;
     border-left-color: #962017;
   }
@@ -224,7 +224,7 @@
     text-decoration-color: initial;
   }
   a:focus {
-    color: #c8c3bc;
+    color: #eaeaea;
     border-bottom-color: #3e4446;
     text-decoration-color: initial;
     background-image: initial;
@@ -234,7 +234,7 @@
     text-decoration-color: initial;
   }
   a:hover {
-    color: #c8c3bc;
+    color: #eaeaea;
     border-bottom-color: #3e4446;
     text-decoration-color: initial;
     background-image: initial;
@@ -271,14 +271,14 @@
     fill: #49a8ea;
   }
   .icon:hover {
-    color: #c8c3bc;
-    fill: #c8c3bc;
+    color: #eaeaea;
+    fill: #eaeaea;
   }
   .item__date {
-    color: #9d9588;
+    color: #c8c3bc;
   }
   .post__meta {
-    color: #9d9588;
+    color: #c8c3bc;
   }
   .post__tag {
     background-image: initial;
@@ -322,7 +322,7 @@
   }
   .menu {
     background-color: #1f2123;
-    color: #c8c3bc;
+    color: #eaeaea;
   }
   .draft {
     color: #a8a095 !important;
@@ -353,12 +353,12 @@
   }
 
   .toc a:focus {
-    color: #c8c3bc !important;
+    color: #eaeaea !important;
     border-bottom-color: #3e4446;
     text-decoration-color: initial;
   }
   .toc a:hover {
-    color: #c8c3bc !important;
+    color: #eaeaea !important;
     border-bottom-color: #3e4446;
     text-decoration-color: initial;
   }
