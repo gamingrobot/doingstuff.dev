@@ -100,5 +100,3 @@ PSR=400001d3 -Z-- A svc32
 ```
 
 `R02=00000009` Register 2 has the value 9 in it so everything is working.
-
-A more in-depth explanation of this helloarm program can be found [here](http://www.bravegnu.org/gnu-eprog/hello-arm.html).
