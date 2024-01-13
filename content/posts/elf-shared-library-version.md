@@ -9,11 +9,11 @@ tags = ["Linux"]
 
 *How to embed version information into an ELF shared library?*
 
-Here are the methods I discovered for embedding version information.
+Here are the methods I have used for embedding version information.
 
 <!-- more -->
 
-This will cover embedding a product/release version in libraries distributed outside a package. Packages have their own version that can be referenced, so we don't need to embed a version.
+These methods are for embedding a version into libraries distributed outside of a package. Packages have their own version information, so we don't need to embed one in the library.
 
 ## What about the ABI version?
 
