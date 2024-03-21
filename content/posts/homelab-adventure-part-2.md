@@ -15,6 +15,10 @@ Welcome to my journey in building my homelab. This is part of a multipart series
 **Part 2: Configuration Management (You are here!)**  
 [**Part 3: Internal Network**](@/posts/homelab-adventure-part-3.md)  
 
+{% warning() %}
+Since this blog post was written I have [switched from Salt to Ansible](@/posts/homelab-switching-salt-to-ansible.md).
+{% end %}
+
 ## What is Salt
 
 > [Salt](https://github.com/saltstack/salt) is a configuration management and orchestration tool.
