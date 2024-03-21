@@ -7,13 +7,13 @@ slug = "homelab-switching-salt-to-ansible"
 tags = ["Homelab"]
 +++
 
-About a month ago I thought it would be nice to be able to configure VM's and Droplets with salt by using my existing configuration I had setup in [Part 2: Configuration Management](@/posts/homelab-adventure-part-2.md).
+About a month ago I thought it would be nice to be able to configure VM's and Droplets with Salt by using my existing configuration I had setup in [Part 2: Configuration Management](@/posts/homelab-adventure-part-2.md).
 
 <!-- more -->
 
-I could have gone the normal route of installing the salt minion and attaching it to the salt master then running the highstate. But since these would be resource constrained machines I had concerns about the resource usage of the minion.
+I could have gone the normal route of installing the Salt minion and attaching it to the Salt master then running the highstate. But since these would be resource constrained machines I had concerns about the resource usage of the minion.
 
-So I decided to try Salt SSH, which uses ssh to transfer a lightweight minion that executes the states and then exits. It would also allow me to to use salt from my local machine instead of remoting into the server hosting the salt master.
+So I decided to try Salt SSH, which uses ssh to transfer a lightweight minion that executes the states and then exits. It would also allow me to to use Salt from my local machine instead of remoting into the server hosting the Salt master.
 
 This worked great until I attempted to run it and hit this [lovely bug](https://github.com/saltstack/salt/issues/60002) where if you are using gpg-encrypted pillars the minion will attempt to decrypt them rather than decrypting locally and when rendering the state.
 
