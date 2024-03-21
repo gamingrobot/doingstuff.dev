@@ -46,7 +46,9 @@
                     {% if h1.children %}
                     <ul>
                         {% for h2 in h1.children %}
+                        {%- if h2.level <= 3 %}
                         <li><a href="{{ h2.permalink | safe }}">{{ h2.title }}</a></li>
+                        {%- endif %}
                         {% endfor %}
                     </ul>
                     {% endif %}
