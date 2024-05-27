@@ -11,7 +11,7 @@ My college professor posted this image with the question
 
 > What is the output when enter is pressed?
 
-{{ fig(src="problem.jpg", alt="Commodore 64 screen with a BASIC program") }}
+{{ fig(src="problem.jpg", align="center" alt="Commodore 64 screen with a BASIC program") }}
 
 <!-- more -->
 
