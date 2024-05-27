@@ -9,7 +9,7 @@ tags = ["Home Assistant"]
 image = "tablet_small.png"
 +++
 
-Turning a Intel Atom based Lenovo Tablet 10 (20E4) into a Home Assistant dashboard and voice assistant. Most tutorials for dashboard displays are using Android tablets. But I had an old Intel based tablet laying around and figured out how to use it with Home Assistant.
+Turning a Intel Atom based Lenovo Tablet 10 (20E4) into a Home Assistant dashboard and voice assistant. Most tutorials for dashboard displays are using Android tablets, but I had this old tablet laying around and figured out how to use it with Home Assistant.
 
 {{ fig(src="tablet_small.png", alt="Lenovo tablet with home assistant dashboard") }}
 
