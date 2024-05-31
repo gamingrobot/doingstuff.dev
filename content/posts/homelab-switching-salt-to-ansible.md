@@ -96,8 +96,8 @@ dynamic-config:
 Salt has targeting as part of the `state.apply` command, in Ansible you can limit the scope of the playbook by using `--limit`
 
 ```console
-$ salt 'testserver' state.apply`
-$ ansible-playbook servers.yml --limit testserver`
+$ salt 'testserver' state.apply
+$ ansible-playbook servers.yml --limit testserver
 ```
 
 ## Living with Ansible for a few months
