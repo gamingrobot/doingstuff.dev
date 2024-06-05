@@ -46,6 +46,27 @@ h5 {
 	font-size: $h5-font-size;
 }
 
+h2,
+h3,
+h4 {
+	.zola-anchor {
+		@include link-no-decoration();
+		visibility: hidden;
+		cursor: pointer;
+		vertical-align: middle;
+		font-size: 50%;
+		margin-left: 0.2rem;
+	}
+
+	&:hover {
+		.zola-anchor {
+			@include link-no-decoration();
+			visibility: visible;
+			//animation: fade-in 5s ease-in-out;
+		}
+	}
+}
+
 figure {
 	max-width: 100%;
 	margin: 0;
