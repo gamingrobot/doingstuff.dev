@@ -43,7 +43,7 @@
     </head>
     <body>
         <div class=container>
-            <div class=topbar>
+            <nav class=topbar>
                 <div class=topbar-text>
                     <div class=topbar-title>
                         <a href="/"><span>{{ config.title }}</span></a>
@@ -52,10 +52,9 @@
                         {% for item in config.extra.menu %}
                         <a href="{{ item.url }}"><span>{{ item.name }}</span></a>
                         {% endfor %}
-                        </ul>
                     </div>
                 </div>
-            </div>
+            </nav>
             <div class=content>
                 {% block content %}
                 {% endblock content %}
