@@ -21,9 +21,9 @@ highlight_theme = "inspired-github"
 
 [extra]
 menu = [
-    {url = "/posts", name = "Posts"},
-    {url = "/atom.xml", name = "Feed"},
-    {url = "/pages/about", name = "About"},
+    {url = "@/posts", name = "Posts"},
+    {url = "atom.xml", name = "Feed"},
+    {url = "@/pages/about", name = "About"},
 ]
 
 author_url = "https://example.com"
