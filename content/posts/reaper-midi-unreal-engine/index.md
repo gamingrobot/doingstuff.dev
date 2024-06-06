@@ -18,18 +18,18 @@ How to setup Reaper to send MIDI to Unreal Engine. If you are looking to use OSC
 - Install [loopMIDI](https://www.tobias-erichsen.de/software/loopmidi.html) (This allows us to create a loopback MIDI device)
 
 - Add a new MIDI device in loopMIDI called `unreal_port`
-{{ fig(src="loopmidi.png", alt="loopMIDI with unreal_port added") }}
+{{ img(src="loopmidi.png", alt="loopMIDI with unreal_port added") }}
 
 - Enable new MIDI output in Reaper via Options -> Preferences -> Audio -> MIDI Devices  
 {% info() %}
 Only enable the MIDI Output
 {% end %}
-{{ fig(src="midi-output.png", alt="Reaper MIDI devices with unreal_port enabled") }}
+{{ img(src="midi-output.png", alt="Reaper MIDI devices with unreal_port enabled") }}
 
 - Setup MIDI output routing per track via:
-{{ fig(src="reaper-routematrix.png", caption="Routing Matrix (View -> Routing Matrix)") }}
+{{ img(src="reaper-routematrix.png", text="Routing Matrix (View -> Routing Matrix)") }}
 **OR**
-{{ fig(src="reaper-routetrack.png", caption="Track routing settings (IO button on track)") }}
+{{ img(src="reaper-routetrack.png", text="Track routing settings (IO button on track)") }}
 
 Set each track to a separate MIDI channel, so each track number maps to its corresponding channel number.
 
@@ -38,14 +38,14 @@ Set each track to a separate MIDI channel, so each track number maps to its corr
 Based on [this forum thread](https://forums.unrealengine.com/t/setting-up-a-blueprint-midi-manager-with-4-14-version-of-midi-device-support-plugin/91606)
 
 - Enable MIDI Device Support Plugin
-{{ fig(src="midi-plugin.png", alt="Unreal Engine's MIDI Device Support plugin enabled") }}
+{{ img(src="midi-plugin.png", alt="Unreal Engine's MIDI Device Support plugin enabled") }}
 
 - Import [Midi Blueprints](https://dev.epicgames.com/community/snippets/JKp/unreal-engine-midi-input)
 
 - Create Blueprint Interface with `OnNoteAction` and `OffNoteAction` functions called `MidiListener`
 
 - Set Game Instance Class via Edit -> Project Settings -> Maps & Modes -> Game Instance -> Game Instance Class
-{{ fig(src="game-instance.png", alt="Unreal Engine's Game Instance Class set to MidiManager") }}
+{{ img(src="game-instance.png", alt="Unreal Engine's Game Instance Class set to MidiManager") }}
 
 - Set `MidiDeviceId` in `MidiManager` to map to the output of `unreal_port` (You can find this out from the debug logs in the console)
 

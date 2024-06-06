@@ -11,7 +11,7 @@ My college professor posted this image with the question
 
 > What is the output when enter is pressed?
 
-{{ fig(src="problem.jpg", align="center" alt="Commodore 64 screen with a BASIC program") }}
+{{ img(src="problem.jpg", align="center" alt="Commodore 64 screen with a BASIC program") }}
 
 <!-- more -->
 
@@ -37,7 +37,7 @@ We can start by loading the program into a [Commodore 64 Emulator](http://vice-e
 60 NEXT M
 ```
 
-{{ fig(src="vice-screen-20200229000050.png", alt="Commodore 64 screen with bad output from the main program") }}
+{{ img(src="vice-screen-20200229000050.png", alt="Commodore 64 screen with bad output from the main program") }}
 
 The output doesn't match the output from the original picture. According to the [C64 wiki](https://www.c64-wiki.com/), the `49152` address is the location of the [MONITOR$C000](https://www.c64-wiki.com/wiki/MONITOR$C000,_MONITOR$8000_(Commodore)). So the BASIC program is printing the bytes of the machine code program located in MONITOR$C000.
 
@@ -60,13 +60,13 @@ We can attempt to match the contents of the `49152-49164` memory block by manual
 21 POKE 49163,0
 ```
 
-{{ fig(src="vice-screen-20200229001253.png", alt="Commodore 64 screen with matching output from the original program") }}
+{{ img(src="vice-screen-20200229001253.png", alt="Commodore 64 screen with matching output from the original program") }}
 
 ## Success?
 
 Now when running `SYS 49152` we get a nice red heart.
 
-{{ fig(src="vice-screen-20200229001432.png", alt="Commodore 64 screen with a red heart in the middle of the screen") }}
+{{ img(src="vice-screen-20200229001432.png", alt="Commodore 64 screen with a red heart in the middle of the screen") }}
 
 ## But Why?
 
@@ -128,4 +128,4 @@ For more information on the C64's memory map you can look [here](https://www.c64
 
 Now that we understand how this works we can write our own colorful characters to the screen.
 
-{{ fig(src="vice-screen-20200229004946.png", alt="Commodore 64 screen with a red heart, a teal heart, and a green spade") }}
+{{ img(src="vice-screen-20200229004946.png", alt="Commodore 64 screen with a red heart, a teal heart, and a green spade") }}
