@@ -32,11 +32,14 @@
 }
 
 .topbar-menu {
-  padding-right: 1rem;
   flex: 1 1 auto;
   display: flex;
   justify-content: right;
   font-size: $topbar-links-font-size;
+}
+
+.topbar-menu a {
+  padding-right: 1rem;
 }
 
 
