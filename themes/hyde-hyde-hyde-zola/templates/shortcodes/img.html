@@ -1,6 +1,8 @@
 <figure {% if align %}class={{ align }}{% endif %}>
   {% if link %}<a href="{{ link }}">{% endif %}
-  <img src="{{ get_url(path=page.colocated_path ~ src) }}" {% if alt %}alt="{{ alt }}"{% elif caption %}alt="{{ text }}"{% endif %} style="max-width:100%">
+  {%- set image_path = page.colocated_path ~ src %}
+  {%- set image_meta = get_image_metadata(path=image_path) %}
+  <img width="{{ image_meta.width }}" height="{{ image_meta.height }}" src="{{ get_url(path=image_path) }}" {% if alt %}alt="{{ alt }}"{% elif caption %}alt="{{ text }}"{% endif %}>
   {% if link %}</a>{% endif %}
   {% if text %}
   <figcaption>
