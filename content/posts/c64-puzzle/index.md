@@ -4,14 +4,14 @@ description = "A fun Commodore 64 Puzzle"
 date = 2020-02-27
 slug = "c64-puzzle"
 [extra]
-image = "problem.jpg"
+image = "problem.webp"
 +++
 
 My college professor posted this image with the question
 
 > What is the output when enter is pressed?
 
-{{ img(src="problem.jpg", align="center" alt="Commodore 64 screen with a BASIC program") }}
+{{ img(src="problem.webp", align="center" alt="Commodore 64 screen with a BASIC program") }}
 
 <!-- more -->
 

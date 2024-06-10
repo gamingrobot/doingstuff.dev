@@ -6,12 +6,12 @@ slug = "home-assistant-dashboard-tablet"
 [taxonomies]
 tags = ["Home Assistant"]
 [extra]
-image = "tablet_small.png"
+image = "tablet_small.webp"
 +++
 
 Turning an Intel Atom based Lenovo Tablet 10 (20E4) into a Home Assistant dashboard and voice assistant. Most tutorials for dashboard displays are using Android tablets, but I had this old tablet laying around and figured out how to use it with Home Assistant.
 
-{{ img(src="tablet_small.png", align="center" alt="Lenovo tablet with home assistant dashboard") }}
+{{ img(src="tablet_small.webp", align="center" alt="Lenovo tablet with home assistant dashboard") }}
 
 <!-- more -->
 
