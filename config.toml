@@ -35,6 +35,9 @@ author_url = "https://fosstodon.org/@gamingrobot"
 # https://www.goatcounter.com/
 goatcounter = "grbt-doingstuff"
 
+# https://github.com/francoischalifour/medium-zoom
+jszoom = false
+
 # https://mermaid.js.org/
 mermaid_theme = "default"
 mermaid_theme_dark = "dark"

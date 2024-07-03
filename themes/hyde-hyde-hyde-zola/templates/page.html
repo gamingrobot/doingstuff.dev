@@ -80,8 +80,8 @@
 
 {% block js_body %}
     {% if page.extra.mermaid %}
-        <script type="module">
-            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js" integrity="sha512-6a80OTZVmEJhqYJUmYd5z8yHUCDlYnj6q9XwB/gKOEyNQV/Q8u+XeSG59a2ZKFEHGTYzgfOQKYEBtrZV7vBr+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
             var theme = '{{ config.extra.mermaid_theme }}'
             if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
                 theme = '{{ config.extra.mermaid_theme_dark }}'
@@ -93,6 +93,13 @@
             };
             mermaid.initialize(config);
         </script>
+    {% endif %}
+    {% if page.extra.jszoom %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj+Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+        const images = Array.from(document.querySelectorAll("img"));
+        images.forEach((img) => { mediumZoom(img, { margin: 0, background: "", scrollOffset: 40, container: null, template: null }); });
+        </script>  
     {% endif %}
 {% endblock js_body %}
 
