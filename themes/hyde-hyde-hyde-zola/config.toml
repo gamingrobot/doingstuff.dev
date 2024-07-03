@@ -6,7 +6,7 @@ author = "John Doe"
 
 compile_sass = true
 build_search_index = true
-generate_feed = true
+generate_feeds = true
 
 taxonomies = [
     {name = "tags", rss = false},
