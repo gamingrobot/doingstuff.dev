@@ -1,6 +1,6 @@
 base_url = "https://doingstuff.dev"
 
-theme = "hyde-hyde-hyde-zola"
+theme = "doingstuff-zola"
 
 title = "Doing Stuff"
 description = "A blog about stuff"
