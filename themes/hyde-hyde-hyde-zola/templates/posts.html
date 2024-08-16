@@ -19,10 +19,10 @@
 <div>
     <div class="search-form">
         <input id="search" tabindex="0" placeholder="Search">
-        <ul class="search-results__items">
+        <ul class="search-results-items">
         {% for page in section.pages %}
             <li>
-                <span class=list__title--small>
+                <span>
                     <a href={{ page.permalink }} />{{ page.title }} </a>
                     <time class="pull-right hidden-tablet">{{ page.date | date(format="%b %e, %Y") }}</time>
                 </span>

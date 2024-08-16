@@ -122,15 +122,18 @@ function makeTeaser(body, terms) {
 }
 
 function formatSearchResultItem(item) {
-  return '<span class=list__title--small>'
+  var options = { year: 'numeric', month: 'short', day: 'numeric' };
+  var date = new Date(item.doc.date);
+  var formattedDate = date.toLocaleDateString("en-US", options);
+  return '<span>'
   + `<a href=${item.ref} />${item.doc.title} </a>`
-  // + `<time class="pull-right hidden-tablet">${item.doc.date}</time>` // add when zola search index includes date
+  + `<time class="pull-right hidden-tablet">${formattedDate}</time>`
   + '</span>';
 }
 
 function initSearch() {
   var $searchInput = document.getElementById("search");
-  var $searchResultsItems = document.querySelector(".search-results__items");
+  var $searchResultsItems = document.querySelector(".search-results-items");
   var MAX_ITEMS = 10;
 
   var options = {

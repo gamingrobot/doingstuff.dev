@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class=post-list>
+<div class="post-list">
     {% for page in paginator.pages %}
-    <div class=post-list__item><span class=item__title--big><a href="{{ page.permalink | safe }}" />{{ page.title }}</a></span>
-        <span class=item__date>{{ page.date | date(format="%b %d, %Y") }}</span>
-        <span class="item__summary">
+    <div class="post-list-item"><span class="item-title-big"><a href="{{ page.permalink | safe }}" />{{ page.title }}</a></span>
+        <span class="item-date">{{ page.date | date(format="%b %d, %Y") }}</span>
+        <span class="item-summary">
             {{ page.summary | safe}}
             {# <a href="{{ page.permalink | safe }}" />Read more...</a> #}
         </span>

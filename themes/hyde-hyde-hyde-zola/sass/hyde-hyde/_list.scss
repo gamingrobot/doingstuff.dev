@@ -1,38 +1,37 @@
 // for the list of posts
 
-.section__title {
-	font-size: $section__title-font-size;
+.section-title {
+	font-size: $section-title-font-size;
 }
 
 .post-list {
 	margin-top: 2em;
 }
 
-.post-list__item {
+.post-list-item {
 	margin-bottom: 2em;
 }
 
-.item__title--big {
+.item-title-big {
 	display: block;
-	font-size: $item__title-big-font-size;
+	font-size: $item-title-big-font-size;
 	line-height: 1.25;
 }
 
-.item__title--small {
+.item-title-small {
 	font-size: 1rem;
 }
 
-.item__date {
-	color: $item__date-color;
+.item-date {
+	color: $item-date-color;
 	display: block;
-	font-size: $item__date-font-size;
+	font-size: $item-date-font-size;
 	margin-bottom: .2rem;
 	margin-top: .2rem;
 }
 
-.item__summary {
+.item-summary {
 	p {
 		margin-bottom: 0;
 	}
 }
-

@@ -55,28 +55,7 @@
 
 //dark mode
 @media (prefers-color-scheme: dark) {
-/*! Dark reader generated CSS | Licensed under MIT https://github.com/darkreader/darkreader/blob/main/LICENSE */
-
-  /* User-Agent Style */
-  html {
-    background-color: #181a1b !important;
-  }
-  html {
-    color-scheme: dark !important;
-  }
-  html, body {
-    background-color: #181a1b;
-  }
-  html, body {
-    border-color: #736b5e;
-    color: #e8e6e3;
-  }
-  a {
-    color: #3391ff;
-  }
-  table {
-    border-color: #545b5e;
-  }
+/*! Heavly Modified Dark reader generated CSS | Licensed under MIT https://github.com/darkreader/darkreader/blob/main/LICENSE */
   ::placeholder {
     color: #b2aba1;
   }
@@ -110,26 +89,14 @@
     background-color: #004daa !important;
     color: #e8e6e3 !important;
   }
-
-  /* Removed Invert Style */
-
-  /* Removed Variables Style */
-
-  /* Modified CSS */
+  
+  html {
+    color-scheme: dark;
+  }
   body {
+    border-color: #736b5e;
     color: #eaeaea;
     background-color: #181a1b;
-  }
-  a {
-    color: #49a8ea;
-    text-decoration-color: initial;
-  }
-  a:hover,
-  a:focus {
-    text-decoration-color: initial;
-  }
-  a strong {
-    color: inherit;
   }
   table {
     border-color: #373c3e;
@@ -141,31 +108,6 @@
   tbody tr:nth-child(2n+1) td,
   tbody tr:nth-child(2n+1) th {
     background-color: #1b1e1f;
-  }
-  .page-title,
-  .post-title,
-  .post-title a {
-    color: #cac5be;
-  }
-  .post-date {
-    color: #a8a195;
-  }
-  .related {
-    border-top-color: #35393b;
-    border-bottom-color: #35393b;
-  }
-  .related-posts {
-    list-style-image: initial;
-  }
-  .related-posts li small {
-    color: #a8a095;
-  }
-  .related-posts li a:hover {
-    color: #49a8ea;
-    text-decoration-color: initial;
-  }
-  .related-posts li a:hover small {
-    color: inherit;
   }
   .danger,
   .warning,
@@ -274,22 +216,11 @@
     color: #eaeaea;
     fill: #eaeaea;
   }
-  .item__date {
+  .item-date {
     color: #c8c3bc;
   }
-  .post__meta {
+  .post-meta {
     color: #c8c3bc;
-  }
-  .post__tag {
-    background-image: initial;
-    background-color: #222426;
-    color: #a69f93;
-  }
-  .post__title {
-    background-image: linear-gradient(to right,
-    #0300b2,
-    #4b6574);
-    color: #e8e6e300;
   }
   // pre {
   //   background-color: rgb(10, 46, 70) !important;
@@ -335,16 +266,6 @@
     box-shadow: #0f7997 0px 0px 5px;
     border-color: #0e7491;
   }
-  // .toc-wrapper {
-  //   background-color: #1f2123;
-  // }
-  // .toc a {
-  //   color: #4daef2;
-  // }
-
-  /* Removed Override Style */
-
-  /* Manually added */
   .toc-wrapper {
     background-color: #1f2123 !important;
   }

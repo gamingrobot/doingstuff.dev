@@ -44,13 +44,13 @@
         {% endblock extra_head %}
     </head>
     <body>
-        <div class=container>
-            <nav class=topbar>
-                <div class=topbar-text>
-                    <div class=topbar-title>
+        <div class="container">
+            <nav class="topbar">
+                <div class="topbar-text">
+                    <div class="topbar-title">
                         <a href="/"><span>{{ config.title }}</span></a>
                     </div>
-                    <div class=topbar-menu>
+                    <div class="topbar-menu">
                         {% for item in config.extra.menu %}
                         {%- if item.url is matching("https?://") %}
                         <a href="{{ item.url }}"><span>{{ item.name }}</span></a>
@@ -61,12 +61,12 @@
                     </div>
                 </div>
             </nav>
-            <div class=content>
+            <div class="content">
                 {% block content %}
                 {% endblock content %}
                 {% block copyright %}
                 {% if not page.extra.hide_copyright and not section.extra.hide_copyright %}
-                <div class=copyright>&copy; {{ now() | date(format="%Y") }} <a href="{{ config.extra.author_url }}" rel="noopener me">{{ config.author }}</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                <div class="copyright">&copy; {{ now() | date(format="%Y") }} <a href="{{ config.extra.author_url }}" rel="noopener me">{{ config.author }}</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
                 {% endif %}
                 {% endblock copyright %}
             </div>

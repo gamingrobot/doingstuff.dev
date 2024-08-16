@@ -1,4 +1,4 @@
-<figure {% if align %}class={{ align }}{% endif %}>
+<figure {% if align %}class="{{ align }}"{% endif %}>
   {% if link %}<a href="{{ link }}">{% endif %}
   {%- set image_path = page.colocated_path ~ src %}
   {%- set image_meta = get_image_metadata(path=image_path) %}
