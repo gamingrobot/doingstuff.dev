@@ -62,12 +62,17 @@ At the time of writing here is my current inventory of servers. It will most lik
 
 These are the tools/software I decided on to meet each of the above goals.
 
+{% info() %}
+The crossed out tools are things that have changed or been replaced since I wrote this in 2019.
+{% end %}
+
 ### Hosting Applications
 
 - [Docker](https://www.docker.com/) for hosting most applications and allows me to move services around.
-- [Portainer](https://www.portainer.io/) for managing the docker containers on specific servers.
-- [Salt](https://github.com/saltstack/salt) for everything else that doesn't fit into a container.
+- [Ansible](https://www.ansible.com/) for managing containers and configuration.
 - [Traefik](https://traefik.io/) provides routing and certificates for services.
+- ~~[Portainer](https://www.portainer.io/) for managing the docker containers on specific servers.~~
+- ~~[Salt](https://github.com/saltstack/salt) for everything else that doesn't fit into a container.~~
 
 ### Minimizing Ongoing Maintenance
 
@@ -81,9 +86,9 @@ These are the tools/software I decided on to meet each of the above goals.
 
 ### Adding and Removing Servers
 
-- [Salt](https://github.com/saltstack/salt) allows me to have a declarative configuration for servers.
+- ~~[Salt](https://github.com/saltstack/salt)~~ [Ansible](https://www.ansible.com/) allows me to have a declarative configuration for servers.
 - [netboot.xyz](https://netboot.xyz/) simplifies installs with PXE booting.
-- DNS for servers and services to ease container movement. This will be configured automatically or through [dnscontrol](https://github.com/StackExchange/dnscontrol).
+- [dnscontrol](https://github.com/StackExchange/dnscontrol) for DNS management.
 
 ### Internal Network
 
@@ -93,6 +98,9 @@ These are the tools/software I decided on to meet each of the above goals.
 
 - [netdata](https://github.com/netdata/netdata) will be used for metrics and basic alerting.
 - [uptime-kuma](https://github.com/louislam/uptime-kuma) will be used for custom monitoring/alerting.
+- ~~[Icinga2](https://icinga.com/docs/icinga2/latest/) will be used for alerting.~~
+- ~~[InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) is a time series database used for storage of metrics.~~
+- ~~[Grafana](https://grafana.com/) is used for making graphs and dashboards from the data stored in influxdb.~~
 
 ## Here we go!
 
