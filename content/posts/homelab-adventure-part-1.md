@@ -31,10 +31,6 @@ The [/r/homelab wiki](https://www.reddit.com/r/homelab/wiki/introduction) has a 
 
 At the time of writing here is my current inventory of servers. It will most likely grow and evolve as time goes on.
 
-- 1 VPS
-  - CPU: 2 Cores
-  - RAM: 2GB
-  - Disk: 40GB SSD
 - 1 NAS
   - CPU: Intel i5-6600K
   - RAM: 32GB
@@ -42,8 +38,8 @@ At the time of writing here is my current inventory of servers. It will most lik
 - 2 Dedicated Servers
   - Dedicated Server 1
     - CPU: Intel
-    - RAM: 32GB
-    - Disk: 2x 1TB HDD
+    - RAM: 64GB
+    - Disk: 2x 512GB SSD
   - Dedicated Server 2
     - CPU: Intel
     - RAM: 32GB
