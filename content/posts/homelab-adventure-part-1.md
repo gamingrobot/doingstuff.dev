@@ -92,8 +92,8 @@ The crossed out tools are things that have changed or been replaced since I wrot
 
 ### Alerting and Monitoring
 
-- [netdata](https://github.com/netdata/netdata) will be used for metrics and basic alerting.
-- [uptime-kuma](https://github.com/louislam/uptime-kuma) will be used for custom monitoring/alerting.
+- [Netdata](https://github.com/netdata/netdata) will be used for metrics and basic alerting.
+- [Uptime Kuma](https://github.com/louislam/uptime-kuma) will be used for custom monitoring/alerting.
 - ~~[Icinga2](https://icinga.com/docs/icinga2/latest/) will be used for alerting.~~
 - ~~[InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) is a time series database used for storage of metrics.~~
 - ~~[Grafana](https://grafana.com/) is used for making graphs and dashboards from the data stored in influxdb.~~
