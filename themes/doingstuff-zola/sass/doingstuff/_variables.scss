@@ -18,14 +18,14 @@ $cyan: #75b5aa;
 $blue: #167bc2;
 $brown: #8f5536;
 
-$root-font-family: "Source Sans Pro","Arial",sans-serif;
+$root-font-family: "InterVariable", system-ui, sans-serif;
 
 // poole's variables
 $root-font-size: 1rem;
 $root-font-weight: 400;
 $root-line-height: 1.6em;
 
-$body-color: #0d3a58;
+$body-color: #000000;
 $body-bg: #fff;
 
 $border-color: #e5e5e5;
@@ -40,8 +40,8 @@ $font-scale-dot8: .8rem;
 $small-device-font-size: $root-font-size;
 $large-device-font-size: $large-font-size;
 
-// https://www.client9.com/css-system-font-stack-monospace-v2
-$code-font-family: "SFMono-Regular", "SF-Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Roboto Mono", "Ubuntu Mono", "Courier New", Courier, monospace;
+// https://github.com/system-fonts/modern-font-stacks
+$code-font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
 $code-font-size: .9rem;
 $code-fence-font-size: .8rem;
 //$code-color: #bf616a;
