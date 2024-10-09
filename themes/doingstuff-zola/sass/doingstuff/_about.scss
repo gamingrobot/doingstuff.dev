@@ -2,6 +2,9 @@
     margin-top: 3rem;
     text-align: center;
     font-weight: 600;
+    max-width: 25rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about h1 {
@@ -9,14 +12,16 @@
 }
 
 .avatar {
-    width: 20rem;
+    width: 15rem;
     border-radius: 50%;
     -webkit-border-radius: 50%;
-    -moz-border-radius: 50%; 
+    -moz-border-radius: 50%;
     max-width: 60%;
     box-sizing: border-box;
     display: block;
     margin: auto;
+    border: 5px solid #fff;
+    height: auto
 }
 
 .icons {
@@ -43,5 +48,3 @@
     color: $link-hover-color;
     fill: $link-hover-color;
 }
-
-  
