@@ -15,6 +15,10 @@ Turning an Intel Atom based Lenovo Tablet 10 (20E4) into a Home Assistant dashbo
 
 <!-- more -->
 
+{% info() %}
+January 2025: I have also setup a Home Assistant kiosk on the Lenovo ThinkSmart View using [this guide](https://github.com/pgale/lineage_15.1_Installation_TSV).
+{% end %}
+
 ## Home Assistant setup
 
 In the Home Assistant UI:
