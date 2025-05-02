@@ -4,7 +4,7 @@ description = "Homelab overview"
 date = 2019-11-09
 slug = "homelab-adventure-part-1"
 [taxonomies]
-tags = ["Homelab"]
+tags = ["Linux", "Homelab"]
 +++
 
 Welcome to my journey in building my homelab. This will be an ongoing series of blog posts of my adventures in building my personal infrastructure.

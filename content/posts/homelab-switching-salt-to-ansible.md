@@ -4,7 +4,7 @@ description = "Switching my Homelab from Salt to Ansible"
 date = 2024-03-20
 slug = "homelab-switching-salt-to-ansible"
 [taxonomies]
-tags = ["Homelab"]
+tags = ["Linux", "Homelab"]
 +++
 
 About a month ago I thought it would be nice to be able to configure VM's and Droplets with Salt by using my existing configuration I had setup in [Part 2: Configuration Management](@/posts/homelab-adventure-part-2.md).

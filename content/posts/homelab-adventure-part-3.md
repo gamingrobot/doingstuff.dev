@@ -4,7 +4,7 @@ description = "Homelab internal networking with ZeroTier"
 date = 2023-03-29
 slug = "homelab-adventure-part-3"
 [taxonomies]
-tags = ["Homelab"]
+tags = ["Linux", "Homelab"]
 +++
 
 Welcome to my journey in building my homelab. This is part of a multipart series, in the last part I gave an overview of how to do configuration management. This one will cover how I set up my internal network.

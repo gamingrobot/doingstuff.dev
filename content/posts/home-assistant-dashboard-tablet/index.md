@@ -4,7 +4,7 @@ description = "Setting up a Lenovo Tablet 10 as a Home Assistant dashboard and v
 date = 2024-05-27
 slug = "home-assistant-dashboard-tablet"
 [taxonomies]
-tags = ["Home Assistant"]
+tags = ["Linux", "Home Assistant"]
 [extra]
 image = "tablet_small.webp"
 +++

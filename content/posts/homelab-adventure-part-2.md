@@ -4,7 +4,7 @@ description = "Homelab configuration management with Salt"
 date = 2020-02-06
 slug = "homelab-adventure-part-2"
 [taxonomies]
-tags = ["Homelab"]
+tags = ["Linux", "Homelab"]
 +++
 
 Welcome to my journey in building my homelab. This is part of a multipart series, in the last part I gave an overview of the homelab plan. This one will cover how I handle configuration management.

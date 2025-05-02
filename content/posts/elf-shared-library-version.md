@@ -4,7 +4,7 @@ description = "How-to embed version information into an ELF binary"
 date = 2023-03-22
 slug = "elf-shared-library-version"
 [taxonomies]
-tags = ["Linux"]
+tags = ["Linux", "Code"]
 +++
 
 *How to embed version information into an ELF shared library?*

@@ -172,54 +172,6 @@ blockquote {
 	top: 6px;
 }
 
-.tip {
-	color: #2e2e2ec4;
-	background-color: #7bf79033;
-	border-left-color: #03b303;
-	@extend %notebox;
-}
-
-.tip-icon {
-	color: #03b303;
-	@extend %noteicon;
-}
-
-.info {
-	color: #2e2e2ec4;
-	background-color: #e1f5fe;
-	border-left-color: #0070cb;
-	@extend %notebox;
-}
-
-.info-icon {
-	color: #0070cb;
-	@extend %noteicon;
-}
-
-.warning {
-	color: #2e2e2ec4;
-	background-color: #fff3cd;
-	border-left-color: #ef9c03;
-	@extend %notebox;
-}
-
-.warning-icon {
-	color: #ef9c03;
-	@extend %noteicon;
-}
-
-.danger {
-	color: #2e2e2ec4;
-	background-color: #f8d7da8f;
-	border-left-color: #df3c30;
-	@extend %notebox;
-}
-
-.danger-icon {
-	color: #df3c30;
-	@extend %noteicon;
-}
-
 kbd {
 	font-family: $root-font-family;
 	padding: 2px 7px;
