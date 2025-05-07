@@ -30,7 +30,7 @@ menu = [
     {url = "/pages/about", name = "About"},
 ]
 
-author_url = "https://fosstodon.org/@gamingrobot"
+author_url = "https://graphics.social/@gamingrobot"
 
 # https://www.goatcounter.com/
 goatcounter = "grbt-doingstuff"
