@@ -26,7 +26,7 @@ This was the first thing I made, and I was just noodling around trying to make a
 {{ img(src="robot-head.webp", alt="" link="https://gamingrobot.art/artwork/robot-head") }}
 
 ## Pen Effect
-When I was trying out drawing, I really liked how blue-black ink looked and wanted to see if I could replicate the same pen look in Blender.
+When I was trying to learn drawing, I really liked how blue-black ink looked and wanted to see if I could replicate the same pen look in Blender.
 
 {{ video(src="blender-pen.mp4") }}
 
