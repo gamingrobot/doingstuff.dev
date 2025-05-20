@@ -18,9 +18,9 @@
         <meta content="{{ page.description }}" property="description"/>
         <meta content="{{ page.description }}" property="twitter:description"/>
     {% endif %}
-    {% if page.extra.image %}
-        <meta content="{{ get_url(path=page.colocated_path ~ page.extra.image) }}" property="og:image"/>
-        <meta content="{{ get_url(path=page.colocated_path ~ page.extra.image) }}" property="twitter:image"/>
+    {% if page.extra.cover_image %}
+        <meta content="{{ get_url(path=page.colocated_path ~ page.extra.cover_image) }}" property="og:image"/>
+        <meta content="{{ get_url(path=page.colocated_path ~ page.extra.cover_image) }}" property="twitter:image"/>
     {% endif %}
 {% endblock metadata %}
 

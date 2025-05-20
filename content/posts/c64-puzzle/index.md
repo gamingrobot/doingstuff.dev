@@ -4,7 +4,7 @@ description = "A fun Commodore 64 Puzzle"
 date = 2020-02-27
 slug = "c64-puzzle"
 [extra]
-image = "problem.webp"
+cover_image = "problem.webp"
 +++
 
 My college professor posted this image with the question

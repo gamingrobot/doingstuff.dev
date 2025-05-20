@@ -25,15 +25,15 @@
             <meta content="{{ config.title }}" property="og:site_name"/>
             <meta content="{{ config.base_url | safe }}" property="og:url"/>
             <meta content="{{ config.base_url | safe }}" property="twitter:url"/>
-            {% if section.title %}
+            {%- if section.title %}
                 <meta content="{{ section.title }}" property="og:title"/>
                 <meta content="{{ section.title }}" property="twitter:title"/>
-            {% endif %}
-            {% if section.description %}
+            {%- endif %}
+            {%- if section.description %}
                 <meta content="{{ section.description }}" property="og:description"/>
                 <meta content="{{ section.description }}" property="description"/>
                 <meta content="{{ section.description }}" property="twitter:description"/>
-            {% endif %}
+            {%- endif %}
         {% endblock metadata %}
         {# CSS #}
         {% block css %}
