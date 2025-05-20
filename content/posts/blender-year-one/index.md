@@ -1,6 +1,6 @@
 +++
 title = "Blender - Year One (ish)"
-description = "Stuff made in Blender this year"
+description = "Stuff I made this year using Blender"
 date = 2025-05-19
 slug = "blender-year-one"
 [taxonomies]
