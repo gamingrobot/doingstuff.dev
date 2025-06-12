@@ -1,5 +1,5 @@
 +++
-title = "Blender - Year One (ish)"
+title = "Blender - Year One"
 description = "Stuff I made this year using Blender"
 date = 2025-05-19
 slug = "blender-year-one"
