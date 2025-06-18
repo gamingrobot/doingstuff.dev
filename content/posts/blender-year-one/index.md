@@ -90,7 +90,7 @@ Experiment to learn how to use the new [Ray Portal BSDF](https://docs.blender.or
 {{ video(src="infinite-pumpkin.mp4") }}
 
 ## Machine Shop
-This project is still ongoing, but I started it to figure out how to make the jump from blockout to modeling the scene that I got stuck on doing the Kinetic Rush challenge.
+This project is still ongoing, but I started it to figure out how to make the jump from blockout to modeling the scene that I got stuck on during the Kinetic Rush challenge.
 
 {{ img(src="shop.webp", alt="") }}
 {{ img(src="shop-mill.webp", alt="") }}
