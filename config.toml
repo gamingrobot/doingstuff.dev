@@ -27,7 +27,7 @@ highlight_theme = "cobalt2"
 menu = [
     {url = "/posts", name = "Posts"},
     {url = "/atom.xml", name = "RSS"},
-    {url = "/pages/about", name = "About"},
+    {url = "https://creekmore.dev", name = "About"},
 ]
 
 author_url = "https://graphics.social/@gamingrobot"
