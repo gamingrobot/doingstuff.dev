@@ -7,6 +7,7 @@
   padding-bottom: $topbar-offset;
   background-color: $topbar-color;
   text-align: center;
+  line-height: 1;
   a {
     color: $gray-1;
     border: none;
@@ -28,6 +29,7 @@
 .topbar-title {
   padding-left: 1rem;
   display: flex;
+  align-items: center;
   font-size: $topbar-title-font-size;
 }
 
@@ -35,6 +37,7 @@
   flex: 1 1 auto;
   display: flex;
   justify-content: right;
+  align-items: center;
   font-size: $topbar-links-font-size;
 }
 
