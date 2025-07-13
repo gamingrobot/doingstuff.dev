@@ -242,3 +242,13 @@ a {
 footer {
 	margin-bottom: 2rem;
 }
+
+.footnote-definition {
+	p:first-of-type {
+		display: inline-block;
+		margin: 0;
+	}
+	p {
+		margin: 0 0 0 .8rem;
+	}
+}

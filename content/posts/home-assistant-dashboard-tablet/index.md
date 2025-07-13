@@ -70,7 +70,7 @@ KDE Plasma 6 with the Maliit keyboard gave me the best tablet mode and on-screen
 5. Reboot
 
 {% warning() %}
-When installing you might want leave the Recovery Partition. I removed it and the ThinkPad Tablet Setup broke.
+When installing you should leave the Recovery Partition. I removed it and the ThinkPad Tablet Setup broke.
 {% end %}
 
 ## After installation

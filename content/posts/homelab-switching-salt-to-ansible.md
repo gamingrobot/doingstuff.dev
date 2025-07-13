@@ -118,7 +118,7 @@ The roles folder structure is verbose but only requires the folders you use.
 
 The largest complaint I saw about Ansible was how slow it was compared to Salt. I saw speeds similar to Salt with this additional configuration:
 
-```toml
+```ini
 [defaults]
 strategy = free # don't block on each host per task
 [ssh_connection]

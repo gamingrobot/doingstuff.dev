@@ -13,7 +13,8 @@
         </title>
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ get_url(path="apple-touch-icon-144-precomposed.png") }}">
         <link href="{{ get_url(path="favicon.png") }}" rel="icon" type="image/x-icon"/>
-        <link rel="preload" href="{{ get_url(path="fonts/inter/InterVariable.woff2") }}" as="font" type="font/woff2">
+        <link rel="preload" href="{{ get_url(path="fonts/atkinson/AtkinsonHyperlegibleNext-VariableFont.ttf") }}" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="{{ get_url(path="fonts/atkinson/AtkinsonHyperlegibleMono-VariableFont.ttf") }}" as="font" type="font/ttf" crossorigin>
         {%- if config.generate_feeds %}
         {% for feed in config.feed_filenames %}
             <link rel="alternate" type={% if feed == "atom.xml" %} "application/atom+xml" {% else %} "application/rss+xml" {% endif %} title="RSS" href="{{ get_url(path=feed) | safe }}"/>

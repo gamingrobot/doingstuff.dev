@@ -9,9 +9,12 @@ tags = ["Music"]
 hide_toc = true
 +++
 
-How to setup Reaper to send MIDI to Unreal Engine. If you are looking to use OSC instead, take a look at [daw-out](https://github.com/gamingrobot/daw-out).
+How to setup Reaper to send MIDI to Unreal Engine. 
 
 <!-- more -->
+{% info() %}
+If you are looking to use OSC instead, take a look at [daw-out](https://github.com/gamingrobot/daw-out).
+{% end %}
 
 ## Setting up Reaper
 
