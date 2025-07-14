@@ -58,7 +58,7 @@ Each container gets a separate role in Ansible that creates a storage folder, a 
 
 ### Exposing applications
 
-I use [Traefik](https://doc.traefik.io/traefik/) to expose each application based on labels. I use a wildcard certificate to enable HTTPS, but Let's Encrypt could also be used. If you are worried about mounting the `docker.sock` directly to Traefik, you can setup [socket-proxy](https://github.com/wollomatic/socket-proxy).
+I use [Traefik](https://doc.traefik.io/traefik/) to expose each application based on labels. I use a wildcard certificate to enable HTTPS, but Let's Encrypt could also be used. If you are worried about mounting the `docker.sock` directly to Traefik, you can set up [socket-proxy](https://github.com/wollomatic/socket-proxy).
 
 ```yaml
 # roles/container-traefik/tasks/main.yml

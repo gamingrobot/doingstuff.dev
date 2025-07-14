@@ -7,7 +7,7 @@ slug = "homelab-adventure-part-3"
 tags = ["Linux", "Homelab"]
 +++
 
-Welcome to my journey in building my Homelab. This is part of a multipart series; in the last part I gave an overview of how to setup configuration management. This one will cover how I setup my internal network.
+Welcome to my journey in building my Homelab. This is part of a multipart series; in the last part I gave an overview of how to set up configuration management. This one will cover how I set up my internal network.
 
 <!-- more -->
 
@@ -37,7 +37,7 @@ These are some other options for peer-to-peer VPNs:
 
 [Nebula](https://github.com/slackhq/nebula) (inspired by tinc) has similar issues to tinc with certificate distribution. One advantage over tinc is that a discovery server is present in the Nebula network to ease node discovery.
 
-[Tailscale](https://tailscale.com/) while a great alternative to ZeroTier, it didn't exist at the time I setup ZeroTier. [This is a great comparison between Tailscale and ZeroTier](https://tailscale.com/compare/zerotier/).
+[Tailscale](https://tailscale.com/) while a great alternative to ZeroTier, it didn't exist at the time I set up ZeroTier. [This is a great comparison between Tailscale and ZeroTier](https://tailscale.com/compare/zerotier/).
 
 ## ZeroTier and Salt
 
