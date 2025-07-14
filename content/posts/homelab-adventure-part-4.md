@@ -7,7 +7,7 @@ slug = "homelab-adventure-part-4"
 tags = ["Linux", "Homelab"]
 +++
 
-Welcome to my journey in building my Homelab. This is part of a multipart series; in the last part I showed how to setup an internal network across multiple hosts. This "final" post will go over application hosting and monitoring.
+Welcome to my journey in building my Homelab. This is part of a multipart series; in the last part I showed how to set up an internal network across multiple hosts. This "final" post will go over application hosting and monitoring.
 
 <!-- more -->
 
@@ -58,7 +58,7 @@ Each container gets a separate role in Ansible that creates a storage folder, a 
 
 ### Exposing applications
 
-I use [Traefik](https://doc.traefik.io/traefik/) to expose each application based on labels. I use a wildcard certificate to enable HTTPS, but Let's Encrypt could also be used. If you are worried about mounting the `docker.sock` directly to Traefik, you can setup [socket-proxy](https://github.com/wollomatic/socket-proxy). For managing DNS, I use [DNSControl](https://dnscontrol.org/) but Ansible could also be used, but it is more verbose.
+I use [Traefik](https://doc.traefik.io/traefik/) to expose each application based on labels. I use a wildcard certificate to enable HTTPS, but Let's Encrypt could also be used. If you are worried about mounting the `docker.sock` directly to Traefik, you can setup [socket-proxy](https://github.com/wollomatic/socket-proxy).
 
 ```yaml
 # roles/container-traefik/tasks/main.yml
@@ -227,9 +227,11 @@ serversTransport:
 
 Now any container with the `traefik.enable: 'true'` will be automatically exposed on `<container_name>.<traefik_domain>`. If `traefik.http.routers.<app_name>.middlewares: 'internal-network@file'` is set as a label, the application will only be accessible from IPs on the `ipAllowList`.
 
+For managing DNS, I use [DNSControl](https://dnscontrol.org/) so I can version control my DNS configuration. Ansible could also be used, but it's more verbose.
+
 ## Monitoring
 
-For general server metrics and monitoring, I use [Netdata](https://www.netdata.cloud/). There are some additional monitoring modules I have setup: 
+For general server metrics and monitoring, I use [Netdata](https://www.netdata.cloud/). There are some additional monitoring modules I have set up: 
 
 - [SMART monitoring](https://learn.netdata.cloud/docs/collecting-metrics/hardware-devices-and-sensors/s.m.a.r.t.)
 - [UPS monitoring](https://learn.netdata.cloud/docs/collecting-metrics/ups/apc-ups)
@@ -237,7 +239,7 @@ For general server metrics and monitoring, I use [Netdata](https://www.netdata.c
 
 This gives alerts for things like high disk usage, high memory usage, UPS failed over to battery, and SMART failures.
 
-For custom monitoring, I use [Uptime Kuma](https://github.com/louislam/uptime-kuma). It works well for application health monitoring as well as custom webhook monitors. I have setup custom webhook monitors for:
+For custom monitoring, I use [Uptime Kuma](https://github.com/louislam/uptime-kuma). It works well for application health monitoring as well as custom webhook monitors. I have set up custom webhook monitors for:
 
 - BTRFS Health
 - BTRFS Scrubbing
