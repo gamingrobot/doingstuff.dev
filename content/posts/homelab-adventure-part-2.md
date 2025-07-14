@@ -7,13 +7,15 @@ slug = "homelab-adventure-part-2"
 tags = ["Linux", "Homelab"]
 +++
 
-Welcome to my journey in building my homelab. This is part of a multipart series, in the last part I gave an overview of the homelab plan. This one will cover how I handle configuration management.
+Welcome to my journey in building my Homelab. This is part of a multipart series; in the last part I gave an overview of the Homelab plan. This one will cover how I handle configuration management.
 
 <!-- more -->
 
 [**Part 1: The Adventure Begins**](@/posts/homelab-adventure-part-1.md)  
 **Part 2: Configuration Management (You are here!)**  
 [**Part 3: Internal Network**](@/posts/homelab-adventure-part-3.md)  
+[**Sidequest: Switching from Salt to Ansible**](@/posts/homelab-switching-salt-to-ansible.md)   
+[**Part 4: Application Hosting and Monitoring**](@/posts/homelab-adventure-part-4.md)  
 
 {% warning() %}
 Since this blog post was written I have [switched from Salt to Ansible](@/posts/homelab-switching-salt-to-ansible.md).
@@ -222,3 +224,5 @@ I hope this gave you a good view of how I use Salt to configure my servers. In t
 [**Part 1: The Adventure Begins**](@/posts/homelab-adventure-part-1.md)  
 **Part 2: Configuration Management (You are here!)**  
 [**Part 3: Internal Network**](@/posts/homelab-adventure-part-3.md)  
+[**Sidequest: Switching from Salt to Ansible**](@/posts/homelab-switching-salt-to-ansible.md)   
+[**Part 4: Application Hosting and Monitoring**](@/posts/homelab-adventure-part-4.md)  

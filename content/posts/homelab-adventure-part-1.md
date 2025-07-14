@@ -7,13 +7,15 @@ slug = "homelab-adventure-part-1"
 tags = ["Linux", "Homelab"]
 +++
 
-Welcome to my journey in building my homelab. This will be an ongoing series of blog posts of my adventures in building my personal infrastructure.
+Welcome to my journey in building my Homelab. This will be an ongoing series of blog posts of my adventures in building my personal infrastructure.
 
 <!-- more -->
 
 **Part 1: The Adventure Begins (You are here!)**  
 [**Part 2: Configuration Management**](@/posts/homelab-adventure-part-2.md)  
 [**Part 3: Internal Network**](@/posts/homelab-adventure-part-3.md)  
+[**Sidequest: Switching from Salt to Ansible**](@/posts/homelab-switching-salt-to-ansible.md)   
+[**Part 4: Application Hosting and Monitoring**](@/posts/homelab-adventure-part-4.md)  
 
 ## What is a Homelab
 
@@ -23,9 +25,9 @@ The primary idea behind a homelab is a place to learn about infrastructure, serv
 
 > Homelab \[hom-læb\](n): a laboratory of (usually slightly outdated) awesome in the domicile
 
-Now by this definition a homelab should reside in a home. In my case part of my homelab will exist outside of my home, due to space and noise constraints. So my homelab is somewhere between a homelab and a "cloudlab".
+Now by this definition a Homelab should reside in a home. In my case part of my Homelab will exist outside of my home, due to space and noise constraints. So my Homelab is somewhere between a Homelab and a "cloudlab".
 
-The [/r/homelab wiki](https://www.reddit.com/r/homelab/wiki/introduction) has a more information on how to get started with a homelab.
+The [/r/homelab wiki](https://www.reddit.com/r/homelab/wiki/introduction) has a more information on how to get started with a Homelab.
 
 ## Inventory
 
@@ -105,3 +107,5 @@ I hope you will join me in this adventure into homelabbing. In the next post in 
 **Part 1: The Adventure Begins (You are here!)**  
 [**Part 2: Configuration Management**](@/posts/homelab-adventure-part-2.md)  
 [**Part 3: Internal Network**](@/posts/homelab-adventure-part-3.md)  
+[**Sidequest: Switching from Salt to Ansible**](@/posts/homelab-switching-salt-to-ansible.md)   
+[**Part 4: Application Hosting and Monitoring**](@/posts/homelab-adventure-part-4.md)  

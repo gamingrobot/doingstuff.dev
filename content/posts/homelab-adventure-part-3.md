@@ -7,19 +7,21 @@ slug = "homelab-adventure-part-3"
 tags = ["Linux", "Homelab"]
 +++
 
-Welcome to my journey in building my homelab. This is part of a multipart series, in the last part I gave an overview of how to do configuration management. This one will cover how I set up my internal network.
+Welcome to my journey in building my Homelab. This is part of a multipart series; in the last part I gave an overview of how to setup configuration management. This one will cover how I setup my internal network.
 
 <!-- more -->
 
 [**Part 1: The Adventure Begins**](@/posts/homelab-adventure-part-1.md)  
 [**Part 2: Configuration Management**](@/posts/homelab-adventure-part-2.md)  
-**Part 3: Internal Network (You are here!)**
+**Part 3: Internal Network (You are here!)**  
+[**Sidequest: Switching from Salt to Ansible**](@/posts/homelab-switching-salt-to-ansible.md)   
+[**Part 4: Application Hosting and Monitoring**](@/posts/homelab-adventure-part-4.md)  
 
 ## Why?
 
-It's helpful to have an internal and external network for your homelab. This allows hosting of internal services without exposing them to the internet.
+It's helpful to have an internal and external network for your Homelab. This allows hosting of internal services without exposing them to the internet.
 
-Since my homelab lives in multiple datacenters (and at home), it's less convenient to use a site-to-site VPN. So a peer-to-peer VPN between all my servers is ideal. This also makes it easy for me to add non-servers to the network like my phone or desktop to access those internal services.
+Since my Homelab lives in multiple datacenters (and at home), it's less convenient to use a site-to-site VPN. So a peer-to-peer VPN between all my servers is ideal. This also makes it easy for me to add non-servers to the network like my phone or desktop to access those internal services.
 
 ## What is ZeroTier
 
@@ -35,7 +37,7 @@ These are some other options for peer-to-peer VPNs:
 
 [Nebula](https://github.com/slackhq/nebula) (inspired by tinc) has similar issues to tinc with certificate distribution. One advantage over tinc is that a discovery server is present in the Nebula network to ease node discovery.
 
-[Tailscale](https://tailscale.com/) while a great alternative to ZeroTier, it didn't exist at the time I set up ZeroTier. [This is a great comparison between Tailscale and ZeroTier](https://tailscale.com/compare/zerotier/).
+[Tailscale](https://tailscale.com/) while a great alternative to ZeroTier, it didn't exist at the time I setup ZeroTier. [This is a great comparison between Tailscale and ZeroTier](https://tailscale.com/compare/zerotier/).
 
 ## ZeroTier and Salt
 
@@ -43,6 +45,3 @@ I have written a salt formula for managing ZeroTier with salt. It allows interac
 
 [https://github.com/gamingrobot/salt-formula-zerotier](https://github.com/gamingrobot/salt-formula-zerotier)
 
-[**Part 1: The Adventure Begins**](@/posts/homelab-adventure-part-1.md)  
-[**Part 2: Configuration Management**](@/posts/homelab-adventure-part-2.md)  
-**Part 3: Internal Network (You are here!)**
