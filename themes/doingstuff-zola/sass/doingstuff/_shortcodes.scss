@@ -22,14 +22,14 @@
 	@extend %noteicon;
 }
 
-.warning {
+.warn {
 	color: #2e2e2ec4;
 	background-color: #fff3cd;
 	border-left-color: #ef9c03;
 	@extend %notebox;
 }
 
-.warning-icon {
+.warn-icon {
 	color: #ef9c03;
 	@extend %noteicon;
 }

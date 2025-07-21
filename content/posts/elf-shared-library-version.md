@@ -1,11 +1,11 @@
-+++
-title = "Embedding Version Info into ELF Shared Libraries"
-description = "How-to embed version information into an ELF binary"
-date = 2023-03-22
-slug = "elf-shared-library-version"
-[taxonomies]
-tags = ["Linux", "Code"]
-+++
+---
+title: "Embedding Version Info into ELF Shared Libraries"
+description: "How-to embed version information into an ELF binary"
+date: 2023-03-22
+slug: "elf-shared-library-version"
+taxonomies:
+  tags: ["Linux", "Code"]
+---
 
 *How to embed version information into an ELF shared library?*
 
@@ -19,7 +19,7 @@ These methods are for embedding a version into libraries distributed outside of 
 
 ABI version can be separate from your product/release version. If you haven't changed the ABI interface, you can keep the same ABI version while updating the product/release version on new builds. There are some great [resources](https://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html), [policy](https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html#abi.changes_allowed), and [tools](https://www.gnu.org/software/libtool/manual/libtool.html#Versioning) for how to handle ABI versioning.
 
-{% info() %}
+{% callout(type="info") %}
 Symbol versioning is another way to handle ABI changes without changing the ABI version, [this blog post is all about symbol versioning](https://maskray.me/blog/2020-11-26-all-about-symbol-versioning). 
 {% end %}
 
@@ -75,7 +75,7 @@ static const struct version_note version = {
 
 > Note sections contain a series of notes. Each note is followed by the name field (whose length is defined in `namesz`) then by the descriptor field (whose length is defined in `descsz`) and whose starting address has a 4 byte alignment. Neither field is defined in the note struct due to their arbitrary lengths.
 
-{% info() %}
+{% callout(type="info") %}
 More details in the [elf manpage](https://man7.org/linux/man-pages/man5/elf.5.html) under the `Notes (Nhdr)` section.
 {% end %}
 

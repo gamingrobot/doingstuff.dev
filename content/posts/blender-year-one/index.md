@@ -1,14 +1,14 @@
-+++
-title = "Blender - Year One"
-description = "Stuff I made this year using Blender"
-date = 2025-05-19
-slug = "blender-year-one"
-[taxonomies]
-tags = ["Blender"]
-[extra]
-hide_toc = true
-cover_image = "cover.webp"
-+++
+---
+title: "Blender - Year One"
+description: "Stuff I made this year using Blender"
+date: 2025-05-19
+slug: "blender-year-one"
+taxonomies:
+  tags: ["Blender"]
+extra:
+  hide_toc: true
+  cover_image: "cover.webp"
+---
 
 {{ img(src="cover.webp", alt="" ) }}
 

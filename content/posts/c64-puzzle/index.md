@@ -1,11 +1,11 @@
-+++
-title = "Commodore 64 Puzzle"
-description = "A fun Commodore 64 Puzzle"
-date = 2020-02-27
-slug = "c64-puzzle"
-[extra]
-cover_image = "problem.webp"
-+++
+---
+title: "Commodore 64 Puzzle"
+description: "A fun Commodore 64 Puzzle"
+date: 2020-02-27
+slug: "c64-puzzle"
+extra:
+  cover_image: "problem.webp"
+---
 
 My college professor posted this image with the question
 

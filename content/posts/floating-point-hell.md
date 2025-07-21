@@ -1,13 +1,13 @@
-+++
-title = "Floating Point Hell"
-description = "Did you know JavaScript uses floats for all numbers?"
-date = 2014-03-16
-slug = "floating-point-hell"
-[taxonomies]
-tags = ["Code"]
-[extra]
-hide_toc = true
-+++
+---
+title: "Floating Point Hell"
+description: "Did you know JavaScript uses floats for all numbers?"
+date: 2014-03-16
+slug: "floating-point-hell"
+taxonomies:
+  tags: ["Code"]
+extra:
+  hide_toc: true
+---
 
 This blog post will show how to deal with floating-point error in JavaScript by encoding all uint64's, and int64's as strings in JSON Marshaling.
 

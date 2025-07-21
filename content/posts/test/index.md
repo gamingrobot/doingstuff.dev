@@ -1,14 +1,14 @@
-+++
-title = "Markdown Test"
-description = "Markdown Test Description"
-date = 2050-01-01
-slug = "test"
-draft = true
-[taxonomies]
-tags = ["TagName"]
-[extra]
-mermaid = true
-+++
+---
+title: "Markdown Test"
+description: "Markdown Test Description"
+date: 2050-01-01
+slug: "test"
+draft: true
+taxonomies:
+    tags: ["TagName"]
+extra:
+    mermaid: true
+---
 
 # Markdown: Syntax
 ----
@@ -312,19 +312,19 @@ Here's a simple footnote,[^1] and here's a longer one.[^bignote]
     Add as many paragraphs as you like.
 
 
-{% info() %}
+{% callout(type="info") %}
 Info Box
 {% end %}
 
-{% tip() %}
+{% callout(type="tip") %}
 Tip Box
 {% end %}
 
-{% warning() %}
+{% callout(type="warn") %}
 Warning Box
 {% end %}
 
-{% danger() %}
+{% callout(type="danger") %}
 Danger Box
 {% end %}
 

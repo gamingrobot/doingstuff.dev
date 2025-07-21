@@ -1,11 +1,11 @@
-+++
-title = "Homelab Adventure - Part 2: Configuration Management"
-description = "Homelab configuration management with Salt"
-date = 2020-02-06
-slug = "homelab-adventure-part-2"
-[taxonomies]
-tags = ["Linux", "Homelab"]
-+++
+---
+title: "Homelab Adventure - Part 2: Configuration Management"
+description: "Homelab configuration management with Salt"
+date: 2020-02-06
+slug: "homelab-adventure-part-2"
+taxonomies:
+  tags: ["Linux", "Homelab"]
+---
 
 Welcome to my journey in building my Homelab. This is part of a multipart series; in the last part I gave an overview of the Homelab plan. This one will cover how I handle configuration management.
 
@@ -17,7 +17,7 @@ Welcome to my journey in building my Homelab. This is part of a multipart series
 [**Sidequest: Switching from Salt to Ansible**](@/posts/homelab-switching-salt-to-ansible.md)   
 [**Part 4: Application Hosting and Monitoring**](@/posts/homelab-adventure-part-4.md)  
 
-{% warning() %}
+{% callout(type="warn") %}
 Since this blog post was written I have [switched from Salt to Ansible](@/posts/homelab-switching-salt-to-ansible.md).
 {% end %}
 
@@ -213,7 +213,7 @@ base:
     - app.portainer
 ```
 
-{% warning() %}
+{% callout(type="warn") %}
 Grains are controlled by the minion, so a server can access pillar data for other traits due to matching on grains.
 {% end %}
 

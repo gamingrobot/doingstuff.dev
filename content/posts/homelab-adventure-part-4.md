@@ -1,11 +1,11 @@
-+++
-title = "Homelab Adventure - Part 4: Application Hosting and Monitoring"
-description = "Homelab application hosting and monitoring"
-date = 2025-07-13
-slug = "homelab-adventure-part-4"
-[taxonomies]
-tags = ["Linux", "Homelab"]
-+++
+---
+title: "Homelab Adventure - Part 4: Application Hosting and Monitoring"
+description: "Homelab application hosting and monitoring"
+date: 2025-07-13
+slug: "homelab-adventure-part-4"
+taxonomies:
+  tags: ["Linux", "Homelab"]
+---
 
 Welcome to my journey in building my Homelab. This is part of a multipart series; in the last part I showed how to set up an internal network across multiple hosts. This "final" post will go over application hosting and monitoring.
 

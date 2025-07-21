@@ -1,13 +1,13 @@
-+++
-title = "Setup QEMU for ARM on Debian Wheezy"
-description = "How-to setup QEMU for ARM on Debian Wheezy"
-date = 2014-01-01
-slug = "setup-qemu-for-arm-on-wheezy"
-[taxonomies]
-tags = ["Linux"]
-[extra]
-hide_toc = true
-+++
+---
+title: "Setup QEMU for ARM on Debian Wheezy"
+description: "How-to setup QEMU for ARM on Debian Wheezy"
+date: 2014-01-01
+slug: "setup-qemu-for-arm-on-wheezy"
+taxonomies:
+  tags: ["Linux"]
+extra:
+  hide_toc: true
+---
 
 This is a quick little blog post for how to install QEMU for ARM on Debian 7.0 (Wheezy).
 

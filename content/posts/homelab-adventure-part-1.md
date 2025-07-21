@@ -1,11 +1,11 @@
-+++
-title = "Homelab Adventure - Part 1: The Adventure Begins"
-description = "Homelab overview"
-date = 2019-11-09
-slug = "homelab-adventure-part-1"
-[taxonomies]
-tags = ["Linux", "Homelab"]
-+++
+---
+title: "Homelab Adventure - Part 1: The Adventure Begins"
+description: Homelab overview
+date: 2019-11-09
+slug: homelab-adventure-part-1
+taxonomies: 
+  tags: ["Linux", "Homelab"]
+---
 
 Welcome to my journey in building my Homelab. This will be an ongoing series of blog posts of my adventures in building my personal infrastructure.
 
@@ -60,7 +60,7 @@ At the time of writing here is my current inventory of servers. It will most lik
 
 These are the tools/software I decided on to meet each of the above goals.
 
-{% info() %}
+{% callout(type="info") %}
 The crossed out tools are things that have changed or been replaced since I wrote this in 2019.
 {% end %}
 

@@ -1,18 +1,18 @@
-+++
-title = "Sending MIDI from Reaper to Unreal Engine"
-description = "How-to setup MIDI routing from Reaper to Unreal Engine"
-date = 2022-04-11
-slug = "reaper-midi-unreal-engine"
-[taxonomies]
-tags = ["Music"]
-[extra]
-hide_toc = true
-+++
+---
+title: "Sending MIDI from Reaper to Unreal Engine"
+description: "How-to setup MIDI routing from Reaper to Unreal Engine"
+date: 2022-04-11
+slug: "reaper-midi-unreal-engine"
+taxonomies:
+  tags: ["Music"]
+extra:
+  hide_toc: true
+---
 
 How to setup Reaper to send MIDI to Unreal Engine. 
 
 <!-- more -->
-{% info() %}
+{% callout(type="info") %}
 If you are looking to use OSC instead, take a look at [daw-out](https://github.com/gamingrobot/daw-out).
 {% end %}
 
@@ -24,7 +24,7 @@ If you are looking to use OSC instead, take a look at [daw-out](https://github.c
 {{ img(src="loopmidi.png", alt="loopMIDI with unreal_port added") }}
 
 - Enable new MIDI output in Reaper via Options -> Preferences -> Audio -> MIDI Devices  
-{% info() %}
+{% callout(type="info") %}
 Only enable the MIDI Output
 {% end %}
 {{ img(src="midi-output.png", alt="Reaper MIDI devices with unreal_port enabled") }}

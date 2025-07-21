@@ -14,6 +14,8 @@ taxonomies = [
     {name = "tags", rss = false},
 ]
 
+ignored_content = ["**/.obsidian/**"] # ignore the .obsidian folder for publishing
+
 [search]
 include_date = true
 index_format = "elasticlunr_json"

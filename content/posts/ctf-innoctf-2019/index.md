@@ -1,11 +1,11 @@
-+++
-title = "InnoCTF 2019 Writeups"
-description = "Writeups for InnoCTF 2019"
-date = 2019-07-19
-slug = "ctf-innoctf-2019"
-[taxonomies]
-tags = ["CTF"]
-+++
+---
+title: "InnoCTF 2019 Writeups"
+description: "Writeups for InnoCTF 2019"
+date: 2019-07-19
+slug: "ctf-innoctf-2019"
+taxonomies:
+  tags: ["CTF"]
+---
 
 Writeups for [InnoCTF](http://innoctf.com/) 2019
 
