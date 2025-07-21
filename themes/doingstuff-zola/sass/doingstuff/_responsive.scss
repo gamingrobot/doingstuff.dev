@@ -102,7 +102,7 @@
     background-color: #1b1e1f;
   }
   .danger,
-  .warn,
+  .warning,
   .info,
   .tip,
   blockquote {
@@ -129,12 +129,12 @@
   .info-icon {
     color: #52b5ff;
   }
-  .warn {
+  .warning {
     color: #eaeaea;
     background-color: #3d2e00;
     border-left-color: #b47602;
   }
-  .warn-icon {
+  .warning-icon {
     color: #fcb125;
   }
   .danger {

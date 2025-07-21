@@ -69,7 +69,7 @@ KDE Plasma 6 with the Maliit keyboard gave me the best tablet mode and on-screen
 4. Reorder USB to be the first boot device
 5. Reboot
 
-{% callout(type="warn") %}
+{% callout(type="warning") %}
 When installing you should leave the Recovery Partition. I removed it and the ThinkPad Tablet Setup broke.
 {% end %}
 

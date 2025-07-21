@@ -320,7 +320,7 @@ Info Box
 Tip Box
 {% end %}
 
-{% callout(type="warn") %}
+{% callout(type="warning") %}
 Warning Box
 {% end %}
 

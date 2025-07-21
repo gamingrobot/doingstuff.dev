@@ -17,7 +17,7 @@ Welcome to my journey in building my Homelab. This is part of a multipart series
 [**Sidequest: Switching from Salt to Ansible**](@/posts/homelab-switching-salt-to-ansible.md)   
 [**Part 4: Application Hosting and Monitoring**](@/posts/homelab-adventure-part-4.md)  
 
-{% callout(type="warn") %}
+{% callout(type="warning") %}
 Since this blog post was written I have [switched from Salt to Ansible](@/posts/homelab-switching-salt-to-ansible.md).
 {% end %}
 
@@ -213,7 +213,7 @@ base:
     - app.portainer
 ```
 
-{% callout(type="warn") %}
+{% callout(type="warning") %}
 Grains are controlled by the minion, so a server can access pillar data for other traits due to matching on grains.
 {% end %}
 
