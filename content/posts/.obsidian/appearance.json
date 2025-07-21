@@ -1,7 +1,11 @@
 {
-  "cssTheme": "Minimal",
+  "cssTheme": "",
   "interfaceFontFamily": "",
   "textFontFamily": "Atkinson Hyperlegible Next",
   "monospaceFontFamily": "Atkinson Hyperlegible Mono",
-  "baseFontSize": 18
+  "baseFontSize": 20,
+  "accentColor": "#167bc2",
+  "enabledCssSnippets": [
+    "custom"
+  ]
 }

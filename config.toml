@@ -14,7 +14,7 @@ taxonomies = [
     {name = "tags", rss = false},
 ]
 
-ignored_content = ["**/.obsidian/**"] # ignore the .obsidian folder for publishing
+ignored_content = ["**/.obsidian/**", "**/_templates/**"] # ignore the .obsidian and __templates folder for publishing
 
 [search]
 include_date = true

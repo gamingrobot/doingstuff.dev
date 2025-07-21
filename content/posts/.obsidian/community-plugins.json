@@ -1,5 +1,5 @@
 [
   "languagetool",
-  "obsidian-minimal-settings",
-  "zola-shortcodes"
+  "zola-shortcodes",
+  "templater-obsidian"
 ]

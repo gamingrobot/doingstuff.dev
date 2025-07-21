@@ -29,10 +29,8 @@
 	},
 	"callout": {
 		"scope": "markdown,jinja-md",
-		"prefix": ["call","callout","tip","info","warning","danger"],
-		"body": ["{% callout(type=\"${1|info,tip,warning,danger|}\") %}",
-				"$2",
-				"{% end %}"],
+		"prefix": ["callout","tip","info","warning","danger"],
+		"body": ["{%${1|tip,info,warning,danger|}()%}$2{%end%}"],
 		"description": "Callout"
 	}
 

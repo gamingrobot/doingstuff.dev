@@ -60,9 +60,7 @@ At the time of writing here is my current inventory of servers. It will most lik
 
 These are the tools/software I decided on to meet each of the above goals.
 
-{% callout(type="info") %}
-The crossed out tools are things that have changed or been replaced since I wrote this in 2019.
-{% end %}
+{%info()%}The crossed out tools are things that have changed or been replaced since I wrote this in 2019.{%end%}
 
 ### Hosting Applications
 

@@ -1,18 +1,18 @@
 ---
-title: "Markdown Test"
-description: "Markdown Test Description"
+title: Markdown Test
+description: Markdown Test Description
 date: 2050-01-01
-slug: "test"
+slug: test
 draft: true
 taxonomies:
-    tags: ["TagName"]
+  tags:
+    - TagName
 extra:
-    mermaid: true
+  mermaid: true
 ---
 
 # Markdown: Syntax
 ----
-
 ## Overview
 
 ### Philosophy
@@ -142,14 +142,14 @@ Markdown produces from the above list is:
 If you instead wrote the list in Markdown like this:
 
 1.  Bird
-1.  McHale
-1.  Parish
+2.  McHale
+3.  Parish
 
 or even:
 
 3. Bird
-1. McHale
-8. Parish
+4. McHale
+5. Parish
 
 you'd get the exact same HTML output. The point is, if you want to,
 you can use ordinal numbers in your ordered Markdown lists, so that
@@ -311,22 +311,13 @@ Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 
     Add as many paragraphs as you like.
 
+{%tip()%}Tip Box{%end%}
 
-{% callout(type="info") %}
-Info Box
-{% end %}
+{%info()%}Info Box{%end%}
 
-{% callout(type="tip") %}
-Tip Box
-{% end %}
+{%warning()%}Warning Box{%end%}
 
-{% callout(type="warning") %}
-Warning Box
-{% end %}
-
-{% callout(type="danger") %}
-Danger Box
-{% end %}
+{%danger()%}Danger Box{%end%}
 
 {% mermaid() %}
 sequenceDiagram

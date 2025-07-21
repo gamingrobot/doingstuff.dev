@@ -15,9 +15,7 @@ Turning an Intel Atom based Lenovo Tablet 10 (20E4) into a Home Assistant dashbo
 
 <!-- more -->
 
-{% callout(type="info") %}
-January 2025: I have also set up a Home Assistant kiosk on the Lenovo ThinkSmart View using [this guide](https://github.com/pgale/lineage_15.1_Installation_TSV).
-{% end %}
+{%info()%}January 2025: I have also set up a Home Assistant kiosk on the Lenovo ThinkSmart View using [this guide](https://github.com/pgale/lineage_15.1_Installation_TSV).{%end%}
 
 ## Home Assistant setup
 
@@ -69,9 +67,7 @@ KDE Plasma 6 with the Maliit keyboard gave me the best tablet mode and on-screen
 4. Reorder USB to be the first boot device
 5. Reboot
 
-{% callout(type="warning") %}
-When installing you should leave the Recovery Partition. I removed it and the ThinkPad Tablet Setup broke.
-{% end %}
+{%warning()%}When installing you should leave the Recovery Partition. I removed it and the ThinkPad Tablet Setup broke.{%end%}
 
 ## After installation
 
