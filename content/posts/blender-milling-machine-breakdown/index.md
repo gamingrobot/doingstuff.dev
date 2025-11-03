@@ -1,6 +1,6 @@
 ---
 title: Blender - Milling Machine Breakdown
-description: ""
+description: "Breakdown for the stylized milling machine render"
 date: 2025-11-02
 slug: blender-milling-machine-breakdown
 taxonomies:
@@ -12,7 +12,7 @@ extra:
   cover_image: "render.webp"
 ---
 
-A breakdown for my stylized milling machine render. 
+A breakdown for the stylized milling machine render. 
 {{ img(src="render.webp", alt="3d render of a milling machine") }}
 
 <!-- more -->
