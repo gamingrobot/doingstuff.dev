@@ -6,7 +6,7 @@
   {% if link %}</a>{% endif %}
   {% if text %}
   <figcaption>
-    <span>{{ text }}</span>
+    <span>{{ text | markdown(inline=true) | safe }}</span>
   </figcaption>
   {% endif %}
 </figure>
