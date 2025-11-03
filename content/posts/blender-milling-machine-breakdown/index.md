@@ -81,12 +81,14 @@ After this project I created [Cider](https://github.com/gamingrobot/Cider), whic
 
 {{ video(src="composite_layers.mp4", autoplay="true") }}
 
-For compositing, I enabled additional passes in the View Layer settings:
+For compositing, I enabled transparency in **Render -> Film -> Transparent** since I had disabled the background in the World shader earlier. Then I can then composite in any color as the background. 
+
+I enabled additional passes in the View Layer settings:
 - Z/Depth (for Vector Blur)
 - Vector (for Vector Blur)
 - Cryptomatte Object (to mask out specific objects for Vector Blur)
 
-I had a weird issue with one frame in the middle of the render having a large vector change to one object in the vector pass but not in the combined pass. So I used the Cryptomatte Object pass to mask out just the cutter to apply the Vector Blur.
+I had a weird issue with one frame in the middle of the render having a large vector change to the metal block in the vector pass but not in the combined pass. So I used the Cryptomatte Object pass to mask out the cutter to apply the Vector Blur to.
 {{ img(src="compositor_nodes.webp", alt="compositor nodes") }}
 
 The settings I used for generating the grain with the Grainy addon:
