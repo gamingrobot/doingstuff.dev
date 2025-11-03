@@ -1,7 +1,7 @@
 ---
 title: Blender - Milling Machine Breakdown
 description: ""
-date: 2025-11-01
+date: 2025-11-02
 slug: blender-milling-machine-breakdown
 taxonomies:
   tags:
