@@ -14,7 +14,7 @@ extra:
 
 <!-- more -->
 
-My day job is as a software engineer, and until last year I also spent my free time coding various side projects. But I started experiencing burnout and felt anxious every time I tried to work on a project. This was very uncomfortable because it felt like I couldn't express my creativity anymore, so I started looking at non-code ways to be creative. 
+My day job is as a Software Engineer, and until last year I also spent my free time coding various side projects. But I started experiencing burnout and felt anxious every time I tried to work on a project. This was very uncomfortable because it felt like I couldn't express my creativity anymore, so I started looking at non-code ways to be creative. 
 
 I tried learning drawing and doing [genuary](https://genuary.art/) in [vvvv](https://vvvv.org/). But as part of a [M8](https://dirtywave.com/) visualizer I was making in vvvv, I had to tweak a 3D model in [Blender](https://www.blender.org/). I had used Blender before, making the donut, messing with physics, but never felt like I knew how to use it. 
 
