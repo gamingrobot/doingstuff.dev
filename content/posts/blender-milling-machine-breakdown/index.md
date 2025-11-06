@@ -79,7 +79,7 @@ After this project I created [Cider](https://github.com/gamingrobot/Cider), whic
 
 ## Compositing
 
-{{ video(src="composite_layers.mp4", autoplay="true") }}
+{{ video(src="composite_layers.mp4") }}
 
 For compositing, I enabled transparency in **Render -> Film -> Transparent** since I had disabled the background in the World shader earlier. Then I can then composite in any color as the background. 
 
