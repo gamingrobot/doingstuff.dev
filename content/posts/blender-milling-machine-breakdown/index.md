@@ -53,7 +53,7 @@ These are the nodes for the **DiffuseColor** node group. The **ColorOffset** val
 {{ img(src="custom_diffuse_nodes.webp", alt="node group graph for DiffuseColor") }}
 
 ## Volumetrics
-The lamp volumetrics are set up on a separate view layer with the spot lamp so I could tweak it in compositing if I needed to. The mill was set to **Holdout**, so it didn't render the volumetric where the mill was.
+The lamp volumetrics are set up on a separate view layer with the spot lamp, so the volumetric did not affect the lighting of the main scene. The mill was set to **Holdout**, so it didn't render the volumetric where the mill was.
 {{ img(src="volume_node.webp", alt="volumetrics shader settings") }}
 
 ## Particles
