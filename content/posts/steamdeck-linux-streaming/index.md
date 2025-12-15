@@ -21,7 +21,7 @@ With X11 you can use `xrandr` (`wlroots` based Wayland compositors can use `wlr-
 
 ## Setup Sunshine and Moonlight
 
-I set up Sunshine using the Fedora COPR; detailed install instructions are [here](https://docs.lizardbyte.dev/projects/sunshine/latest/md_docs_2getting__started.html). Then I set up Moonlight on my Steam Deck as a Flatpak, following [this guide](https://www.xda-developers.com/how-install-use-moonlight-steam-deck/).
+I set up Sunshine using the [Fedora COPR](https://docs.lizardbyte.dev/projects/sunshine/latest/md_docs_2getting__started.html). Then I set up Moonlight on my Steam Deck following [this guide](https://www.xda-developers.com/how-install-use-moonlight-steam-deck/).
 
 
 ## Testing Normal Streaming
