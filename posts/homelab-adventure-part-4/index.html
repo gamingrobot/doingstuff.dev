@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=5" name="viewport"/>
+        <meta name="theme-color" content="#0d314b"/>
+        <title>
+            
+    Homelab Adventure - Part 4: Application Hosting and Monitoring - Doing Stuff
+
+        </title>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://doingstuff.dev/apple-touch-icon-144-precomposed.png">
+        <link href="https://doingstuff.dev/favicon.png" rel="icon" type="image/x-icon"/>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleNext-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleMono-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        
+            <link rel="alternate" type= "application/atom+xml"  title="RSS" href="https://doingstuff.dev/atom.xml"/>
+        
+        
+        
+    <meta content="website" property="og:type"/>
+    <meta content="Doing Stuff" property="og:site_name"/>
+    <meta content="https://doingstuff.dev/posts/homelab-adventure-part-4/" property="og:url"/>
+    <meta content="https://doingstuff.dev/posts/homelab-adventure-part-4/" property="twitter:url"/>
+    
+        <meta content="Homelab Adventure - Part 4: Application Hosting and Monitoring" property="og:title"/>
+        <meta content="Homelab Adventure - Part 4: Application Hosting and Monitoring" property="twitter:title"/>
+    
+    
+        <meta content="Homelab application hosting and monitoring" property="og:description"/>
+        <meta content="Homelab application hosting and monitoring" property="description"/>
+        <meta content="Homelab application hosting and monitoring" property="twitter:description"/>
+    
+    
+
+        
+        
+            <link href="https://doingstuff.dev/fonts.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/doingstuff.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/print.css" rel="stylesheet" media="print" type="text/css"/>
+        
+        
+        
+    </head>
+    <body>
+        <!--Fix Firefox FOUC-->
+        <script>0</script> 
+        <div class="container">
+            <nav class="topbar">
+                <div class="topbar-text">
+                    <div class="topbar-title">
+                        <a href="/"><span>Doing Stuff</span></a>
+                    </div>
+                    <div class="topbar-menu">
+                        
+                        <a href="https://doingstuff.dev/posts"><span>Posts</span></a>
+                        
+                        <a href="https://doingstuff.dev/atom.xml"><span>RSS</span></a>
+                        
+                        <a href="https:&#x2F;&#x2F;creekmore.dev"><span>About</span></a>
+                        
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                
+<article>
+    <header>
+        <h1>Homelab Adventure - Part 4: Application Hosting and Monitoring</h1>
+        <div class="post-meta">
+            Jul 13, 2025
+            <br>
+            
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/linux/">Linux</a>
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/homelab/">Homelab</a>
+            
+            <br>
+            
+        </div>
+    </header>
+    
+    <div class="toc-wrapper">
+        <input type="checkbox" id="tocToggle" checked>
+        <label class="toc-label" for="tocToggle">› Table of Contents</label>
+        <div class="toc">
+            <ul>
+                
+                <li><a href="https://doingstuff.dev/posts/homelab-adventure-part-4/#application-hosting">Application Hosting</a>
+                    
+                    <ul>
+                        
+                        <li><a href="https://doingstuff.dev/posts/homelab-adventure-part-4/#exposing-applications">Exposing applications</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/homelab-adventure-part-4/#monitoring">Monitoring</a>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="post"> 
+        <p>Welcome to my journey in building my Homelab. This is part of a multipart series; in the last part I showed how to set up an internal network across multiple hosts. This "final" post will go over application hosting and monitoring.</p>
+<span id="continue-reading"></span>
+<p><a href="https://doingstuff.dev/posts/homelab-adventure-part-1/"><strong>Part 1: The Adventure Begins</strong></a><br />
+<a href="https://doingstuff.dev/posts/homelab-adventure-part-2/"><strong>Part 2: Configuration Management</strong></a><br />
+<a href="https://doingstuff.dev/posts/homelab-adventure-part-3/"><strong>Part 3: Internal Network</strong></a><br />
+<a href="https://doingstuff.dev/posts/homelab-switching-salt-to-ansible/"><strong>Sidequest: Switching from Salt to Ansible</strong></a><br />
+<strong>Part 4: Application Hosting and Monitoring (You are here!)</strong></p>
+<h2 id="application-hosting">Application Hosting<a class="zola-anchor" href="#application-hosting" aria-label="Anchor link for: application-hosting">🔗</a></h2>
+<p>All applications are hosted in <a href="https://docs.docker.com/">Docker</a> and configured by <a href="https://docs.ansible.com/ansible/latest/index.html">Ansible</a> and kept updated via <a href="https://github.com/containrrr/watchtower">Watchtower</a>. I decided to go with this route instead of <a href="https://kubernetes.io/">Kubernetes</a> because:</p>
+<ul>
+<li>I don't have shared storage across all servers</li>
+<li>I don't need multiple instances of the applications</li>
+<li>Most applications are on specific servers</li>
+</ul>
+<p>Each container gets a separate role in Ansible that creates a storage folder, a user, and the container. Then in the main playbook I can specify which roles apply to which hosts or the whole group.</p>
+<pre data-lang="yaml" style="background-color:#193549;color:#ffffff;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#f9f9f9;">#</span><span style="font-style:italic;color:#0088ff;"> roles/container-readeck/tasks/main.yml
+</span><span style="color:#f9f9f9;">- </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">readeck-user-present
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">ansible.builtin.user</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">readeck
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">shell</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">/usr/sbin/nologin
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">uid</span><span style="color:#f9f9f9;">: </span><span style="color:#ff628c;">2002
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">- </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">readeck-config-dir
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">ansible.builtin.file</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">path</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">/data/readeck
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">state</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">directory
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">owner</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">readeck
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">group</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">readeck
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">mode</span><span style="color:#f9f9f9;">: &#39;</span><span style="color:#9eff80;">0755</span><span style="color:#f9f9f9;">&#39;
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">- </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">readeck-container
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">community.docker.docker_container</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">readeck
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">image</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">codeberg.org/readeck/readeck:latest
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">restart_policy</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">unless-stopped
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">user</span><span style="color:#f9f9f9;">: &#39;</span><span style="color:#9eff80;">2002:2002</span><span style="color:#f9f9f9;">&#39; #</span><span style="font-style:italic;color:#0088ff;"> has to be the id not name
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">volumes</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">      - &quot;</span><span style="color:#9eff80;">/data/readeck:/readeck</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">labels</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">      </span><span style="color:#ffc600;">com.centurylinklabs.watchtower.enable</span><span style="color:#f9f9f9;">: &#39;</span><span style="color:#9eff80;">true</span><span style="color:#f9f9f9;">&#39;
+</span><span style="color:#f9f9f9;">      </span><span style="color:#ffc600;">traefik.enable</span><span style="color:#f9f9f9;">: &#39;</span><span style="color:#9eff80;">true</span><span style="color:#f9f9f9;">&#39;
+</span></code></pre>
+<h3 id="exposing-applications">Exposing applications<a class="zola-anchor" href="#exposing-applications" aria-label="Anchor link for: exposing-applications">🔗</a></h3>
+<p>I use <a href="https://doc.traefik.io/traefik/">Traefik</a> to expose each application based on labels. I use a wildcard certificate to enable HTTPS, but Let's Encrypt could also be used. If you are worried about mounting the <code>docker.sock</code> directly to Traefik, you can set up <a href="https://github.com/wollomatic/socket-proxy">socket-proxy</a>.</p>
+<pre data-lang="yaml" style="background-color:#193549;color:#ffffff;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#f9f9f9;">#</span><span style="font-style:italic;color:#0088ff;"> roles/container-traefik/tasks/main.yml
+</span><span style="color:#f9f9f9;">- </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik-user-present
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">ansible.builtin.user</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">shell</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">/usr/sbin/nologin
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">uid</span><span style="color:#f9f9f9;">: </span><span style="color:#ff628c;">2001
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">- </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik-config-dir
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">ansible.builtin.file</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">path</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">/data/traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">state</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">directory
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">owner</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">group</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">mode</span><span style="color:#f9f9f9;">: &#39;</span><span style="color:#9eff80;">0755</span><span style="color:#f9f9f9;">&#39;
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">- </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik-cert-dir
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">ansible.builtin.file</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">path</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">/data/traefik/config/certs
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">owner</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">group</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">state</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">directory
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">mode</span><span style="color:#f9f9f9;">: &#39;</span><span style="color:#9eff80;">0755</span><span style="color:#f9f9f9;">&#39;
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">- </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik-dynamic-config
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">ansible.builtin.template</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">src</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">dynamic.yaml.j2
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">dest</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">/data/traefik/config/dynamic.yaml
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">owner</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">group</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">mode</span><span style="color:#f9f9f9;">: &#39;</span><span style="color:#9eff80;">0644</span><span style="color:#f9f9f9;">&#39;
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">notify</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik-container-restart
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">- </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik-config
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">ansible.builtin.template</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">src</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik.yaml.j2
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">dest</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">/data/traefik/config/traefik.yaml
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">owner</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">group</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">mode</span><span style="color:#f9f9f9;">: &#39;</span><span style="color:#9eff80;">0644</span><span style="color:#f9f9f9;">&#39;
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">notify</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik-container-restart
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">- </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik-cert
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">ansible.builtin.copy</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">src</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">{{ item.key }}.cert</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">dest</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">/data/traefik/config/certs/{{ item.key }}.cert</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">owner</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">group</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">mode</span><span style="color:#f9f9f9;">: &#39;</span><span style="color:#9eff80;">0644</span><span style="color:#f9f9f9;">&#39;
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">loop</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">{{ traefik_certs | dict2items }}</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">loop_control</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">label</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">{{ item.key }}</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">diff</span><span style="color:#f9f9f9;">: </span><span style="color:#ff628c;">false
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">notify</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik-container-restart
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">when</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik_certs is defined
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">- </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik-certkey
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">ansible.builtin.copy</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">dest</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">/data/traefik/config/certs/{{ item.key }}.key
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">content</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">{{ item.value.key }}</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">owner</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">group</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">mode</span><span style="color:#f9f9f9;">: &#39;</span><span style="color:#9eff80;">0644</span><span style="color:#f9f9f9;">&#39;
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">loop</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">{{ traefik_certs | dict2items }}</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">loop_control</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">label</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">{{ item.key }}</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">diff</span><span style="color:#f9f9f9;">: </span><span style="color:#ff628c;">false
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">notify</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik-container-restart
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">when</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik_certs is defined
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">- </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik-container
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">community.docker.docker_container</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">image</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik:3.2
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">restart_policy</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">unless-stopped
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">command</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">--configFile=/config/traefik.yaml</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">user</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">2001:2001</span><span style="color:#f9f9f9;">&quot; #</span><span style="font-style:italic;color:#0088ff;"> has to be the id not name
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">published_ports</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">      - </span><span style="color:#3ad900;">80:80
+</span><span style="color:#f9f9f9;">  	  - </span><span style="color:#3ad900;">443:443
+</span><span style="color:#f9f9f9;">  	  #</span><span style="font-style:italic;color:#0088ff;"> Use these if you want traefik to only listen on the internal network (define &#39;traefik_internal_interface&#39; in host_vars or group_vars)
+</span><span style="color:#f9f9f9;">      #</span><span style="font-style:italic;color:#0088ff;"> - &quot;{{ vars[&#39;ansible_&#39;~traefik_internal_interface].ipv4.address }}:80:8080&quot;
+</span><span style="color:#f9f9f9;">      #</span><span style="font-style:italic;color:#0088ff;"> - &quot;{{ vars[&#39;ansible_&#39;~traefik_internal_interface].ipv4.address }}:443:8443&quot;
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">volumes</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">      - </span><span style="color:#3ad900;">/data/traefik/config:/config
+</span><span style="color:#f9f9f9;">      - </span><span style="color:#3ad900;">/var/run/docker.sock:/var/run/docker.sock:ro
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">labels</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">      </span><span style="color:#ffc600;">com.centurylinklabs.watchtower.enable</span><span style="color:#f9f9f9;">: &#39;</span><span style="color:#9eff80;">true</span><span style="color:#f9f9f9;">&#39;
+</span></code></pre>
+<pre data-lang="yaml" style="background-color:#193549;color:#ffffff;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#f9f9f9;">#</span><span style="font-style:italic;color:#0088ff;"> roles/container-traefik/handlers/main.yml
+</span><span style="color:#f9f9f9;">- </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik-container-restart
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">community.docker.docker_container</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">traefik
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">restart</span><span style="color:#f9f9f9;">: </span><span style="color:#ff628c;">true
+</span></code></pre>
+<p>This config sets up the certificates and a middleware for HTTPS redirection and an <code>ipAllowList</code>. This middleware can then be specified on a container via the <code>traefik.http.routers.&lt;app_name&gt;.middlewares: 'internal-network@file'</code> label (replace <code>&lt;app_name&gt;</code> with the application name).</p>
+<pre data-lang="yaml" style="background-color:#193549;color:#ffffff;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#f9f9f9;">#</span><span style="font-style:italic;color:#0088ff;"> roles/container-traefik/templates/dynamic.yaml.j2
+</span><span style="color:#f9f9f9;">{% </span><span style="color:#3ad900;">if traefik_certs %</span><span style="color:#f9f9f9;">}
+</span><span style="color:#ffc600;">tls</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">certificates</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">{% </span><span style="color:#3ad900;">for name in traefik_certs.keys() %</span><span style="color:#f9f9f9;">}
+</span><span style="color:#f9f9f9;">    - </span><span style="color:#ffc600;">certFile</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">/config/certs/{{ name }}.cert
+</span><span style="color:#f9f9f9;">      </span><span style="color:#ffc600;">keyFile</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">/config/certs/{{ name }}.key
+</span><span style="color:#f9f9f9;">{% </span><span style="color:#3ad900;">endfor %</span><span style="color:#f9f9f9;">}
+</span><span style="color:#f9f9f9;">{% </span><span style="color:#3ad900;">endif %</span><span style="color:#f9f9f9;">}
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">http</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">middlewares</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">internal-network</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">      </span><span style="color:#ffc600;">chain</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">          </span><span style="color:#ffc600;">middlewares</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">            - </span><span style="color:#3ad900;">internal-allowlist
+</span><span style="color:#f9f9f9;">            - </span><span style="color:#3ad900;">https-only
+</span><span style="color:#f9f9f9;">            
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">https-only</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">      </span><span style="color:#ffc600;">redirectScheme</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">        </span><span style="color:#ffc600;">scheme</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">https
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">internal-allowlist</span><span style="color:#f9f9f9;">: 
+</span><span style="color:#f9f9f9;">      </span><span style="color:#ffc600;">ipAllowList</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">        </span><span style="color:#ffc600;">sourceRange</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">          - &quot;</span><span style="color:#9eff80;">{{ traefik_internal_iprange }}</span><span style="color:#f9f9f9;">&quot; #</span><span style="font-style:italic;color:#0088ff;"> internal network
+</span><span style="color:#f9f9f9;">          - &quot;</span><span style="color:#9eff80;">172.17.0.1/16</span><span style="color:#f9f9f9;">&quot; #</span><span style="font-style:italic;color:#0088ff;"> docker range
+</span></code></pre>
+<p>This config sets up the entrypoints, HTTPS redirection and the Docker provider.</p>
+<pre data-lang="yaml" style="background-color:#193549;color:#ffffff;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#f9f9f9;">#</span><span style="font-style:italic;color:#0088ff;"> roles/container-traefik/templates/traefik.yaml.j2
+</span><span style="color:#ffc600;">log</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">level</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">INFO
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">entryPoints</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">web</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">address</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">:8080</span><span style="color:#f9f9f9;">&quot; #</span><span style="font-style:italic;color:#0088ff;"> will be routed to port 80 by docker
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">http</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">      </span><span style="color:#ffc600;">redirections</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">        </span><span style="color:#ffc600;">entryPoint</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">          </span><span style="color:#ffc600;">to</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">:443</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">          </span><span style="color:#ffc600;">scheme</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">https
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">websecure</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">address</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">:8443</span><span style="color:#f9f9f9;">&quot; #</span><span style="font-style:italic;color:#0088ff;"> will be routed to port 443 by docker
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">http</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">      </span><span style="color:#ffc600;">middlewares</span><span style="color:#f9f9f9;">: 
+</span><span style="color:#f9f9f9;">        - </span><span style="color:#3ad900;">https-only@file </span><span style="color:#f9f9f9;">#</span><span style="font-style:italic;color:#0088ff;"> default to https everything
+</span><span style="color:#f9f9f9;">      </span><span style="color:#ffc600;">tls</span><span style="color:#f9f9f9;">: {}  
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">providers</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">docker</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">exposedByDefault</span><span style="color:#f9f9f9;">: </span><span style="color:#ff628c;">false </span><span style="color:#f9f9f9;">#</span><span style="font-style:italic;color:#0088ff;"> require `traefik.enable: &#39;true&#39;` label
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">defaultRule</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">Host(`{{ &#39;{{&#39; }} normalize .Name {{ &#39;}}&#39; }}.{{ traefik_domain }}`)</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">network</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">bridge </span><span style="color:#f9f9f9;">#</span><span style="font-style:italic;color:#0088ff;"> default network
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">file</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">filename</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">/config/dynamic.yaml</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">watch</span><span style="color:#f9f9f9;">: </span><span style="color:#ff628c;">true
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">serversTransport</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">insecureSkipVerify</span><span style="color:#f9f9f9;">: </span><span style="color:#ff628c;">true </span><span style="color:#f9f9f9;">#</span><span style="font-style:italic;color:#0088ff;"> enable self signed certs on containers
+</span></code></pre>
+<p>Now any container with the <code>traefik.enable: 'true'</code> will be automatically exposed on <code>&lt;container_name&gt;.&lt;traefik_domain&gt;</code>. If <code>traefik.http.routers.&lt;app_name&gt;.middlewares: 'internal-network@file'</code> is set as a label, the application will only be accessible from IPs on the <code>ipAllowList</code>.</p>
+<p>For managing DNS, I use <a href="https://dnscontrol.org/">DNSControl</a> so I can version control my DNS configuration. Ansible could also be used, but it's more verbose.</p>
+<h2 id="monitoring">Monitoring<a class="zola-anchor" href="#monitoring" aria-label="Anchor link for: monitoring">🔗</a></h2>
+<p>For general server metrics and monitoring, I use <a href="https://www.netdata.cloud/">Netdata</a>. There are some additional monitoring modules I have set up:</p>
+<ul>
+<li><a href="https://learn.netdata.cloud/docs/collecting-metrics/hardware-devices-and-sensors/s.m.a.r.t.">SMART monitoring</a></li>
+<li><a href="https://learn.netdata.cloud/docs/collecting-metrics/ups/apc-ups">UPS monitoring</a></li>
+<li><a href="https://learn.netdata.cloud/docs/collecting-metrics/containers-and-vms/docker">Container metrics</a></li>
+</ul>
+<p>This gives alerts for things like high disk usage, high memory usage, UPS failed over to battery, and SMART failures.</p>
+<p>For custom monitoring, I use <a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a>. It works well for application health monitoring as well as custom webhook monitors. I have set up custom webhook monitors for:</p>
+<ul>
+<li>BTRFS Health</li>
+<li>BTRFS Scrubbing</li>
+<li>Backups</li>
+</ul>
+<p>I have alerts from both Netdata and Uptime Kuma going to <a href="https://pushover.net/">Pushover</a> and email.</p>
+<p><a href="https://doingstuff.dev/posts/homelab-adventure-part-1/"><strong>Part 1: The Adventure Begins</strong></a><br />
+<a href="https://doingstuff.dev/posts/homelab-adventure-part-2/"><strong>Part 2: Configuration Management</strong></a><br />
+<a href="https://doingstuff.dev/posts/homelab-adventure-part-3/"><strong>Part 3: Internal Network</strong></a><br />
+<a href="https://doingstuff.dev/posts/homelab-switching-salt-to-ansible/"><strong>Sidequest: Switching from Salt to Ansible</strong></a><br />
+<strong>Part 4: Application Hosting and Monitoring (You are here!)</strong></p>
+
+    </div>
+    
+        <nav class="navigation">
+            
+                <a class="navigation-next" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;blender-year-one&#x2F;">‹ Blender - Year One</a>
+            
+            
+                <a class="navigation-prev" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;blender-milling-machine-breakdown&#x2F;">Blender - Milling Machine Breakdown ›</a>
+            
+        </nav>
+    
+</article>
+
+                
+                
+                <div class="copyright">&copy; 2026 <a href="https:&#x2F;&#x2F;graphics.social&#x2F;@gamingrobot" rel="noopener me">Morgan Creekmore</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                
+                
+            </div>
+        </div>
+        
+    
+    
+
+        
+            <script data-goatcounter="https://grbt-doingstuff.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+        
+    </body>
+</html>

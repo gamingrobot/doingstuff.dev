@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=5" name="viewport"/>
+        <meta name="theme-color" content="#0d314b"/>
+        <title>
+            
+    Homelab Sidequest - Switching from Salt to Ansible - Doing Stuff
+
+        </title>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://doingstuff.dev/apple-touch-icon-144-precomposed.png">
+        <link href="https://doingstuff.dev/favicon.png" rel="icon" type="image/x-icon"/>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleNext-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleMono-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        
+            <link rel="alternate" type= "application/atom+xml"  title="RSS" href="https://doingstuff.dev/atom.xml"/>
+        
+        
+        
+    <meta content="website" property="og:type"/>
+    <meta content="Doing Stuff" property="og:site_name"/>
+    <meta content="https://doingstuff.dev/posts/homelab-switching-salt-to-ansible/" property="og:url"/>
+    <meta content="https://doingstuff.dev/posts/homelab-switching-salt-to-ansible/" property="twitter:url"/>
+    
+        <meta content="Homelab Sidequest - Switching from Salt to Ansible" property="og:title"/>
+        <meta content="Homelab Sidequest - Switching from Salt to Ansible" property="twitter:title"/>
+    
+    
+        <meta content="Switching my Homelab from Salt to Ansible" property="og:description"/>
+        <meta content="Switching my Homelab from Salt to Ansible" property="description"/>
+        <meta content="Switching my Homelab from Salt to Ansible" property="twitter:description"/>
+    
+    
+
+        
+        
+            <link href="https://doingstuff.dev/fonts.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/doingstuff.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/print.css" rel="stylesheet" media="print" type="text/css"/>
+        
+        
+        
+    </head>
+    <body>
+        <!--Fix Firefox FOUC-->
+        <script>0</script> 
+        <div class="container">
+            <nav class="topbar">
+                <div class="topbar-text">
+                    <div class="topbar-title">
+                        <a href="/"><span>Doing Stuff</span></a>
+                    </div>
+                    <div class="topbar-menu">
+                        
+                        <a href="https://doingstuff.dev/posts"><span>Posts</span></a>
+                        
+                        <a href="https://doingstuff.dev/atom.xml"><span>RSS</span></a>
+                        
+                        <a href="https:&#x2F;&#x2F;creekmore.dev"><span>About</span></a>
+                        
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                
+<article>
+    <header>
+        <h1>Homelab Sidequest - Switching from Salt to Ansible</h1>
+        <div class="post-meta">
+            Mar 20, 2024
+            <br>
+            
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/linux/">Linux</a>
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/homelab/">Homelab</a>
+            
+            <br>
+            
+        </div>
+    </header>
+    
+    <div class="toc-wrapper">
+        <input type="checkbox" id="tocToggle" checked>
+        <label class="toc-label" for="tocToggle">› Table of Contents</label>
+        <div class="toc">
+            <ul>
+                
+                <li><a href="https://doingstuff.dev/posts/homelab-switching-salt-to-ansible/#giving-ansible-a-try">Giving Ansible a try</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/homelab-switching-salt-to-ansible/#after-porting-1000-lines-of-yaml">After porting 1000 lines of yaml</a>
+                    
+                    <ul>
+                        
+                        
+                        
+                        
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/homelab-switching-salt-to-ansible/#living-with-ansible-for-a-few-months">Living with Ansible for a few months</a>
+                    
+                    <ul>
+                        
+                        <li><a href="https://doingstuff.dev/posts/homelab-switching-salt-to-ansible/#things-i-liked">Things I liked</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/homelab-switching-salt-to-ansible/#things-i-disliked">Things I disliked</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="post"> 
+        <p>About a month ago I thought it would be nice to be able to configure VM's and Droplets with Salt by using my existing configuration I had set up in <a href="https://doingstuff.dev/posts/homelab-adventure-part-2/">Part 2: Configuration Management</a>.</p>
+<span id="continue-reading"></span>
+<p>I could have gone the normal route of installing the Salt minion and attaching it to the Salt master then running the highstate. But since these would be resource constrained machines I had concerns about the resource usage of the minion.</p>
+<p>So I decided to try Salt SSH, which uses ssh to transfer a lightweight minion that executes the states and then exits. It would also allow me to to use Salt from my local machine instead of remoting into the server hosting the Salt master.</p>
+<p>This worked great until I attempted to run it and hit this <a href="https://github.com/saltstack/salt/issues/60002">lovely bug</a> where if you are using gpg-encrypted pillars the minion will attempt to decrypt them rather than decrypting locally and when rendering the state.</p>
+<p>This wasn't the first time I had run into a nasty Salt bug, <a href="https://github.com/saltstack/salt/issues/47325">this bug</a> caused watchtower to break and I had to rollback to a previous version.</p>
+<h2 id="giving-ansible-a-try">Giving Ansible a try<a class="zola-anchor" href="#giving-ansible-a-try" aria-label="Anchor link for: giving-ansible-a-try">🔗</a></h2>
+<p>I read Jeff Geerling's <a href="https://www.jeffgeerling.com/project/ansible-devops">Ansible for DevOps</a> book, which gave a really good overview of Ansible and how I could map what I knew from Salt to Ansible. I also looked for blog posts of people migrating from Salt to Ansible, but almost all of them were company blogs talking about how they outgrew Ansible and migrated to Salt.</p>
+<p>I ported some of my simpler states to Ansible to try and get a feel for how my Salt traits and states mapped to Ansible playbooks and roles.</p>
+<p>These are the Ansible concepts explained in terms of Salt:</p>
+<ul>
+<li>Playbook
+<ul>
+<li>Ansible playbooks are the mapping between host and roles/tasks.</li>
+<li>Salt's top file is also a mapping between hosts to states.</li>
+</ul>
+</li>
+<li>Role
+<ul>
+<li>Ansible roles contain tasks, files, variables and handlers.</li>
+<li>Salt formulas contain states, files and variables.</li>
+</ul>
+</li>
+<li>Variables
+<ul>
+<li>Ansible has two types of vars <code>group_vars</code>and <code>host_vars</code>. <code>group_vars</code> are scoped to the group in the inventory while <code>host_vars</code> are scoped to a specific host.</li>
+<li>Salt pillars contain the variables specific to a host. Pillars can contain gpg encrypted values for Ansible it encrypts the whole yaml via <code>ansible-vault</code>.</li>
+</ul>
+</li>
+<li>Handlers
+<ul>
+<li>Ansible handlers are tasks but are triggered via <code>notify</code>, these most closely map to Salt Reactors. But are primarily used to achieve the same result that Salt's <code>on_change</code> does to have states that trigger off other states changing.</li>
+</ul>
+</li>
+<li>Inventory
+<ul>
+<li>Ansible needs to know what hosts its going to be connecting to.</li>
+<li>Salt's master keeps track of the connected minions and in Salt SSH it uses a roster.</li>
+</ul>
+</li>
+<li>Galaxy
+<ul>
+<li>Ansible Galaxy is a repository of roles created by the community.</li>
+<li>Salt's version of this is the <a href="https://github.com/saltstack-formulas">saltstack-formulas</a> repos.</li>
+</ul>
+</li>
+</ul>
+<h2 id="after-porting-1000-lines-of-yaml">After porting 1000 lines of yaml<a class="zola-anchor" href="#after-porting-1000-lines-of-yaml" aria-label="Anchor link for: after-porting-1000-lines-of-yaml">🔗</a></h2>
+<p>After porting all my Salt states to Ansible there were a few things that tripped me up.</p>
+<p>Salt allows for jinja templating inside state files, instead Ansible only allows jinja templating inside yaml values and template files. This affects how loops are done, in Salt they are handled with a jinja for loop, but in Ansible you use a <code>loop</code> and <code>loop_control</code> in the yaml.</p>
+<h4 id="salt">Salt<a class="zola-anchor" href="#salt" aria-label="Anchor link for: salt">🔗</a></h4>
+<pre data-lang="jinja" style="background-color:#193549;color:#ffffff;" class="language-jinja "><code class="language-jinja" data-lang="jinja"><span style="color:#ffc600;">{% </span><span style="color:#ff9d00;">for </span><span style="color:#f9f9f9;">name </span><span style="color:#ff9d00;">in </span><span style="color:#f9f9f9;">salt[&#39;</span><span style="color:#9eff80;">pillar.get</span><span style="color:#f9f9f9;">&#39;](&#39;</span><span style="color:#9eff80;">certs</span><span style="color:#f9f9f9;">&#39;, {}).keys() </span><span style="color:#ffc600;">%}
+</span><span style="color:#f9f9f9;">cert-</span><span style="color:#ffc600;">{{ </span><span style="color:#f9f9f9;">name </span><span style="color:#ffc600;">}}</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">  file.managed:
+</span><span style="color:#f9f9f9;">    - name: /opt/certs/</span><span style="color:#ffc600;">{{ </span><span style="color:#f9f9f9;">name </span><span style="color:#ffc600;">}}</span><span style="color:#f9f9f9;">.cert
+</span><span style="color:#f9f9f9;">    - contents_pillar: certs:</span><span style="color:#ffc600;">{{ </span><span style="color:#f9f9f9;">name </span><span style="color:#ffc600;">}}</span><span style="color:#f9f9f9;">:cert
+</span><span style="color:#ffc600;">{% </span><span style="color:#ff9d00;">endfor </span><span style="color:#ffc600;">%}
+</span></code></pre>
+<h4 id="ansible">Ansible<a class="zola-anchor" href="#ansible" aria-label="Anchor link for: ansible">🔗</a></h4>
+<pre data-lang="yaml" style="background-color:#193549;color:#ffffff;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#f9f9f9;">- </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">cert
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">ansible.builtin.copy</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">dest</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">/opt/certs/{{ item.key }}.cert
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">content</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">{{ item.value.cert }}</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">loop</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">{{ certs | dict2items }}</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">loop_control</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">label</span><span style="color:#f9f9f9;">: &quot;</span><span style="color:#9eff80;">{{ item.key }}</span><span style="color:#f9f9f9;">&quot;
+</span></code></pre>
+<p>With Salt you can specify the source of a local file via <code>salt://{{ tpldir }}</code>. In Ansible when specifying a local file it will first look in a role's <code>files</code> folder.</p>
+<h4 id="salt-1">Salt<a class="zola-anchor" href="#salt-1" aria-label="Anchor link for: salt-1">🔗</a></h4>
+<pre data-lang="yaml" style="background-color:#193549;color:#ffffff;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#ffc600;">dynamic-config</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">file.managed</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    - </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">/opt/config/dynamic.yaml
+</span><span style="color:#f9f9f9;">    - </span><span style="color:#ffc600;">source</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">salt://{{ tpldir }}/config/dynamic.yaml
+</span></code></pre>
+<h4 id="ansible-1">Ansible<a class="zola-anchor" href="#ansible-1" aria-label="Anchor link for: ansible-1">🔗</a></h4>
+<pre data-lang="yaml" style="background-color:#193549;color:#ffffff;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#f9f9f9;">- </span><span style="color:#ffc600;">name</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">dynamic-config
+</span><span style="color:#f9f9f9;">  </span><span style="color:#ffc600;">ansible.builtin.template</span><span style="color:#f9f9f9;">:
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">src</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">dynamic.yaml
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">dest</span><span style="color:#f9f9f9;">: </span><span style="color:#3ad900;">/opt/config/dynamic.yaml
+</span></code></pre>
+<p>Salt has targeting as part of the <code>state.apply</code> command, in Ansible you can limit the scope of the playbook by using <code>--limit</code></p>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> salt &#39;testserver&#39; state.apply
+</span><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> ansible-playbook servers.yml --limit testserver
+</span></code></pre>
+<h2 id="living-with-ansible-for-a-few-months">Living with Ansible for a few months<a class="zola-anchor" href="#living-with-ansible-for-a-few-months" aria-label="Anchor link for: living-with-ansible-for-a-few-months">🔗</a></h2>
+<h3 id="things-i-liked">Things I liked<a class="zola-anchor" href="#things-i-liked" aria-label="Anchor link for: things-i-liked">🔗</a></h3>
+<p>I really like that when you hit <code>Ctrl+C</code> during execution Ansible stops the playbook execution. This is nice when I have forgotten to make a change or something failed on one host but not another. With Salt you get a job id that you have to cancel manually or let it finish.</p>
+<p>Because I am running Ansible locally, iteration time is quicker. In Salt I am committing then pushing my changes, pulling them down on the master and running highstate.</p>
+<p>Documentation is considerably better for Ansible. The documentation pages include multiple examples for a module. Since many other homelabbers run Ansible there are many blog posts and examples on how to do something.</p>
+<p>Ansible Vault is much easier to use than gpg encrypting pillar data. By default it encrypts entire files but you can encrypt specific values like Salt's gpg pillars.</p>
+<h3 id="things-i-disliked">Things I disliked<a class="zola-anchor" href="#things-i-disliked" aria-label="Anchor link for: things-i-disliked">🔗</a></h3>
+<p>The roles folder structure is verbose but only requires the folders you use.</p>
+<p>The largest complaint I saw about Ansible was how slow it was compared to Salt. I saw speeds similar to Salt with this additional configuration:</p>
+<pre data-lang="ini" style="background-color:#193549;color:#ffffff;" class="language-ini "><code class="language-ini" data-lang="ini"><span style="color:#ffc600;">[defaults]
+</span><span style="color:#f9f9f9;">strategy </span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;"> free </span><span style="font-style:italic;color:#0088ff;"># don&#39;t block on each host per task
+</span><span style="color:#ffc600;">[ssh_connection]
+</span><span style="color:#f9f9f9;">pipelining </span><span style="color:#ff9d00;">= </span><span style="color:#ff628c;">True </span><span style="font-style:italic;color:#0088ff;"># reduce the number of network operations
+</span></code></pre>
+
+    </div>
+    
+        <nav class="navigation">
+            
+                <a class="navigation-next" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;homelab-adventure-part-3&#x2F;">‹ Homelab Adventure - Part 3: Internal Network</a>
+            
+            
+                <a class="navigation-prev" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;home-assistant-dashboard-tablet&#x2F;">Home Assistant - Linux tablet dashboard and voice assistant ›</a>
+            
+        </nav>
+    
+</article>
+
+                
+                
+                <div class="copyright">&copy; 2026 <a href="https:&#x2F;&#x2F;graphics.social&#x2F;@gamingrobot" rel="noopener me">Morgan Creekmore</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                
+                
+            </div>
+        </div>
+        
+    
+    
+
+        
+            <script data-goatcounter="https://grbt-doingstuff.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+        
+    </body>
+</html>

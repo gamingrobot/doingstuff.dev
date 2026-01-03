@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=5" name="viewport"/>
+        <meta name="theme-color" content="#0d314b"/>
+        <title>
+            
+    Sending MIDI from Reaper to Unreal Engine - Doing Stuff
+
+        </title>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://doingstuff.dev/apple-touch-icon-144-precomposed.png">
+        <link href="https://doingstuff.dev/favicon.png" rel="icon" type="image/x-icon"/>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleNext-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleMono-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        
+            <link rel="alternate" type= "application/atom+xml"  title="RSS" href="https://doingstuff.dev/atom.xml"/>
+        
+        
+        
+    <meta content="website" property="og:type"/>
+    <meta content="Doing Stuff" property="og:site_name"/>
+    <meta content="https://doingstuff.dev/posts/reaper-midi-unreal-engine/" property="og:url"/>
+    <meta content="https://doingstuff.dev/posts/reaper-midi-unreal-engine/" property="twitter:url"/>
+    
+        <meta content="Sending MIDI from Reaper to Unreal Engine" property="og:title"/>
+        <meta content="Sending MIDI from Reaper to Unreal Engine" property="twitter:title"/>
+    
+    
+        <meta content="How-to setup MIDI routing from Reaper to Unreal Engine" property="og:description"/>
+        <meta content="How-to setup MIDI routing from Reaper to Unreal Engine" property="description"/>
+        <meta content="How-to setup MIDI routing from Reaper to Unreal Engine" property="twitter:description"/>
+    
+    
+
+        
+        
+            <link href="https://doingstuff.dev/fonts.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/doingstuff.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/print.css" rel="stylesheet" media="print" type="text/css"/>
+        
+        
+        
+    </head>
+    <body>
+        <!--Fix Firefox FOUC-->
+        <script>0</script> 
+        <div class="container">
+            <nav class="topbar">
+                <div class="topbar-text">
+                    <div class="topbar-title">
+                        <a href="/"><span>Doing Stuff</span></a>
+                    </div>
+                    <div class="topbar-menu">
+                        
+                        <a href="https://doingstuff.dev/posts"><span>Posts</span></a>
+                        
+                        <a href="https://doingstuff.dev/atom.xml"><span>RSS</span></a>
+                        
+                        <a href="https:&#x2F;&#x2F;creekmore.dev"><span>About</span></a>
+                        
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                
+<article>
+    <header>
+        <h1>Sending MIDI from Reaper to Unreal Engine</h1>
+        <div class="post-meta">
+            Apr 11, 2022
+            <br>
+            
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/music/">Music</a>
+            
+            <br>
+            
+        </div>
+    </header>
+    
+    <div class="post"> 
+        <p>How to setup Reaper to send MIDI to Unreal Engine.</p>
+<span id="continue-reading"></span><blockquote class="info">
+    <span class="info-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+    </span>
+    <span><p>If you are looking to use OSC instead, take a look at <a href="https://github.com/gamingrobot/daw-out">daw-out</a>.</p>
+</span>
+</blockquote>
+<h2 id="setting-up-reaper">Setting up Reaper<a class="zola-anchor" href="#setting-up-reaper" aria-label="Anchor link for: setting-up-reaper">🔗</a></h2>
+<ul>
+<li>
+<p>Install <a href="https://www.tobias-erichsen.de/software/loopmidi.html">loopMIDI</a> (This allows us to create a loopback MIDI device)</p>
+</li>
+<li>
+<p>Add a new MIDI device in loopMIDI called <code>unreal_port</code>
+<figure class="center">
+  
+  <img width="493" height="331" src="https://doingstuff.dev/posts/reaper-midi-unreal-engine/loopmidi.png" alt="loopMIDI with unreal_port added">
+  
+  
+</figure>
+</p>
+</li>
+<li>
+<p>Enable new MIDI output in Reaper via Options -&gt; Preferences -&gt; Audio -&gt; MIDI Devices</p>
+</li>
+</ul>
+<blockquote class="info">
+    <span class="info-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+    </span>
+    <span><p>Only enable the MIDI Output</p>
+</span>
+</blockquote>
+<figure class="center">
+  
+  <img width="467" height="127" src="https://doingstuff.dev/posts/reaper-midi-unreal-engine/midi-output.png" alt="Reaper MIDI devices with unreal_port enabled">
+  
+  
+</figure>
+<ul>
+<li>Setup MIDI output routing per track via:
+<figure class="center">
+  
+  <img width="407" height="231" src="https://doingstuff.dev/posts/reaper-midi-unreal-engine/reaper-routematrix.png" >
+  
+  
+  <figcaption>
+    <span>Routing Matrix (View -&gt; Routing Matrix)</span>
+  </figcaption>
+  
+</figure>
+
+<strong>OR</strong>
+<figure class="center">
+  
+  <img width="630" height="261" src="https://doingstuff.dev/posts/reaper-midi-unreal-engine/reaper-routetrack.png" >
+  
+  
+  <figcaption>
+    <span>Track routing settings (IO button on track)</span>
+  </figcaption>
+  
+</figure>
+</li>
+</ul>
+<p>Set each track to a separate MIDI channel, so each track number maps to its corresponding channel number.</p>
+<h2 id="setting-up-unreal-engine">Setting up Unreal Engine<a class="zola-anchor" href="#setting-up-unreal-engine" aria-label="Anchor link for: setting-up-unreal-engine">🔗</a></h2>
+<p>Based on <a href="https://forums.unrealengine.com/t/setting-up-a-blueprint-midi-manager-with-4-14-version-of-midi-device-support-plugin/91606">this forum thread</a></p>
+<ul>
+<li>
+<p>Enable MIDI Device Support Plugin
+<figure class="center">
+  
+  <img width="679" height="92" src="https://doingstuff.dev/posts/reaper-midi-unreal-engine/midi-plugin.png" alt="Unreal Engine&#x27;s MIDI Device Support plugin enabled">
+  
+  
+</figure>
+</p>
+</li>
+<li>
+<p>Import <a href="https://dev.epicgames.com/community/snippets/JKp/unreal-engine-midi-input">Midi Blueprints</a></p>
+</li>
+<li>
+<p>Create Blueprint Interface with <code>OnNoteAction</code> and <code>OffNoteAction</code> functions called <code>MidiListener</code></p>
+</li>
+<li>
+<p>Set Game Instance Class via Edit -&gt; Project Settings -&gt; Maps &amp; Modes -&gt; Game Instance -&gt; Game Instance Class
+<figure class="center">
+  
+  <img width="791" height="58" src="https://doingstuff.dev/posts/reaper-midi-unreal-engine/game-instance.png" alt="Unreal Engine&#x27;s Game Instance Class set to MidiManager">
+  
+  
+</figure>
+</p>
+</li>
+<li>
+<p>Set <code>MidiDeviceId</code> in <code>MidiManager</code> to map to the output of <code>unreal_port</code> (You can find this out from the debug logs in the console)</p>
+</li>
+<li>
+<p>Place <code>MidiDebug</code> in the scene to print note debug information to the console</p>
+</li>
+<li>
+<p>Place <code>TestListener</code> in the scene and set <code>MidiChannel</code> to whichever track # in Reaper</p>
+</li>
+</ul>
+<h3 id="test-it-out">Test it out<a class="zola-anchor" href="#test-it-out" aria-label="Anchor link for: test-it-out">🔗</a></h3>
+<p>If you have added MIDI to the track, set the <code>MidiInput</code> number and <code>MidiChannel</code> number on the <code>TestListener</code>. Hit play in Unreal Engine and then Play in Reaper, the <code>TestListener</code> cube should respond to MIDI input.</p>
+
+    </div>
+    
+        <nav class="navigation">
+            
+                <a class="navigation-next" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;c64-puzzle&#x2F;">‹ Commodore 64 Puzzle</a>
+            
+            
+                <a class="navigation-prev" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;elf-shared-library-version&#x2F;">Embedding Version Info into ELF Shared Libraries ›</a>
+            
+        </nav>
+    
+</article>
+
+                
+                
+                <div class="copyright">&copy; 2026 <a href="https:&#x2F;&#x2F;graphics.social&#x2F;@gamingrobot" rel="noopener me">Morgan Creekmore</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                
+                
+            </div>
+        </div>
+        
+    
+    
+
+        
+            <script data-goatcounter="https://grbt-doingstuff.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+        
+    </body>
+</html>

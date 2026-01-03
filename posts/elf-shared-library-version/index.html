@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=5" name="viewport"/>
+        <meta name="theme-color" content="#0d314b"/>
+        <title>
+            
+    Embedding Version Info into ELF Shared Libraries - Doing Stuff
+
+        </title>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://doingstuff.dev/apple-touch-icon-144-precomposed.png">
+        <link href="https://doingstuff.dev/favicon.png" rel="icon" type="image/x-icon"/>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleNext-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleMono-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        
+            <link rel="alternate" type= "application/atom+xml"  title="RSS" href="https://doingstuff.dev/atom.xml"/>
+        
+        
+        
+    <meta content="website" property="og:type"/>
+    <meta content="Doing Stuff" property="og:site_name"/>
+    <meta content="https://doingstuff.dev/posts/elf-shared-library-version/" property="og:url"/>
+    <meta content="https://doingstuff.dev/posts/elf-shared-library-version/" property="twitter:url"/>
+    
+        <meta content="Embedding Version Info into ELF Shared Libraries" property="og:title"/>
+        <meta content="Embedding Version Info into ELF Shared Libraries" property="twitter:title"/>
+    
+    
+        <meta content="How-to embed version information into an ELF binary" property="og:description"/>
+        <meta content="How-to embed version information into an ELF binary" property="description"/>
+        <meta content="How-to embed version information into an ELF binary" property="twitter:description"/>
+    
+    
+
+        
+        
+            <link href="https://doingstuff.dev/fonts.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/doingstuff.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/print.css" rel="stylesheet" media="print" type="text/css"/>
+        
+        
+        
+    </head>
+    <body>
+        <!--Fix Firefox FOUC-->
+        <script>0</script> 
+        <div class="container">
+            <nav class="topbar">
+                <div class="topbar-text">
+                    <div class="topbar-title">
+                        <a href="/"><span>Doing Stuff</span></a>
+                    </div>
+                    <div class="topbar-menu">
+                        
+                        <a href="https://doingstuff.dev/posts"><span>Posts</span></a>
+                        
+                        <a href="https://doingstuff.dev/atom.xml"><span>RSS</span></a>
+                        
+                        <a href="https:&#x2F;&#x2F;creekmore.dev"><span>About</span></a>
+                        
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                
+<article>
+    <header>
+        <h1>Embedding Version Info into ELF Shared Libraries</h1>
+        <div class="post-meta">
+            Mar 22, 2023
+            <br>
+            
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/linux/">Linux</a>
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/code/">Code</a>
+            
+            <br>
+            
+        </div>
+    </header>
+    
+    <div class="toc-wrapper">
+        <input type="checkbox" id="tocToggle" checked>
+        <label class="toc-label" for="tocToggle">› Table of Contents</label>
+        <div class="toc">
+            <ul>
+                
+                <li><a href="https://doingstuff.dev/posts/elf-shared-library-version/#what-about-the-abi-version">What about the ABI version?</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/elf-shared-library-version/#ways-of-embedding-version-information">Ways of embedding version information</a>
+                    
+                    <ul>
+                        
+                        <li><a href="https://doingstuff.dev/posts/elf-shared-library-version/#sccs-string">SCCS String</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/elf-shared-library-version/#elf-note-header">ELF Note Header</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/elf-shared-library-version/#can-executables-use-these-methods">Can executables use these methods?</a>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="post"> 
+        <p><em>How to embed version information into an ELF shared library?</em></p>
+<p>Here are the methods I have used for embedding version information.</p>
+<span id="continue-reading"></span>
+<p>These methods are for embedding a version into libraries distributed outside of a package. Packages have their own version information, so we don't need to embed one in the library.</p>
+<h2 id="what-about-the-abi-version">What about the ABI version?<a class="zola-anchor" href="#what-about-the-abi-version" aria-label="Anchor link for: what-about-the-abi-version">🔗</a></h2>
+<p>ABI version can be separate from your product/release version. If you haven't changed the ABI interface, you can keep the same ABI version while updating the product/release version on new builds. There are some great <a href="https://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html">resources</a>, <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html#abi.changes_allowed">policy</a>, and <a href="https://www.gnu.org/software/libtool/manual/libtool.html#Versioning">tools</a> for how to handle ABI versioning.</p>
+<blockquote class="info">
+    <span class="info-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+    </span>
+    <span><p>Symbol versioning is another way to handle ABI changes without changing the ABI version, <a href="https://maskray.me/blog/2020-11-26-all-about-symbol-versioning">this blog post is all about symbol versioning</a>.</p>
+</span>
+</blockquote>
+<h2 id="ways-of-embedding-version-information">Ways of embedding version information<a class="zola-anchor" href="#ways-of-embedding-version-information" aria-label="Anchor link for: ways-of-embedding-version-information">🔗</a></h2>
+<p>Okay, so you want to embed a version in your ELF shared libraries. How should you do it?</p>
+<h3 id="sccs-string">SCCS String<a class="zola-anchor" href="#sccs-string" aria-label="Anchor link for: sccs-string">🔗</a></h3>
+<p>Probably the easiest to add, this method uses the <a href="https://en.wikipedia.org/wiki/Source_Code_Control_System">Source Code Control System</a> <code>@(#)</code> convention to embed the version.</p>
+<pre data-lang="c" style="background-color:#193549;color:#ffffff;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#ff9d00;">#define </span><span style="color:#ffc600;">VERSION </span><span style="color:#f9f9f9;">&quot;</span><span style="color:#9eff80;">1.2.3</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">static char</span><span style="color:#f9f9f9;"> sccsid[] </span><span style="color:#ffc600;">__attribute__</span><span style="color:#f9f9f9;">((used)) </span><span style="color:#ff9d00;">= </span><span style="color:#f9f9f9;">&quot;</span><span style="color:#9eff80;">@(#)Version </span><span style="color:#f9f9f9;">&quot; VERSION;
+</span></code></pre>
+<p>Then the version can be retrieved via <a href="https://man7.org/linux/man-pages/man1/what.1p.html">what(1)</a> or <code>strings libfoo.so | grep "@(#)"</code></p>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> strings libfoo.so | grep &quot;@(#)&quot;
+</span><span style="color:#f9f9f9;">@(#)Version 1.2.3
+</span></code></pre>
+<p>This is human-readable but slow since it has to look at all the strings in the binary. If you want to get the version programmatically, we have another method.</p>
+<h3 id="elf-note-header">ELF Note Header<a class="zola-anchor" href="#elf-note-header" aria-label="Anchor link for: elf-note-header">🔗</a></h3>
+<p>This method creates an ELF note header by defining a note struct with the descriptor field. Then uses <code>__attribute__((used, section(...), aligned(4)))</code> to tell the compiler to add the ELF header.</p>
+<pre data-lang="c" style="background-color:#193549;color:#ffffff;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#ff9d00;">#include </span><span style="color:#f9f9f9;">&lt;</span><span style="color:#9eff80;">elf.h</span><span style="color:#f9f9f9;">&gt;
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ff9d00;">#define </span><span style="color:#ffc600;">VERSION </span><span style="color:#f9f9f9;">&quot;</span><span style="color:#9eff80;">1.2.3</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#ff9d00;">#define </span><span style="color:#ffc600;">NOTE_SECTION </span><span style="color:#f9f9f9;">&quot;</span><span style="color:#9eff80;">.note.foo.version</span><span style="color:#f9f9f9;">&quot;
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">//</span><span style="font-style:italic;color:#0088ff;">Elf64_Nhdr + desc
+</span><span style="color:#ffc600;">struct version_note </span><span style="color:#f9f9f9;">{
+</span><span style="color:#f9f9f9;">    Elf64_Word	namesz;
+</span><span style="color:#f9f9f9;">    Elf64_Word	descsz;
+</span><span style="color:#f9f9f9;">    Elf64_Word	type;
+</span><span style="color:#f9f9f9;">    </span><span style="color:#ffc600;">char</span><span style="color:#f9f9f9;">    desc[</span><span style="color:#ff9d00;">sizeof</span><span style="color:#f9f9f9;">(VERSION)];
+</span><span style="color:#f9f9f9;">};
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">__attribute__</span><span style="color:#f9f9f9;">((used, section(NOTE_SECTION), aligned(</span><span style="color:#ff628c;">4</span><span style="color:#f9f9f9;">)))
+</span><span style="color:#ffc600;">static const struct</span><span style="color:#f9f9f9;"> version_note version </span><span style="color:#ff9d00;">= </span><span style="color:#f9f9f9;">{
+</span><span style="color:#f9f9f9;">    .namesz </span><span style="color:#ff9d00;">= </span><span style="color:#ff628c;">0</span><span style="color:#f9f9f9;">,
+</span><span style="color:#f9f9f9;">    .descsz </span><span style="color:#ff9d00;">= sizeof</span><span style="color:#f9f9f9;">(VERSION),
+</span><span style="color:#f9f9f9;">    .type </span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;"> NT_VERSION,
+</span><span style="color:#f9f9f9;">    .desc </span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;"> VERSION
+</span><span style="color:#f9f9f9;">};
+</span></code></pre>
+<blockquote>
+<p>Note sections contain a series of notes. Each note is followed by the name field (whose length is defined in <code>namesz</code>) then by the descriptor field (whose length is defined in <code>descsz</code>) and whose starting address has a 4 byte alignment. Neither field is defined in the note struct due to their arbitrary lengths.</p>
+</blockquote>
+<blockquote class="info">
+    <span class="info-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+    </span>
+    <span><p>More details in the <a href="https://man7.org/linux/man-pages/man5/elf.5.html">elf manpage</a> under the <code>Notes (Nhdr)</code> section.</p>
+</span>
+</blockquote>
+<p>Then <code>readelf -Wn</code> or an ELF parsing library can read the version header.</p>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> readelf -Wn libfoo.so
+</span><span style="color:#f9f9f9;">Displaying notes found in: .note.foo.version
+</span><span style="color:#f9f9f9;">  Owner                 Data size       Description
+</span><span style="color:#f9f9f9;">  (NONE)               0x00000006       NT_VERSION (version)       description data: 31 2e 32 2e 33 00
+</span></code></pre>
+<p>The downside is the output is in hex when using <code>readelf</code>, unlike the human-readable format of SCCS above. But this method is faster since it's only reading the ELF headers rather than the whole binary.</p>
+<h2 id="can-executables-use-these-methods">Can executables use these methods?<a class="zola-anchor" href="#can-executables-use-these-methods" aria-label="Anchor link for: can-executables-use-these-methods">🔗</a></h2>
+<p>Yup, if you need to provide a version without executing. But the more intuitive solution is to have a <code>--version</code> argument.</p>
+
+    </div>
+    
+        <nav class="navigation">
+            
+                <a class="navigation-next" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;reaper-midi-unreal-engine&#x2F;">‹ Sending MIDI from Reaper to Unreal Engine</a>
+            
+            
+                <a class="navigation-prev" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;homelab-adventure-part-3&#x2F;">Homelab Adventure - Part 3: Internal Network ›</a>
+            
+        </nav>
+    
+</article>
+
+                
+                
+                <div class="copyright">&copy; 2026 <a href="https:&#x2F;&#x2F;graphics.social&#x2F;@gamingrobot" rel="noopener me">Morgan Creekmore</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                
+                
+            </div>
+        </div>
+        
+    
+    
+
+        
+            <script data-goatcounter="https://grbt-doingstuff.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+        
+    </body>
+</html>
