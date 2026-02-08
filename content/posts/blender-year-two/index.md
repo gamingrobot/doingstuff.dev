@@ -34,14 +34,14 @@ I recreated my [Hacking Device ](https://gamingrobot.art/artwork/hacking-device)
 
 I was struggling to get my NPR shaders from the Hacking Device render to work well on interior scenes. These were my attempts at doing cutaways as an alternative. I want to revisit this technique later because I really enjoy cutaways.
 
-{{ img(src="hab_02.webp", alt="Cutaway of hab from The Martian") }}  
+{{ img(src="hab_02.webp", alt="Cutaway of hab from The Martian") }}
 {{ img(src="can_fixed.webp", alt="Cutaway of canister full of green goo") }}
 
 ## Chroma Corp
 
 These were inspired by some of the [Chroma Corps](https://www.chroma-corps.com/) prompts. The harvesting machine is unfinished, but I like how the shading turned out.
 
-{{ img(src="tree2.webp", alt="3d render of tree roots growing around a green nebula") }}  
+{{ img(src="tree2.webp", alt="3d render of tree roots growing around a green nebula") }}
 {{ img(src="machine12.webp", alt="3d render of a harvesting machine harvesting crystals") }}
 
 ## Milling Machine
@@ -55,15 +55,15 @@ This is the Milling Machine I modeled last year combined with the NPR shaders fr
 
 These are shader tests with the NPR shaders I refined when making the milling machine render. I really wanted to see how they worked for materials with normals, interiors, and area lights. As part of these, I modified Malt into my own line art addon, [Cider](https://github.com/gamingrobot/Cider).
 
-{{ img(src="helm_test8.webp", alt="3d render of space helmet") }}  
-{{ img(src="hallway_volumebloom.webp", alt="3d render of a school hallway" link="https://www.blenderkit.com/get-blenderkit/5efda1d7-3206-4fc0-a533-af19100dccae") }}  
+{{ img(src="helm_test8.webp", alt="3d render of space helmet") }}
+{{ img(src="hallway_volumebloom.webp", alt="3d render of a school hallway" link="https://www.blenderkit.com/get-blenderkit/5efda1d7-3206-4fc0-a533-af19100dccae") }}
 {{ img(src="glasses_test.webp", alt="3d render of glasses in a case" link="https://www.blenderkit.com/get-blenderkit/864cabea-9db9-419b-ae37-2556695d2b44") }}
 
 ## Holiday Penguin
 
 This was created in the "1 hour challenge" in the [Ctrl+Art+Del Discord](https://discord.com/invite/Vj8ceHJ3Ee).
 
-{{ img(src="penguin03.webp", alt="3d render of a penguin christmas decoration") }}
+{{ img(src="penguin03.webp", alt="3d render of a penguin christmas decoration" link="") }}
 
 ## Giant Hand
 
@@ -71,7 +71,7 @@ Blockout I started for a large-scale environment.
 
 {{ img(src="hand18.webp", alt="3d blockout for large mech hand in a desert" link="") }}
 
-## Space Shop progress
+## Space Shop
 
 More progress on my machine shop render with my NPR shaders and line art.
 
