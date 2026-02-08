@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=5" name="viewport"/>
+        <meta name="theme-color" content="#0d314b"/>
+        <title>
+            
+    Streaming games to the Steam Deck - Doing Stuff
+
+        </title>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://doingstuff.dev/apple-touch-icon-144-precomposed.png">
+        <link href="https://doingstuff.dev/favicon.png" rel="icon" type="image/x-icon"/>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleNext-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleMono-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        
+            <link rel="alternate" type= "application/atom+xml"  title="RSS" href="https://doingstuff.dev/atom.xml"/>
+        
+        
+        
+    <meta content="website" property="og:type"/>
+    <meta content="Doing Stuff" property="og:site_name"/>
+    <meta content="https://doingstuff.dev/posts/steamdeck-linux-streaming/" property="og:url"/>
+    <meta content="https://doingstuff.dev/posts/steamdeck-linux-streaming/" property="twitter:url"/>
+    
+        <meta content="Streaming games to the Steam Deck" property="og:title"/>
+        <meta content="Streaming games to the Steam Deck" property="twitter:title"/>
+    
+    
+        <meta content="Setting up Sunshine and Moonlight for streaming to the Steam Deck" property="og:description"/>
+        <meta content="Setting up Sunshine and Moonlight for streaming to the Steam Deck" property="description"/>
+        <meta content="Setting up Sunshine and Moonlight for streaming to the Steam Deck" property="twitter:description"/>
+    
+    
+
+        
+        
+            <link href="https://doingstuff.dev/fonts.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/doingstuff.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/print.css" rel="stylesheet" media="print" type="text/css"/>
+        
+        
+        
+    </head>
+    <body>
+        <!--Fix Firefox FOUC-->
+        <script>0</script> 
+        <div class="container">
+            <nav class="topbar">
+                <div class="topbar-text">
+                    <div class="topbar-title">
+                        <a href="/"><span>Doing Stuff</span></a>
+                    </div>
+                    <div class="topbar-menu">
+                        
+                        <a href="https://doingstuff.dev/posts"><span>Posts</span></a>
+                        
+                        <a href="https://doingstuff.dev/atom.xml"><span>RSS</span></a>
+                        
+                        <a href="https:&#x2F;&#x2F;creekmore.dev"><span>About</span></a>
+                        
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                
+<article>
+    <header>
+        <h1>Streaming games to the Steam Deck</h1>
+        <div class="post-meta">
+            Dec 12, 2025
+            <br>
+            
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/linux/">Linux</a>
+            
+            <br>
+            
+        </div>
+    </header>
+    
+    <div class="toc-wrapper">
+        <input type="checkbox" id="tocToggle" checked>
+        <label class="toc-label" for="tocToggle">› Table of Contents</label>
+        <div class="toc">
+            <ul>
+                
+                <li><a href="https://doingstuff.dev/posts/steamdeck-linux-streaming/#setup-sunshine-and-moonlight">Setup Sunshine and Moonlight</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/steamdeck-linux-streaming/#testing-normal-streaming">Testing Normal Streaming</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/steamdeck-linux-streaming/#custom-edid">Custom EDID</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/steamdeck-linux-streaming/#update-sunshine-application-settings">Update Sunshine Application Settings</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/steamdeck-linux-streaming/#reboot-and-test">Reboot and Test</a>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="post"> 
+        <p>My notes for setting up Steam Deck remote game streaming using <a href="https://docs.lizardbyte.dev/projects/sunshine/">Sunshine</a> and <a href="https://moonlight-stream.org/">Moonlight</a> and a custom <a href="https://en.wikipedia.org/wiki/Extended_Display_Identification_Data">EDID</a>.</p>
+<span id="continue-reading"></span>
+<p>Sunshine is a game stream host running on my desktop (Fedora 43 KDE Desktop with an NVIDIA graphics card), and Moonlight is the client running on the Steam Deck. I decided to use Sunshine/Moonlight due to latency issues with Steam Remote Play.</p>
+<p>Fedora KDE Desktop uses Wayland, which adds some complexity when trying to match the Steam Deck resolution and refresh rate. Since the Steam Deck is using a 16:10 aspect ratio (1280x800), when streaming from a 16:9 display, there will be black bars on the top and bottom of the screen.</p>
+<p>With X11 you can use <code>xrandr</code> (<code>wlroots</code> based Wayland compositors can use <code>wlr-randr</code>) to specify a custom resolution and refresh rate (display mode). Under KDE with Wayland, <code>kscreen-doctor</code> only supports setting the display mode to one that is supported by the display. We can get around this by using a custom <a href="https://en.wikipedia.org/wiki/Extended_Display_Identification_Data">EDID</a>, either with a dummy display dongle or using <code>drm.edid_firmware</code> to specify a custom EDID.</p>
+<h2 id="setup-sunshine-and-moonlight">Setup Sunshine and Moonlight<a class="zola-anchor" href="#setup-sunshine-and-moonlight" aria-label="Anchor link for: setup-sunshine-and-moonlight">🔗</a></h2>
+<p>I set up Sunshine using the <a href="https://docs.lizardbyte.dev/projects/sunshine/latest/md_docs_2getting__started.html">Fedora COPR</a>. Then I set up Moonlight on my Steam Deck following <a href="https://www.xda-developers.com/how-install-use-moonlight-steam-deck/">this guide</a>.</p>
+<h2 id="testing-normal-streaming">Testing Normal Streaming<a class="zola-anchor" href="#testing-normal-streaming" aria-label="Anchor link for: testing-normal-streaming">🔗</a></h2>
+<p>Confirm everything is working normally by streaming to the Steam Deck and seeing the 16:9 aspect ratio.</p>
+<h2 id="custom-edid">Custom EDID<a class="zola-anchor" href="#custom-edid" aria-label="Anchor link for: custom-edid">🔗</a></h2>
+<blockquote class="warning">
+    <span class="warning-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+    </span>
+    <span><p>Custom EDIDs should be safe, but I'm not responsible for your hardware.</p>
+</span>
+</blockquote>
+<ol>
+<li>Plug the monitor into a Windows machine and use <a href="https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU">Custom Resolution Utility</a>. On Linux, <a href="https://flathub.org/en/apps/net.sourceforge.wxEDID">wxEDID</a> might work to edit the EDID, but CRU was easier to use.</li>
+<li>Add a new <code>Standard Resolution</code> of <code>1920x1200</code> (the native resolution of <code>1280x800</code> also works, but I got better results with <code>1920x1200</code>) and a refresh rate of <code>90</code> for the OLED Steam Deck or <code>60</code> for the LCD version.</li>
+<li>Export the modified EDID from Custom Resolution Utility and transfer it to Linux.</li>
+<li>Save that modified EDID to <code>/usr/lib/firmware/edid/custom-edid.bin</code></li>
+<li>Use <code>kscreen-doctor -o</code> to get the primary display port name and current display mode.</li>
+<li>Add the kernel argument <code>sudo grubby --update-kernel=ALL --args="drm.edid_firmware=&lt;port-name&gt;:edid/custom-edid.bin"</code>, replacing <code>&lt;port-name&gt;</code> with the port from the previous step (it should be <code>DP-X</code> or <code>HDMI-A-X</code>)</li>
+</ol>
+<h2 id="update-sunshine-application-settings">Update Sunshine Application Settings<a class="zola-anchor" href="#update-sunshine-application-settings" aria-label="Anchor link for: update-sunshine-application-settings">🔗</a></h2>
+<ol>
+<li>Set up a new application
+<ol>
+<li>Set the Do Command to <code>kscreen-doctor output.&lt;port-name&gt;.mode.&lt;resolution&gt;@&lt;refresh-rate&gt;</code>, replacing <code>&lt;resolution&gt;</code> and <code>&lt;refresh-rate&gt;</code> from the above Step 2.</li>
+<li>Set the Undo Command to <code>kscreen-doctor output.&lt;port-name&gt;.mode.&lt;current-mode&gt;</code>, replacing <code>&lt;port-name&gt;</code> and <code>&lt;current-mode&gt;</code> from the above Step 5.</li>
+<li>(Optional) If you want Steam Big Picture to close when you stop streaming, add a new Undo Command <code>setsid steam steam://close/bigpicture</code>
+<figure class="center">
+  
+  <img width="1380" height="343" src="https://doingstuff.dev/posts/steamdeck-linux-streaming/sunshine-settings.webp" >
+  
+  
+</figure>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="reboot-and-test">Reboot and Test<a class="zola-anchor" href="#reboot-and-test" aria-label="Anchor link for: reboot-and-test">🔗</a></h2>
+<p>Reboot and test streaming; it should now be in the 16:10 aspect ratio (your monitor will turn off due to an unsupported mode).</p>
+
+    </div>
+    
+        <nav class="navigation">
+            
+                <a class="navigation-next" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;blender-milling-machine-breakdown&#x2F;">‹ Blender - Milling Machine Breakdown</a>
+            
+            
+                <a class="navigation-prev" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;blender-year-two&#x2F;">Blender - Year Two ›</a>
+            
+        </nav>
+    
+</article>
+
+                
+                
+                <div class="copyright">&copy; 2026 <a href="https:&#x2F;&#x2F;graphics.social&#x2F;@gamingrobot" rel="noopener me">Morgan Creekmore</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                
+                
+            </div>
+        </div>
+        
+    
+    
+
+        
+            <script data-goatcounter="https://grbt-doingstuff.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+        
+    </body>
+</html>

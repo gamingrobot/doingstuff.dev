@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=5" name="viewport"/>
+        <meta name="theme-color" content="#0d314b"/>
+        <title>
+            
+    Home Assistant - Linux tablet dashboard and voice assistant - Doing Stuff
+
+        </title>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://doingstuff.dev/apple-touch-icon-144-precomposed.png">
+        <link href="https://doingstuff.dev/favicon.png" rel="icon" type="image/x-icon"/>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleNext-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleMono-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        
+            <link rel="alternate" type= "application/atom+xml"  title="RSS" href="https://doingstuff.dev/atom.xml"/>
+        
+        
+        
+    <meta content="website" property="og:type"/>
+    <meta content="Doing Stuff" property="og:site_name"/>
+    <meta content="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/" property="og:url"/>
+    <meta content="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/" property="twitter:url"/>
+    
+        <meta content="Home Assistant - Linux tablet dashboard and voice assistant" property="og:title"/>
+        <meta content="Home Assistant - Linux tablet dashboard and voice assistant" property="twitter:title"/>
+    
+    
+        <meta content="Setting up a Lenovo Tablet 10 as a Home Assistant dashboard and voice assistant" property="og:description"/>
+        <meta content="Setting up a Lenovo Tablet 10 as a Home Assistant dashboard and voice assistant" property="description"/>
+        <meta content="Setting up a Lenovo Tablet 10 as a Home Assistant dashboard and voice assistant" property="twitter:description"/>
+    
+    
+        <meta content="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/tablet_small.webp" property="og:image"/>
+        <meta content="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/tablet_small.webp" property="twitter:image"/>
+    
+
+        
+        
+            <link href="https://doingstuff.dev/fonts.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/doingstuff.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/print.css" rel="stylesheet" media="print" type="text/css"/>
+        
+        
+        
+    </head>
+    <body>
+        <!--Fix Firefox FOUC-->
+        <script>0</script> 
+        <div class="container">
+            <nav class="topbar">
+                <div class="topbar-text">
+                    <div class="topbar-title">
+                        <a href="/"><span>Doing Stuff</span></a>
+                    </div>
+                    <div class="topbar-menu">
+                        
+                        <a href="https://doingstuff.dev/posts"><span>Posts</span></a>
+                        
+                        <a href="https://doingstuff.dev/atom.xml"><span>RSS</span></a>
+                        
+                        <a href="https:&#x2F;&#x2F;creekmore.dev"><span>About</span></a>
+                        
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                
+<article>
+    <header>
+        <h1>Home Assistant - Linux tablet dashboard and voice assistant</h1>
+        <div class="post-meta">
+            May 27, 2024
+            <br>
+            
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/linux/">Linux</a>
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/home-assistant/">Home Assistant</a>
+            
+            <br>
+            
+        </div>
+    </header>
+    
+    <div class="toc-wrapper">
+        <input type="checkbox" id="tocToggle" checked>
+        <label class="toc-label" for="tocToggle">› Table of Contents</label>
+        <div class="toc">
+            <ul>
+                
+                <li><a href="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/#home-assistant-setup">Home Assistant setup</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/#picking-a-linux-distro">Picking a Linux distro</a>
+                    
+                    <ul>
+                        
+                        <li><a href="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/#alternative-on-screen-keyboards">Alternative on-screen keyboards</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/#installing-linux">Installing Linux</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/#after-installation">After installation</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/#tablet-voice-assistant-setup">Tablet voice assistant setup</a>
+                    
+                    <ul>
+                        
+                        <li><a href="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/#test-mic-and-playback">Test MIC and playback</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/#install-python-3-11">Install Python 3.11</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/#setup-wyoming-openwakeword">Setup wyoming-openwakeword</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/#setup-wyoming-satellite">Setup wyoming-satellite</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/#setup-wake-word-detection-sound-optional">Setup wake word detection sound (optional)</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/#check-wyoming-satellite-and-wyoming-openwakeword-are-working">Check wyoming-satellite and wyoming-openwakeword are working</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/#additional-home-assistant-integrations">Additional Home Assistant integrations</a>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="post"> 
+        <p>Turning an Intel Atom based Lenovo Tablet 10 (20E4) into a Home Assistant dashboard and voice assistant. Most tutorials for dashboard displays are using Android tablets, but I had this old tablet laying around and figured out how to use it with Home Assistant.</p>
+<figure class="center">
+  
+  <img width="713" height="545" src="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/tablet_small.webp" alt="Lenovo tablet with home assistant dashboard">
+  
+  
+</figure>
+<span id="continue-reading"></span><blockquote class="info">
+    <span class="info-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+    </span>
+    <span><p>Update 2025: I have also set up a Home Assistant kiosk on the Lenovo ThinkSmart View using <a href="https://github.com/pgale/lineage_15.1_Installation_TSV">this guide</a>.</p>
+</span>
+</blockquote>
+<h2 id="home-assistant-setup">Home Assistant setup<a class="zola-anchor" href="#home-assistant-setup" aria-label="Anchor link for: home-assistant-setup">🔗</a></h2>
+<p>In the Home Assistant UI:</p>
+<ul>
+<li>Create a <code>kiosk</code> user that can only login from the local network</li>
+<li>Create an Assist voice assistant, Settings -&gt; Voice Assistants -&gt; Add Assistant</li>
+</ul>
+<h2 id="picking-a-linux-distro">Picking a Linux distro<a class="zola-anchor" href="#picking-a-linux-distro" aria-label="Anchor link for: picking-a-linux-distro">🔗</a></h2>
+<p>I wanted a Linux distro that ran well on the low-powered Atom processor while having a good touch interface.</p>
+<ul>
+<li>Ubuntu 24.04
+<ul>
+<li>Performance: Gnome ran poorly, this would possibly be improved by gnome-tweaks and disabling animations.</li>
+<li>Keyboard: Gnome on-screen keyboard would popup but wouldn't accept input.</li>
+<li>Touch: Gnome has a good tablet mode with display scaling.</li>
+</ul>
+</li>
+<li>Fedora Workstation 40
+<ul>
+<li>Performance: Same Gnome performance issues as Ubuntu.</li>
+<li>Keyboard: Gnome on-screen keyboard worked but had an odd quirk where the shift key acted like caps lock.</li>
+<li>Touch: Same as Ubuntu</li>
+</ul>
+</li>
+<li>Lubuntu/Kubuntu 24.04
+<ul>
+<li>Performance: LXQt and KDE Plasma 5 both were lighter than Gnome and ran well.</li>
+<li>Keyboard: Onboard keyboard crashes. Florence isn't in the package repos. Maliit keyboard seems to only work under Wayland (which is current not the default).</li>
+<li>Touch: Touch worked but the mouse pointer was visible.</li>
+</ul>
+</li>
+<li>KDE Neon
+<ul>
+<li>Performance: KDE Plasma 6 ran well but had some missing icons.</li>
+<li>Keyboard: I had to manually set the virtual keyboard to Maliit keyboard but then worked well.</li>
+<li>Touch: KDE Plasma 6 has a tablet mode making icons larger, display scaling settings and the mouse pointer is not visible.</li>
+</ul>
+</li>
+<li>Fedora Spin KDE Desktop 40
+<ul>
+<li>Performance: KDE Plasma 6 ran well and was <strong>not</strong> missing icons.</li>
+<li>Keyboard: Defaulted to the Maliit keyboard.</li>
+<li>Touch: Same as KDE Neon.</li>
+</ul>
+</li>
+</ul>
+<p>KDE Plasma 6 with the Maliit keyboard gave me the best tablet mode and on-screen keyboard. The difference between KDE Neon and Fedora Spin KDE Desktop was that the Fedora Spin version does not use the bleeding edge version of the KDE apps. (KDE Neon is also based on Ubuntu LTS and Fedora Spin KDE Desktop is based on Fedora)</p>
+<h3 id="alternative-on-screen-keyboards">Alternative on-screen keyboards<a class="zola-anchor" href="#alternative-on-screen-keyboards" aria-label="Anchor link for: alternative-on-screen-keyboards">🔗</a></h3>
+<ul>
+<li><a href="https://launchpad.net/onboard">Onboard</a></li>
+<li><a href="https://github.com/maliit/keyboard">Maliit Keyboard</a></li>
+<li><a href="https://sourceforge.net/projects/florence">Florence</a></li>
+<li><a href="https://github.com/Vishram1123/gjs-osk">GJS OSK</a></li>
+<li><a href="https://gitlab.com/cubocore/coreapps/corekeyboard">CoreKeyboard</a></li>
+</ul>
+<h2 id="installing-linux">Installing Linux<a class="zola-anchor" href="#installing-linux" aria-label="Anchor link for: installing-linux">🔗</a></h2>
+<ol>
+<li>Shutdown the tablet</li>
+<li>Power on the tablet and hold the volume-up button until the ThinkPad Tablet Setup app starts</li>
+<li>Plug-in Linux USB drive</li>
+<li>Reorder USB to be the first boot device</li>
+<li>Reboot</li>
+</ol>
+<blockquote class="warning">
+    <span class="warning-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+    </span>
+    <span><p>When installing you should leave the Recovery Partition. I removed it and the ThinkPad Tablet Setup broke.</p>
+</span>
+</blockquote>
+<h2 id="after-installation">After installation<a class="zola-anchor" href="#after-installation" aria-label="Anchor link for: after-installation">🔗</a></h2>
+<p>These are the changes I made to make it function as a kiosk:</p>
+<ul>
+<li>Make a <code>kiosk</code> user and login as <code>kiosk</code></li>
+<li>Setup Firefox
+<ul>
+<li>Set homepage to <code>http://homeassistant.local:8123</code></li>
+<li>Add <a href="https://addons.mozilla.org/en-US/firefox/addon/autofullscreen/">autofullscreen</a> Extension to auto-fullscreen on startup.</li>
+<li>Disable resuming on crash <code>about:config</code> -&gt; <code>browser.sessionstore.resume_from_crash</code> -&gt; <code>false</code></li>
+</ul>
+</li>
+<li>Setup KDE to start Firefox on login
+<ul>
+<li>Settings -&gt; Autostart -&gt; Add -&gt; Firefox</li>
+</ul>
+</li>
+<li>Tweak screen sleep time
+<ul>
+<li>Settings -&gt; Energy Saving</li>
+</ul>
+</li>
+<li>Disable screen locking
+<ul>
+<li>Settings -&gt; Screen Locking</li>
+</ul>
+</li>
+<li>Disable animations
+<ul>
+<li>Quick Settings -&gt; Animation Speed: Instant</li>
+</ul>
+</li>
+<li>Set hostname
+<ul>
+<li><code>sudo hostnamectl set-hostname --static &lt;new-name&gt;</code></li>
+</ul>
+</li>
+<li>Enable SSH (optional)</li>
+</ul>
+<h2 id="tablet-voice-assistant-setup">Tablet voice assistant setup<a class="zola-anchor" href="#tablet-voice-assistant-setup" aria-label="Anchor link for: tablet-voice-assistant-setup">🔗</a></h2>
+<h3 id="test-mic-and-playback">Test MIC and playback<a class="zola-anchor" href="#test-mic-and-playback" aria-label="Anchor link for: test-mic-and-playback">🔗</a></h3>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> arecord -r 16000 -c 1 -f S16_LE -t wav -d 5 test.wav
+</span><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> aplay -r 22050 -c 1 -f S16_LE -t wav test.wav
+</span></code></pre>
+<h3 id="install-python-3-11">Install Python 3.11<a class="zola-anchor" href="#install-python-3-11" aria-label="Anchor link for: install-python-3-11">🔗</a></h3>
+<p>Python 3.12 is <a href="https://github.com/tensorflow/tensorflow/issues/62003">currently not supported</a> by <code>tflight-runtime</code></p>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">#</span><span style="color:#f9f9f9;"> yum install git python3.11
+</span></code></pre>
+<h3 id="setup-wyoming-openwakeword">Setup wyoming-openwakeword<a class="zola-anchor" href="#setup-wyoming-openwakeword" aria-label="Anchor link for: setup-wyoming-openwakeword">🔗</a></h3>
+<p><a href="https://github.com/rhasspy/wyoming-openwakeword">wyoming-openwakeword</a> allows us to use local wake word detection rather than Home Assistant's wake word detection.</p>
+<h4 id="clone-and-setup-python-venv">Clone and setup python venv<a class="zola-anchor" href="#clone-and-setup-python-venv" aria-label="Anchor link for: clone-and-setup-python-venv">🔗</a></h4>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> git clone https://github.com/rhasspy/wyoming-openwakeword.git /opt/ha-assist/wyoming-openwakeword
+</span><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> cd /opt/ha-assist/wyoming-openwakeword
+</span><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> python3.11 script/setup
+</span></code></pre>
+<h4 id="setup-wyoming-openwakeword-systemd-service">Setup wyoming-openwakeword systemd service<a class="zola-anchor" href="#setup-wyoming-openwakeword-systemd-service" aria-label="Anchor link for: setup-wyoming-openwakeword-systemd-service">🔗</a></h4>
+<ul>
+<li>Replace <code>ok_nabu</code> with whichever wake word model you want</li>
+</ul>
+<p>See wyoming-openwakeword docs for more information.</p>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">#</span><span style="color:#f9f9f9;"> systemctl edit --force --full wyoming-openwakeword.service
+</span></code></pre>
+<pre data-lang="ini" style="background-color:#193549;color:#ffffff;" class="language-ini "><code class="language-ini" data-lang="ini"><span style="color:#ffc600;">[Unit]
+</span><span style="color:#f9f9f9;">Description</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">Wyoming openWakeWord
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">[Service]
+</span><span style="color:#f9f9f9;">Type</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">simple
+</span><span style="color:#f9f9f9;">User</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">kiosk
+</span><span style="color:#f9f9f9;">Group</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">kiosk
+</span><span style="color:#f9f9f9;">ExecStart</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">python3</span><span style="color:#ff9d00;">.</span><span style="color:#ff628c;">11 </span><span style="color:#80ffbb;">script/run </span><span style="color:#ff9d00;">--</span><span style="color:#f9f9f9;">uri </span><span style="color:#9eff80;">&#39;tcp://127.0.0.1:10400&#39; </span><span style="color:#ff9d00;">--</span><span style="color:#f9f9f9;">preload</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">model </span><span style="color:#9eff80;">&#39;ok_nabu&#39;
+</span><span style="color:#f9f9f9;">WorkingDirectory</span><span style="color:#ff9d00;">=/</span><span style="color:#f9f9f9;">opt</span><span style="color:#ff9d00;">/</span><span style="color:#f9f9f9;">ha</span><span style="color:#ff9d00;">-</span><span style="color:#80ffbb;">assist/wyoming-openwakeword
+</span><span style="color:#f9f9f9;">Restart</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">always
+</span><span style="color:#f9f9f9;">RestartSec</span><span style="color:#ff9d00;">=</span><span style="color:#ff628c;">1
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">[Install]
+</span><span style="color:#f9f9f9;">WantedBy</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">default</span><span style="color:#ff9d00;">.</span><span style="color:#f9f9f9;">target
+</span></code></pre>
+<h4 id="enable-and-start-wyoming-openwakeword-service">Enable and start wyoming-openwakeword service<a class="zola-anchor" href="#enable-and-start-wyoming-openwakeword-service" aria-label="Anchor link for: enable-and-start-wyoming-openwakeword-service">🔗</a></h4>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">#</span><span style="color:#f9f9f9;"> systemctl daemon-reload
+</span><span style="color:#ff9d00;">#</span><span style="color:#f9f9f9;"> systemctl enable wyoming-openwakeword.service
+</span><span style="color:#ff9d00;">#</span><span style="color:#f9f9f9;"> systemctl start wyoming-openwakeword.service
+</span></code></pre>
+<h3 id="setup-wyoming-satellite">Setup wyoming-satellite<a class="zola-anchor" href="#setup-wyoming-satellite" aria-label="Anchor link for: setup-wyoming-satellite">🔗</a></h3>
+<p><a href="https://github.com/rhasspy/wyoming-satellite">wyoming-satellite</a> communicates with Home Assistant using the wyoming protocol.</p>
+<h4 id="clone-and-setup-python-venv-and-install-webrtc-noise-gain">Clone and setup python venv and install <code>webrtc-noise-gain</code><a class="zola-anchor" href="#clone-and-setup-python-venv-and-install-webrtc-noise-gain" aria-label="Anchor link for: clone-and-setup-python-venv-and-install-webrtc-noise-gain">🔗</a></h4>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> git clone https://github.com/rhasspy/wyoming-satellite.git /opt/ha-assist/wyoming-satellite
+</span><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> cd /opt/ha-assist/wyoming-satellite
+</span><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> python3.11 script/setup
+</span><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> .venv/bin/pip3 install &#39;webrtc-noise-gain==1.2.3&#39;
+</span></code></pre>
+<h4 id="setup-wyoming-satellite-systemd-service">Setup wyoming-satellite systemd service<a class="zola-anchor" href="#setup-wyoming-satellite-systemd-service" aria-label="Anchor link for: setup-wyoming-satellite-systemd-service">🔗</a></h4>
+<ul>
+<li>Replace <code>ok_nabu</code> with whichever wake word model you picked.</li>
+<li>Change <code>ha-kiosk</code> to the name you want to see in Home Assistant.</li>
+<li>Change the <code>/run/user/&lt;uid&gt;</code> uid to match your <code>kiosk</code> user, setting <code>XDG_RUNTIME_DIR</code> is required for <code>arecord</code> and <code>aplay</code> to work when run from a systemd service. (Otherwise you will get a error: <code>arecord: main:850: audio open error: Host is down</code>)</li>
+</ul>
+<p>See wyoming-satellite docs for additional settings.</p>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">#</span><span style="color:#f9f9f9;"> systemctl edit --force --full wyoming-satellite.service
+</span></code></pre>
+<pre data-lang="ini" style="background-color:#193549;color:#ffffff;" class="language-ini "><code class="language-ini" data-lang="ini"><span style="color:#ffc600;">[Unit]
+</span><span style="color:#f9f9f9;">Description</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">Wyoming Satellite
+</span><span style="color:#f9f9f9;">Wants</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">network</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">online</span><span style="color:#ff9d00;">.</span><span style="color:#f9f9f9;">target
+</span><span style="color:#f9f9f9;">After</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">network</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">online</span><span style="color:#ff9d00;">.</span><span style="color:#f9f9f9;">target
+</span><span style="color:#f9f9f9;">Requires</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">wyoming</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">openwakeword</span><span style="color:#ff9d00;">.</span><span style="color:#f9f9f9;">service
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">[Service]
+</span><span style="color:#f9f9f9;">Type</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">simple
+</span><span style="color:#f9f9f9;">User</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">kiosk
+</span><span style="color:#f9f9f9;">Group</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">kiosk
+</span><span style="color:#f9f9f9;">Environment</span><span style="color:#ff9d00;">=</span><span style="color:#eb939a;">XDG_RUNTIME_DIR</span><span style="color:#ff9d00;">=/</span><span style="color:#f9f9f9;">run</span><span style="color:#ff9d00;">/</span><span style="color:#f9f9f9;">user</span><span style="color:#ff9d00;">/</span><span style="color:#ff628c;">1001
+</span><span style="color:#f9f9f9;">ExecStart</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">python3</span><span style="color:#ff9d00;">.</span><span style="color:#ff628c;">11 </span><span style="color:#80ffbb;">script/run </span><span style="color:#ff9d00;">--</span><span style="color:#f9f9f9;">name </span><span style="color:#9eff80;">&#39;ha-kiosk&#39; </span><span style="color:#ff9d00;">--</span><span style="color:#f9f9f9;">wake</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">word</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">name </span><span style="color:#9eff80;">&#39;ok_nabu&#39; </span><span style="color:#ff9d00;">--</span><span style="color:#f9f9f9;">awake</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">wav </span><span style="color:#9eff80;">&quot;/opt/ha-assist/sounds/awake.wav&quot; </span><span style="color:#ff9d00;">--</span><span style="color:#f9f9f9;">mic</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">no</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">mute</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">during</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">awake</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">wav </span><span style="color:#ff9d00;">--</span><span style="color:#f9f9f9;">mic</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">auto</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">gain </span><span style="color:#ff628c;">5 </span><span style="color:#ff9d00;">--</span><span style="color:#f9f9f9;">mic</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">noise</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">suppression </span><span style="color:#ff628c;">2 </span><span style="color:#ff9d00;">--</span><span style="color:#f9f9f9;">uri </span><span style="color:#9eff80;">&#39;tcp://0.0.0.0:10700&#39; </span><span style="color:#ff9d00;">--</span><span style="color:#f9f9f9;">mic</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">command </span><span style="color:#9eff80;">&#39;arecord -r 16000 -c 1 -f S16_LE -t raw&#39; </span><span style="color:#ff9d00;">--</span><span style="color:#f9f9f9;">snd</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">command </span><span style="color:#9eff80;">&#39;aplay -r 22050 -c 1 -f S16_LE -t raw&#39; </span><span style="color:#ff9d00;">--</span><span style="color:#f9f9f9;">wake</span><span style="color:#ff9d00;">-</span><span style="color:#f9f9f9;">uri </span><span style="color:#9eff80;">&#39;tcp://127.0.0.1:10400&#39;
+</span><span style="color:#f9f9f9;">WorkingDirectory</span><span style="color:#ff9d00;">=/</span><span style="color:#f9f9f9;">opt</span><span style="color:#ff9d00;">/</span><span style="color:#f9f9f9;">ha</span><span style="color:#ff9d00;">-</span><span style="color:#80ffbb;">assist/wyoming-satellite
+</span><span style="color:#f9f9f9;">Restart</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">always
+</span><span style="color:#f9f9f9;">RestartSec</span><span style="color:#ff9d00;">=</span><span style="color:#ff628c;">1
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">[Install]
+</span><span style="color:#f9f9f9;">WantedBy</span><span style="color:#ff9d00;">=</span><span style="color:#f9f9f9;">default</span><span style="color:#ff9d00;">.</span><span style="color:#f9f9f9;">target
+</span></code></pre>
+<h4 id="enable-and-start-wyoming-satellite-service">Enable and start wyoming-satellite service<a class="zola-anchor" href="#enable-and-start-wyoming-satellite-service" aria-label="Anchor link for: enable-and-start-wyoming-satellite-service">🔗</a></h4>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">#</span><span style="color:#f9f9f9;"> systemctl daemon-reload
+</span><span style="color:#ff9d00;">#</span><span style="color:#f9f9f9;"> systemctl enable wyoming-satellite.service
+</span><span style="color:#ff9d00;">#</span><span style="color:#f9f9f9;"> systemctl start wyoming-satellite.service
+</span></code></pre>
+<h4 id="additional-settings-i-used">Additional settings I used<a class="zola-anchor" href="#additional-settings-i-used" aria-label="Anchor link for: additional-settings-i-used">🔗</a></h4>
+<ul>
+<li><code>--mic-no-mute-during-awake-wav</code> - Keeps the mic enabled when playing the wake word detection sound.</li>
+<li><code>--awake-wav "/opt/ha-assist/sounds/awake.wav"</code>- Plays the <code>/opt/ha-assist/sounds/awake.wav</code> wav file when the wake word is detected.</li>
+<li><code>--mic-auto-gain 5 --mic-noise-suppression 2</code> - Settings for <code>webrtc-noise-gain</code> to reduce noise and boost gain.</li>
+</ul>
+<h3 id="setup-wake-word-detection-sound-optional">Setup wake word detection sound (optional)<a class="zola-anchor" href="#setup-wake-word-detection-sound-optional" aria-label="Anchor link for: setup-wake-word-detection-sound-optional">🔗</a></h3>
+<p>Save the sound you want to play when the wake word is detected as <code>/opt/ha-assist/sounds/awake.wav</code></p>
+<h3 id="check-wyoming-satellite-and-wyoming-openwakeword-are-working">Check wyoming-satellite and wyoming-openwakeword are working<a class="zola-anchor" href="#check-wyoming-satellite-and-wyoming-openwakeword-are-working" aria-label="Anchor link for: check-wyoming-satellite-and-wyoming-openwakeword-are-working">🔗</a></h3>
+<ul>
+<li><code>systemctl status wyoming-satellite.service wyoming-openwakeword.service</code></li>
+<li>Test your wake word with "ok nabu. What is the weather?"</li>
+<li><code>--debug</code> can be added to both wyoming-satellite and wyoming-openwakeword for additional logging.</li>
+</ul>
+<h2 id="additional-home-assistant-integrations">Additional Home Assistant integrations<a class="zola-anchor" href="#additional-home-assistant-integrations" aria-label="Anchor link for: additional-home-assistant-integrations">🔗</a></h2>
+<p>These are some integrations that further augment the tablet:</p>
+<ul>
+<li>Dashboard modifications
+<ul>
+<li><a href="https://github.com/thomasloven/hass-browser_mod">browser_mod 2</a></li>
+<li><a href="https://github.com/NemesisRE/kiosk-mode">kiosk-mode</a></li>
+<li><a href="https://github.com/j-a-n/lovelace-wallpanel">WallPanel</a></li>
+</ul>
+</li>
+<li>Linux sensor
+<ul>
+<li><a href="https://github.com/bkbilly/lnxlink">LNXlink</a></li>
+<li><a href="https://github.com/joshuar/go-hass-agent">Go Hass Agent</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    
+        <nav class="navigation">
+            
+                <a class="navigation-next" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;homelab-switching-salt-to-ansible&#x2F;">‹ Homelab Sidequest - Switching from Salt to Ansible</a>
+            
+            
+                <a class="navigation-prev" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;blender-year-one&#x2F;">Blender - Year One ›</a>
+            
+        </nav>
+    
+</article>
+
+                
+                
+                <div class="copyright">&copy; 2026 <a href="https:&#x2F;&#x2F;graphics.social&#x2F;@gamingrobot" rel="noopener me">Morgan Creekmore</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                
+                
+            </div>
+        </div>
+        
+    
+    
+
+        
+            <script data-goatcounter="https://grbt-doingstuff.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+        
+    </body>
+</html>

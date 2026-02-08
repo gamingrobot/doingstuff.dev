@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=5" name="viewport"/>
+        <meta name="theme-color" content="#0d314b"/>
+        <title>
+            
+    Floating Point Hell - Doing Stuff
+
+        </title>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://doingstuff.dev/apple-touch-icon-144-precomposed.png">
+        <link href="https://doingstuff.dev/favicon.png" rel="icon" type="image/x-icon"/>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleNext-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleMono-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        
+            <link rel="alternate" type= "application/atom+xml"  title="RSS" href="https://doingstuff.dev/atom.xml"/>
+        
+        
+        
+    <meta content="website" property="og:type"/>
+    <meta content="Doing Stuff" property="og:site_name"/>
+    <meta content="https://doingstuff.dev/posts/floating-point-hell/" property="og:url"/>
+    <meta content="https://doingstuff.dev/posts/floating-point-hell/" property="twitter:url"/>
+    
+        <meta content="Floating Point Hell" property="og:title"/>
+        <meta content="Floating Point Hell" property="twitter:title"/>
+    
+    
+        <meta content="Did you know JavaScript uses floats for all numbers?" property="og:description"/>
+        <meta content="Did you know JavaScript uses floats for all numbers?" property="description"/>
+        <meta content="Did you know JavaScript uses floats for all numbers?" property="twitter:description"/>
+    
+    
+
+        
+        
+            <link href="https://doingstuff.dev/fonts.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/doingstuff.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/print.css" rel="stylesheet" media="print" type="text/css"/>
+        
+        
+        
+    </head>
+    <body>
+        <!--Fix Firefox FOUC-->
+        <script>0</script> 
+        <div class="container">
+            <nav class="topbar">
+                <div class="topbar-text">
+                    <div class="topbar-title">
+                        <a href="/"><span>Doing Stuff</span></a>
+                    </div>
+                    <div class="topbar-menu">
+                        
+                        <a href="https://doingstuff.dev/posts"><span>Posts</span></a>
+                        
+                        <a href="https://doingstuff.dev/atom.xml"><span>RSS</span></a>
+                        
+                        <a href="https:&#x2F;&#x2F;creekmore.dev"><span>About</span></a>
+                        
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                
+<article>
+    <header>
+        <h1>Floating Point Hell</h1>
+        <div class="post-meta">
+            Mar 16, 2014
+            <br>
+            
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/code/">Code</a>
+            
+            <br>
+            
+        </div>
+    </header>
+    
+    <div class="post"> 
+        <p>This blog post will show how to deal with floating-point error in JavaScript by encoding all uint64's, and int64's as strings in JSON Marshaling.</p>
+<span id="continue-reading"></span>
+<p>JavaScript has 53-bits of integer precision, this is a problem when trying to represent a 64-bit number. Ways of solving this in JavaScript is to use <a href="https://v8project.blogspot.com/2018/05/bigint.html">bigint</a> or <a href="http://mathjs.org/">math.js</a>, but when parsing JSON we can't use this.</p>
+<hr />
+<h2 id="when-it-goes-wrong">When it goes wrong<a class="zola-anchor" href="#when-it-goes-wrong" aria-label="Anchor link for: when-it-goes-wrong">🔗</a></h2>
+<p>This is an example of how it can go wrong. Go encodes the JSON correctly, but when parsed by JavaScript the number does not match.</p>
+<h3 id="go">Go<a class="zola-anchor" href="#go" aria-label="Anchor link for: go">🔗</a></h3>
+<p>Base data structure</p>
+<pre data-lang="go" style="background-color:#193549;color:#ffffff;" class="language-go "><code class="language-go" data-lang="go"><span style="color:#ffc600;">type LargeId </span><span style="color:#80ffbb;">uint64
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">type Data struct </span><span style="color:#f9f9f9;">{
+</span><span style="color:#f9f9f9;">    Id      </span><span style="color:#ffc600;">LargeId
+</span><span style="color:#f9f9f9;">    BigNum </span><span style="color:#80ffbb;">int64
+</span><span style="color:#f9f9f9;">}
+</span></code></pre>
+<p>Encode and Decode data</p>
+<pre data-lang="go" style="background-color:#193549;color:#ffffff;" class="language-go "><code class="language-go" data-lang="go"><span style="color:#f9f9f9;">data </span><span style="color:#ff9d00;">:= </span><span style="color:#f9f9f9;">Data{Id: </span><span style="color:#ff628c;">12345678901234567892</span><span style="color:#f9f9f9;">, BigNum: </span><span style="color:#ff628c;">12000000000002539</span><span style="color:#f9f9f9;">}
+</span><span style="color:#f9f9f9;">output, </span><span style="color:#ff80e1;">_ </span><span style="color:#ff9d00;">:= </span><span style="color:#f9f9f9;">json.Marshal(data)
+</span><span style="color:#f9f9f9;">fmt.Println(&quot;</span><span style="color:#9eff80;">Data -&gt; Json</span><span style="color:#f9f9f9;">&quot;, </span><span style="color:#80ffbb;">string</span><span style="color:#f9f9f9;">(output))
+</span><span style="color:#f9f9f9;">input </span><span style="color:#ff9d00;">:= </span><span style="color:#80ffbb;">string</span><span style="color:#f9f9f9;">(output)
+</span><span style="color:#f9f9f9;">output2 </span><span style="color:#ff9d00;">:= </span><span style="color:#f9f9f9;">Data{}
+</span><span style="color:#f9f9f9;">json.Unmarshal([]</span><span style="color:#80ffbb;">byte</span><span style="color:#f9f9f9;">(input), </span><span style="color:#ff9d00;">&amp;</span><span style="color:#f9f9f9;">output2)
+</span><span style="color:#f9f9f9;">fmt.Printf(&quot;</span><span style="color:#9eff80;">Json -&gt; Data </span><span style="color:#80ff82;">%+v\n</span><span style="color:#f9f9f9;">&quot;, output2)
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">//</span><span style="font-style:italic;color:#0088ff;">Output
+</span><span style="color:#f9f9f9;">Data </span><span style="color:#ff9d00;">-&gt; </span><span style="color:#f9f9f9;">Json {&quot;</span><span style="color:#9eff80;">Id</span><span style="color:#f9f9f9;">&quot;:</span><span style="color:#ff628c;">12345678901234567892</span><span style="color:#f9f9f9;">,&quot;</span><span style="color:#9eff80;">BigNum</span><span style="color:#f9f9f9;">&quot;:</span><span style="color:#ff628c;">12000000000002539</span><span style="color:#f9f9f9;">}
+</span><span style="color:#f9f9f9;">Json </span><span style="color:#ff9d00;">-&gt; </span><span style="color:#f9f9f9;">Data {Id:</span><span style="color:#ff628c;">12345678901234567892 </span><span style="color:#f9f9f9;">BigNum:</span><span style="color:#ff628c;">12000000000002539</span><span style="color:#f9f9f9;">}
+</span></code></pre>
+<p>As you can see Go has no problem encoding and decoding the large integers. But let's see what happens when JavaScript tries to decode the same integers.</p>
+<h3 id="javascript">JavaScript<a class="zola-anchor" href="#javascript" aria-label="Anchor link for: javascript">🔗</a></h3>
+<pre data-lang="javascript" style="background-color:#193549;color:#ffffff;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">data </span><span style="color:#ff9d00;">= </span><span style="color:#2eff00;">&#39;</span><span style="color:#9eff80;">{&quot;Id&quot;:12345678901234567892,&quot;BigNum&quot;:12000000000002539}</span><span style="color:#2eff00;">&#39;
+</span><span style="color:#80ffbb;">console</span><span style="color:#f9f9f9;">.</span><span style="color:#ffb054;">log</span><span style="color:#f9f9f9;">(</span><span style="color:#eb939a;">JSON</span><span style="color:#f9f9f9;">.</span><span style="color:#ffb054;">parse</span><span style="color:#f9f9f9;">(data))
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">//</span><span style="font-style:italic;color:#0088ff;">Output
+</span><span style="color:#80ffbb;">Object </span><span style="color:#f9f9f9;">{</span><span style="color:#ffc600;">Id</span><span style="color:#f9f9f9;">: </span><span style="color:#ff628c;">12345678901234567000</span><span style="color:#f9f9f9;">, </span><span style="color:#ffc600;">BigNum</span><span style="color:#f9f9f9;">: </span><span style="color:#ff628c;">12000000000002540</span><span style="color:#f9f9f9;">}
+</span></code></pre>
+<p>JavaScript ended up decoding the number, but its wrong. But if we check for equivalence in JavaScript it returns true.</p>
+<pre data-lang="javascript" style="background-color:#193549;color:#ffffff;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#ff9d00;">&gt; </span><span style="color:#ff628c;">12000000000002539 </span><span style="color:#ff9d00;">=== </span><span style="color:#ff628c;">12000000000002540
+</span><span style="color:#ff628c;">true
+</span></code></pre>
+<hr />
+<h2 id="how-to-fix-it">How to fix it<a class="zola-anchor" href="#how-to-fix-it" aria-label="Anchor link for: how-to-fix-it">🔗</a></h2>
+<p>The easiest way to fix this is to encode the int64 to a string, that way when parsed in JavaScript the number is represented correctly.</p>
+<p>Below I have added <code>json:",string"</code> tag to the end of every int64, this tells the <code>encoding/json</code> package to encode that field as a string instead of an integer.</p>
+<h3 id="go-1">Go<a class="zola-anchor" href="#go-1" aria-label="Anchor link for: go-1">🔗</a></h3>
+<p>Base data structure with tags</p>
+<pre data-lang="go" style="background-color:#193549;color:#ffffff;" class="language-go "><code class="language-go" data-lang="go"><span style="color:#ffc600;">type LargeId </span><span style="color:#80ffbb;">uint64
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">type Data struct </span><span style="color:#f9f9f9;">{
+</span><span style="color:#f9f9f9;">    Id      </span><span style="color:#ffc600;">LargeId </span><span style="color:#f9f9f9;">`</span><span style="color:#9eff80;">json:&quot;,string&quot;</span><span style="color:#f9f9f9;">`
+</span><span style="color:#f9f9f9;">    BigNum </span><span style="color:#80ffbb;">int64  </span><span style="color:#f9f9f9;">`</span><span style="color:#9eff80;">json:&quot;,string&quot;</span><span style="color:#f9f9f9;">`
+</span><span style="color:#f9f9f9;">}
+</span></code></pre>
+<p>Encode and Decode data</p>
+<pre data-lang="go" style="background-color:#193549;color:#ffffff;" class="language-go "><code class="language-go" data-lang="go"><span style="color:#f9f9f9;">data </span><span style="color:#ff9d00;">:= </span><span style="color:#f9f9f9;">Data{Id: </span><span style="color:#ff628c;">12345678901234567892</span><span style="color:#f9f9f9;">, BigNum: </span><span style="color:#ff628c;">12000000000002539</span><span style="color:#f9f9f9;">}
+</span><span style="color:#f9f9f9;">output, </span><span style="color:#ff80e1;">_ </span><span style="color:#ff9d00;">:= </span><span style="color:#f9f9f9;">json.Marshal(data)
+</span><span style="color:#f9f9f9;">fmt.Println(&quot;</span><span style="color:#9eff80;">Data -&gt; Json</span><span style="color:#f9f9f9;">&quot;, </span><span style="color:#80ffbb;">string</span><span style="color:#f9f9f9;">(output))
+</span><span style="color:#f9f9f9;">input </span><span style="color:#ff9d00;">:= </span><span style="color:#80ffbb;">string</span><span style="color:#f9f9f9;">(output)
+</span><span style="color:#f9f9f9;">output2 </span><span style="color:#ff9d00;">:= </span><span style="color:#f9f9f9;">Data{}
+</span><span style="color:#f9f9f9;">json.Unmarshal([]</span><span style="color:#80ffbb;">byte</span><span style="color:#f9f9f9;">(input), </span><span style="color:#ff9d00;">&amp;</span><span style="color:#f9f9f9;">output2)
+</span><span style="color:#f9f9f9;">fmt.Printf(&quot;</span><span style="color:#9eff80;">Json -&gt; Data </span><span style="color:#80ff82;">%+v\n</span><span style="color:#f9f9f9;">&quot;, output2)
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">//</span><span style="font-style:italic;color:#0088ff;">Output
+</span><span style="color:#f9f9f9;">Data </span><span style="color:#ff9d00;">-&gt; </span><span style="color:#f9f9f9;">Json {&quot;</span><span style="color:#9eff80;">Id</span><span style="color:#f9f9f9;">&quot;:&quot;</span><span style="color:#9eff80;">12345678901234567892</span><span style="color:#f9f9f9;">&quot;,&quot;</span><span style="color:#9eff80;">BigNum</span><span style="color:#f9f9f9;">&quot;:&quot;</span><span style="color:#9eff80;">12000000000002539</span><span style="color:#f9f9f9;">&quot;}
+</span><span style="color:#f9f9f9;">Json </span><span style="color:#ff9d00;">-&gt; </span><span style="color:#f9f9f9;">Data {Id:</span><span style="color:#ff628c;">12345678901234567892 </span><span style="color:#f9f9f9;">BigNum:</span><span style="color:#ff628c;">12000000000002539</span><span style="color:#f9f9f9;">}
+</span></code></pre>
+<p>With the tag we can encode and decode the JSON and keep the int64 type in Go.</p>
+<h3 id="javascript-1">JavaScript<a class="zola-anchor" href="#javascript-1" aria-label="Anchor link for: javascript-1">🔗</a></h3>
+<pre data-lang="javascript" style="background-color:#193549;color:#ffffff;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">data </span><span style="color:#ff9d00;">= </span><span style="color:#2eff00;">&#39;</span><span style="color:#9eff80;">{&quot;Id&quot;:&quot;12345678901234567892&quot;,&quot;BigNum&quot;:&quot;12000000000002539&quot;}</span><span style="color:#2eff00;">&#39;
+</span><span style="color:#80ffbb;">console</span><span style="color:#f9f9f9;">.</span><span style="color:#ffb054;">log</span><span style="color:#f9f9f9;">(</span><span style="color:#eb939a;">JSON</span><span style="color:#f9f9f9;">.</span><span style="color:#ffb054;">parse</span><span style="color:#f9f9f9;">(data))
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#f9f9f9;">//</span><span style="font-style:italic;color:#0088ff;">Output
+</span><span style="color:#80ffbb;">Object </span><span style="color:#f9f9f9;">{</span><span style="color:#ffc600;">Id</span><span style="color:#f9f9f9;">: </span><span style="color:#2eff00;">&quot;</span><span style="color:#9eff80;">12345678901234567892</span><span style="color:#2eff00;">&quot;</span><span style="color:#f9f9f9;">, </span><span style="color:#ffc600;">BigNum</span><span style="color:#f9f9f9;">: </span><span style="color:#2eff00;">&quot;</span><span style="color:#9eff80;">12000000000002539</span><span style="color:#2eff00;">&quot;</span><span style="color:#f9f9f9;">}
+</span></code></pre>
+<p>Now the number is represented correctly in JavaScript. This is useful if you are using the number as an identifier, but makes it difficult to do arithmetic operations on the number.</p>
+
+    </div>
+    
+        <nav class="navigation">
+            
+                <a class="navigation-next" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;setup-qemu-for-arm-on-wheezy&#x2F;">‹ Setup QEMU for ARM on Debian Wheezy</a>
+            
+            
+                <a class="navigation-prev" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;ctf-innoctf-2019&#x2F;">InnoCTF 2019 Writeups ›</a>
+            
+        </nav>
+    
+</article>
+
+                
+                
+                <div class="copyright">&copy; 2026 <a href="https:&#x2F;&#x2F;graphics.social&#x2F;@gamingrobot" rel="noopener me">Morgan Creekmore</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                
+                
+            </div>
+        </div>
+        
+    
+    
+
+        
+            <script data-goatcounter="https://grbt-doingstuff.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+        
+    </body>
+</html>

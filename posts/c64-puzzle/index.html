@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=5" name="viewport"/>
+        <meta name="theme-color" content="#0d314b"/>
+        <title>
+            
+    Commodore 64 Puzzle - Doing Stuff
+
+        </title>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://doingstuff.dev/apple-touch-icon-144-precomposed.png">
+        <link href="https://doingstuff.dev/favicon.png" rel="icon" type="image/x-icon"/>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleNext-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleMono-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        
+            <link rel="alternate" type= "application/atom+xml"  title="RSS" href="https://doingstuff.dev/atom.xml"/>
+        
+        
+        
+    <meta content="website" property="og:type"/>
+    <meta content="Doing Stuff" property="og:site_name"/>
+    <meta content="https://doingstuff.dev/posts/c64-puzzle/" property="og:url"/>
+    <meta content="https://doingstuff.dev/posts/c64-puzzle/" property="twitter:url"/>
+    
+        <meta content="Commodore 64 Puzzle" property="og:title"/>
+        <meta content="Commodore 64 Puzzle" property="twitter:title"/>
+    
+    
+        <meta content="A fun Commodore 64 Puzzle" property="og:description"/>
+        <meta content="A fun Commodore 64 Puzzle" property="description"/>
+        <meta content="A fun Commodore 64 Puzzle" property="twitter:description"/>
+    
+    
+        <meta content="https://doingstuff.dev/posts/c64-puzzle/problem.webp" property="og:image"/>
+        <meta content="https://doingstuff.dev/posts/c64-puzzle/problem.webp" property="twitter:image"/>
+    
+
+        
+        
+            <link href="https://doingstuff.dev/fonts.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/doingstuff.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/print.css" rel="stylesheet" media="print" type="text/css"/>
+        
+        
+        
+    </head>
+    <body>
+        <!--Fix Firefox FOUC-->
+        <script>0</script> 
+        <div class="container">
+            <nav class="topbar">
+                <div class="topbar-text">
+                    <div class="topbar-title">
+                        <a href="/"><span>Doing Stuff</span></a>
+                    </div>
+                    <div class="topbar-menu">
+                        
+                        <a href="https://doingstuff.dev/posts"><span>Posts</span></a>
+                        
+                        <a href="https://doingstuff.dev/atom.xml"><span>RSS</span></a>
+                        
+                        <a href="https:&#x2F;&#x2F;creekmore.dev"><span>About</span></a>
+                        
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                
+<article>
+    <header>
+        <h1>Commodore 64 Puzzle</h1>
+        <div class="post-meta">
+            Feb 27, 2020
+            <br>
+            
+        </div>
+    </header>
+    
+    <div class="toc-wrapper">
+        <input type="checkbox" id="tocToggle" checked>
+        <label class="toc-label" for="tocToggle">› Table of Contents</label>
+        <div class="toc">
+            <ul>
+                
+                <li><a href="https://doingstuff.dev/posts/c64-puzzle/#some-basics">Some Basics</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/c64-puzzle/#the-main-program">The Main Program</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/c64-puzzle/#matching-the-contents">Matching the Contents</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/c64-puzzle/#success">Success?</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/c64-puzzle/#but-why">But Why?</a>
+                    
+                    <ul>
+                        
+                        <li><a href="https://doingstuff.dev/posts/c64-puzzle/#decoding">Decoding</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/c64-puzzle/#what-is-it-doing">What is it doing?</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/c64-puzzle/#having-some-fun">Having Some Fun</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="post"> 
+        <p>My college professor posted this image with the question</p>
+<blockquote>
+<p>What is the output when enter is pressed?</p>
+</blockquote>
+<figure class="center">
+  
+  <img width="500" height="418" src="https://doingstuff.dev/posts/c64-puzzle/problem.webp" alt="Commodore 64 screen with a BASIC program">
+  
+  
+</figure>
+<span id="continue-reading"></span>
+<p>I recognized this as a <a href="https://en.wikipedia.org/wiki/Commodore_64">Commodore 64</a> and decided to dive deeper into what happens when <code>SYS 49152</code> is run.</p>
+<h2 id="some-basics">Some Basics<a class="zola-anchor" href="#some-basics" aria-label="Anchor link for: some-basics">🔗</a></h2>
+<p><code>PEEK(&lt;address&gt;)</code> is used to look at the memory for the specified address.</p>
+<p><code>POKE &lt;address&gt;,&lt;value&gt;</code> writes the value to the specified address.</p>
+<h2 id="the-main-program">The Main Program<a class="zola-anchor" href="#the-main-program" aria-label="Anchor link for: the-main-program">🔗</a></h2>
+<p>We can start by loading the program into a <a href="http://vice-emu.sourceforge.net/">Commodore 64 Emulator</a>.</p>
+<pre style="background-color:#193549;color:#ffffff;"><code><span style="color:#f9f9f9;">10 X=49152
+</span><span style="color:#f9f9f9;">15 PRINT X
+</span><span style="color:#f9f9f9;">20 Y=11
+</span><span style="color:#f9f9f9;">30 FOR M=0 TO Y
+</span><span style="color:#f9f9f9;">40 PRINT PEEK(X+M);
+</span><span style="color:#f9f9f9;">50 PRINT &quot; &quot;;
+</span><span style="color:#f9f9f9;">60 NEXT M
+</span></code></pre>
+<figure class="center">
+  
+  <img width="384" height="272" src="https://doingstuff.dev/posts/c64-puzzle/vice-screen-20200229000050.png" alt="Commodore 64 screen with bad output from the main program">
+  
+  
+</figure>
+<p>The output doesn't match the output from the original picture. According to the <a href="https://www.c64-wiki.com/">C64 wiki</a>, the <code>49152</code> address is the location of the <a href="https://www.c64-wiki.com/wiki/MONITOR$C000,_MONITOR$8000_(Commodore)">MONITOR$C000</a>. So the BASIC program is printing the bytes of the machine code program located in MONITOR$C000.</p>
+<h2 id="matching-the-contents">Matching the Contents<a class="zola-anchor" href="#matching-the-contents" aria-label="Anchor link for: matching-the-contents">🔗</a></h2>
+<p>We can attempt to match the contents of the <code>49152-49164</code> memory block by manually poking bytes into memory.</p>
+<pre style="background-color:#193549;color:#ffffff;"><code><span style="color:#f9f9f9;">10 POKE 49152,169
+</span><span style="color:#f9f9f9;">11 POKE 49153,83
+</span><span style="color:#f9f9f9;">12 POKE 49154,141
+</span><span style="color:#f9f9f9;">13 POKE 49155,244
+</span><span style="color:#f9f9f9;">14 POKE 49156,5
+</span><span style="color:#f9f9f9;">15 POKE 49157,169
+</span><span style="color:#f9f9f9;">16 POKE 49158,2
+</span><span style="color:#f9f9f9;">17 POKE 49159,141
+</span><span style="color:#f9f9f9;">18 POKE 49160,244
+</span><span style="color:#f9f9f9;">19 POKE 49161,217
+</span><span style="color:#f9f9f9;">20 POKE 49162,96
+</span><span style="color:#f9f9f9;">21 POKE 49163,0
+</span></code></pre>
+<figure class="center">
+  
+  <img width="384" height="272" src="https://doingstuff.dev/posts/c64-puzzle/vice-screen-20200229001253.png" alt="Commodore 64 screen with matching output from the original program">
+  
+  
+</figure>
+<h2 id="success">Success?<a class="zola-anchor" href="#success" aria-label="Anchor link for: success">🔗</a></h2>
+<p>Now when running <code>SYS 49152</code> we get a nice red heart.</p>
+<figure class="center">
+  
+  <img width="384" height="272" src="https://doingstuff.dev/posts/c64-puzzle/vice-screen-20200229001432.png" alt="Commodore 64 screen with a red heart in the middle of the screen">
+  
+  
+</figure>
+<h2 id="but-why">But Why?<a class="zola-anchor" href="#but-why" aria-label="Anchor link for: but-why">🔗</a></h2>
+<p>How does <code>169 83 141 244 5 169 2 141 244 217 96 0</code> result in a red heart on the screen?</p>
+<p>The bytes are machine code for the Commodore 64. So we can look up the opcodes to convert them to assembly.</p>
+<h3 id="decoding">Decoding<a class="zola-anchor" href="#decoding" aria-label="Anchor link for: decoding">🔗</a></h3>
+<p>Converting the bytes into hex:</p>
+<p><code>A9 53 8D F4 05 A9 02 8D F4 D9 60 00</code></p>
+<p>Using the <a href="https://www.c64-wiki.com/wiki/Opcode">Opcode lookup table</a> we can decode the bytes:</p>
+<ul>
+<li>A9: <a href="https://www.c64-wiki.com/wiki/LDA">LDA #nn</a> (<strong>L</strong>oa<strong>D</strong> <strong>A</strong>ccumulator)</li>
+<li>53(83 dec): Value loaded into the <a href="https://www.c64-wiki.com/wiki/Accumulator">accumulator</a></li>
+<li>8D: <a href="https://www.c64-wiki.com/wiki/STA">STA nnnn</a> (<strong>ST</strong>ore <strong>A</strong>ccumulator)</li>
+<li>05F4(1524 dec): Address to store the value from the accumulator</li>
+<li>A9: <a href="https://www.c64-wiki.com/wiki/LDA">LDA #nn</a></li>
+<li>02(2 dec):  Value loaded into the accumulator</li>
+<li>8D: <a href="https://www.c64-wiki.com/wiki/STA">STA nnnn</a></li>
+<li>D9F4(55796 dec): Address to store the value from the accumulator</li>
+<li>60: <a href="https://www.c64-wiki.com/wiki/RTS">RTS</a> (<strong>R</strong>e<strong>T</strong>urn from <strong>S</strong>ubroutine)</li>
+</ul>
+<p>Here is the full assembly code:</p>
+<pre style="background-color:#193549;color:#ffffff;"><code><span style="color:#f9f9f9;">LDA #53
+</span><span style="color:#f9f9f9;">STA 05F4
+</span><span style="color:#f9f9f9;">LDA #02
+</span><span style="color:#f9f9f9;">STA D9F4
+</span><span style="color:#f9f9f9;">RTS
+</span></code></pre>
+<p>If we convert this to a BASIC program it would be:</p>
+<pre style="background-color:#193549;color:#ffffff;"><code><span style="color:#f9f9f9;">10 POKE 1524,83
+</span><span style="color:#f9f9f9;">20 POKE 55796,2
+</span></code></pre>
+<h3 id="what-is-it-doing">What is it doing?<a class="zola-anchor" href="#what-is-it-doing" aria-label="Anchor link for: what-is-it-doing">🔗</a></h3>
+<p>So we have figured out that the machine code is writing two values to two different memory addresses.</p>
+<p><code>POKE 1524,83</code></p>
+<p>The <code>1524</code> address is used by the C64 for <a href="https://www.c64-wiki.com/wiki/Screen_RAM">Screen RAM</a> allowing you to write characters directly to the screen. The value <code>83</code> is the character code for the heart in the <a href="https://www.c64-wiki.com/wiki/Character_set">C64's character set</a>.</p>
+<p><code>POKE 55796,2</code></p>
+<p>The <code>55796</code> address is used to specify the color of the character on the screen using <a href="https://www.c64-wiki.com/wiki/Color_RAM">Color RAM</a>. The value <code>2</code> is red on the <a href="https://www.c64-wiki.com/wiki/Color">color lookup table</a>.</p>
+<p>For more information on the C64's memory map you can look <a href="https://www.c64-wiki.com/wiki/Memory_Map">here</a>.</p>
+<h3 id="having-some-fun">Having Some Fun<a class="zola-anchor" href="#having-some-fun" aria-label="Anchor link for: having-some-fun">🔗</a></h3>
+<p>Now that we understand how this works we can write our own colorful characters to the screen.</p>
+<figure class="center">
+  
+  <img width="384" height="272" src="https://doingstuff.dev/posts/c64-puzzle/vice-screen-20200229004946.png" alt="Commodore 64 screen with a red heart, a teal heart, and a green spade">
+  
+  
+</figure>
+
+    </div>
+    
+        <nav class="navigation">
+            
+                <a class="navigation-next" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;homelab-adventure-part-2&#x2F;">‹ Homelab Adventure - Part 2: Configuration Management</a>
+            
+            
+                <a class="navigation-prev" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;reaper-midi-unreal-engine&#x2F;">Sending MIDI from Reaper to Unreal Engine ›</a>
+            
+        </nav>
+    
+</article>
+
+                
+                
+                <div class="copyright">&copy; 2026 <a href="https:&#x2F;&#x2F;graphics.social&#x2F;@gamingrobot" rel="noopener me">Morgan Creekmore</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                
+                
+            </div>
+        </div>
+        
+    
+    
+
+        
+            <script data-goatcounter="https://grbt-doingstuff.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+        
+    </body>
+</html>

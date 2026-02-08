@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=5" name="viewport"/>
+        <meta name="theme-color" content="#0d314b"/>
+        <title>
+            
+    Setup QEMU for ARM on Debian Wheezy - Doing Stuff
+
+        </title>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://doingstuff.dev/apple-touch-icon-144-precomposed.png">
+        <link href="https://doingstuff.dev/favicon.png" rel="icon" type="image/x-icon"/>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleNext-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleMono-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        
+            <link rel="alternate" type= "application/atom+xml"  title="RSS" href="https://doingstuff.dev/atom.xml"/>
+        
+        
+        
+    <meta content="website" property="og:type"/>
+    <meta content="Doing Stuff" property="og:site_name"/>
+    <meta content="https://doingstuff.dev/posts/setup-qemu-for-arm-on-wheezy/" property="og:url"/>
+    <meta content="https://doingstuff.dev/posts/setup-qemu-for-arm-on-wheezy/" property="twitter:url"/>
+    
+        <meta content="Setup QEMU for ARM on Debian Wheezy" property="og:title"/>
+        <meta content="Setup QEMU for ARM on Debian Wheezy" property="twitter:title"/>
+    
+    
+        <meta content="How-to setup QEMU for ARM on Debian Wheezy" property="og:description"/>
+        <meta content="How-to setup QEMU for ARM on Debian Wheezy" property="description"/>
+        <meta content="How-to setup QEMU for ARM on Debian Wheezy" property="twitter:description"/>
+    
+    
+
+        
+        
+            <link href="https://doingstuff.dev/fonts.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/doingstuff.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/print.css" rel="stylesheet" media="print" type="text/css"/>
+        
+        
+        
+    </head>
+    <body>
+        <!--Fix Firefox FOUC-->
+        <script>0</script> 
+        <div class="container">
+            <nav class="topbar">
+                <div class="topbar-text">
+                    <div class="topbar-title">
+                        <a href="/"><span>Doing Stuff</span></a>
+                    </div>
+                    <div class="topbar-menu">
+                        
+                        <a href="https://doingstuff.dev/posts"><span>Posts</span></a>
+                        
+                        <a href="https://doingstuff.dev/atom.xml"><span>RSS</span></a>
+                        
+                        <a href="https:&#x2F;&#x2F;creekmore.dev"><span>About</span></a>
+                        
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                
+<article>
+    <header>
+        <h1>Setup QEMU for ARM on Debian Wheezy</h1>
+        <div class="post-meta">
+            Jan 01, 2014
+            <br>
+            
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/linux/">Linux</a>
+            
+            <br>
+            
+        </div>
+    </header>
+    
+    <div class="post"> 
+        <p>This is a quick little blog post for how to install QEMU for ARM on Debian 7.0 (Wheezy).</p>
+<span id="continue-reading"></span><h2 id="installing-toolchains">Installing Toolchains<a class="zola-anchor" href="#installing-toolchains" aria-label="Anchor link for: installing-toolchains">🔗</a></h2>
+<p>Edit <code>/etc/apt/sources.list</code> and add</p>
+<pre style="background-color:#193549;color:#ffffff;"><code><span style="color:#f9f9f9;">deb http://emdebian.org/debian/ stable main
+</span><span style="color:#f9f9f9;">deb http://ftp.us.debian.org/debian/ squeeze main
+</span></code></pre>
+<p>The squeeze repo is for the package <code>libgmp3c2</code> that is unavailable on wheezy.</p>
+<p>Install the <code>emdebian</code> public key</p>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">#</span><span style="color:#f9f9f9;"> apt-get install emdebian-archive-keyring
+</span><span style="color:#ff9d00;">#</span><span style="color:#f9f9f9;"> apt-get update
+</span></code></pre>
+<p>Install ARM toolchains</p>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">#</span><span style="color:#f9f9f9;"> apt-get install linux-libc-dev-armel-cross libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi gcc-4.4-arm-linux-gnueabi g++-4.4-arm-linux-gnueabi
+</span></code></pre>
+<h2 id="installing-qemu">Installing QEMU<a class="zola-anchor" href="#installing-qemu" aria-label="Anchor link for: installing-qemu">🔗</a></h2>
+<p>Install QEMU</p>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">#</span><span style="color:#f9f9f9;"> apt-get install qemu qemu-user-static
+</span></code></pre>
+<p>Optional: Install QEMU GUI</p>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">#</span><span style="color:#f9f9f9;"> apt-get install aqemu
+</span></code></pre>
+<h2 id="hello-arm">Hello ARM<a class="zola-anchor" href="#hello-arm" aria-label="Anchor link for: hello-arm">🔗</a></h2>
+<p>Time to test everything is working.</p>
+<p><code>helloarm.s</code></p>
+<pre data-lang="asm" style="background-color:#193549;color:#ffffff;" class="language-asm "><code class="language-asm" data-lang="asm"><span style="color:#ffc600;">.text
+</span><span style="color:#ffc600;">.globl _start
+</span><span style="color:#ffc600;">_start:
+</span><span style="color:#ffc600;">        </span><span style="color:#ff9d00;">mov   </span><span style="color:#ffc600;">r0</span><span style="color:#f9f9f9;">, </span><span style="color:#ffc600;">#</span><span style="color:#ff628c;">5         </span><span style="color:#ffc600;">@ Load register r0 with the value </span><span style="color:#ff628c;">5
+</span><span style="color:#ffc600;">        </span><span style="color:#ff9d00;">mov   </span><span style="color:#ffc600;">r1</span><span style="color:#f9f9f9;">, </span><span style="color:#ffc600;">#</span><span style="color:#ff628c;">4         </span><span style="color:#ffc600;">@ Load register r1 with the value </span><span style="color:#ff628c;">4
+</span><span style="color:#ffc600;">        </span><span style="color:#ff9d00;">add   </span><span style="color:#ffc600;">r2</span><span style="color:#f9f9f9;">, </span><span style="color:#ffc600;">r1</span><span style="color:#f9f9f9;">, </span><span style="color:#ffc600;">r0     @ </span><span style="color:#ff9d00;">Add </span><span style="color:#ffc600;">r0 </span><span style="color:#ff9d00;">and </span><span style="color:#ffc600;">r1 </span><span style="color:#ff9d00;">and </span><span style="color:#ffc600;">store </span><span style="color:#ff9d00;">in </span><span style="color:#ffc600;">r2
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">stop:   b stop               @ Infinite </span><span style="color:#ff9d00;">loop </span><span style="color:#ffc600;">to stop execution
+</span></code></pre>
+<p>Assemble, Link, Build</p>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> arm-linux-gnueabi-as -o helloarm.o helloarm.s
+</span><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> arm-linux-gnueabi-ld -o helloarm.elf helloarm.o
+</span><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> arm-linux-gnueabi-objcopy -O binary helloarm.elf helloarm.bin
+</span></code></pre>
+<p>Setup <code>flash.bin</code></p>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> dd if=/dev/zero of=flash.bin bs=4096 count=4096
+</span><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> dd if=helloarm.bin of=flash.bin bs=4096 conv=notrunc
+</span></code></pre>
+<p>Launch QEMU</p>
+<pre data-lang="console" style="background-color:#193549;color:#ffffff;" class="language-console "><code class="language-console" data-lang="console"><span style="color:#ff9d00;">$</span><span style="color:#f9f9f9;"> qemu-system-arm -M connex -pflash flash.bin -nographic -serial /dev/null
+</span></code></pre>
+<p>There should now be a <code>(qemu)</code> prompt, type <code>info registers</code> and should see something like this</p>
+<pre style="background-color:#193549;color:#ffffff;"><code><span style="color:#f9f9f9;">R00=00000005 R01=00000004 R02=00000009 R03=00000000
+</span><span style="color:#f9f9f9;">R04=00000000 R05=00000000 R06=00000000 R07=00000000
+</span><span style="color:#f9f9f9;">R08=00000000 R09=00000000 R10=00000000 R11=00000000
+</span><span style="color:#f9f9f9;">R12=00000000 R13=00000000 R14=00000000 R15=0000000c
+</span><span style="color:#f9f9f9;">PSR=400001d3 -Z-- A svc32
+</span></code></pre>
+<p><code>R02=00000009</code> Register 2 has the value 9 in it so everything is working.</p>
+
+    </div>
+    
+        <nav class="navigation">
+            
+            
+                <a class="navigation-prev" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;floating-point-hell&#x2F;">Floating Point Hell ›</a>
+            
+        </nav>
+    
+</article>
+
+                
+                
+                <div class="copyright">&copy; 2026 <a href="https:&#x2F;&#x2F;graphics.social&#x2F;@gamingrobot" rel="noopener me">Morgan Creekmore</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                
+                
+            </div>
+        </div>
+        
+    
+    
+
+        
+            <script data-goatcounter="https://grbt-doingstuff.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=5" name="viewport"/>
+        <meta name="theme-color" content="#0d314b"/>
+        <title>
+            
+    Homelab Adventure - Part 1: The Adventure Begins - Doing Stuff
+
+        </title>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://doingstuff.dev/apple-touch-icon-144-precomposed.png">
+        <link href="https://doingstuff.dev/favicon.png" rel="icon" type="image/x-icon"/>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleNext-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleMono-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        
+            <link rel="alternate" type= "application/atom+xml"  title="RSS" href="https://doingstuff.dev/atom.xml"/>
+        
+        
+        
+    <meta content="website" property="og:type"/>
+    <meta content="Doing Stuff" property="og:site_name"/>
+    <meta content="https://doingstuff.dev/posts/homelab-adventure-part-1/" property="og:url"/>
+    <meta content="https://doingstuff.dev/posts/homelab-adventure-part-1/" property="twitter:url"/>
+    
+        <meta content="Homelab Adventure - Part 1: The Adventure Begins" property="og:title"/>
+        <meta content="Homelab Adventure - Part 1: The Adventure Begins" property="twitter:title"/>
+    
+    
+        <meta content="Homelab overview" property="og:description"/>
+        <meta content="Homelab overview" property="description"/>
+        <meta content="Homelab overview" property="twitter:description"/>
+    
+    
+
+        
+        
+            <link href="https://doingstuff.dev/fonts.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/doingstuff.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/print.css" rel="stylesheet" media="print" type="text/css"/>
+        
+        
+        
+    </head>
+    <body>
+        <!--Fix Firefox FOUC-->
+        <script>0</script> 
+        <div class="container">
+            <nav class="topbar">
+                <div class="topbar-text">
+                    <div class="topbar-title">
+                        <a href="/"><span>Doing Stuff</span></a>
+                    </div>
+                    <div class="topbar-menu">
+                        
+                        <a href="https://doingstuff.dev/posts"><span>Posts</span></a>
+                        
+                        <a href="https://doingstuff.dev/atom.xml"><span>RSS</span></a>
+                        
+                        <a href="https:&#x2F;&#x2F;creekmore.dev"><span>About</span></a>
+                        
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                
+<article>
+    <header>
+        <h1>Homelab Adventure - Part 1: The Adventure Begins</h1>
+        <div class="post-meta">
+            Nov 09, 2019
+            <br>
+            
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/linux/">Linux</a>
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/homelab/">Homelab</a>
+            
+            <br>
+            
+        </div>
+    </header>
+    
+    <div class="toc-wrapper">
+        <input type="checkbox" id="tocToggle" checked>
+        <label class="toc-label" for="tocToggle">› Table of Contents</label>
+        <div class="toc">
+            <ul>
+                
+                <li><a href="https://doingstuff.dev/posts/homelab-adventure-part-1/#what-is-a-homelab">What is a Homelab</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/homelab-adventure-part-1/#inventory">Inventory</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/homelab-adventure-part-1/#goals">Goals</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/homelab-adventure-part-1/#the-plan">The Plan</a>
+                    
+                    <ul>
+                        
+                        <li><a href="https://doingstuff.dev/posts/homelab-adventure-part-1/#hosting-applications">Hosting Applications</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/homelab-adventure-part-1/#minimizing-ongoing-maintenance">Minimizing Ongoing Maintenance</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/homelab-adventure-part-1/#automatic-backups">Automatic Backups</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/homelab-adventure-part-1/#adding-and-removing-servers">Adding and Removing Servers</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/homelab-adventure-part-1/#internal-network">Internal Network</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/homelab-adventure-part-1/#alerting-and-monitoring">Alerting and Monitoring</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/homelab-adventure-part-1/#here-we-go">Here we go!</a>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="post"> 
+        <p>Welcome to my journey in building my Homelab. This will be an ongoing series of blog posts of my adventures in building my personal infrastructure.</p>
+<span id="continue-reading"></span>
+<p><strong>Part 1: The Adventure Begins (You are here!)</strong><br />
+<a href="https://doingstuff.dev/posts/homelab-adventure-part-2/"><strong>Part 2: Configuration Management</strong></a><br />
+<a href="https://doingstuff.dev/posts/homelab-adventure-part-3/"><strong>Part 3: Internal Network</strong></a><br />
+<a href="https://doingstuff.dev/posts/homelab-switching-salt-to-ansible/"><strong>Sidequest: Switching from Salt to Ansible</strong></a><br />
+<a href="https://doingstuff.dev/posts/homelab-adventure-part-4/"><strong>Part 4: Application Hosting and Monitoring</strong></a></p>
+<h2 id="what-is-a-homelab">What is a Homelab<a class="zola-anchor" href="#what-is-a-homelab" aria-label="Anchor link for: what-is-a-homelab">🔗</a></h2>
+<p>The primary idea behind a homelab is a place to learn about infrastructure, servers and development.</p>
+<p>/r/homelab defines a homelab as:</p>
+<blockquote>
+<p>Homelab [hom-læb](n): a laboratory of (usually slightly outdated) awesome in the domicile</p>
+</blockquote>
+<p>Now by this definition a Homelab should reside in a home. In my case part of my Homelab will exist outside of my home, due to space and noise constraints. So my Homelab is somewhere between a Homelab and a "cloudlab".</p>
+<p>The <a href="https://www.reddit.com/r/homelab/wiki/introduction">/r/homelab wiki</a> has a more information on how to get started with a Homelab.</p>
+<h2 id="inventory">Inventory<a class="zola-anchor" href="#inventory" aria-label="Anchor link for: inventory">🔗</a></h2>
+<p>At the time of writing here is my current inventory of servers. It will most likely grow and evolve as time goes on.</p>
+<ul>
+<li>1 NAS
+<ul>
+<li>CPU: Intel i5-6600K</li>
+<li>RAM: 32GB</li>
+<li>Disk: 2x 250GB SSD, 4x 12TB HDD</li>
+</ul>
+</li>
+<li>2 Dedicated Servers
+<ul>
+<li>Dedicated Server 1
+<ul>
+<li>CPU: Intel</li>
+<li>RAM: 64GB</li>
+<li>Disk: 2x 512GB SSD</li>
+</ul>
+</li>
+<li>Dedicated Server 2
+<ul>
+<li>CPU: Intel</li>
+<li>RAM: 32GB</li>
+<li>Disk: 2x 3TB HDD</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="goals">Goals<a class="zola-anchor" href="#goals" aria-label="Anchor link for: goals">🔗</a></h2>
+<ul>
+<li>Ability to host applications easily, there is <a href="https://github.com/awesome-selfhosted/awesome-selfhosted">a lot of good self hosted software</a> out there.</li>
+<li>Keep ongoing maintenance to a minimum.</li>
+<li>Automatic encrypted backups, <em>because RAID is not a backup</em></li>
+<li>Ability to easily add and remove servers.</li>
+<li>An internal network between servers, some of my servers exist outside of my home network.</li>
+<li>Alerting and Monitoring, so I know when servers go down, failing drives, backups didn't run, etc.</li>
+</ul>
+<h2 id="the-plan">The Plan<a class="zola-anchor" href="#the-plan" aria-label="Anchor link for: the-plan">🔗</a></h2>
+<p>These are the tools/software I decided on to meet each of the above goals.</p>
+<blockquote class="info">
+    <span class="info-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+    </span>
+    <span><p>The crossed out tools are things that have changed or been replaced since I wrote this in 2019.</p>
+</span>
+</blockquote>
+<h3 id="hosting-applications">Hosting Applications<a class="zola-anchor" href="#hosting-applications" aria-label="Anchor link for: hosting-applications">🔗</a></h3>
+<ul>
+<li><a href="https://www.docker.com/">Docker</a> for hosting most applications and allows me to move services around.</li>
+<li><a href="https://www.ansible.com/">Ansible</a> for managing containers and configuration.</li>
+<li><a href="https://traefik.io/">Traefik</a> provides routing and certificates for services.</li>
+<li><del><a href="https://www.portainer.io/">Portainer</a> for managing the docker containers on specific servers.</del></li>
+<li><del><a href="https://github.com/saltstack/salt">Salt</a> for everything else that doesn't fit into a container.</del></li>
+</ul>
+<h3 id="minimizing-ongoing-maintenance">Minimizing Ongoing Maintenance<a class="zola-anchor" href="#minimizing-ongoing-maintenance" aria-label="Anchor link for: minimizing-ongoing-maintenance">🔗</a></h3>
+<ul>
+<li><a href="https://help.ubuntu.com/community/AutomaticSecurityUpdates">Automatic security updates</a> will reduce some of the maintenance involved in updating.</li>
+<li><a href="https://github.com/containrrr/watchtower">Watchtower</a> will keep selected containers up to date.</li>
+</ul>
+<h3 id="automatic-backups">Automatic Backups<a class="zola-anchor" href="#automatic-backups" aria-label="Anchor link for: automatic-backups">🔗</a></h3>
+<ul>
+<li><a href="https://restic.net/">restic</a> for backups, including deduplication and encryption.</li>
+<li><a href="https://www.backblaze.com/b2/cloud-storage.html">Backblaze B2</a> for offsite storage of backups.</li>
+</ul>
+<h3 id="adding-and-removing-servers">Adding and Removing Servers<a class="zola-anchor" href="#adding-and-removing-servers" aria-label="Anchor link for: adding-and-removing-servers">🔗</a></h3>
+<ul>
+<li><del><a href="https://github.com/saltstack/salt">Salt</a></del> <a href="https://www.ansible.com/">Ansible</a> allows me to have a declarative configuration for servers.</li>
+<li><a href="https://netboot.xyz/">netboot.xyz</a> simplifies installs with PXE booting.</li>
+<li><a href="https://github.com/StackExchange/dnscontrol">dnscontrol</a> for DNS management.</li>
+</ul>
+<h3 id="internal-network">Internal Network<a class="zola-anchor" href="#internal-network" aria-label="Anchor link for: internal-network">🔗</a></h3>
+<ul>
+<li><a href="https://www.zerotier.com/">Zerotier</a> is for my internal network. It's not decentralized like <a href="https://www.tinc-vpn.org/">tinc</a> but has some trade offs that make it easier to use, you can read more about it <a href="http://adamierymenko.com/decentralization.html">here</a>.</li>
+</ul>
+<h3 id="alerting-and-monitoring">Alerting and Monitoring<a class="zola-anchor" href="#alerting-and-monitoring" aria-label="Anchor link for: alerting-and-monitoring">🔗</a></h3>
+<ul>
+<li><a href="https://github.com/netdata/netdata">Netdata</a> will be used for metrics and basic alerting.</li>
+<li><a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a> will be used for custom monitoring/alerting.</li>
+<li><del><a href="https://icinga.com/docs/icinga2/latest/">Icinga2</a> will be used for alerting.</del></li>
+<li><del><a href="https://www.influxdata.com/time-series-platform/influxdb/">InfluxDB</a> is a time series database used for storage of metrics.</del></li>
+<li><del><a href="https://grafana.com/">Grafana</a> is used for making graphs and dashboards from the data stored in influxdb.</del></li>
+</ul>
+<h2 id="here-we-go">Here we go!<a class="zola-anchor" href="#here-we-go" aria-label="Anchor link for: here-we-go">🔗</a></h2>
+<p>I hope you will join me in this adventure into homelabbing. In the next post in the series we will cover configuration management.</p>
+<p><strong>Part 1: The Adventure Begins (You are here!)</strong><br />
+<a href="https://doingstuff.dev/posts/homelab-adventure-part-2/"><strong>Part 2: Configuration Management</strong></a><br />
+<a href="https://doingstuff.dev/posts/homelab-adventure-part-3/"><strong>Part 3: Internal Network</strong></a><br />
+<a href="https://doingstuff.dev/posts/homelab-switching-salt-to-ansible/"><strong>Sidequest: Switching from Salt to Ansible</strong></a><br />
+<a href="https://doingstuff.dev/posts/homelab-adventure-part-4/"><strong>Part 4: Application Hosting and Monitoring</strong></a></p>
+
+    </div>
+    
+        <nav class="navigation">
+            
+                <a class="navigation-next" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;ctf-peactf-2019&#x2F;">‹ peaCTF 2019 Writeups</a>
+            
+            
+                <a class="navigation-prev" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;homelab-adventure-part-2&#x2F;">Homelab Adventure - Part 2: Configuration Management ›</a>
+            
+        </nav>
+    
+</article>
+
+                
+                
+                <div class="copyright">&copy; 2026 <a href="https:&#x2F;&#x2F;graphics.social&#x2F;@gamingrobot" rel="noopener me">Morgan Creekmore</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                
+                
+            </div>
+        </div>
+        
+    
+    
+
+        
+            <script data-goatcounter="https://grbt-doingstuff.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+        
+    </body>
+</html>

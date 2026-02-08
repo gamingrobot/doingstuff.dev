@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=5" name="viewport"/>
+        <meta name="theme-color" content="#0d314b"/>
+        <title>
+            
+    Blender - Milling Machine Breakdown - Doing Stuff
+
+        </title>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://doingstuff.dev/apple-touch-icon-144-precomposed.png">
+        <link href="https://doingstuff.dev/favicon.png" rel="icon" type="image/x-icon"/>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleNext-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleMono-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        
+            <link rel="alternate" type= "application/atom+xml"  title="RSS" href="https://doingstuff.dev/atom.xml"/>
+        
+        
+        
+    <meta content="website" property="og:type"/>
+    <meta content="Doing Stuff" property="og:site_name"/>
+    <meta content="https://doingstuff.dev/posts/blender-milling-machine-breakdown/" property="og:url"/>
+    <meta content="https://doingstuff.dev/posts/blender-milling-machine-breakdown/" property="twitter:url"/>
+    
+        <meta content="Blender - Milling Machine Breakdown" property="og:title"/>
+        <meta content="Blender - Milling Machine Breakdown" property="twitter:title"/>
+    
+    
+        <meta content="Breakdown for the stylized milling machine render" property="og:description"/>
+        <meta content="Breakdown for the stylized milling machine render" property="description"/>
+        <meta content="Breakdown for the stylized milling machine render" property="twitter:description"/>
+    
+    
+        <meta content="https://doingstuff.dev/posts/blender-milling-machine-breakdown/render.webp" property="og:image"/>
+        <meta content="https://doingstuff.dev/posts/blender-milling-machine-breakdown/render.webp" property="twitter:image"/>
+    
+
+        
+        
+            <link href="https://doingstuff.dev/fonts.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/doingstuff.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/print.css" rel="stylesheet" media="print" type="text/css"/>
+        
+        
+        
+    </head>
+    <body>
+        <!--Fix Firefox FOUC-->
+        <script>0</script> 
+        <div class="container">
+            <nav class="topbar">
+                <div class="topbar-text">
+                    <div class="topbar-title">
+                        <a href="/"><span>Doing Stuff</span></a>
+                    </div>
+                    <div class="topbar-menu">
+                        
+                        <a href="https://doingstuff.dev/posts"><span>Posts</span></a>
+                        
+                        <a href="https://doingstuff.dev/atom.xml"><span>RSS</span></a>
+                        
+                        <a href="https:&#x2F;&#x2F;creekmore.dev"><span>About</span></a>
+                        
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                
+<article>
+    <header>
+        <h1>Blender - Milling Machine Breakdown</h1>
+        <div class="post-meta">
+            Nov 02, 2025
+            <br>
+            
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/blender/">Blender</a>
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/breakdown/">Breakdown</a>
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/art/">Art</a>
+            
+            <br>
+            
+        </div>
+    </header>
+    
+    <div class="toc-wrapper">
+        <input type="checkbox" id="tocToggle" checked>
+        <label class="toc-label" for="tocToggle">› Table of Contents</label>
+        <div class="toc">
+            <ul>
+                
+                <li><a href="https://doingstuff.dev/posts/blender-milling-machine-breakdown/#software">Software</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/blender-milling-machine-breakdown/#light-and-shadow">Light and Shadow</a>
+                    
+                    <ul>
+                        
+                        <li><a href="https://doingstuff.dev/posts/blender-milling-machine-breakdown/#spot-lamp">Spot Lamp</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/blender-milling-machine-breakdown/#sun-lamp">Sun Lamp</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/blender-milling-machine-breakdown/#materials">Materials</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/blender-milling-machine-breakdown/#volumetrics">Volumetrics</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/blender-milling-machine-breakdown/#particles">Particles</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/blender-milling-machine-breakdown/#line-art">Line Art</a>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/blender-milling-machine-breakdown/#compositing">Compositing</a>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="post"> 
+        <p>A breakdown for the stylized milling machine render.
+<figure class="center">
+  
+  <img width="1440" height="1080" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/render.webp" alt="3d render of a milling machine">
+  
+  
+</figure>
+</p>
+<span id="continue-reading"></span><video autoplay controls>
+    <source src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/render_animation.mp4" type="video/mp4" />
+    Your browser doesn't support the video.
+</video>
+<figure class="center">
+  
+  <img width="1440" height="1080" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/mill_clay.webp" alt="clay render for milling machine">
+  
+  
+</figure>
+<h2 id="software">Software<a class="zola-anchor" href="#software" aria-label="Anchor link for: software">🔗</a></h2>
+<ul>
+<li>Rendered in Blender 4.5 using EEVEE</li>
+<li>Line art is rendered using <a href="https://github.com/bnpr/Malt">Malt</a>/<a href="https://github.com/gamingrobot/Cider">Cider</a></li>
+<li>Grain was generated using <a href="https://superhivemarket.com/products/grainy">Grainy</a></li>
+</ul>
+<blockquote class="info">
+    <span class="info-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+    </span>
+    <span><p>Update 2025: I used smear lines instead of motion blur using <a href="https://superhivemarket.com/products/autosmear">AutoSmear</a>.</p>
+</span>
+</blockquote>
+<h2 id="light-and-shadow">Light and Shadow<a class="zola-anchor" href="#light-and-shadow" aria-label="Anchor link for: light-and-shadow">🔗</a></h2>
+<p>To get sharp shadows, I set the <strong>Shadow Step Count</strong> to 1 in <strong>Render -&gt; Shadows</strong>. Then set these settings on lights in <strong>Light Settings -&gt; Shadows</strong>:</p>
+<ul>
+<li>Enable Jitter with 10% Overblur</li>
+<li>Filter to 0.0</li>
+<li>Resolution Limit to 0.0001m</li>
+</ul>
+<p>To disable background light emission, I disconnected the <strong>Background</strong> from the output in the <strong>World</strong> shader (or by setting the <strong>Strength</strong> to 0.0). This allows control of the exact color of the objects and shadows in the material shader.</p>
+<h3 id="spot-lamp">Spot Lamp<a class="zola-anchor" href="#spot-lamp" aria-label="Anchor link for: spot-lamp">🔗</a></h3>
+<p>There is a spot lamp inside the mill's lamp illuminating the mill and the volumetric.
+<figure class="center">
+  
+  <img width="399" height="462" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/light_spot.webp" alt="spot lamp settings">
+  
+  
+</figure>
+</p>
+<h3 id="sun-lamp">Sun Lamp<a class="zola-anchor" href="#sun-lamp" aria-label="Anchor link for: sun-lamp">🔗</a></h3>
+<p>The low-power sun lamp has a copy rotation constraint targeting the camera and has shadows disabled. This light also uses light linking to exclude some items from the light due to weird shading.
+<figure class="center">
+  
+  <img width="1299" height="389" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/light_sun.webp" alt="sun lamp settings">
+  
+  
+</figure>
+</p>
+<p>Since it is a low-powered light, it only gives highlights to areas outside the main spot lamp.
+<figure class="center">
+  
+  <img width="2956" height="1014" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/light_sun_split.webp" alt="showing highlights added by the sun lamp">
+  
+  
+</figure>
+</p>
+<h2 id="materials">Materials<a class="zola-anchor" href="#materials" aria-label="Anchor link for: materials">🔗</a></h2>
+<p>I set the <strong>Color Management</strong> to <strong>Standard</strong> and added a <strong>Shader AOV</strong> for <strong>Bloom (Color)</strong> in the <strong>View Layer</strong> settings. The bloom is a separate AOV because everything in the scene is emissive, and I only want bloom on specific objects. A Cryptomatte Object pass would also work for this.
+<figure class="center">
+  
+  <img width="411" height="367" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/shader_nodes.webp" alt="shader node graph">
+  
+  
+</figure>
+</p>
+<p>These are the nodes for the <strong>DiffuseColor</strong> node group. The <strong>ColorOffset</strong> value changes how dark the shadows/diffuse shading are (faking the background illumination without changing the main shader color).
+<figure class="center">
+  
+  <img width="1264" height="1176" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/custom_diffuse_nodes.webp" alt="node group graph for DiffuseColor">
+  
+  
+</figure>
+</p>
+<h2 id="volumetrics">Volumetrics<a class="zola-anchor" href="#volumetrics" aria-label="Anchor link for: volumetrics">🔗</a></h2>
+<p>The lamp volumetrics are set up on a separate view layer with the spot lamp, so the volumetric did not affect the lighting of the main scene. The mill was set to <strong>Holdout</strong>, so it didn't render the volumetric where the mill was.
+<figure class="center">
+  
+  <img width="263" height="329" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/volume_node.webp" alt="volumetrics shader settings">
+  
+  
+</figure>
+</p>
+<h2 id="particles">Particles<a class="zola-anchor" href="#particles" aria-label="Anchor link for: particles">🔗</a></h2>
+<p>These are the settings I used for the <a href="https://en.wikipedia.org/wiki/Metal_swarf">swarf</a> particle system. The swarf models were in a collection that was randomly selected. I had difficulty with getting the physics to be stable, so I set the scene gravity to half, set collision on the metal block, and baked the simulation before rendering.</p>
+<figure class="center">
+  
+  <img width="795" height="608" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/particle.webp" alt="particle settings">
+  
+  
+</figure>
+<h2 id="line-art">Line Art<a class="zola-anchor" href="#line-art" aria-label="Anchor link for: line-art">🔗</a></h2>
+<p>I tried a couple of different approaches for the line art.</p>
+<p><figure class="center">
+  
+  <img width="1440" height="1080" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/render_lineart.webp" alt="grease pencil line art render">
+  
+  
+  <figcaption>
+    <span><a href="https://docs.blender.org/manual/en/4.5/grease_pencil/modifiers/generate/line_art.html">LineArt Modifier</a></span>
+  </figcaption>
+  
+</figure>
+
+<br/>
+<figure class="center">
+  
+  <img width="1440" height="1080" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/render_freestyle.webp" alt="freestyle line art render">
+  
+  
+  <figcaption>
+    <span><a href="https://docs.blender.org/manual/en/4.5/render/freestyle/introduction.html">FreeStyle</a></span>
+  </figcaption>
+  
+</figure>
+
+<br/>
+<figure class="center">
+  
+  <img width="1440" height="1080" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/render.webp" alt="malt line art render">
+  
+  
+  <figcaption>
+    <span><a href="https://github.com/bnpr/Malt">Malt</a></span>
+  </figcaption>
+  
+</figure>
+</p>
+<p>Since I really liked how Malt's line art looked, I decided to go with that one. Malt is a custom render engine, so I had to use a linked scene since each scene can only have one render engine selected.</p>
+<p>I used the default line width settings and set the <strong>Color</strong> to transparent. In the main <strong>Default Render</strong> node tree, I also set the background to transparent.
+<figure class="center">
+  
+  <img width="853" height="462" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/malt_lineart_nodes.webp" alt="malt line art node settings">
+  
+  
+</figure>
+</p>
+<p>After this project I created <a href="https://github.com/gamingrobot/Cider">Cider</a>, which uses Malt but renders the line art alongside the main render so it can be used in compositing. It also makes it easier to set line art styles directly in the material settings and has support for a viewport preview. Cider is meant for just line art on top of an EEVEE or Cycles render, so Malt should still be used for more complex line art.</p>
+<h2 id="compositing">Compositing<a class="zola-anchor" href="#compositing" aria-label="Anchor link for: compositing">🔗</a></h2>
+<video  controls>
+    <source src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/composite_layers.mp4" type="video/mp4" />
+    Your browser doesn't support the video.
+</video>
+<p>For compositing, I enabled transparency in <strong>Render -&gt; Film -&gt; Transparent</strong> since I had disabled the background in the World shader earlier. Then I can then composite in any color as the background.</p>
+<p>I enabled additional passes in the View Layer settings:</p>
+<ul>
+<li>Z/Depth (for Vector Blur)</li>
+<li>Vector (for Vector Blur)</li>
+<li>Cryptomatte Object (to mask out specific objects for Vector Blur)</li>
+</ul>
+<p>I had a weird issue with one frame in the middle of the render having a large vector change to the metal block in the vector pass but not in the combined pass. So I used the Cryptomatte Object pass to mask out the cutter to apply the Vector Blur to.
+<figure class="center">
+  
+  <img width="2512" height="742" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/compositor_nodes.webp" alt="compositor nodes">
+  
+  
+</figure>
+</p>
+<p>The settings I used for generating the grain with the Grainy addon:
+<figure class="center">
+  
+  <img width="248" height="103" src="https://doingstuff.dev/posts/blender-milling-machine-breakdown/grainy_settings.webp" alt="grainy settings">
+  
+  
+</figure>
+</p>
+<p>If you liked this, you can find more of my art at <a href="https://gamingrobot.art">gamingrobot.art</a>.</p>
+
+    </div>
+    
+        <nav class="navigation">
+            
+                <a class="navigation-next" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;homelab-adventure-part-4&#x2F;">‹ Homelab Adventure - Part 4: Application Hosting and Monitoring</a>
+            
+            
+                <a class="navigation-prev" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;steamdeck-linux-streaming&#x2F;">Streaming games to the Steam Deck ›</a>
+            
+        </nav>
+    
+</article>
+
+                
+                
+                <div class="copyright">&copy; 2026 <a href="https:&#x2F;&#x2F;graphics.social&#x2F;@gamingrobot" rel="noopener me">Morgan Creekmore</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                
+                
+            </div>
+        </div>
+        
+    
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj+Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+        const images = Array.from(document.querySelectorAll("img"));
+        images.forEach((img) => { mediumZoom(img, { margin: 0, background: "", scrollOffset: 40, container: null, template: null }); });
+        </script>  
+    
+
+        
+            <script data-goatcounter="https://grbt-doingstuff.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+        
+    </body>
+</html>

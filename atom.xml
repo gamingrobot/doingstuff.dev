@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Doing Stuff</title>
+    <subtitle>A blog about stuff</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://doingstuff.dev/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://doingstuff.dev"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2026-02-07T00:00:00+00:00</updated>
+    <id>https://doingstuff.dev/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Blender - Year Two</title>
+        <published>2026-02-07T00:00:00+00:00</published>
+        <updated>2026-02-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/blender-year-two/"/>
+        <id>https://doingstuff.dev/posts/blender-year-two/</id>
+        
+        <summary type="html">&lt;figure class=&quot;center&quot;&gt;
+  
+  &lt;img width=&quot;1000&quot; height=&quot;281&quot; src=&quot;https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;blender-year-two&#x2F;cover.webp&quot; &gt;
+  
+  
+&lt;&#x2F;figure&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Streaming games to the Steam Deck</title>
+        <published>2025-12-12T00:00:00+00:00</published>
+        <updated>2025-12-12T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/steamdeck-linux-streaming/"/>
+        <id>https://doingstuff.dev/posts/steamdeck-linux-streaming/</id>
+        
+        <summary type="html">&lt;p&gt;My notes for setting up Steam Deck remote game streaming using &lt;a href=&quot;https:&#x2F;&#x2F;docs.lizardbyte.dev&#x2F;projects&#x2F;sunshine&#x2F;&quot;&gt;Sunshine&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;moonlight-stream.org&#x2F;&quot;&gt;Moonlight&lt;&#x2F;a&gt; and a custom &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Extended_Display_Identification_Data&quot;&gt;EDID&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Blender - Milling Machine Breakdown</title>
+        <published>2025-11-02T00:00:00+00:00</published>
+        <updated>2025-11-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/blender-milling-machine-breakdown/"/>
+        <id>https://doingstuff.dev/posts/blender-milling-machine-breakdown/</id>
+        
+        <summary type="html">&lt;p&gt;A breakdown for the stylized milling machine render.
+&lt;figure class=&quot;center&quot;&gt;
+  
+  &lt;img width=&quot;1440&quot; height=&quot;1080&quot; src=&quot;https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;blender-milling-machine-breakdown&#x2F;render.webp&quot; alt=&quot;3d render of a milling machine&quot;&gt;
+  
+  
+&lt;&#x2F;figure&gt;
+&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Homelab Adventure - Part 4: Application Hosting and Monitoring</title>
+        <published>2025-07-13T00:00:00+00:00</published>
+        <updated>2025-07-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/homelab-adventure-part-4/"/>
+        <id>https://doingstuff.dev/posts/homelab-adventure-part-4/</id>
+        
+        <summary type="html">&lt;p&gt;Welcome to my journey in building my Homelab. This is part of a multipart series; in the last part I showed how to set up an internal network across multiple hosts. This &quot;final&quot; post will go over application hosting and monitoring.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Blender - Year One</title>
+        <published>2025-05-19T00:00:00+00:00</published>
+        <updated>2025-05-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/blender-year-one/"/>
+        <id>https://doingstuff.dev/posts/blender-year-one/</id>
+        
+        <summary type="html">&lt;figure class=&quot;center&quot;&gt;
+  
+  &lt;img width=&quot;1000&quot; height=&quot;281&quot; src=&quot;https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;blender-year-one&#x2F;cover.webp&quot; &gt;
+  
+  
+&lt;&#x2F;figure&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Home Assistant - Linux tablet dashboard and voice assistant</title>
+        <published>2024-05-27T00:00:00+00:00</published>
+        <updated>2024-05-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/home-assistant-dashboard-tablet/"/>
+        <id>https://doingstuff.dev/posts/home-assistant-dashboard-tablet/</id>
+        
+        <summary type="html">&lt;p&gt;Turning an Intel Atom based Lenovo Tablet 10 (20E4) into a Home Assistant dashboard and voice assistant. Most tutorials for dashboard displays are using Android tablets, but I had this old tablet laying around and figured out how to use it with Home Assistant.&lt;&#x2F;p&gt;
+&lt;figure class=&quot;center&quot;&gt;
+  
+  &lt;img width=&quot;713&quot; height=&quot;545&quot; src=&quot;https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;home-assistant-dashboard-tablet&#x2F;tablet_small.webp&quot; alt=&quot;Lenovo tablet with home assistant dashboard&quot;&gt;
+  
+  
+&lt;&#x2F;figure&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Homelab Sidequest - Switching from Salt to Ansible</title>
+        <published>2024-03-20T00:00:00+00:00</published>
+        <updated>2024-03-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/homelab-switching-salt-to-ansible/"/>
+        <id>https://doingstuff.dev/posts/homelab-switching-salt-to-ansible/</id>
+        
+        <summary type="html">&lt;p&gt;About a month ago I thought it would be nice to be able to configure VM&#x27;s and Droplets with Salt by using my existing configuration I had set up in &lt;a href=&quot;https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;homelab-adventure-part-2&#x2F;&quot;&gt;Part 2: Configuration Management&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Homelab Adventure - Part 3: Internal Network</title>
+        <published>2023-03-29T00:00:00+00:00</published>
+        <updated>2023-03-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/homelab-adventure-part-3/"/>
+        <id>https://doingstuff.dev/posts/homelab-adventure-part-3/</id>
+        
+        <summary type="html">&lt;p&gt;Welcome to my journey in building my Homelab. This is part of a multipart series; in the last part I gave an overview of how to set up configuration management. This one will cover how I set up my internal network.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Embedding Version Info into ELF Shared Libraries</title>
+        <published>2023-03-22T00:00:00+00:00</published>
+        <updated>2023-03-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/elf-shared-library-version/"/>
+        <id>https://doingstuff.dev/posts/elf-shared-library-version/</id>
+        
+        <summary type="html">&lt;p&gt;&lt;em&gt;How to embed version information into an ELF shared library?&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Here are the methods I have used for embedding version information.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Sending MIDI from Reaper to Unreal Engine</title>
+        <published>2022-04-11T00:00:00+00:00</published>
+        <updated>2022-04-11T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/reaper-midi-unreal-engine/"/>
+        <id>https://doingstuff.dev/posts/reaper-midi-unreal-engine/</id>
+        
+        <summary type="html">&lt;p&gt;How to setup Reaper to send MIDI to Unreal Engine.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Commodore 64 Puzzle</title>
+        <published>2020-02-27T00:00:00+00:00</published>
+        <updated>2020-02-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/c64-puzzle/"/>
+        <id>https://doingstuff.dev/posts/c64-puzzle/</id>
+        
+        <summary type="html">&lt;p&gt;My college professor posted this image with the question&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What is the output when enter is pressed?&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;figure class=&quot;center&quot;&gt;
+  
+  &lt;img width=&quot;500&quot; height=&quot;418&quot; src=&quot;https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;c64-puzzle&#x2F;problem.webp&quot; alt=&quot;Commodore 64 screen with a BASIC program&quot;&gt;
+  
+  
+&lt;&#x2F;figure&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Homelab Adventure - Part 2: Configuration Management</title>
+        <published>2020-02-06T00:00:00+00:00</published>
+        <updated>2020-02-06T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/homelab-adventure-part-2/"/>
+        <id>https://doingstuff.dev/posts/homelab-adventure-part-2/</id>
+        
+        <summary type="html">&lt;p&gt;Welcome to my journey in building my Homelab. This is part of a multipart series; in the last part I gave an overview of the Homelab plan. This one will cover how I handle configuration management.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Homelab Adventure - Part 1: The Adventure Begins</title>
+        <published>2019-11-09T00:00:00+00:00</published>
+        <updated>2019-11-09T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/homelab-adventure-part-1/"/>
+        <id>https://doingstuff.dev/posts/homelab-adventure-part-1/</id>
+        
+        <summary type="html">&lt;p&gt;Welcome to my journey in building my Homelab. This will be an ongoing series of blog posts of my adventures in building my personal infrastructure.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>peaCTF 2019 Writeups</title>
+        <published>2019-07-26T00:00:00+00:00</published>
+        <updated>2019-07-26T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/ctf-peactf-2019/"/>
+        <id>https://doingstuff.dev/posts/ctf-peactf-2019/</id>
+        
+        <summary type="html">&lt;p&gt;Writeups for &lt;a href=&quot;https:&#x2F;&#x2F;peactf.com&#x2F;&quot;&gt;peaCTF&lt;&#x2F;a&gt; 2019&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>InnoCTF 2019 Writeups</title>
+        <published>2019-07-19T00:00:00+00:00</published>
+        <updated>2019-07-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/ctf-innoctf-2019/"/>
+        <id>https://doingstuff.dev/posts/ctf-innoctf-2019/</id>
+        
+        <summary type="html">&lt;p&gt;Writeups for &lt;a href=&quot;http:&#x2F;&#x2F;innoctf.com&#x2F;&quot;&gt;InnoCTF&lt;&#x2F;a&gt; 2019&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Floating Point Hell</title>
+        <published>2014-03-16T00:00:00+00:00</published>
+        <updated>2014-03-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/floating-point-hell/"/>
+        <id>https://doingstuff.dev/posts/floating-point-hell/</id>
+        
+        <summary type="html">&lt;p&gt;This blog post will show how to deal with floating-point error in JavaScript by encoding all uint64&#x27;s, and int64&#x27;s as strings in JSON Marshaling.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Setup QEMU for ARM on Debian Wheezy</title>
+        <published>2014-01-01T00:00:00+00:00</published>
+        <updated>2014-01-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Morgan Creekmore
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://doingstuff.dev/posts/setup-qemu-for-arm-on-wheezy/"/>
+        <id>https://doingstuff.dev/posts/setup-qemu-for-arm-on-wheezy/</id>
+        
+        <summary type="html">&lt;p&gt;This is a quick little blog post for how to install QEMU for ARM on Debian 7.0 (Wheezy).&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

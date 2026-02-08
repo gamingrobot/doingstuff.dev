@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=5" name="viewport"/>
+        <meta name="theme-color" content="#0d314b"/>
+        <title>
+            
+    peaCTF 2019 Writeups - Doing Stuff
+
+        </title>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://doingstuff.dev/apple-touch-icon-144-precomposed.png">
+        <link href="https://doingstuff.dev/favicon.png" rel="icon" type="image/x-icon"/>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleNext-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="https://doingstuff.dev/fonts/atkinson/AtkinsonHyperlegibleMono-VariableFont.ttf" as="font" type="font/ttf" crossorigin>
+        
+            <link rel="alternate" type= "application/atom+xml"  title="RSS" href="https://doingstuff.dev/atom.xml"/>
+        
+        
+        
+    <meta content="website" property="og:type"/>
+    <meta content="Doing Stuff" property="og:site_name"/>
+    <meta content="https://doingstuff.dev/posts/ctf-peactf-2019/" property="og:url"/>
+    <meta content="https://doingstuff.dev/posts/ctf-peactf-2019/" property="twitter:url"/>
+    
+        <meta content="peaCTF 2019 Writeups" property="og:title"/>
+        <meta content="peaCTF 2019 Writeups" property="twitter:title"/>
+    
+    
+        <meta content="Writeups for peaCTF 2019" property="og:description"/>
+        <meta content="Writeups for peaCTF 2019" property="description"/>
+        <meta content="Writeups for peaCTF 2019" property="twitter:description"/>
+    
+    
+
+        
+        
+            <link href="https://doingstuff.dev/fonts.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/doingstuff.css" rel="stylesheet" type="text/css"/>
+            <link href="https://doingstuff.dev/print.css" rel="stylesheet" media="print" type="text/css"/>
+        
+        
+        
+    </head>
+    <body>
+        <!--Fix Firefox FOUC-->
+        <script>0</script> 
+        <div class="container">
+            <nav class="topbar">
+                <div class="topbar-text">
+                    <div class="topbar-title">
+                        <a href="/"><span>Doing Stuff</span></a>
+                    </div>
+                    <div class="topbar-menu">
+                        
+                        <a href="https://doingstuff.dev/posts"><span>Posts</span></a>
+                        
+                        <a href="https://doingstuff.dev/atom.xml"><span>RSS</span></a>
+                        
+                        <a href="https:&#x2F;&#x2F;creekmore.dev"><span>About</span></a>
+                        
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                
+<article>
+    <header>
+        <h1>peaCTF 2019 Writeups</h1>
+        <div class="post-meta">
+            Jul 26, 2019
+            <br>
+            
+            
+                <a class="badge badge-tag" href="https://doingstuff.dev/tags/ctf/">CTF</a>
+            
+            <br>
+            
+        </div>
+    </header>
+    
+    <div class="toc-wrapper">
+        <input type="checkbox" id="tocToggle" checked>
+        <label class="toc-label" for="tocToggle">› Table of Contents</label>
+        <div class="toc">
+            <ul>
+                
+                <li><a href="https://doingstuff.dev/posts/ctf-peactf-2019/#rsa">RSA</a>
+                    
+                    <ul>
+                        
+                        <li><a href="https://doingstuff.dev/posts/ctf-peactf-2019/#solution">Solution</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li><a href="https://doingstuff.dev/posts/ctf-peactf-2019/#song-of-my-people">Song of My People</a>
+                    
+                    <ul>
+                        
+                        <li><a href="https://doingstuff.dev/posts/ctf-peactf-2019/#solution-1">Solution</a></li>
+                        
+                        <li><a href="https://doingstuff.dev/posts/ctf-peactf-2019/#soundcloud">Soundcloud</a></li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="post"> 
+        <p>Writeups for <a href="https://peactf.com/">peaCTF</a> 2019</p>
+<span id="continue-reading"></span><h2 id="rsa">RSA<a class="zola-anchor" href="#rsa" aria-label="Anchor link for: rsa">🔗</a></h2>
+<p>Can you help Bob retrieve the two messages for a flag?</p>
+<h3 id="solution">Solution<a class="zola-anchor" href="#solution" aria-label="Anchor link for: solution">🔗</a></h3>
+<p>The challenge included two files:</p>
+<p><code>auth_channel.txt</code></p>
+<pre style="background-color:#193549;color:#ffffff;"><code><span style="color:#f9f9f9;">Authenticated (unhashed) channel:
+</span><span style="color:#f9f9f9;">n = 59883006898206291499785811163190956754007806709157091648869
+</span><span style="color:#f9f9f9;">e = 65537
+</span><span style="color:#f9f9f9;">c = 23731413167627600089782741107678182917228038671345300608183
+</span></code></pre>
+<p><code>enc_channel.txt</code></p>
+<pre style="background-color:#193549;color:#ffffff;"><code><span style="color:#f9f9f9;">Encrypted channel:
+</span><span style="color:#f9f9f9;">n = 165481207658568424313022356820498512502867488746572300093793
+</span><span style="color:#f9f9f9;">e = 65537
+</span><span style="color:#f9f9f9;">c = 150635433712900935381157860417761227624682377134647578768653
+</span></code></pre>
+<p>I had never done a RSA crypto CTF challenge before, so I read this great blog post <a href="https://bitsdeep.com/posts/attacking-rsa-for-fun-and-ctf-points-part-1/">Attacking RSA for fun and CTF points</a>.</p>
+<h4 id="enc-channel-txt">enc_channel.txt<a class="zola-anchor" href="#enc-channel-txt" aria-label="Anchor link for: enc-channel-txt">🔗</a></h4>
+<p>The <code>n</code> value in the <code>enc_channel.txt</code> file had <a href="http://factordb.com/index.php?query=165481207658568424313022356820498512502867488746572300093793">known factors</a></p>
+<p>So we now have <code>p</code>, <code>q</code>, and <code>e</code>, I came across a <a href="https://crypto.stackexchange.com/questions/19444/rsa-given-q-p-and-e/19530">Crypto StackExchange question</a> about decrypting <code>c</code> given <code>p</code>, <code>q</code>, <code>e</code>.</p>
+<p>I attempted to use the python script in the answer but had difficulty getting it to work with our inputs. Eventually I converted the script to C# using the <a href="https://www.nuget.org/packages/BouncyCastle/">BouncyCastle</a> NuGet package for the <code>BigInteger</code> and <code>modInverse</code> function. The following script was written in <a href="https://www.linqpad.net/">LINQPad</a> for the nice dump functions.</p>
+<pre data-lang="cs" style="background-color:#193549;color:#ffffff;" class="language-cs "><code class="language-cs" data-lang="cs"><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">p </span><span style="color:#ff9d00;">= new </span><span style="color:#80ffbb;">BigInteger</span><span style="color:#f9f9f9;">(&quot;</span><span style="color:#9eff80;">404796306518120759733507156677</span><span style="color:#f9f9f9;">&quot;);
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">q </span><span style="color:#ff9d00;">= new </span><span style="color:#80ffbb;">BigInteger</span><span style="color:#f9f9f9;">(&quot;</span><span style="color:#9eff80;">408801179738927870766525808109</span><span style="color:#f9f9f9;">&quot;);
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">e </span><span style="color:#ff9d00;">= new </span><span style="color:#80ffbb;">BigInteger</span><span style="color:#f9f9f9;">(&quot;</span><span style="color:#9eff80;">65537</span><span style="color:#f9f9f9;">&quot;);
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">c </span><span style="color:#ff9d00;">= new </span><span style="color:#80ffbb;">BigInteger</span><span style="color:#f9f9f9;">(&quot;</span><span style="color:#9eff80;">150635433712900935381157860417761227624682377134647578768653</span><span style="color:#f9f9f9;">&quot;);
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">n </span><span style="color:#ff9d00;">= </span><span style="color:#f9f9f9;">p.Multiply(q);
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">one </span><span style="color:#ff9d00;">= new </span><span style="color:#80ffbb;">BigInteger</span><span style="color:#f9f9f9;">(&quot;</span><span style="color:#9eff80;">1</span><span style="color:#f9f9f9;">&quot;);
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">phi </span><span style="color:#ff9d00;">= </span><span style="color:#f9f9f9;">(p.Subtract(one).Multiply(q.Subtract(one)));
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">d </span><span style="color:#ff9d00;">= </span><span style="color:#f9f9f9;">e.ModInverse(phi);
+</span><span style="color:#f9f9f9;">d.Dump(&quot;</span><span style="color:#9eff80;">d</span><span style="color:#f9f9f9;">&quot;);
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">result </span><span style="color:#ff9d00;">= </span><span style="color:#f9f9f9;">c.ModPow(d, n);
+</span><span style="color:#f9f9f9;">result.Dump(&quot;</span><span style="color:#9eff80;">Decoded</span><span style="color:#f9f9f9;">&quot;);
+</span><span style="color:#f9f9f9;">result.ToString(</span><span style="color:#ff628c;">16</span><span style="color:#f9f9f9;">).Dump(&quot;</span><span style="color:#9eff80;">hex</span><span style="color:#f9f9f9;">&quot;);
+</span></code></pre>
+<p>Output:</p>
+<pre style="background-color:#193549;color:#ffffff;"><code><span style="color:#f9f9f9;">d: 125212438875455843161244268921851095575914294443076546907249
+</span><span style="color:#f9f9f9;">Decoded: 8904929771347223901285886734450
+</span><span style="color:#f9f9f9;">hex: 7065614354467b663463743072
+</span></code></pre>
+<p>Converting the hex to ascii we get: <code>peaCTF{f4ct0r</code></p>
+<h4 id="auth-channel-txt">auth_channel.txt<a class="zola-anchor" href="#auth-channel-txt" aria-label="Anchor link for: auth-channel-txt">🔗</a></h4>
+<p>The <code>n</code> value in the <code>auth_channel.txt</code> file had <a href="http://factordb.com/index.php?query=59883006898206291499785811163190956754007806709157091648869">known factors</a></p>
+<p>I attempted to use the same script with the data from the <code>auth_channel.txt</code> file but ended up getting garbage hex out. After looking at a <a href="https://medium.com/@jmecom/bsidessf-2018-ctf-553ac34bd49f">BSidesSF 2018 CTF writeup</a> I came across this section:</p>
+<blockquote>
+<p>RSA can be used for encryption and decryption:</p>
+<ul>
+<li>Encrypt a text message <em>m</em> into ciphertext <em>c</em>: <em>c = m^e</em> mod <em>n</em></li>
+<li>Decrypt a ciphertext <em>c</em>: <em>m = c^d</em> mod <em>n</em></li>
+</ul>
+<p>It can also be used to produce and verify digital signatures:</p>
+<ul>
+<li>Produce a signature for a message <em>m</em>: <em>s = m^d</em> mod <em>n</em></li>
+<li>Verify a signature <em>s,</em> for <em>m</em>: <em>m == s^e</em> mod <em>n</em></li>
+</ul>
+</blockquote>
+<p>That gave me the idea to try verifying the signature instead of trying to decrypt the ciphertext. This script is very similar to the first one the only changes are the input and <code>var result = c.ModPow(e, n);</code> instead of <code>var result = c.ModPow(d, n);</code></p>
+<pre data-lang="cs" style="background-color:#193549;color:#ffffff;" class="language-cs "><code class="language-cs" data-lang="cs"><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">p </span><span style="color:#ff9d00;">= new </span><span style="color:#80ffbb;">BigInteger</span><span style="color:#f9f9f9;">(&quot;</span><span style="color:#9eff80;">192355607880290234740980693973</span><span style="color:#f9f9f9;">&quot;);
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">q </span><span style="color:#ff9d00;">= new </span><span style="color:#80ffbb;">BigInteger</span><span style="color:#f9f9f9;">(&quot;</span><span style="color:#9eff80;">311314068553039667905603427153</span><span style="color:#f9f9f9;">&quot;);
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">e </span><span style="color:#ff9d00;">= new </span><span style="color:#80ffbb;">BigInteger</span><span style="color:#f9f9f9;">(&quot;</span><span style="color:#9eff80;">65537</span><span style="color:#f9f9f9;">&quot;);
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">c </span><span style="color:#ff9d00;">= new </span><span style="color:#80ffbb;">BigInteger</span><span style="color:#f9f9f9;">(&quot;</span><span style="color:#9eff80;">23731413167627600089782741107678182917228038671345300608183</span><span style="color:#f9f9f9;">&quot;);
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">n </span><span style="color:#ff9d00;">= </span><span style="color:#f9f9f9;">p.Multiply(q);
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">one </span><span style="color:#ff9d00;">= new </span><span style="color:#80ffbb;">BigInteger</span><span style="color:#f9f9f9;">(&quot;</span><span style="color:#9eff80;">1</span><span style="color:#f9f9f9;">&quot;);
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">phi </span><span style="color:#ff9d00;">= </span><span style="color:#f9f9f9;">(p.Subtract(one).Multiply(q.Subtract(one)));
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">d </span><span style="color:#ff9d00;">= </span><span style="color:#f9f9f9;">e.ModInverse(phi);
+</span><span style="color:#f9f9f9;">d.Dump(&quot;</span><span style="color:#9eff80;">d</span><span style="color:#f9f9f9;">&quot;);
+</span><span style="color:#f9f9f9;">
+</span><span style="color:#ffc600;">var </span><span style="color:#f9f9f9;">result </span><span style="color:#ff9d00;">= </span><span style="color:#f9f9f9;">c.ModPow(e, n);
+</span><span style="color:#f9f9f9;">result.Dump(&quot;</span><span style="color:#9eff80;">Decoded</span><span style="color:#f9f9f9;">&quot;);
+</span><span style="color:#f9f9f9;">result.ToString(</span><span style="color:#ff628c;">16</span><span style="color:#f9f9f9;">).Dump(&quot;</span><span style="color:#9eff80;">hex</span><span style="color:#f9f9f9;">&quot;);
+</span></code></pre>
+<p>Output:</p>
+<pre style="background-color:#193549;color:#ffffff;"><code><span style="color:#f9f9f9;">d: 42870301015457570297495318493842594795392515721010421474689
+</span><span style="color:#f9f9f9;">Decoded: 911845841250251271805
+</span><span style="color:#f9f9f9;">hex: 316e67317366756e7d
+</span></code></pre>
+<p>Converting the hex to ascii we get: <code>1ng1sfun}</code></p>
+<p>The final flag is <code>peaCTF{f4ct0r1ng1sfun}</code></p>
+<h2 id="song-of-my-people">Song of My People<a class="zola-anchor" href="#song-of-my-people" aria-label="Anchor link for: song-of-my-people">🔗</a></h2>
+<p>A specific soundcloud rapper needs help getting into his password protected zipped file directory. The initial password is in the title. You just have to know your memes, and pick the right instrument! We were on the fence on giving you an image to go along with this puzzle, but the loincloth was too scandalous. Alternatively, you could bruteforce.</p>
+<h3 id="solution-1">Solution<a class="zola-anchor" href="#solution-1" aria-label="Anchor link for: solution-1">🔗</a></h3>
+<p>The start of the challenge is a password protected zip file.</p>
+<p>The challenge description lead me to <a href="https://knowyourmeme.com/memes/the-song-of-my-people">The Song of My People! meme</a>, which originates from an image of a Native American playing the violin. In the challenge description, it says "pick the right instrument", so the password ended up being <code>violin</code>.</p>
+<p>The contents of the zip file were:</p>
+<ul>
+<li>
+<p><code>a lengthy issue.png</code></p>
+<ul>
+<li>This is a broken PNG image</li>
+</ul>
+</li>
+<li>
+<p><code>Ice Cube - Check Yo Self Remix (Clean).mp3</code></p>
+<ul>
+<li>You better check yo self before you wreck yo self</li>
+</ul>
+</li>
+<li>
+<p><code>README.txt</code></p>
+</li>
+</ul>
+<pre style="background-color:#193549;color:#ffffff;"><code><span style="color:#f9f9f9;">one of the three files is a red herring, but a helpful one at that.
+</span><span style="color:#f9f9f9;">does any of this ADD up? This is a LONG problem.
+</span></code></pre>
+<h4 id="a-lengthy-issue-png">a lengthy issue.png<a class="zola-anchor" href="#a-lengthy-issue-png" aria-label="Anchor link for: a-lengthy-issue-png">🔗</a></h4>
+<p>Running <code>pngcheck</code> on the broken png file:</p>
+<pre style="background-color:#193549;color:#ffffff;"><code><span style="color:#f9f9f9;">File: a lengthy issue.png (44525 bytes)
+</span><span style="color:#f9f9f9;">  chunk IHDR at offset 0x0000c, length 13
+</span><span style="color:#f9f9f9;">    1280 x 720 image, 8-bit palette, interlaced
+</span><span style="color:#f9f9f9;">  chunk sRGB at offset 0x00025, length 1
+</span><span style="color:#f9f9f9;">    rendering intent = perceptual
+</span><span style="color:#f9f9f9;">  chunk gAMA at offset 0x00032, length 4: 0.45455
+</span><span style="color:#f9f9f9;">  chunk PLTE at offset 0x00042, length 1212501072:  invalid number of entries (4.04167+08)
+</span></code></pre>
+<p>Opening <code>a lengthy issue.png</code> in HxD and finding the <code>PLTE</code> chunk:</p>
+<figure class="center">
+  
+  <img width="624" height="206" src="https://doingstuff.dev/posts/ctf-peactf-2019/song_issue_hxd.png" alt="Hex output with PLTE highlighted">
+  
+  
+</figure>
+<p>Looking at the <a href="http://www.libpng.org/pub/png/spec/1.2/PNG-Structure.html#Chunk-layout">libpng spec</a> and a <a href="https://github.com/ctfs/write-ups-2015/tree/master/plaidctf-2015/forensics/png-uncorrupt">similar writeup</a>. I figured out that the <code>HELP</code> text before the <code>PLTE</code> was the 4-byte length for the <code>PLTE</code> chunk.</p>
+<p>Using the HxD data inspector I edited these 4 bytes to be the value of 453 in big-endian. The value for the <code>PLTE</code> header was the number of bytes between the end of <code>PLTE</code> and the beginning of the CRC for <code>PLTE</code>. The length also must be divisible by 3 for the <code>PLTE</code> chunk.</p>
+<figure class="center">
+  
+  <img width="979" height="269" src="https://doingstuff.dev/posts/ctf-peactf-2019/song_issue_hxd_fixed.png" alt="Hex output with the 4 bytes before PLTE highlighted">
+  
+  
+</figure>
+<p>The fixed image:</p>
+<figure class="center">
+  
+  <img width="1280" height="720" src="https://doingstuff.dev/posts/ctf-peactf-2019/song_issue.png" alt="{(howmany)_thousand_spaces, or seats, were left at the most recent concert of [redacted]? + _(page number)} of the concert archive">
+  
+  
+</figure>
+<h4 id="image-hex">Image hex<a class="zola-anchor" href="#image-hex" aria-label="Anchor link for: image-hex">🔗</a></h4>
+<p>The hex in the image:</p>
+<pre style="background-color:#193549;color:#ffffff;"><code><span style="color:#f9f9f9;">54 68 65 20 4c 69 62 72 61 72 79 20 6f 66 20 42 61 62 65 6c 3a 0a 28 77 69 74 68 20 6e
+</span><span style="color:#f9f9f9;">65 77 20 61 64 64 69 74 69 6f 6e 20 6f 66 20 61 6c 6c 20 74 68 65 20 70 6f 73 73 69 62 6c
+</span><span style="color:#f9f9f9;">65 20 64 69 73 73 20 74 72 61 63 6b 73 20 74 6f 20 65 76 65 72 20 62 65 20 6d 61 64 65
+</span><span style="color:#f9f9f9;">20 61 6e 64 20 65 76 65 72 20 63 6f 75 6c 64 20 62 65 20 6d 61 64 65 29
+</span></code></pre>
+<p>Decoding this to ascii results in:</p>
+<blockquote>
+<p>The Library of Babel: (with new addition of all the possible diss tracks to ever be made and ever could be made)</p>
+</blockquote>
+<h3 id="soundcloud">Soundcloud<a class="zola-anchor" href="#soundcloud" aria-label="Anchor link for: soundcloud">🔗</a></h3>
+<p><a href="https://soundcloud.com/lil-redacted/live-concert-audio">Link to soundcloud</a></p>
+<p>Soundcloud description:</p>
+<blockquote>
+<p>this concert is part of a larger tour that is archived completely in some kind of hexagonal library. The archive is named between "maybe" and a "repeat". Should be on the 371st page.</p>
+<p>I would give you an mp3 of this audio, but I don't know how to navigate those sketchy websites.</p>
+</blockquote>
+<p>The soundcloud "song" sounded like Morse code, after downloading the mp3 I discovered a <a href="https://morsecode.scphillips.com/labs/audio-decoder-adaptive/">Morse code audio decoder</a>.</p>
+<p>The decoded text:</p>
+<blockquote>
+<p>SUP YALL ITS YA BOI LIL ICE CUBE MELTING OUT HERE IN THE HAWAII HEAT FOR ALL OF YOU. YOU GUESSED IT THIS IS LIVE AUDIO FROM MY WORLD TOUR. I REPEAT LIL ICE CUBES WORLD TOUR MAYBE A LIBRARY WILL HELP</p>
+</blockquote>
+<h4 id="library-of-babel">Library of Babel<a class="zola-anchor" href="#library-of-babel" aria-label="Anchor link for: library-of-babel">🔗</a></h4>
+<p>With the hint of <a href="https://libraryofbabel.info">Library of Babel</a> I tried inputting the hex from the image as the <code>Hex Name</code> but that ended up being a dead end. I tried using the search for <code>lil ice cubes world tour</code>:</p>
+<pre style="background-color:#193549;color:#ffffff;"><code><span style="color:#f9f9f9;">exact match:
+</span><span style="color:#f9f9f9;">Title: weif.rfgkd,zvjxxd Page: 371
+</span><span style="color:#f9f9f9;">Location: 2nhptm68h2sputfsdlbmi75s6qcfgu...-w2-s4-v08
+</span></code></pre>
+<p>Nice! The page number matches the soundcloud description.</p>
+<p>I downloaded the <a href="https://libraryofbabel.info/bookmark.cgi?weif.rfgkd,zvjxxd371:1">book</a> and counted the number of spaces in the book (48558), and tried the flag <code>{48_thousand_spaces_371}</code> but it was incorrect. The image said thousand_spaces or seats, so I searched how many times the word <code>seat</code> appears in book (3).</p>
+<p>The final flag was <code>{3_thousand_spaces_371}</code></p>
+
+    </div>
+    
+        <nav class="navigation">
+            
+                <a class="navigation-next" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;ctf-innoctf-2019&#x2F;">‹ InnoCTF 2019 Writeups</a>
+            
+            
+                <a class="navigation-prev" href="https:&#x2F;&#x2F;doingstuff.dev&#x2F;posts&#x2F;homelab-adventure-part-1&#x2F;">Homelab Adventure - Part 1: The Adventure Begins ›</a>
+            
+        </nav>
+    
+</article>
+
+                
+                
+                <div class="copyright">&copy; 2026 <a href="https:&#x2F;&#x2F;graphics.social&#x2F;@gamingrobot" rel="noopener me">Morgan Creekmore</a> - <a href=https://creativecommons.org/licenses/by/4.0>CC BY 4.0</a></div>
+                
+                
+            </div>
+        </div>
+        
+    
+    
+
+        
+            <script data-goatcounter="https://grbt-doingstuff.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+        
+    </body>
+</html>
