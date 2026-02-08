@@ -27,6 +27,8 @@ A breakdown for the stylized milling machine render.
 - Line art is rendered using [Malt](https://github.com/bnpr/Malt)/[Cider](https://github.com/gamingrobot/Cider)
 - Grain was generated using [Grainy](https://superhivemarket.com/products/grainy)
 
+{%info()%}Update 2025: I used smear lines instead of motion blur using [AutoSmear](https://superhivemarket.com/products/autosmear).{%end%}
+
 ## Light and Shadow
 To get sharp shadows, I set the **Shadow Step Count** to 1 in **Render -> Shadows**. Then set these settings on lights in **Light Settings -> Shadows**:
 - Enable Jitter with 10% Overblur 
