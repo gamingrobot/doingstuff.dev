@@ -46,8 +46,8 @@ These were inspired by some of the [Chroma Corps](https://www.chroma-corps.com/)
 
 ## Milling Machine
 
-This is the Milling Machine I modeled last year combined with the NPR shaders from the Hacking Device into a full animation.
-[Breakdown](https://doingstuff.dev/posts/blender-milling-machine-breakdown/)
+This is the Milling Machine I modeled last year combined with the NPR shaders from the Hacking Device into a full animation.  
+[Breakdown post](https://doingstuff.dev/posts/blender-milling-machine-breakdown/)
 
 {{ video(src="gamingrobot_mill.mp4") }}
 
