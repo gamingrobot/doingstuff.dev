@@ -69,13 +69,13 @@ This was created in the "1 hour challenge" in the [Ctrl+Art+Del Discord](https:/
 
 Blockout I started for a large-scale environment.
 
-{{ img(src="hand18.webp", alt="" link="3d blockout for large mech hand in a desert") }}
+{{ img(src="hand18.webp", alt="3d blockout for large mech hand in a desert" link="") }}
 
 ## Space Shop progress
 
 More progress on my machine shop render with my NPR shaders and line art.
 
-{{ img(src="room20.webp", alt="" link="3d render of a machine shop in space") }}
+{{ img(src="room20.webp", alt="3d render of a machine shop in space" link="") }}
 
 ## Ink Sketching (Not-Blender)
 
