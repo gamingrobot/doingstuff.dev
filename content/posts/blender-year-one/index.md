@@ -4,7 +4,9 @@ description: "First year of learning Blender"
 date: 2025-05-19
 slug: "blender-year-one"
 taxonomies:
-  tags: ["Blender"]
+  tags:
+    - Blender
+    - Art
 extra:
   hide_toc: true
   cover_image: "cover.webp"

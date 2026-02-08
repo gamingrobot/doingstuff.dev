@@ -7,6 +7,7 @@ draft: false
 taxonomies:
   tags:
     - Blender
+    - Art
 extra:
   hide_toc: true
   cover_image: cover.webp

@@ -7,6 +7,7 @@ taxonomies:
   tags:
     - Blender
     - Breakdown
+    - Art
 extra:
   jszoom: true
   cover_image: "render.webp"
