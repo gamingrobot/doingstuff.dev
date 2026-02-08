@@ -55,9 +55,12 @@ This is the Milling Machine I modeled last year combined with the NPR shaders fr
 
 These are shader tests with the NPR shaders I refined when making the milling machine render. I really wanted to see how they worked for materials with normals, interiors, and area lights. As part of these, I modified Malt into my own line art addon [Cider](https://github.com/gamingrobot/Cider).
 
-{{ img(src="helm_test8.webp", alt="3d render of space helmet") }}
-{{ img(src="hallway_volumebloom.webp", alt="3d render of a school hallway" link="https://www.blenderkit.com/get-blenderkit/5efda1d7-3206-4fc0-a533-af19100dccae") }}
-{{ img(src="glasses_test.webp", alt="3d render of glasses in a case" link="https://www.blenderkit.com/get-blenderkit/864cabea-9db9-419b-ae37-2556695d2b44") }}
+Helmet is from [BigMediumSmall's AstroNova](https://www.bigmediumsmall.com/astronova)  
+[Hallway](https://www.blenderkit.com/get-blenderkit/5efda1d7-3206-4fc0-a533-af19100dccae) and [glasses](https://www.blenderkit.com/get-blenderkit/864cabea-9db9-419b-ae37-2556695d2b44) are from Blenderkit
+
+{{ img(src="helm_test8.webp", alt="3d render of space helmet" link="") }}
+{{ img(src="hallway_volumebloom.webp", alt="3d render of a school hallway" link="") }}
+{{ img(src="glasses_test.webp", alt="3d render of glasses in a case" link="") }}
 
 ## Holiday Penguin
 
