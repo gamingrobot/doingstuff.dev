@@ -32,14 +32,14 @@ I recreated my [Hacking Device ](https://gamingrobot.art/artwork/hacking-device)
 
 ## Cutaway Attempts
 
-I was struggling to get my NPR shaders from the Hacking Device render to work well on interior scenes. These were my attempts at doing cutaways as an alternative. I want to revisit this technique later because I really enjoy cutaways.
+I was struggling to get my NPR shaders from the Hacking Device render to work well on interior scenes. These were my attempts at doing cutaways as an alternative method to render interiors. I really liked how they turned out, and I want to revisit these again.
 
 {{ img(src="hab_02.webp", alt="Cutaway of hab from The Martian") }}
 {{ img(src="can_fixed.webp", alt="Cutaway of canister full of green goo") }}
 
 ## Chroma Corp
 
-These were inspired by some of the [Chroma Corps](https://www.chroma-corps.com/) prompts. The harvesting machine is unfinished, but I like how the shading turned out.
+These were inspired by some of the [Chroma Corps](https://www.chroma-corps.com/) prompts. The harvesting machine is unfinished, but I like how the shaders turned out.
 
 {{ img(src="tree2.webp", alt="3d render of tree roots growing around a green nebula") }}
 {{ img(src="machine12.webp", alt="3d render of a harvesting machine harvesting crystals") }}
