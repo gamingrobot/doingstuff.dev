@@ -114,4 +114,4 @@ This is a hacking device from Cowboy Bebop in the episode Bohemian Rhapsody. Sin
 
 This year was spent learning many different parts of Blender and doing many photo recreations. I am looking forward to doing more art and figuring out my style next year.
 
-If you liked this, you can find more of my art at [gamingrobot.art](https://gamingrobot.art).
+If you liked this, you can find more of my art at [gamingrobot.art](https://gamingrobot.art)
