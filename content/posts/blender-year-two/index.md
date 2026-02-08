@@ -53,7 +53,7 @@ This is the Milling Machine I modeled last year combined with the NPR shaders fr
 
 ## NPR Shader Tests
 
-These are shader tests with the NPR shaders I refined when making the milling machine render. I really wanted to see how they worked for materials with normals, interiors, and area lights. As part of these, I modified Malt into my own line art addon, [Cider](https://github.com/gamingrobot/Cider).
+These are shader tests with the NPR shaders I refined when making the milling machine render. I really wanted to see how they worked for materials with normals, interiors, and area lights. As part of these, I modified Malt into my own line art addon [Cider](https://github.com/gamingrobot/Cider).
 
 {{ img(src="helm_test8.webp", alt="3d render of space helmet") }}
 {{ img(src="hallway_volumebloom.webp", alt="3d render of a school hallway" link="https://www.blenderkit.com/get-blenderkit/5efda1d7-3206-4fc0-a533-af19100dccae") }}
