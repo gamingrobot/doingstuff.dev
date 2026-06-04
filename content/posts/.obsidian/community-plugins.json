@@ -1,5 +1,5 @@
 [
-  "languagetool",
   "zola-shortcodes",
-  "templater-obsidian"
+  "templater-obsidian",
+  "harper"
 ]
