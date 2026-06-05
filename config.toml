@@ -3,7 +3,7 @@ base_url = "https://doingstuff.dev"
 theme = "doingstuff-zola"
 
 title = "Doing Stuff"
-description = "A blog about stuff"
+description = "Doing Stuff Blog"
 author = "Morgan Creekmore"
 
 compile_sass = true
