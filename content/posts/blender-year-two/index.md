@@ -27,9 +27,9 @@ Created a small animation from a still image and a single rendered frame of the 
 
 ## Hacking Device (EEVEE)
 
-I recreated my [Hacking Device ](https://gamingrobot.art/artwork/hacking-device)in EEVEE but still used [Malt](https://malt3d.com/) for the line art.
+I recreated my [Hacking Device ](https://grbt.art/artwork/hacking-device)in EEVEE but still used [Malt](https://malt3d.com/) for the line art.
 
-{{ img(src="device35.webp", alt="3d render of hacking device" link="https://gamingrobot.art/artwork/hacking-device") }}
+{{ img(src="device35.webp", alt="3d render of hacking device" link="https://grbt.art/artwork/hacking-device") }}
 
 ## Cutaway Attempts
 
@@ -91,4 +91,4 @@ Since I started learning art by trying to draw, I decided to try again by taking
 ## Next Year
 Next year will be spent finishing existing projects and learning more about sketching so I can try out ideas before going into Blender.
 
-If you liked this, you can find more of my art at [gamingrobot.art](https://gamingrobot.art)
+If you liked this, you can find more of my art at [grbt.art](https://grbt.art)

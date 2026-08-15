@@ -97,4 +97,4 @@ I had a weird issue with one frame in the middle of the render having a large ve
 The settings I used for generating the grain with the Grainy addon:
 {{ img(src="grainy_settings.webp", alt="grainy settings") }}
 
-If you liked this, you can find more of my art at [gamingrobot.art](https://gamingrobot.art).
+If you liked this, you can find more of my art at [grbt.art](https://grbt.art).
