@@ -1,4 +1,4 @@
-name: GitHub Pages
+name: Git Pages
 
 on:
   push:
@@ -17,5 +17,6 @@ jobs:
       - name: Build and Deploy
         run: bash ${GITHUB_WORKSPACE}/.github/scripts/deploy.sh
         env:
-          PAGES_BRANCH: gh-pages
+          PUBLISH_DOMAIN: doingstuff.dev
+          PAGES_BRANCH: pages
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

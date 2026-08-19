@@ -72,6 +72,11 @@ if [[ -z "$GITHUB_HOSTNAME" ]]; then
     GITHUB_HOSTNAME="github.com"
 fi
 
+if [[ -z "$PUBLISH_DOMAIN" ]] && [[ "$BUILD_ONLY" == false ]]; then
+    echo "Set the PUBLISH_DOMAIN env variables."
+    exit 1
+fi
+
 main() {
     echo "Starting deploy..."
 
@@ -94,6 +99,8 @@ main() {
     version=$(zola --version)
     remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@${GITHUB_HOSTNAME}/${TARGET_REPOSITORY}.git"
     remote_branch=$PAGES_BRANCH
+
+    publish_repo="https://${GITHUB_HOSTNAME}/${TARGET_REPOSITORY}.git"
 
     echo "Using $version"
 
@@ -119,6 +126,10 @@ main() {
 
         git commit -m "Deploy ${TARGET_REPOSITORY} to ${TARGET_REPOSITORY}:$remote_branch"
         git push --force "${remote_repo}" master:"${remote_branch}"
+
+        echo "Triggering git pages deployment for ${PUBLISH_DOMAIN}"
+        curl --fail "https://${PUBLISH_DOMAIN}" -X PUT --data "${publish_repo}"
+        curl --fail "https://www.${PUBLISH_DOMAIN}" -X PUT --data "${publish_repo}"
 
         echo "Deploy complete"
     fi
