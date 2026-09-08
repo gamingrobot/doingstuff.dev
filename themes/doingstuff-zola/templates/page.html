@@ -9,6 +9,7 @@
     <meta content="{{ config.title }}" property="og:site_name"/>
     <meta content="{{ current_url | safe }}" property="og:url"/>
     <meta content="{{ current_url | safe }}" property="twitter:url"/>
+    <meta content="{{ page.date | date(format='%Y-%m-%dT%H:%M:%S%z') }}" property="article:published_time"/>
     {% if page.title %}
         <meta content="{{ page.title }}" property="og:title"/>
         <meta content="{{ page.title }}" property="twitter:title"/>
