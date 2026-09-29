@@ -17,7 +17,9 @@ Welcome to my journey in building my Homelab. This is part of a multipart series
 [**Sidequest: Switching from Salt to Ansible**](@/posts/homelab-switching-salt-to-ansible.md)   
 [**Part 4: Application Hosting and Monitoring**](@/posts/homelab-adventure-part-4.md)  
 
-{%warning()%}Since this blog post was written I have [switched from Salt to Ansible](@/posts/homelab-switching-salt-to-ansible.md).{%end%}
+{% <warning> %}
+Since this blog post was written I have [switched from Salt to Ansible](@/posts/homelab-switching-salt-to-ansible.md).
+{% </warning> %}
 
 ## What is Salt
 
@@ -147,6 +149,7 @@ install-default-packages:
 
 This is the file looked at when highstate is run. As you can see I have a very simple base that gets installed by default and then everything else is defined by traits.
 
+{% raw %}
 ```yaml
 base:
   '*':
@@ -167,6 +170,7 @@ base:
     - trait.{{ trait }}
 {% endfor %}
 ```
+{% endraw %}
 
 #### Pillar
 
@@ -178,6 +182,7 @@ I store both my Salt states and pillar data in the same git repository so I can 
 
 This is the pillar top file which defines what minions have access to specific pillar data.
 
+{% raw %}
 ```yaml
 base:
   '*':
@@ -210,8 +215,11 @@ base:
     - match: grain
     - app.portainer
 ```
+{% endraw %}
 
-{%warning()%}Grains are controlled by the minion, so a server can access pillar data for other traits due to matching on grains.{%end%}
+{% <warning> %}
+Grains are controlled by the minion, so a server can access pillar data for other traits due to matching on grains.
+{% </warning> %}
 
 ## Maximum Saltiness
 

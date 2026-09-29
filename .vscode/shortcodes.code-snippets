@@ -18,19 +18,19 @@
 	"img": {
 		"scope": "markdown,jinja-md",
 		"prefix": ["img"],
-		"body": ["{{ img(src=\"$1\", alt=\"$2\" link=\"$3\") }}"],
+		"body": ["{{ <img src=\"$1\" alt=\"$2\" link=\"$3\"/> }}"],
 		"description": "Image"
 	},
 	"video": {
 		"scope": "markdown,jinja-md",
 		"prefix": ["video"],
-		"body": ["{{ video(src=\"$1\") }}"],
+		"body": ["{{ <video src=\"$1\"/> }}"],
 		"description": "Video"
 	},
 	"callout": {
 		"scope": "markdown,jinja-md",
 		"prefix": ["callout","tip","info","warning","danger"],
-		"body": ["{%${1|tip,info,warning,danger|}()%}$2{%end%}"],
+		"body": ["{%<${1|tip,info,warning,danger|}>%}$2{%</$1>%}"],
 		"description": "Callout"
 	}
 

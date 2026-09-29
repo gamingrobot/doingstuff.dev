@@ -1,3 +1,4 @@
+{% component img(@page, src, alt="", text="", link="", align="") %}
 <figure {% if align %}class="{{ align }}"{% else %}class="center"{% endif %}>
   {% if link %}<a href="{{ link }}">{% endif %}
   {%- set image_path = page.colocated_path ~ src %}
@@ -10,3 +11,4 @@
   </figcaption>
   {% endif %}
 </figure>
+{% endcomponent img %}

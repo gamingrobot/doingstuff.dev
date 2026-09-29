@@ -20,10 +20,9 @@ ignored_content = ["**/.obsidian/**", "**/_templates/**"] # ignore the .obsidian
 include_date = true
 index_format = "elasticlunr_json"
 
-[markdown]
-highlight_code = true
-extra_syntaxes_and_themes = ["syntaxes"]
-highlight_theme = "cobalt2"
+[markdown.highlighting]
+extra_themes = ["syntaxes/cobalt2.json"] # https://github.com/robertoachar/vscode-theme-cobalt2/blob/master/theme/cobalt2.json
+theme = "Cobalt"
 
 [extra]
 menu = [
@@ -38,9 +37,4 @@ goatcounter = "grbt-doingstuff"
 
 # https://github.com/francoischalifour/medium-zoom
 jszoom = false
-
-# https://mermaid.js.org/
-mermaid_theme = "default"
-mermaid_theme_dark = "dark"
-mermaid_align = "center"
 

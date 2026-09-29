@@ -31,7 +31,9 @@ Confirm everything is working normally by streaming to the Steam Deck and seeing
 
 ## Custom EDID
 
-{%warning()%}Custom EDIDs should be safe, but I'm not responsible for your hardware.{%end%}
+{% <warning> %}
+Custom EDIDs should be safe, but I'm not responsible for your hardware.
+{% </warning> %}
 
 1. Plug the monitor into a Windows machine and use [Custom Resolution Utility](https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU). On Linux, [wxEDID](https://flathub.org/en/apps/net.sourceforge.wxEDID) might work to edit the EDID, but CRU was easier to use.
 2. Add a new `Standard Resolution` of `1920x1200` (the native resolution of `1280x800` also works, but I got better results with `1920x1200`) and a refresh rate of `90` for the OLED Steam Deck or `60` for the LCD version.
@@ -46,7 +48,7 @@ Confirm everything is working normally by streaming to the Steam Deck and seeing
     1. Set the Do Command to `kscreen-doctor output.<port-name>.mode.<resolution>@<refresh-rate>`, replacing `<resolution>` and `<refresh-rate>` from the above Step 2.
     2. Set the Undo Command to `kscreen-doctor output.<port-name>.mode.<current-mode>`, replacing `<port-name>` and `<current-mode>` from the above Step 5.
     3. (Optional) If you want Steam Big Picture to close when you stop streaming, add a new Undo Command `setsid steam steam://close/bigpicture`
-{{ img(src="sunshine-settings.webp", alt="" link="") }}
+{{ <img src="sunshine-settings.webp" alt="Sunshine settings menu"/> }}
 
 
 ## Reboot and Test

@@ -15,9 +15,8 @@ taxonomies = [
 [search]
 index_format = "elasticlunr_json"
 
-[markdown]
-highlight_code = true
-highlight_theme = "inspired-github"
+[markdown.highlighting]
+theme = "github-dark"
 
 [extra]
 menu = [
@@ -33,9 +32,3 @@ author_url = "https://example.com"
 
 # https://github.com/francoischalifour/medium-zoom
 jszoom = false
-
-# https://mermaid.js.org/
-mermaid_theme = "default"
-mermaid_theme_dark = "dark"
-mermaid_align = "center"
-

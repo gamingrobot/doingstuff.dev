@@ -1,1 +1,1 @@
-{{ img(src="<% tp.file.cursor() %>", alt="") }}
+{{ <img src="<% tp.file.cursor() %>" alt=""/> }}

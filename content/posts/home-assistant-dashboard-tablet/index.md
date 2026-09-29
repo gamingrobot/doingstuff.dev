@@ -11,11 +11,13 @@ extra:
 
 Turning an Intel Atom based Lenovo Tablet 10 (20E4) into a Home Assistant dashboard and voice assistant. Most tutorials for dashboard displays are using Android tablets, but I had this old tablet laying around and figured out how to use it with Home Assistant.
 
-{{ img(src="tablet_small.webp", align="center" alt="Lenovo tablet with home assistant dashboard") }}
+{{ <img src="tablet_small.webp" align="center" alt="Lenovo tablet with home assistant dashboard"/> }}
 
 <!-- more -->
 
-{%info()%}Update 2025: I have also set up a Home Assistant kiosk on the Lenovo ThinkSmart View using [this guide](https://github.com/pgale/lineage_15.1_Installation_TSV).{%end%}
+{% <info> %}
+Update 2025: I have also set up a Home Assistant kiosk on the Lenovo ThinkSmart View using [this guide](https://github.com/pgale/lineage_15.1_Installation_TSV).
+{% </info> %}
 
 ## Home Assistant setup
 
@@ -67,7 +69,9 @@ KDE Plasma 6 with the Maliit keyboard gave me the best tablet mode and on-screen
 4. Reorder USB to be the first boot device
 5. Reboot
 
-{%warning()%}When installing you should leave the Recovery Partition. I removed it and the ThinkPad Tablet Setup broke.{%end%}
+{% <warning> %}
+When installing you should leave the Recovery Partition. I removed it and the ThinkPad Tablet Setup broke.
+{% </warning> %}
 
 ## After installation
 

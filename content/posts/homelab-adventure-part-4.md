@@ -60,6 +60,7 @@ Each container gets a separate role in Ansible that creates a storage folder, a 
 
 I use [Traefik](https://doc.traefik.io/traefik/) to expose each application based on labels. I use a wildcard certificate to enable HTTPS, but Let's Encrypt could also be used. If you are worried about mounting the `docker.sock` directly to Traefik, you can set up [socket-proxy](https://github.com/wollomatic/socket-proxy).
 
+{% raw %}
 ```yaml
 # roles/container-traefik/tasks/main.yml
 - name: traefik-user-present
@@ -149,6 +150,7 @@ I use [Traefik](https://doc.traefik.io/traefik/) to expose each application base
     labels:
       com.centurylinklabs.watchtower.enable: 'true'
 ```
+{% endraw %}
 
 ```yaml
 # roles/container-traefik/handlers/main.yml
@@ -160,6 +162,7 @@ I use [Traefik](https://doc.traefik.io/traefik/) to expose each application base
 
 This config sets up the certificates and a middleware for HTTPS redirection and an `ipAllowList`. This middleware can then be specified on a container via the `traefik.http.routers.<app_name>.middlewares: 'internal-network@file'` label (replace `<app_name>` with the application name).
 
+{% raw %}
 ```yaml
 # roles/container-traefik/templates/dynamic.yaml.j2
 {% if traefik_certs %}
@@ -189,9 +192,11 @@ http:
           - "{{ traefik_internal_iprange }}" # internal network
           - "172.17.0.1/16" # docker range
 ```
+{% endraw %}
 
 This config sets up the entrypoints, HTTPS redirection and the Docker provider.
 
+{% raw %}
 ```yaml
 # roles/container-traefik/templates/traefik.yaml.j2
 log:
@@ -224,6 +229,7 @@ providers:
 serversTransport:
   insecureSkipVerify: true # enable self signed certs on containers
 ```
+{% endraw %}
 
 Now any container with the `traefik.enable: 'true'` will be automatically exposed on `<container_name>.<traefik_domain>`. If `traefik.http.routers.<app_name>.middlewares: 'internal-network@file'` is set as a label, the application will only be accessible from IPs on the `ipAllowList`.
 

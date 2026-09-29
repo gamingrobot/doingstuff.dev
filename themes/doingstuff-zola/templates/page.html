@@ -80,21 +80,6 @@
 {% endblock content %}
 
 {% block js_body %}
-    {% if page.extra.mermaid %}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js" integrity="sha512-6a80OTZVmEJhqYJUmYd5z8yHUCDlYnj6q9XwB/gKOEyNQV/Q8u+XeSG59a2ZKFEHGTYzgfOQKYEBtrZV7vBr+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script>
-            var theme = '{{ config.extra.mermaid_theme }}'
-            if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
-                theme = '{{ config.extra.mermaid_theme_dark }}'
-            }
-            var config = {
-                startOnLoad:true,
-                theme: theme,
-                align:'{{ config.extra.mermaid_align }}'
-            };
-            mermaid.initialize(config);
-        </script>
-    {% endif %}
     {% if page.extra.jszoom %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj+Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script>

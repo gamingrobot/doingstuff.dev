@@ -7,8 +7,6 @@ draft: true
 taxonomies:
   tags:
     - TagName
-extra:
-  mermaid: true
 ---
 
 # Markdown: Syntax
@@ -311,27 +309,13 @@ Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 
     Add as many paragraphs as you like.
 
-{%tip()%}Tip Box{%end%}
+{% <tip> %}Tip Box{% </tip> %}
 
-{%info()%}Info Box{%end%}
+{% <info> %}Info Box{% </info> %}
 
-{%warning()%}Warning Box{%end%}
+{% <warning> %}Warning Box{% </warning> %}
 
-{%danger()%}Danger Box{%end%}
-
-{% mermaid() %}
-sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->>John: Hello John, how are you?
-    loop Healthcheck
-        John->>John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts <br/>prevail...
-    John-->>Alice: Great!
-    John->>Bob: How about you?
-    Bob-->>John: Jolly good!
-{% end %}
+{% <danger> %}Danger Box{% </danger> %}
 
 ## Lorum ipsum
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

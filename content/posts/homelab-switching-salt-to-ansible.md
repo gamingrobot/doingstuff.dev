@@ -52,6 +52,7 @@ Salt allows for jinja templating inside state files, instead Ansible only allows
 
 #### Salt
 
+{% raw %}
 ```jinja
 {% for name in salt['pillar.get']('certs', {}).keys() %}
 cert-{{ name }}:
@@ -83,6 +84,7 @@ dynamic-config:
     - name: /opt/config/dynamic.yaml
     - source: salt://{{ tpldir }}/config/dynamic.yaml
 ```
+{% endraw %}
 
 #### Ansible
 
