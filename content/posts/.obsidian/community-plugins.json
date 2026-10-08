@@ -1,5 +1,3 @@
 [
-  "zola-shortcodes",
-  "templater-obsidian",
-  "harper"
+  "templater-obsidian"
 ]
